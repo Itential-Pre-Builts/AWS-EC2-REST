@@ -1,0 +1,552 @@
+{
+  "_id": "652ff25180403501cbadcbe5",
+  "name": "Build Ingress Rule List",
+  "description": "",
+  "incoming": [
+    {
+      "$id": "ruleList",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "sourceSubnetCidrMask": {
+            "type": "number",
+            "examples": [
+              32
+            ]
+          },
+          "port": {
+            "type": "number",
+            "examples": [
+              443
+            ]
+          },
+          "sourceIp": {
+            "type": "string",
+            "examples": [
+              "1.2.3.4"
+            ],
+            "format": "ipv4"
+          },
+          "protocol": {
+            "type": "string",
+            "examples": [
+              "TCP"
+            ]
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "$id": "groupId",
+      "type": "string"
+    },
+    {
+      "$id": "adapterId",
+      "type": "string"
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "ruleList",
+      "type": "array"
+    }
+  ],
+  "steps": [
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "ruleList",
+        "ptr": ""
+      },
+      "to": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 5,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "groupId",
+        "ptr": ""
+      },
+      "to": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/args/2/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 1,
+      "type": "method",
+      "library": "Array",
+      "method": "map",
+      "args": [
+        null,
+        "buildRuleForSecurityGroup",
+        null,
+        null
+      ],
+      "view": {
+        "row": 1,
+        "col": 1
+      },
+      "context": "#"
+    },
+    {
+      "id": 3,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "ruleList",
+        "ptr": ""
+      },
+      "context": "#"
+    },
+    {
+      "id": 6,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "adapterId",
+        "ptr": ""
+      },
+      "to": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/args/3/value"
+      },
+      "context": "#"
+    }
+  ],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "type": "object",
+          "properties": {
+            "sourceSubnetCidrMask": {
+              "type": "number",
+              "examples": [
+                32
+              ]
+            },
+            "port": {
+              "type": "number",
+              "examples": [
+                443
+              ]
+            },
+            "sourceIp": {
+              "type": "string",
+              "examples": [
+                "1%2E2%2E3%2E4"
+              ],
+              "format": "ipv4"
+            },
+            "protocol": {
+              "type": "string",
+              "examples": [
+                "TCP"
+              ]
+            }
+          },
+          "required": [],
+          "$id": "currentValue"
+        },
+        {
+          "title": "index",
+          "type": "number",
+          "optional": true,
+          "$id": "index"
+        },
+        {
+          "$id": "array",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sourceSubnetCidrMask": {
+                "type": "number",
+                "examples": [
+                  32
+                ]
+              },
+              "port": {
+                "type": "number",
+                "examples": [
+                  443
+                ]
+              },
+              "sourceIp": {
+                "type": "string",
+                "examples": [
+                  "1%2E2%2E3%2E4"
+                ],
+                "format": "ipv4"
+              },
+              "protocol": {
+                "type": "string",
+                "examples": [
+                  "TCP"
+                ]
+              }
+            },
+            "required": []
+          },
+          "optional": true
+        },
+        {
+          "$id": "thisArg",
+          "type": "object",
+          "properties": {
+            "0_groupId": {
+              "$id": "groupId",
+              "type": "string"
+            },
+            "1_adapterId": {
+              "$id": "adapterId",
+              "type": "string"
+            }
+          },
+          "isContext": true,
+          "isIndexed": true
+        }
+      ],
+      "outgoing": [
+        {
+          "$id": "ruleList",
+          "type": "object",
+          "properties": {
+            "sourceCidrIp": {
+              "type": "string"
+            },
+            "toPort": {
+              "type": "number",
+              "examples": [
+                443
+              ]
+            },
+            "fromPort": {
+              "type": "number",
+              "examples": [
+                443
+              ]
+            },
+            "ipProtocol": {
+              "type": "string",
+              "examples": [
+                "TCP"
+              ]
+            },
+            "groupId": {
+              "type": "string"
+            },
+            "adapterId": {
+              "type": "string"
+            }
+          },
+          "required": []
+        }
+      ],
+      "steps": [
+        {
+          "id": 16,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "thisArg",
+            "ptr": "/0_groupId"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "ruleList",
+            "ptr": "/groupId"
+          },
+          "context": "#"
+        },
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": ""
+          },
+          "to": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/args/0/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 4,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": ""
+          },
+          "to": {
+            "location": "method",
+            "name": 3,
+            "ptr": "/args/0/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 6,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": ""
+          },
+          "to": {
+            "location": "method",
+            "name": 5,
+            "ptr": "/args/0/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 8,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": ""
+          },
+          "to": {
+            "location": "method",
+            "name": 7,
+            "ptr": "/args/0/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 1,
+          "type": "method",
+          "library": "Object",
+          "method": "getProperty",
+          "args": [
+            null,
+            "sourceSubnetCidrMask"
+          ],
+          "view": {
+            "row": 1,
+            "col": 1
+          },
+          "context": "#"
+        },
+        {
+          "id": 3,
+          "type": "method",
+          "library": "Object",
+          "method": "getProperty",
+          "args": [
+            null,
+            "port"
+          ],
+          "view": {
+            "row": 2,
+            "col": 1
+          },
+          "context": "#"
+        },
+        {
+          "id": 5,
+          "type": "method",
+          "library": "Object",
+          "method": "getProperty",
+          "args": [
+            null,
+            "sourceIp"
+          ],
+          "view": {
+            "row": 3,
+            "col": 1
+          },
+          "context": "#"
+        },
+        {
+          "id": 7,
+          "type": "method",
+          "library": "Object",
+          "method": "getProperty",
+          "args": [
+            null,
+            "protocol"
+          ],
+          "view": {
+            "row": 4,
+            "col": 1
+          },
+          "context": "#"
+        },
+        {
+          "id": 10,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 5,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "method",
+            "name": 9,
+            "ptr": "/args/0/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 11,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "method",
+            "name": 9,
+            "ptr": "/args/2/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 9,
+          "type": "method",
+          "library": "String",
+          "method": "concat",
+          "args": [
+            null,
+            "/",
+            null
+          ],
+          "view": {
+            "row": 1,
+            "col": 2
+          },
+          "context": "#"
+        },
+        {
+          "id": 13,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 3,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "ruleList",
+            "ptr": "/toPort"
+          },
+          "context": "#"
+        },
+        {
+          "id": 14,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 3,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "ruleList",
+            "ptr": "/fromPort"
+          },
+          "context": "#"
+        },
+        {
+          "id": 15,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 7,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "ruleList",
+            "ptr": "/ipProtocol"
+          },
+          "context": "#"
+        },
+        {
+          "id": 12,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 9,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "ruleList",
+            "ptr": "/sourceCidrIp"
+          },
+          "context": "#"
+        },
+        {
+          "id": 17,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "thisArg",
+            "ptr": "/1_adapterId"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "ruleList",
+            "ptr": "/adapterId"
+          },
+          "context": "#"
+        }
+      ],
+      "functions": [],
+      "name": "buildRuleForSecurityGroup",
+      "view": {
+        "col": 3,
+        "row": 5
+      },
+      "id": "buildRuleForSecurityGroup",
+      "comments": []
+    }
+  ],
+  "comments": [],
+  "view": {
+    "col": 3,
+    "row": 5
+  },
+  "created": "2023-10-18T14:57:21.607Z",
+  "createdBy": {
+    "_id": "652054b92c281c82e5b4c8b4",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "lastUpdated": "2023-10-18T16:13:49.732Z",
+  "lastUpdatedBy": {
+    "_id": "652054b92c281c82e5b4c8b4",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "version": "4.1.2-2023.1.10",
+  "tags": []
+}

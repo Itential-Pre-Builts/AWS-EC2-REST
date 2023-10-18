@@ -1,0 +1,328 @@
+{
+  "name": "Create Route - AWS",
+  "tasks": {
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": 0.7322834645669292,
+      "y": 0.6699438202247191,
+      "nodeLocation": {
+        "x": 3588,
+        "y": 1308
+      }
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 1.1957087126137842,
+      "y": 0.6722222222222223,
+      "nodeLocation": {
+        "x": 5004,
+        "y": 1308
+      }
+    },
+    "996c": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Query Route Table ID",
+      "description": "Query Route Table ID",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "response.DescribeRouteTablesResponse.routeTableSet.item.routeTableId",
+          "obj": "$var.6b15.result"
+        },
+        "outgoing": {
+          "return_data": "$var.job.routeTableId"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "x": 1.0383615084525357,
+      "y": 0.6712962962962963,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 4452,
+        "y": 1308
+      }
+    },
+    "82b5": {
+      "name": "createRoute",
+      "canvasName": "createRoute",
+      "summary": "Create Route",
+      "description": "Create Route for Internet GW",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "destinationCidrBlock": "$var.job.destinationCidrBlock",
+          "destinationIpv6CidrBlock": "",
+          "dryRun": false,
+          "egressOnlyInternetGatewayId": "",
+          "gatewayId": "$var.job.gatewayId",
+          "instanceId": "",
+          "natGatewayId": "",
+          "transitGatewayId": "",
+          "networkInterfaceId": "",
+          "routeTableId": "$var.996c.return_data",
+          "vpcPeeringConnectionId": "",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.1105331599479844,
+      "y": 0.6703703703703704,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 4764,
+        "y": 1308
+      }
+    },
+    "6b15": {
+      "name": "describeRouteTables",
+      "canvasName": "describeRouteTables",
+      "summary": "Get Route Table",
+      "description": "Describe Route Table, filter on VPC",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "filter": "$var.ff13.vpcFilter",
+          "dryRun": false,
+          "routeTableId": "",
+          "nextToken": "",
+          "maxResults": "",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.9466840052015605,
+      "y": 0.6712962962962963,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 4140,
+        "y": 1308
+      }
+    },
+    "ff13": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "Build VPC Filter",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63e3a39ed59d6601415e4e09",
+          "variableMap": {
+            "vpcId": "$var.job.vpcId"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "vpcFilter": null
+        },
+        "decorators": []
+      },
+      "groups": [],
+      "x": 0.8361508452535761,
+      "y": 0.6712962962962963,
+      "task_name": "Build VPC Filter",
+      "retrySettings": null,
+      "nodeLocation": {
+        "x": 3828,
+        "y": 1308
+      }
+    }
+  },
+  "transitions": {
+    "workflow_start": {
+      "ff13": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "996c": {
+      "82b5": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "82b5": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "6b15": {
+      "996c": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "ff13": {
+      "6b15": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "159a": {},
+    "e25f": {},
+    "7f1e": {},
+    "7caa": {},
+    "82d2": {},
+    "bde1": {},
+    "ac7": {},
+    "82ca": {},
+    "af52": {}
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "destinationCidrBlock": {
+        "title": "destinationCidrBlock",
+        "type": "string"
+      },
+      "gatewayId": {
+        "title": "gatewayId",
+        "type": "string"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "vpcId": {
+        "$id": "vpcId",
+        "type": "string"
+      }
+    },
+    "required": [
+      "destinationCidrBlock",
+      "gatewayId",
+      "adapterId",
+      "vpcId"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "destinationCidrBlock": {
+        "title": "destinationCidrBlock",
+        "type": "string"
+      },
+      "gatewayId": {
+        "title": "gatewayId",
+        "type": "string"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "vpcId": {
+        "$id": "vpcId",
+        "type": "string"
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "routeTableId": {
+        "title": "return_data",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "type": "array"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "examples": [
+          "value"
+        ]
+      }
+    }
+  },
+  "font_size": 12,
+  "created": "2021-02-01T21:03:56.846Z",
+  "createdVersion": "5.10.4-2020.1.22.0",
+  "last_updated": "2023-10-16T17:23:27.891Z",
+  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+  "type": "automation",
+  "preAutomationTime": 0,
+  "sla": 0,
+  "canvasVersion": 1.5,
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 2
+}

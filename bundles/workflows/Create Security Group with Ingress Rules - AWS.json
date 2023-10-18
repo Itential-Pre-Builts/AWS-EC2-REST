@@ -1,0 +1,405 @@
+{
+  "name": "Create Security Group with Ingress Rules - AWS",
+  "tasks": {
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": 1.0527831094049904,
+      "y": 0.6401384083044983
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 1.7735124760076775,
+      "y": 0.6516724336793541,
+      "nodeLocation": {
+        "x": 6864,
+        "y": 1296
+      }
+    },
+    "9ca5": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Query Security Group ID",
+      "description": "Query Security Group ID",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "response.CreateSecurityGroupResponse.groupId",
+          "obj": "$var.e62f.result"
+        },
+        "outgoing": {
+          "return_data": "$var.job.securityGroupId"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "x": 1.336,
+      "y": 0.642,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 5544,
+        "y": 1296
+      }
+    },
+    "e62f": {
+      "name": "createSecurityGroup",
+      "canvasName": "createSecurityGroup",
+      "summary": "Create Security Group",
+      "description": "Create Security Group",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "groupDescription": "$var.job.securityGroupDescription",
+          "groupName": "$var.job.securityGroupName",
+          "vpcId": "$var.job.vpcId",
+          "dryRun": false,
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "x": 1.1813819577735125,
+      "y": 0.6424452133794695,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 5136,
+        "y": 1296
+      }
+    },
+    "12c9": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "Build Ingress Rule List",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "652ff25180403501cbadcbe5",
+          "variableMap": {
+            "ruleList": "$var.job.ruleList",
+            "groupId": "$var.9ca5.return_data",
+            "adapterId": "$var.job.adapterId"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "ruleList": null
+        },
+        "decorators": []
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "nodeLocation": {
+        "x": 5904,
+        "y": 1296
+      }
+    },
+    "c96d": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Add Ingress Rule to Security Group",
+      "description": "Runs a child job inside a workflow.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Add Ingress Rule to Security Group - AWS",
+          "variables": {
+            "adapterId": {
+              "task": "12c9",
+              "value": "ruleList"
+            }
+          },
+          "data_array": "$var.12c9.ruleList",
+          "transformation": "",
+          "loopType": "sequential"
+        },
+        "outgoing": {
+          "job_details": ""
+        }
+      },
+      "actor": "job",
+      "groups": [],
+      "nodeLocation": {
+        "x": 6336,
+        "y": 1296
+      }
+    }
+  },
+  "transitions": {
+    "workflow_start": {
+      "e62f": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "workflow_end": {},
+    "9ca5": {
+      "12c9": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "e62f": {
+      "9ca5": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "12c9": {
+      "c96d": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "c96d": {
+      "workflow_end": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "159a": {},
+    "e25f": {},
+    "7f1e": {},
+    "7caa": {},
+    "82d2": {},
+    "bde1": {},
+    "ac7": {},
+    "82ca": {},
+    "af52": {}
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "securityGroupDescription": {
+        "title": "groupDescription",
+        "type": "string"
+      },
+      "securityGroupName": {
+        "title": "groupName",
+        "type": "string"
+      },
+      "vpcId": {
+        "title": "vpcId",
+        "type": "string"
+      },
+      "adapterId": {
+        "$id": "adapterId",
+        "type": "string"
+      },
+      "ruleList": {
+        "$id": "ruleList",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "sourceSubnetCidrMask": {
+              "type": "number",
+              "examples": [
+                32
+              ]
+            },
+            "port": {
+              "type": "number",
+              "examples": [
+                443
+              ]
+            },
+            "sourceIp": {
+              "type": "string",
+              "examples": [
+                "1.2.3.4"
+              ],
+              "format": "ipv4"
+            },
+            "protocol": {
+              "type": "string",
+              "examples": [
+                "TCP"
+              ]
+            }
+          },
+          "required": []
+        }
+      }
+    },
+    "required": [
+      "securityGroupDescription",
+      "securityGroupName",
+      "vpcId",
+      "adapterId",
+      "ruleList"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "securityGroupDescription": {
+        "title": "groupDescription",
+        "type": "string"
+      },
+      "securityGroupName": {
+        "title": "groupName",
+        "type": "string"
+      },
+      "vpcId": {
+        "title": "vpcId",
+        "type": "string"
+      },
+      "adapterId": {
+        "$id": "adapterId",
+        "type": "string"
+      },
+      "ruleList": {
+        "$id": "ruleList",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "sourceSubnetCidrMask": {
+              "type": "number",
+              "examples": [
+                32
+              ]
+            },
+            "port": {
+              "type": "number",
+              "examples": [
+                443
+              ]
+            },
+            "sourceIp": {
+              "type": "string",
+              "examples": [
+                "1.2.3.4"
+              ],
+              "format": "ipv4"
+            },
+            "protocol": {
+              "type": "string",
+              "examples": [
+                "TCP"
+              ]
+            }
+          },
+          "required": []
+        }
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "securityGroupId": {
+        "title": "return_data",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "type": "array"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "examples": [
+          "value"
+        ]
+      }
+    }
+  },
+  "decorators": [
+    {
+      "type": "encryption",
+      "pointer": "/variables/sourceCidrIp"
+    },
+    {
+      "type": "encryption",
+      "pointer": "/variables/fromPort"
+    },
+    {
+      "type": "encryption",
+      "pointer": "/variables/groupId"
+    },
+    {
+      "type": "encryption",
+      "pointer": "/variables/ipProtocol"
+    },
+    {
+      "type": "encryption",
+      "pointer": "/variables/toPort"
+    },
+    {
+      "type": "encryption",
+      "pointer": "/variables/_id"
+    },
+    {
+      "type": "encryption",
+      "pointer": "/variables/initiator"
+    }
+  ],
+  "font_size": 12,
+  "created": "2021-04-10T12:59:57.532Z",
+  "createdVersion": "5.10.4-2020.1.22.0",
+  "last_updated": "2023-10-18T16:19:48.425Z",
+  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+  "type": "automation",
+  "preAutomationTime": 0,
+  "sla": 0,
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "canvasVersion": 1.5,
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 2
+}

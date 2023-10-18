@@ -1,0 +1,447 @@
+{
+  "name": "Detach and Delete Internet Gateways by VPC - AWS",
+  "tasks": {
+    "2432": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "No Internet Gateways Found",
+      "description": "No Internet Gateways Found",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.53646408839779,
+      "y": 0.3493975903614458,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 1248,
+        "y": 840
+      }
+    },
+    "3151": {
+      "name": "describeInternetGateways",
+      "canvasName": "describeInternetGateways",
+      "summary": "Find Internet Gateways for VPC",
+      "description": "Find Internet Gateways for VPC",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "filter": "$var.4685.pushedArray",
+          "dryRun": "",
+          "internetGatewayId": "",
+          "nextToken": "",
+          "maxResults": "",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.2303867403314917,
+      "y": 0.5030120481927711,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 936,
+        "y": 948
+      }
+    },
+    "4685": {
+      "name": "arrayPush",
+      "canvasName": "push",
+      "summary": "Filter Array",
+      "description": "Filter Array",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Array",
+      "variables": {
+        "incoming": {
+          "arr": [],
+          "elementN": "$var.80a6.merged_object"
+        },
+        "outgoing": {
+          "pushedArray": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.12320441988950276,
+      "y": 0.5060240963855421,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 624,
+        "y": 948
+      }
+    },
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": 0,
+      "y": 0.5,
+      "nodeLocation": {
+        "x": 72,
+        "y": 948
+      }
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 0.6977900552486188,
+      "y": 0.5100401606425703,
+      "nodeLocation": {
+        "x": 2424,
+        "y": 948
+      }
+    },
+    "80a6": {
+      "name": "merge",
+      "canvasName": "merge",
+      "summary": "VPC ID Filter",
+      "description": "VPC ID Filter",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "data_to_merge": [
+            {
+              "key": "name",
+              "value": {
+                "task": "static",
+                "variable": "attachment.vpc-id",
+                "editable": true
+              }
+            },
+            {
+              "key": "value",
+              "value": {
+                "task": "job",
+                "variable": "vpcId",
+                "editable": true
+              }
+            }
+          ]
+        },
+        "outgoing": {
+          "merged_object": null
+        }
+      },
+      "groups": [],
+      "x": 0.05966850828729282,
+      "y": 0.5030120481927711,
+      "nodeLocation": {
+        "x": 312,
+        "y": 948
+      }
+    },
+    "daf4": {
+      "name": "evaluation",
+      "canvasName": "evaluation",
+      "summary": "Internet Gateways Found?",
+      "description": "Internet Gateways Found?",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "all_true_flag": false,
+          "evaluation_groups": [
+            {
+              "all_true_flag": false,
+              "evaluations": [
+                {
+                  "query": "response.DescribeInternetGatewaysResponse.internetGatewaySet",
+                  "operand_1": {
+                    "variable": "result",
+                    "task": "3151"
+                  },
+                  "operator": "!=",
+                  "operand_2": {
+                    "variable": "",
+                    "task": "static"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "outgoing": {
+          "return_value": null
+        }
+      },
+      "groups": [],
+      "x": 0.31767955801104975,
+      "y": 0.5140562248995983,
+      "nodeLocation": {
+        "x": 1248,
+        "y": 948
+      }
+    },
+    "606b": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Get Internet Gateway ID",
+      "description": "Get Internet Gateway ID",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "response.DescribeInternetGatewaysResponse.internetGatewaySet.item.internetGatewayId",
+          "obj": "$var.3151.result"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "x": 0.37734806629834255,
+      "y": 0.5180722891566265,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 1560,
+        "y": 948
+      }
+    },
+    "ccb2": {
+      "name": "detachInternetGateway",
+      "canvasName": "detachInternetGateway",
+      "summary": "Detach Internet Gateway from VPC",
+      "description": "Detach Internet Gateway from VPC",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "dryRun": false,
+          "internetGatewayId": "$var.606b.return_data",
+          "vpcId": "$var.job.vpcId",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.4734806629834254,
+      "y": 0.5110441767068273,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 1872,
+        "y": 948
+      }
+    },
+    "61f9": {
+      "name": "deleteInternetGateway",
+      "canvasName": "deleteInternetGateway",
+      "summary": "Delete Internet Gateway",
+      "description": "Delete Internet Gateway",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "dryRun": false,
+          "internetGatewayId": "$var.606b.return_data",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.592817679558011,
+      "y": 0.5070281124497992,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 2184,
+        "y": 948
+      }
+    }
+  },
+  "transitions": {
+    "212": {},
+    "2432": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "3151": {
+      "daf4": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "4685": {
+      "3151": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_start": {
+      "80a6": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "80a6": {
+      "4685": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "daf4": {
+      "2432": {
+        "type": "standard",
+        "state": "failure"
+      },
+      "606b": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "606b": {
+      "ccb2": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "ccb2": {
+      "61f9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "61f9": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "dfad": {},
+    "50ac": {},
+    "de1e": {},
+    "419e": {},
+    "b96d": {}
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "vpcId": {
+        "title": "vpcId",
+        "type": "string"
+      }
+    },
+    "required": [
+      "adapterId",
+      "vpcId"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "vpcId": {
+        "title": "vpcId",
+        "type": "string"
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      }
+    }
+  },
+  "created": "2022-03-31T14:44:06.846Z",
+  "createdVersion": "5.40.5-2021.1.52.0",
+  "font_size": 12,
+  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+  "last_updated": "2023-10-16T19:38:19.876Z",
+  "type": "automation",
+  "preAutomationTime": 0,
+  "sla": 0,
+  "canvasVersion": 1.5,
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 2
+}

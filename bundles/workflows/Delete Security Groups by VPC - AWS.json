@@ -1,0 +1,417 @@
+{
+  "name": "Delete Security Groups by VPC - AWS",
+  "tasks": {
+    "2432": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "No Security Groups Found",
+      "description": "No Security Groups Found",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.53646408839779,
+      "y": 0.3493975903614458,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 1224,
+        "y": 948
+      }
+    },
+    "4685": {
+      "name": "arrayPush",
+      "canvasName": "push",
+      "summary": "Filter Array",
+      "description": "Filter Array",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Array",
+      "variables": {
+        "incoming": {
+          "arr": [],
+          "elementN": "$var.80a6.merged_object"
+        },
+        "outgoing": {
+          "pushedArray": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.1541436464088398,
+      "y": 0.5050200803212851,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 600,
+        "y": 1056
+      }
+    },
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": 0,
+      "y": 0.5,
+      "nodeLocation": {
+        "x": 48,
+        "y": 1056
+      }
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 0.6287292817679558,
+      "y": 0.5080321285140562,
+      "nodeLocation": {
+        "x": 2088,
+        "y": 1056
+      }
+    },
+    "80a6": {
+      "name": "merge",
+      "canvasName": "merge",
+      "summary": "VPC ID Filter",
+      "description": "VPC ID Filter",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "data_to_merge": [
+            {
+              "key": "name",
+              "value": {
+                "task": "static",
+                "variable": "vpc-id",
+                "editable": true
+              }
+            },
+            {
+              "key": "value",
+              "value": {
+                "task": "job",
+                "variable": "vpcId",
+                "editable": true
+              }
+            }
+          ]
+        },
+        "outgoing": {
+          "merged_object": null
+        }
+      },
+      "groups": [],
+      "x": 0.05966850828729282,
+      "y": 0.5030120481927711,
+      "nodeLocation": {
+        "x": 288,
+        "y": 1056
+      }
+    },
+    "5ee3": {
+      "name": "describeSecurityGroups",
+      "canvasName": "describeSecurityGroups",
+      "summary": "Find SGs for VPC",
+      "description": "Find SGs for VPC",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "filter": "$var.4685.pushedArray",
+          "groupId": "",
+          "groupName": "",
+          "dryRun": "",
+          "nextToken": "",
+          "maxResults": "",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.261878453038674,
+      "y": 0.5070281124497992,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 912,
+        "y": 1056
+      }
+    },
+    "daf4": {
+      "name": "evaluation",
+      "canvasName": "evaluation",
+      "summary": "Security Groups Found?",
+      "description": "Security Groups Found?",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "all_true_flag": false,
+          "evaluation_groups": [
+            {
+              "all_true_flag": false,
+              "evaluations": [
+                {
+                  "query": "response.DescribeSecurityGroupsResponse.securityGroupInfo",
+                  "operand_1": {
+                    "variable": "result",
+                    "task": "5ee3"
+                  },
+                  "operator": "!=",
+                  "operand_2": {
+                    "variable": "",
+                    "task": "static"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "outgoing": {
+          "return_value": null
+        }
+      },
+      "groups": [],
+      "x": 0.35082872928176795,
+      "y": 0.5060240963855421,
+      "nodeLocation": {
+        "x": 1224,
+        "y": 1056
+      }
+    },
+    "e541": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "Build SG Delete Array",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "6245ac411678ea01c7fbcd3e",
+          "variableMap": {
+            "sgResponse": "$var.5ee3.result"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "sgDeleteArray": null
+        }
+      },
+      "groups": [],
+      "x": 0.43480662983425417,
+      "y": 0.5090361445783133,
+      "task_name": "Build SG Delete Array",
+      "retrySettings": null,
+      "nodeLocation": {
+        "x": 1536,
+        "y": 1056
+      }
+    },
+    "f643": {
+      "name": "deleteSecurityGroups",
+      "canvasName": "deleteSecurityGroups",
+      "summary": "Delete Security Groups",
+      "description": "Delete Security Groups",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "EC2",
+      "variables": {
+        "incoming": {
+          "securityGroupArray": "$var.e541.sgDeleteArray",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": ""
+        }
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "nodeLocation": {
+        "x": 1860,
+        "y": 1056
+      }
+    }
+  },
+  "transitions": {
+    "212": {},
+    "2432": {
+      "workflow_end": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "4685": {
+      "5ee3": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_start": {
+      "80a6": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "80a6": {
+      "4685": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "5ee3": {
+      "daf4": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "daf4": {
+      "2432": {
+        "type": "standard",
+        "state": "failure"
+      },
+      "e541": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e541": {
+      "f643": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "f643": {
+      "workflow_end": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "dfad": {},
+    "50ac": {}
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "vpcId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      }
+    },
+    "required": [
+      "vpcId",
+      "adapterId"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "vpcId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      }
+    }
+  },
+  "created": "2022-03-31T12:29:42.937Z",
+  "createdVersion": "5.40.5-2021.1.52.0",
+  "font_size": 12,
+  "lastUpdatedVersion": "5.46.0-2023.1.21.0",
+  "last_updated": "2023-10-17T20:25:05.190Z",
+  "type": "automation",
+  "preAutomationTime": 0,
+  "sla": 0,
+  "canvasVersion": 1.5,
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 2
+}

@@ -1,0 +1,390 @@
+{
+  "_id": "63e39d7cd59d6601415e4e08",
+  "name": "Build VPC Tag Data",
+  "description": "",
+  "incoming": [
+    {
+      "$id": "createVpcResponse",
+      "type": "object",
+      "properties": {
+        "response": {
+          "type": "object",
+          "properties": {
+            "CreateVpcResponse": {
+              "type": "object",
+              "properties": {
+                "_attr": {
+                  "type": "object",
+                  "properties": {
+                    "xmlns": {
+                      "type": "string",
+                      "examples": [
+                        "http://ec2%2Eamazonaws%2Ecom/doc/2016-11-15/"
+                      ]
+                    }
+                  },
+                  "required": []
+                },
+                "requestId": {
+                  "type": "string",
+                  "examples": [
+                    "4375365e-f2a1-4626-9059-dabcf1409755"
+                  ],
+                  "format": "uuid"
+                },
+                "vpc": {
+                  "type": "object",
+                  "properties": {
+                    "vpcId": {
+                      "type": "string",
+                      "examples": [
+                        "vpc-0ec264d15f8bc59eb"
+                      ]
+                    },
+                    "ownerId": {
+                      "type": "string",
+                      "examples": [
+                        "623933009299"
+                      ]
+                    },
+                    "state": {
+                      "type": "string",
+                      "examples": [
+                        "pending"
+                      ]
+                    },
+                    "cidrBlock": {
+                      "type": "string",
+                      "examples": [
+                        "10%2E0%2E0%2E0/24"
+                      ]
+                    },
+                    "cidrBlockAssociationSet": {
+                      "type": "object",
+                      "properties": {
+                        "item": {
+                          "type": "object",
+                          "properties": {
+                            "cidrBlock": {
+                              "type": "string",
+                              "examples": [
+                                "10%2E0%2E0%2E0/24"
+                              ]
+                            },
+                            "associationId": {
+                              "type": "string",
+                              "examples": [
+                                "vpc-cidr-assoc-0822c320e554dcd4a"
+                              ]
+                            },
+                            "cidrBlockState": {
+                              "type": "object",
+                              "properties": {
+                                "state": {
+                                  "type": "string",
+                                  "examples": [
+                                    "associated"
+                                  ]
+                                }
+                              },
+                              "required": []
+                            }
+                          },
+                          "required": []
+                        }
+                      },
+                      "required": []
+                    },
+                    "ipv6CidrBlockAssociationSet": {
+                      "type": "string"
+                    },
+                    "dhcpOptionsId": {
+                      "type": "string",
+                      "examples": [
+                        "dopt-0ea7cc2e990da8e94"
+                      ]
+                    },
+                    "instanceTenancy": {
+                      "type": "string",
+                      "examples": [
+                        "default"
+                      ]
+                    },
+                    "isDefault": {
+                      "type": "string",
+                      "examples": [
+                        "false"
+                      ]
+                    }
+                  },
+                  "required": []
+                }
+              },
+              "required": []
+            }
+          },
+          "required": []
+        }
+      },
+      "required": []
+    },
+    {
+      "$id": "vpcName",
+      "type": "string"
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "vpcId",
+      "type": "array"
+    },
+    {
+      "$id": "vpcTags",
+      "type": "array"
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "type": "declaration",
+      "library": "Array",
+      "method": "new Array",
+      "args": [
+        null
+      ],
+      "view": {
+        "row": 1,
+        "col": 1
+      },
+      "context": "#",
+      "polymorphIndex": 0
+    },
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "createVpcResponse",
+        "ptr": "/response/CreateVpcResponse/vpc/vpcId"
+      },
+      "to": {
+        "location": "declaration",
+        "name": 1,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 3,
+      "type": "function",
+      "function": "buildTagData",
+      "args": [
+        "Name",
+        null
+      ],
+      "view": {
+        "row": 2,
+        "col": 1
+      }
+    },
+    {
+      "id": 4,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "vpcName",
+        "ptr": ""
+      },
+      "to": {
+        "location": "function",
+        "name": 3,
+        "ptr": "/args/1/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 5,
+      "type": "function",
+      "function": "buildTagData",
+      "args": [
+        "Workshop-Instance",
+        "true"
+      ],
+      "view": {
+        "row": 3,
+        "col": 1
+      },
+      "context": "#"
+    },
+    {
+      "id": 6,
+      "type": "method",
+      "library": "Array",
+      "method": "concat",
+      "args": [
+        [],
+        null,
+        null
+      ],
+      "view": {
+        "row": 2,
+        "col": 2
+      },
+      "context": "#"
+    },
+    {
+      "id": 7,
+      "type": "assign",
+      "from": {
+        "location": "function",
+        "name": 3,
+        "ptr": "/return/tag"
+      },
+      "to": {
+        "location": "method",
+        "name": 6,
+        "ptr": "/args/1/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 8,
+      "type": "assign",
+      "from": {
+        "location": "function",
+        "name": 5,
+        "ptr": "/return/tag"
+      },
+      "to": {
+        "location": "method",
+        "name": 6,
+        "ptr": "/args/2/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 9,
+      "type": "assign",
+      "from": {
+        "location": "declaration",
+        "name": 1,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "vpcId",
+        "ptr": ""
+      },
+      "context": "#"
+    },
+    {
+      "id": 10,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 6,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "vpcTags",
+        "ptr": ""
+      },
+      "context": "#"
+    }
+  ],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "$id": "Key",
+          "type": "string"
+        },
+        {
+          "$id": "Value",
+          "type": "string"
+        }
+      ],
+      "outgoing": [
+        {
+          "$id": "tag",
+          "type": "object",
+          "properties": {
+            "Key": {
+              "type": "string",
+              "examples": [
+                "Key"
+              ]
+            },
+            "Value": {
+              "type": "string",
+              "examples": [
+                "Value"
+              ]
+            }
+          },
+          "required": []
+        }
+      ],
+      "steps": [
+        {
+          "id": 1,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "Key",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "tag",
+            "ptr": "/Key"
+          },
+          "context": "#"
+        },
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "Value",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "tag",
+            "ptr": "/Value"
+          },
+          "context": "#"
+        }
+      ],
+      "functions": [],
+      "name": "buildTagData",
+      "view": {
+        "col": 1,
+        "row": 5
+      },
+      "id": "buildTagData",
+      "comments": []
+    }
+  ],
+  "comments": [],
+  "view": {
+    "col": 2,
+    "row": 5
+  },
+  "created": "2023-10-16T18:17:17.309Z",
+  "createdBy": {
+    "_id": "652054b92c281c82e5b4c8b4",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "lastUpdated": "2023-10-16T18:17:17.309Z",
+  "lastUpdatedBy": {
+    "_id": "652054b92c281c82e5b4c8b4",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "version": "4.1.2-2023.1.10",
+  "tags": []
+}

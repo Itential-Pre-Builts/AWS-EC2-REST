@@ -1,0 +1,31 @@
+{
+  "iapVersions": [
+    "2023.1"
+  ],
+  "adapters": [
+    {
+      "isDependency": false,
+      "name": "adapter-aws_ec2",
+      "overview": "AWS EC2",
+      "webName": "Amazon EC2",
+      "version": "0.6.9",
+      "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
+      "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
+      "webLink": "https://www.itential.com/adapters/amazon-ec2/"
+    }
+  ],
+  "capabilities": [
+    {
+      "capability": "The workflow is used to add Ingress Rule to Security group in AWS EC2"
+    }
+  ],
+  "entryPoint": {
+    "name": "Add Ingress Rule to Security Group - AWS",
+    "type": "Workflow"
+  },
+  "queryOutput": {},
+  "name": "Add Ingress Rule to Security Group - AWS - EC2 - REST",
+  "overview": "Add Ingress Rule to Security group in AWS EC2",
+  "webName": "Add Ingress Rule to Security Group - AWS - EC2",
+  "assetType": "Workflow"
+}

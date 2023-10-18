@@ -1,0 +1,230 @@
+{
+  "name": "Create VPC Subnet - AWS",
+  "tasks": {
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": 0.06692913385826772,
+      "y": 0.6280884265279584,
+      "nodeLocation": {
+        "x": 360,
+        "y": 1308
+      }
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 0.3439531859557867,
+      "y": 0.6305555555555555,
+      "nodeLocation": {
+        "x": 1152,
+        "y": 1308
+      }
+    },
+    "303c": {
+      "name": "createSubnet",
+      "canvasName": "createSubnet",
+      "summary": "Create Subnet",
+      "description": "Creates a subnet in an existing VPC.",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "availabilityZone": "",
+          "availabilityZoneId": "",
+          "cidrBlock": "$var.job.cidrBlock",
+          "ipv6CidrBlock": "",
+          "vpcId": "$var.job.vpcId",
+          "dryRun": "",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.1684005201560468,
+      "y": 0.6240740740740741,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 600,
+        "y": 1308
+      }
+    },
+    "b647": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Query Subnet ID",
+      "description": "Query Subnet ID",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "response.CreateSubnetResponse.subnet.subnetId",
+          "obj": "$var.303c.result"
+        },
+        "outgoing": {
+          "return_data": "$var.job.subnetId"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "x": 0.2654599114109233,
+      "y": 0.6273148148148148,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 912,
+        "y": 1308
+      }
+    }
+  },
+  "transitions": {
+    "workflow_start": {
+      "303c": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "303c": {
+      "b647": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "b647": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "159a": {},
+    "e25f": {},
+    "7f1e": {},
+    "7caa": {},
+    "82d2": {},
+    "bde1": {},
+    "ac7": {},
+    "82ca": {},
+    "af52": {}
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "cidrBlock": {
+        "title": "cidrBlock",
+        "type": "string"
+      },
+      "vpcId": {
+        "title": "vpcId",
+        "type": "string"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      }
+    },
+    "required": [
+      "cidrBlock",
+      "vpcId",
+      "adapterId"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "cidrBlock": {
+        "title": "cidrBlock",
+        "type": "string"
+      },
+      "vpcId": {
+        "title": "vpcId",
+        "type": "string"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "subnetId": {
+        "title": "return_data",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "type": "array"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "examples": [
+          "value"
+        ]
+      }
+    }
+  },
+  "font_size": 12,
+  "created": "2023-02-08T13:20:00.672Z",
+  "createdVersion": "5.44.64-2022.1.25.0",
+  "last_updated": "2023-10-16T18:21:29.437Z",
+  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+  "type": "automation",
+  "preAutomationTime": 0,
+  "sla": 0,
+  "canvasVersion": 1.5,
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 2
+}

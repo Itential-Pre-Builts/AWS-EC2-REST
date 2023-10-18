@@ -1,0 +1,13 @@
+{
+  "readme": "/documentation/readme.json",
+  "assets": [
+    {
+      "name": "Add Ingress Rule to Security Group - AWS - EC2 - REST",
+      "path": "/documentation/Add Ingress Rule to Security Group - AWS - EC2 - REST.json"
+    },
+    {
+      "name": "Create and Attach Internet Gateway - AWS",
+      "path": "/documentation/Create and Attach Internet Gateway - AWS.json"
+    }
+  ]
+}

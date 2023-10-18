@@ -1,0 +1,661 @@
+{
+  "name": "Destroy VPC and EC2 Instance - AWS",
+  "tasks": {
+    "6253": {
+      "name": "deleteVpc",
+      "canvasName": "deleteVpc",
+      "summary": "Delete VPC",
+      "description": "Delete VPC",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "vpcId": "$var.job.vpcId",
+          "dryRun": false,
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.9344569288389513,
+      "y": 0.15151515151515152,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 2016,
+        "y": 312
+      }
+    },
+    "9653": {
+      "name": "describeInstances",
+      "canvasName": "describeInstances",
+      "summary": "Get Instances for VPC",
+      "description": "Get Instances with a VPC ID filter",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "EC2",
+      "variables": {
+        "incoming": {
+          "filter": "$var.1a70.vpcIdFilter",
+          "instanceId": "",
+          "dryRun": false,
+          "maxResults": "",
+          "nextToken": "",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": ""
+        }
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "nodeLocation": {
+        "x": -696,
+        "y": 312
+      }
+    },
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": -0.6165172855313701,
+      "y": 0.15011286681715574,
+      "nodeLocation": {
+        "x": -1644,
+        "y": 312
+      }
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 1.0124843945068664,
+      "y": 0.15151515151515152,
+      "nodeLocation": {
+        "x": 2256,
+        "y": 312
+      }
+    },
+    "992b": {
+      "name": "terminateInstances",
+      "canvasName": "terminateInstances",
+      "summary": "Terminate Instances",
+      "description": "Terminates EC2 Instances",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "instanceId": "$var.efc0.instanceIdArray",
+          "dryRun": false,
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.06991260923845194,
+      "y": 0.14858260019550343,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 144,
+        "y": 312
+      }
+    },
+    "477f": {
+      "name": "delay",
+      "canvasName": "delay",
+      "summary": "Delay a Job",
+      "description": "Delay a Job for a duration by Job ID and number of seconds.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "time": 60
+        },
+        "outgoing": {
+          "time_in_milliseconds": null
+        },
+        "error": ""
+      },
+      "groups": [],
+      "x": 0.9350811485642946,
+      "y": 0.3176930596285435,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 2016,
+        "y": 420
+      }
+    },
+    "e0fe": {
+      "name": "describeVpcs",
+      "canvasName": "describeVpcs",
+      "summary": "Describes one or more of your VPCs.",
+      "description": "Describes one or more of your VPCs.",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "filter": "",
+          "vpcId": "$var.1a70.vpcIdArray",
+          "dryRun": false,
+          "nextToken": "",
+          "maxResults": "",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": -0.3882646691635456,
+      "y": 0.1544477028347996,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": -1092,
+        "y": 312
+      }
+    },
+    "9b69": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Delete Subnet",
+      "description": "Run a child job inside a workflow.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Delete Subnets by VPC - AWS",
+          "variables": {
+            "vpcId": {
+              "editable": false,
+              "task": "job",
+              "value": "vpcId"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "groups": [],
+      "actor": "job",
+      "x": 0.5967540574282147,
+      "y": 0.1495601173020528,
+      "nodeLocation": {
+        "x": 1392,
+        "y": 312
+      }
+    },
+    "cac5": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Detach and Delete Internet Gateway",
+      "description": "Run a child job inside a workflow.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Detach and Delete Internet Gateways by VPC - AWS",
+          "variables": {
+            "vpcId": {
+              "task": "job",
+              "value": "vpcId"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "groups": [],
+      "actor": "job",
+      "x": 0.7827715355805244,
+      "y": 0.1495601173020528,
+      "nodeLocation": {
+        "x": 1704,
+        "y": 312
+      }
+    },
+    "8fbe": {
+      "name": "delay",
+      "canvasName": "delay",
+      "summary": "Wait for Instance Termination",
+      "description": "Wait for Instance Termination",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "time": 60
+        },
+        "outgoing": {
+          "time_in_milliseconds": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "x": 0.3021223470661673,
+      "y": 0.28152492668621704,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 768,
+        "y": 420
+      }
+    },
+    "ab1": {
+      "name": "describeInstances",
+      "canvasName": "describeInstances",
+      "summary": "Confirm Instances Terminated",
+      "description": "Get Instances with a VPC ID filter",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "filter": "$var.1a70.vpcIdFilter",
+          "instanceId": "",
+          "dryRun": false,
+          "maxResults": "",
+          "nextToken": "",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.19912609238451934,
+      "y": 0.1495601173020528,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 456,
+        "y": 312
+      }
+    },
+    "f957": {
+      "name": "evaluation",
+      "canvasName": "evaluation",
+      "summary": "Eval Instances Terminated",
+      "description": "Run an evaluation",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "all_true_flag": false,
+          "evaluation_groups": [
+            {
+              "all_true_flag": false,
+              "evaluations": [
+                {
+                  "query": "response.DescribeInstancesResponse.reservationSet",
+                  "operand_1": {
+                    "variable": "result",
+                    "task": "ab1"
+                  },
+                  "operator": "==",
+                  "operand_2": {
+                    "variable": "",
+                    "task": "static"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "outgoing": {
+          "return_value": null
+        }
+      },
+      "groups": [],
+      "x": 0.30087390761548066,
+      "y": 0.15053763440860216,
+      "nodeLocation": {
+        "x": 768,
+        "y": 312
+      }
+    },
+    "a879": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Delete Security Groups by VPC - AWS",
+      "description": "Delete Security Groups by VPC - AWS",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Delete Security Groups by VPC - AWS",
+          "variables": {
+            "vpcId": {
+              "editable": false,
+              "task": "job",
+              "value": "vpcId"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "groups": [],
+      "actor": "job",
+      "x": 0.433832709113608,
+      "y": 0.14858260019550343,
+      "nodeLocation": {
+        "x": 1080,
+        "y": 312
+      }
+    },
+    "1a70": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "Prepare VPC ID",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63e50af123ad20015d2a061b",
+          "variableMap": {
+            "vpcId": "$var.job.vpcId"
+          },
+          "options": {
+            "extractOutput": false,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "vpcIdArray": null,
+          "vpcIdFilter": null
+        },
+        "decorators": []
+      },
+      "groups": [],
+      "x": -0.5224719101123596,
+      "y": 0.14760508308895406,
+      "task_name": "Prepare VPC ID",
+      "retrySettings": null,
+      "nodeLocation": {
+        "x": -1404,
+        "y": 312
+      }
+    },
+    "efc0": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "Process Instance Response",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63e50d6a23ad20015d2a061c",
+          "variableMap": {
+            "instanceResponse": "$var.9653.result"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "instanceIdArray": null
+        },
+        "decorators": []
+      },
+      "groups": [],
+      "x": -0.05118601747815231,
+      "y": 0.14467253176930597,
+      "task_name": "Process Instance Response",
+      "retrySettings": null,
+      "nodeLocation": {
+        "x": -168,
+        "y": 312
+      }
+    }
+  },
+  "transitions": {
+    "6253": {
+      "477f": {
+        "type": "standard",
+        "state": "error"
+      },
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "9653": {
+      "efc0": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "workflow_start": {
+      "1a70": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "992b": {
+      "ab1": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "477f": {
+      "6253": {
+        "type": "revert",
+        "state": "success"
+      }
+    },
+    "e0fe": {
+      "9653": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "9b69": {
+      "cac5": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "cac5": {
+      "6253": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "8fbe": {
+      "ab1": {
+        "type": "revert",
+        "state": "success"
+      }
+    },
+    "ab1": {
+      "f957": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "f957": {
+      "8fbe": {
+        "type": "standard",
+        "state": "failure"
+      },
+      "a879": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "a879": {
+      "9b69": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "1a70": {
+      "e0fe": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "efc0": {
+      "992b": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "b2c3": {},
+    "ca81": {}
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "vpcId": {
+        "title": "vpcId",
+        "type": "string"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      }
+    },
+    "required": [
+      "vpcId",
+      "adapterId"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "vpcId": {
+        "title": "vpcId",
+        "type": "string"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      }
+    }
+  },
+  "type": "automation",
+  "font_size": 12,
+  "lastUpdatedVersion": "5.46.0-2023.1.21.0",
+  "createdVersion": "5.46.0-2023.1.21.0",
+  "preAutomationTime": 0,
+  "sla": 0,
+  "canvasVersion": 1.5,
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "last_updated": "2023-10-17T20:31:12.790Z",
+  "created": "2023-10-17T18:10:18.488Z",
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 2
+}

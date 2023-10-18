@@ -1,0 +1,236 @@
+{
+  "_id": "63e50af123ad20015d2a061b",
+  "name": "Prepare VPC ID",
+  "description": "",
+  "incoming": [
+    {
+      "$id": "vpcId",
+      "type": "string"
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "vpcIdArray",
+      "type": "array"
+    },
+    {
+      "$id": "vpcIdFilter",
+      "type": "array"
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "type": "declaration",
+      "library": "Array",
+      "method": "new Array",
+      "args": [
+        null
+      ],
+      "view": {
+        "row": 1,
+        "col": 1
+      },
+      "context": "#",
+      "polymorphIndex": 0
+    },
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "vpcId",
+        "ptr": ""
+      },
+      "to": {
+        "location": "declaration",
+        "name": 1,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 3,
+      "type": "assign",
+      "from": {
+        "location": "declaration",
+        "name": 1,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "vpcIdArray",
+        "ptr": ""
+      },
+      "context": "#"
+    },
+    {
+      "id": 4,
+      "type": "function",
+      "function": "buildNameValuePair",
+      "args": [
+        "network-interface.vpc-id",
+        null
+      ],
+      "view": {
+        "row": 2,
+        "col": 1
+      },
+      "context": "#"
+    },
+    {
+      "id": 5,
+      "type": "declaration",
+      "library": "Array",
+      "method": "new Array",
+      "args": [
+        null
+      ],
+      "view": {
+        "row": 2,
+        "col": 2
+      },
+      "context": "#",
+      "polymorphIndex": 0
+    },
+    {
+      "id": 6,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "vpcId",
+        "ptr": ""
+      },
+      "to": {
+        "location": "function",
+        "name": 4,
+        "ptr": "/args/1/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 7,
+      "type": "assign",
+      "from": {
+        "location": "function",
+        "name": 4,
+        "ptr": "/return/nameValuePair"
+      },
+      "to": {
+        "location": "declaration",
+        "name": 5,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 8,
+      "type": "assign",
+      "from": {
+        "location": "declaration",
+        "name": 5,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "vpcIdFilter",
+        "ptr": ""
+      },
+      "context": "#"
+    }
+  ],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "$id": "name",
+          "type": "string"
+        },
+        {
+          "$id": "value",
+          "type": "string"
+        }
+      ],
+      "outgoing": [
+        {
+          "$id": "nameValuePair",
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "examples": [
+                "network-interface%2Evpc-id"
+              ]
+            },
+            "value": {
+              "type": "string",
+              "examples": [
+                "<!vpcId!>"
+              ]
+            }
+          },
+          "required": []
+        }
+      ],
+      "steps": [
+        {
+          "id": 1,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "name",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "nameValuePair",
+            "ptr": "/name"
+          },
+          "context": "#"
+        },
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "value",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "nameValuePair",
+            "ptr": "/value"
+          },
+          "context": "#"
+        }
+      ],
+      "functions": [],
+      "name": "buildNameValuePair",
+      "view": {
+        "col": 1,
+        "row": 4
+      },
+      "id": "buildNameValuePair",
+      "comments": []
+    }
+  ],
+  "comments": [],
+  "view": {
+    "col": 2,
+    "row": 5
+  },
+  "created": "2023-10-16T19:36:33.622Z",
+  "createdBy": {
+    "_id": "652054b92c281c82e5b4c8b4",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "lastUpdated": "2023-10-16T19:36:33.622Z",
+  "lastUpdatedBy": {
+    "_id": "652054b92c281c82e5b4c8b4",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "version": "4.1.2-2023.1.10",
+  "tags": []
+}

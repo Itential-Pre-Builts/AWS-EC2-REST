@@ -1,0 +1,580 @@
+{
+  "name": "Create EC2 Instance - AWS",
+  "tasks": {
+    "3101": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Query Public IP",
+      "description": "Query public IP from Instance",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "displayName": "WorkFlowEngine",
+      "type": "operation",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "response.DescribeInstancesResponse.reservationSet.item.instancesSet.item.networkInterfaceSet.item.association.publicIp",
+          "obj": "$var.d9b4.result"
+        },
+        "outgoing": {
+          "return_data": "$var.job.publicIp"
+        },
+        "error": ""
+      },
+      "groups": [],
+      "x": 0.8798988621997471,
+      "y": 0.506398537477148,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 3252,
+        "y": 984
+      }
+    },
+    "5860": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "Process Instance Status",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63e520f723ad20015d2a061d",
+          "variableMap": {
+            "describeInstanceResponse": "$var.55d8.result"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": false,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "launchComplete": null
+        },
+        "decorators": []
+      },
+      "groups": [],
+      "x": 0.6118836915297092,
+      "y": 0.5009140767824497,
+      "task_name": "Process Instance Status",
+      "retrySettings": null,
+      "nodeLocation": {
+        "x": 2316,
+        "y": 984
+      }
+    },
+    "7220": {
+      "name": "delay",
+      "canvasName": "delay",
+      "summary": "Delay",
+      "description": "wait 30 seconds before rechecking",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "displayName": "WorkFlowEngine",
+      "type": "operation",
+      "variables": {
+        "incoming": {
+          "time": 60
+        },
+        "outgoing": {
+          "time_in_milliseconds": null
+        },
+        "error": ""
+      },
+      "groups": [],
+      "x": 0.7098609355246523,
+      "y": 0.6736745886654479,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 2628,
+        "y": 1092
+      }
+    },
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": 0.09354254677127338,
+      "y": 0.498019801980198,
+      "summary": "workflow_start",
+      "description": "workflow_start",
+      "nodeLocation": {
+        "x": 828,
+        "y": 984
+      }
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 0.9519595448798989,
+      "y": 0.5109689213893968,
+      "summary": "workflow_end",
+      "description": "workflow_end",
+      "nodeLocation": {
+        "x": 3492,
+        "y": 984
+      }
+    },
+    "f799": {
+      "name": "runInstances",
+      "canvasName": "runInstances",
+      "summary": "Launch Instance",
+      "description": "Launch Instance",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "displayName": "Awsec2",
+      "type": "automatic",
+      "variables": {
+        "incoming": {
+          "blockDeviceMapping": "",
+          "imageId": "$var.job.imageId",
+          "instanceType": "$var.job.instanceType",
+          "ipv6AddressCount": "",
+          "ipv6Address": "",
+          "kernelId": "",
+          "keyName": "",
+          "maxCount": 1,
+          "minCount": 1,
+          "monitoringEnabled": "",
+          "placementAvailabilityZone": "",
+          "placementAffinity": "",
+          "placementGroupName": "",
+          "placementPartitionNumber": "",
+          "placementHostId": "",
+          "placementTenancy": "",
+          "placementSpreadDomain": "",
+          "ramdiskId": "",
+          "securityGroupId": "$var.job.securityGroupId",
+          "securityGroup": "",
+          "subnetId": "",
+          "userData": "",
+          "additionalInfo": "",
+          "clientToken": "",
+          "disableApiTermination": "",
+          "dryRun": false,
+          "ebsOptimized": "",
+          "iamInstanceProfileArn": "",
+          "iamInstanceProfileName": "",
+          "instanceInitiatedShutdownBehavior": "",
+          "networkInterface": "$var.job.networkInterface",
+          "privateIpAddress": "",
+          "elasticGpuSpecification": "",
+          "elasticInferenceAccelerator": "",
+          "tagSpecification": "",
+          "launchTemplateLaunchTemplateId": "",
+          "launchTemplateLaunchTemplateName": "",
+          "launchTemplateVersion": "",
+          "instanceMarketOptionsMarketType": "",
+          "instanceMarketOptionsSpotOptions": "",
+          "creditSpecificationCpuCredits": "",
+          "cpuOptionsCoreCount": "",
+          "cpuOptionsThreadsPerCore": "",
+          "capacityReservationSpecificationCapacityReservationPreference": "",
+          "capacityReservationSpecificationCapacityReservationTarget": "",
+          "hibernationOptionsConfigured": "",
+          "licenseSpecification": "",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.16656608328304165,
+      "y": 0.498019801980198,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 1068,
+        "y": 984
+      }
+    },
+    "4b6d": {
+      "name": "evaluation",
+      "canvasName": "evaluation",
+      "summary": "EC2 Launch Complete?",
+      "description": "EC2 Launch Complete?",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "displayName": "WorkFlowEngine",
+      "type": "operation",
+      "variables": {
+        "incoming": {
+          "all_true_flag": false,
+          "evaluation_groups": [
+            {
+              "all_true_flag": true,
+              "evaluations": [
+                {
+                  "query": "",
+                  "operand_1": {
+                    "variable": "launchComplete",
+                    "task": "5860"
+                  },
+                  "operator": "==",
+                  "operand_2": {
+                    "variable": true,
+                    "task": "static"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "outgoing": {
+          "return_value": null
+        }
+      },
+      "groups": [],
+      "x": 0.7048040455120101,
+      "y": 0.5054844606946983,
+      "nodeLocation": {
+        "x": 2628,
+        "y": 984
+      }
+    },
+    "ca5e": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "Build EC2 Tag Data",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63e641b023ad20015d2a0621",
+          "variableMap": {
+            "vpcName": "$var.job.vpcName",
+            "launchResponse": "$var.f799.result"
+          },
+          "options": {
+            "extractOutput": false,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "ec2Tags": null,
+          "instanceIdArray": null
+        },
+        "decorators": []
+      },
+      "groups": [],
+      "x": 0.26614363307181654,
+      "y": 0.500990099009901,
+      "task_name": "Build EC2 Data",
+      "retrySettings": null,
+      "nodeLocation": {
+        "x": 1380,
+        "y": 984
+      }
+    },
+    "e1c2": {
+      "name": "createTags",
+      "canvasName": "createTags",
+      "summary": "Add Tag",
+      "description": "Add tag to instance",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "EC2",
+      "variables": {
+        "incoming": {
+          "dryRun": false,
+          "resourceId": "$var.ca5e.instanceIdArray",
+          "tag": "$var.ca5e.ec2Tags",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": ""
+        }
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "nodeLocation": {
+        "x": 1692,
+        "y": 984
+      }
+    },
+    "55d8": {
+      "name": "describeInstanceStatus",
+      "canvasName": "describeInstanceStatus",
+      "summary": "Describe Status",
+      "description": "Get the instance status from EC2",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "EC2",
+      "variables": {
+        "incoming": {
+          "filter": "",
+          "instanceId": "$var.ca5e.instanceIdArray",
+          "maxResults": "",
+          "nextToken": "",
+          "dryRun": false,
+          "includeAllInstances": true,
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": ""
+        }
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "nodeLocation": {
+        "x": 2004,
+        "y": 984
+      }
+    },
+    "d9b4": {
+      "name": "describeInstances",
+      "canvasName": "describeInstances",
+      "summary": "Describe instance",
+      "description": "Describe instance from EC2",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "EC2",
+      "variables": {
+        "incoming": {
+          "filter": "",
+          "instanceId": "$var.ca5e.instanceIdArray",
+          "dryRun": false,
+          "maxResults": "",
+          "nextToken": "",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": "$var.job.instanceInfo"
+        }
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "nodeLocation": {
+        "x": 2940,
+        "y": 984
+      }
+    }
+  },
+  "transitions": {
+    "3101": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "5860": {
+      "4b6d": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "7220": {
+      "55d8": {
+        "state": "success",
+        "type": "revert"
+      }
+    },
+    "workflow_start": {
+      "f799": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "f799": {
+      "ca5e": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "4b6d": {
+      "7220": {
+        "type": "standard",
+        "state": "failure"
+      },
+      "d9b4": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "ca5e": {
+      "e1c2": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "e1c2": {
+      "55d8": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "55d8": {
+      "5860": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "d9b4": {
+      "3101": {
+        "state": "success",
+        "type": "standard"
+      }
+    }
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "imageId": {
+        "title": "imageId",
+        "type": "string"
+      },
+      "instanceType": {
+        "title": "instanceType",
+        "type": "string"
+      },
+      "securityGroupId": {
+        "title": "securityGroupId",
+        "type": "array"
+      },
+      "networkInterface": {
+        "title": "networkInterface",
+        "type": "array"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "vpcName": {
+        "$id": "vpcName",
+        "type": "string"
+      }
+    },
+    "required": [
+      "imageId",
+      "instanceType",
+      "securityGroupId",
+      "networkInterface",
+      "adapterId",
+      "vpcName"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "imageId": {
+        "title": "imageId",
+        "type": "string"
+      },
+      "instanceType": {
+        "title": "instanceType",
+        "type": "string"
+      },
+      "securityGroupId": {
+        "title": "securityGroupId",
+        "type": "array"
+      },
+      "networkInterface": {
+        "title": "networkInterface",
+        "type": "array"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "vpcName": {
+        "$id": "vpcName",
+        "type": "string"
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "publicIp": {
+        "title": "return_data",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "type": "array"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "examples": [
+          "value"
+        ]
+      },
+      "instanceInfo": {
+        "title": "result",
+        "type": "object"
+      }
+    }
+  },
+  "font_size": 12,
+  "created": "2021-10-07T02:44:08.337Z",
+  "createdVersion": "5.40.5-2021.1.8.0",
+  "last_updated": "2023-10-17T20:23:34.348Z",
+  "lastUpdatedVersion": "5.46.0-2023.1.21.0",
+  "type": "automation",
+  "preAutomationTime": 0,
+  "sla": 0,
+  "canvasVersion": 1.5,
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 2
+}

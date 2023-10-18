@@ -1,0 +1,198 @@
+{
+  "name": "Add Ingress Rule to Security Group - AWS",
+  "tasks": {
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": 1.1573333333333333,
+      "y": 0.654,
+      "nodeLocation": {
+        "x": 4932,
+        "y": 1296
+      }
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 1.264,
+      "y": 0.654,
+      "nodeLocation": {
+        "x": 5472,
+        "y": 1296
+      }
+    },
+    "40c1": {
+      "name": "authorizeSecurityGroupIngress",
+      "canvasName": "authorizeSecurityGroupIngress",
+      "summary": "Create Security Group Ingress Rule",
+      "description": "Create Security Group Ingress Rule",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "cidrIp": "$var.job.sourceCidrIp",
+          "fromPort": "$var.job.fromPort",
+          "groupId": "$var.job.groupId",
+          "groupName": "",
+          "ipPermissions": "",
+          "ipProtocol": "$var.job.ipProtocol",
+          "sourceSecurityGroupName": "",
+          "sourceSecurityGroupOwnerId": "",
+          "toPort": "$var.job.toPort",
+          "dryRun": false,
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "x": 1.2106666666666666,
+      "y": 0.654,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 5196,
+        "y": 1296
+      }
+    }
+  },
+  "transitions": {
+    "workflow_start": {
+      "40c1": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "workflow_end": {},
+    "40c1": {
+      "workflow_end": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "159a": {},
+    "e25f": {},
+    "7f1e": {},
+    "7caa": {},
+    "82d2": {},
+    "bde1": {},
+    "ac7": {},
+    "82ca": {},
+    "af52": {}
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "sourceCidrIp": {
+        "title": "cidrIp",
+        "type": "string"
+      },
+      "fromPort": {
+        "title": "fromPort",
+        "type": "number"
+      },
+      "groupId": {
+        "title": "groupId",
+        "type": "string"
+      },
+      "ipProtocol": {
+        "title": "ipProtocol",
+        "type": "string"
+      },
+      "toPort": {
+        "title": "toPort",
+        "type": "number"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      }
+    },
+    "required": [
+      "sourceCidrIp",
+      "fromPort",
+      "groupId",
+      "ipProtocol",
+      "toPort",
+      "adapterId"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "sourceCidrIp": {
+        "title": "cidrIp",
+        "type": "string"
+      },
+      "fromPort": {
+        "title": "fromPort",
+        "type": "number"
+      },
+      "groupId": {
+        "title": "groupId",
+        "type": "string"
+      },
+      "ipProtocol": {
+        "title": "ipProtocol",
+        "type": "string"
+      },
+      "toPort": {
+        "title": "toPort",
+        "type": "number"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      }
+    }
+  },
+  "font_size": 12,
+  "created": "2023-02-08T13:42:54.948Z",
+  "createdVersion": "5.44.64-2022.1.25.0",
+  "last_updated": "2023-10-17T20:22:18.193Z",
+  "lastUpdatedVersion": "5.46.0-2023.1.21.0",
+  "type": "automation",
+  "preAutomationTime": 0,
+  "sla": 0,
+  "canvasVersion": 1.5,
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 2
+}

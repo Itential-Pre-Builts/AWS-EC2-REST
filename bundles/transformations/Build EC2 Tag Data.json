@@ -1,0 +1,629 @@
+{
+  "_id": "63e641b023ad20015d2a0621",
+  "name": "Build EC2 Tag Data",
+  "description": "",
+  "incoming": [
+    {
+      "$id": "vpcName",
+      "type": "string"
+    },
+    {
+      "$id": "launchResponse",
+      "type": "object",
+      "properties": {
+        "response": {
+          "type": "object",
+          "properties": {
+            "RunInstancesResponse": {
+              "type": "object",
+              "properties": {
+                "instancesSet": {
+                  "type": "object",
+                  "properties": {
+                    "item": {
+                      "type": "object",
+                      "properties": {
+                        "instanceId": {
+                          "type": "string",
+                          "examples": [
+                            "i-010d73ead26ab1902"
+                          ]
+                        }
+                      },
+                      "required": []
+                    }
+                  },
+                  "required": []
+                }
+              },
+              "required": []
+            }
+          },
+          "required": []
+        }
+      },
+      "required": []
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "ec2Tags",
+      "type": "array"
+    },
+    {
+      "$id": "instanceIdArray",
+      "type": "array"
+    }
+  ],
+  "steps": [
+    {
+      "id": 21,
+      "type": "function",
+      "function": "buildEc2Tags",
+      "args": [
+        "Name",
+        ""
+      ],
+      "view": {
+        "row": 1,
+        "col": 2
+      }
+    },
+    {
+      "id": 22,
+      "type": "declaration",
+      "library": "Array",
+      "method": "new Array",
+      "args": [
+        null
+      ],
+      "view": {
+        "row": 1,
+        "col": 3
+      },
+      "context": "#",
+      "polymorphIndex": 0
+    },
+    {
+      "id": 23,
+      "type": "assign",
+      "from": {
+        "location": "function",
+        "name": 21,
+        "ptr": "/return/ec2Tags"
+      },
+      "to": {
+        "location": "declaration",
+        "name": 22,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 24,
+      "type": "assign",
+      "from": {
+        "location": "declaration",
+        "name": 22,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "ec2Tags",
+        "ptr": ""
+      },
+      "context": "#"
+    },
+    {
+      "id": 25,
+      "type": "method",
+      "library": "String",
+      "method": "concat",
+      "args": [
+        "Apache Web Server for ",
+        null
+      ],
+      "view": {
+        "row": 1,
+        "col": 1
+      },
+      "context": "#"
+    },
+    {
+      "id": 26,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "vpcName",
+        "ptr": ""
+      },
+      "to": {
+        "location": "method",
+        "name": 25,
+        "ptr": "/args/1/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 27,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 25,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "function",
+        "name": 21,
+        "ptr": "/args/1/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 28,
+      "type": "declaration",
+      "library": "Array",
+      "method": "new Array",
+      "args": [
+        null
+      ],
+      "view": {
+        "row": 2,
+        "col": 1
+      },
+      "context": "#",
+      "polymorphIndex": 0
+    },
+    {
+      "id": 29,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "launchResponse",
+        "ptr": "/response/RunInstancesResponse/instancesSet/item/instanceId"
+      },
+      "to": {
+        "location": "declaration",
+        "name": 28,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 30,
+      "type": "assign",
+      "from": {
+        "location": "declaration",
+        "name": 28,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "instanceIdArray",
+        "ptr": ""
+      },
+      "context": "#"
+    }
+  ],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "type": "object",
+          "properties": {
+            "sourceSubnetCidrMask": {
+              "type": "integer",
+              "examples": [
+                32
+              ]
+            },
+            "port": {
+              "type": "integer",
+              "examples": [
+                443
+              ]
+            },
+            "sourceIp": {
+              "type": "string",
+              "examples": [
+                "1%2E2%2E3%2E4"
+              ],
+              "format": "ipv4"
+            },
+            "protocol": {
+              "type": "string",
+              "examples": [
+                "TCP"
+              ]
+            }
+          },
+          "required": [],
+          "$id": "currentValue"
+        },
+        {
+          "title": "index",
+          "type": "number",
+          "optional": true,
+          "$id": "index"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sourceSubnetCidrMask": {
+                "type": "integer",
+                "examples": [
+                  32
+                ]
+              },
+              "port": {
+                "type": "integer",
+                "examples": [
+                  443
+                ]
+              },
+              "sourceIp": {
+                "type": "string",
+                "examples": [
+                  "1%2E2%2E3%2E4"
+                ],
+                "format": "ipv4"
+              },
+              "protocol": {
+                "type": "string",
+                "examples": [
+                  "TCP"
+                ]
+              }
+            },
+            "required": []
+          },
+          "$id": "array",
+          "optional": true
+        },
+        {
+          "$id": "thisArg",
+          "type": "object",
+          "properties": {},
+          "isContext": true,
+          "isThis": true,
+          "isIndexed": true
+        }
+      ],
+      "outgoing": [
+        {
+          "title": "newValue",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ],
+          "editable": true,
+          "$id": "newValue"
+        }
+      ],
+      "steps": [
+        {
+          "id": 1,
+          "type": "function",
+          "function": "buildRule",
+          "args": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "view": {
+            "row": 1,
+            "col": 1
+          },
+          "context": "#"
+        },
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": "/sourceSubnetCidrMask"
+          },
+          "to": {
+            "location": "function",
+            "name": 1,
+            "ptr": "/args/0/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 3,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": "/port"
+          },
+          "to": {
+            "location": "function",
+            "name": 1,
+            "ptr": "/args/1/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 4,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": "/sourceIp"
+          },
+          "to": {
+            "location": "function",
+            "name": 1,
+            "ptr": "/args/2/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 5,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": "/protocol"
+          },
+          "to": {
+            "location": "function",
+            "name": 1,
+            "ptr": "/args/3/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 6,
+          "type": "assign",
+          "from": {
+            "location": "function",
+            "name": 1,
+            "ptr": "/return/rule"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "newValue",
+            "ptr": ""
+          },
+          "context": "#"
+        }
+      ],
+      "functions": [],
+      "name": "buildRuleList",
+      "view": {
+        "col": 2,
+        "row": 4
+      },
+      "id": "buildRuleList",
+      "comments": []
+    },
+    {
+      "incoming": [
+        {
+          "$id": "sourceSubnetCidrMask",
+          "type": "number"
+        },
+        {
+          "$id": "port",
+          "type": "number"
+        },
+        {
+          "$id": "sourceIp",
+          "type": "string"
+        },
+        {
+          "$id": "protocol",
+          "type": "string"
+        }
+      ],
+      "outgoing": [
+        {
+          "$id": "rule",
+          "type": "object",
+          "properties": {
+            "sourceSubnetCidrMask": {
+              "type": "number",
+              "examples": [
+                32
+              ]
+            },
+            "port": {
+              "type": "number",
+              "examples": [
+                443
+              ]
+            },
+            "sourceIp": {
+              "type": "string",
+              "examples": [
+                "192%2E168%2E30%2E10"
+              ],
+              "format": "ipv4"
+            },
+            "protocol": {
+              "type": "string",
+              "examples": [
+                "TCP"
+              ]
+            }
+          },
+          "required": []
+        }
+      ],
+      "steps": [
+        {
+          "id": 1,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "sourceSubnetCidrMask",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "rule",
+            "ptr": "/sourceSubnetCidrMask"
+          },
+          "context": "#"
+        },
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "port",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "rule",
+            "ptr": "/port"
+          },
+          "context": "#"
+        },
+        {
+          "id": 3,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "sourceIp",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "rule",
+            "ptr": "/sourceIp"
+          },
+          "context": "#"
+        },
+        {
+          "id": 4,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "protocol",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "rule",
+            "ptr": "/protocol"
+          },
+          "context": "#"
+        }
+      ],
+      "functions": [],
+      "name": "buildRule",
+      "view": {
+        "col": 2,
+        "row": 4
+      },
+      "id": "buildRule",
+      "comments": []
+    },
+    {
+      "incoming": [
+        {
+          "$id": "Key",
+          "type": "string"
+        },
+        {
+          "$id": "Value",
+          "type": "string"
+        }
+      ],
+      "outgoing": [
+        {
+          "$id": "ec2Tags",
+          "type": "object",
+          "properties": {
+            "Key": {
+              "type": "string",
+              "examples": [
+                "Name"
+              ]
+            },
+            "Value": {
+              "type": "string",
+              "examples": [
+                "ec2"
+              ]
+            }
+          },
+          "required": []
+        }
+      ],
+      "steps": [
+        {
+          "id": 1,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "Key",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "ec2Tags",
+            "ptr": "/Key"
+          },
+          "context": "#"
+        },
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "Value",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "ec2Tags",
+            "ptr": "/Value"
+          },
+          "context": "#"
+        }
+      ],
+      "functions": [],
+      "name": "buildEc2Tags",
+      "view": {
+        "col": 1,
+        "row": 4
+      },
+      "id": "buildEc2Tags",
+      "comments": []
+    }
+  ],
+  "comments": [],
+  "view": {
+    "col": 3,
+    "row": 8
+  },
+  "created": "2023-10-16T16:43:17.923Z",
+  "createdBy": {
+    "_id": "652054b92c281c82e5b4c8b4",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "lastUpdated": "2023-10-16T16:43:17.923Z",
+  "lastUpdatedBy": {
+    "_id": "652054b92c281c82e5b4c8b4",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "version": "4.1.2-2023.1.10",
+  "tags": []
+}

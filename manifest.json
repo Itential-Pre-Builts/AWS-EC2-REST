@@ -1,0 +1,206 @@
+{
+  "bundleName": "AWS - EC2 - REST",
+  "version": "0.0.1",
+  "fingerprint": "6530111689b3780158abe3b4",
+  "createdEpoch": "1697648918038",
+  "artifacts": [
+    {
+      "id": "Add Ingress Rule to Security Group - AWS",
+      "name": "Add Ingress Rule to Security Group - AWS",
+      "type": "workflow",
+      "location": "/bundles/workflows/Add Ingress Rule to Security Group - AWS.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Create and Attach Internet Gateway - AWS",
+      "name": "Create and Attach Internet Gateway - AWS",
+      "type": "workflow",
+      "location": "/bundles/workflows/Create and Attach Internet Gateway - AWS.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Create EC2 Instance - AWS",
+      "name": "Create EC2 Instance - AWS",
+      "type": "workflow",
+      "location": "/bundles/workflows/Create EC2 Instance - AWS.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Create Route - AWS",
+      "name": "Create Route - AWS",
+      "type": "workflow",
+      "location": "/bundles/workflows/Create Route - AWS.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Create Security Group with Ingress Rules - AWS",
+      "name": "Create Security Group with Ingress Rules - AWS",
+      "type": "workflow",
+      "location": "/bundles/workflows/Create Security Group with Ingress Rules - AWS.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Create VPC - AWS",
+      "name": "Create VPC - AWS",
+      "type": "workflow",
+      "location": "/bundles/workflows/Create VPC - AWS.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Create VPC Subnet - AWS",
+      "name": "Create VPC Subnet - AWS",
+      "type": "workflow",
+      "location": "/bundles/workflows/Create VPC Subnet - AWS.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Provision VPC with Networking - AWS",
+      "name": "Provision VPC with Networking - AWS",
+      "type": "workflow",
+      "location": "/bundles/workflows/Provision VPC with Networking - AWS.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Delete Security Groups by VPC - AWS",
+      "name": "Delete Security Groups by VPC - AWS",
+      "type": "workflow",
+      "location": "/bundles/workflows/Delete Security Groups by VPC - AWS.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Delete Subnets by VPC - AWS",
+      "name": "Delete Subnets by VPC - AWS",
+      "type": "workflow",
+      "location": "/bundles/workflows/Delete Subnets by VPC - AWS.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Destroy VPC and EC2 Instance - AWS",
+      "name": "Destroy VPC and EC2 Instance - AWS",
+      "type": "workflow",
+      "location": "/bundles/workflows/Destroy VPC and EC2 Instance - AWS.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Detach and Delete Internet Gateways by VPC - AWS",
+      "name": "Detach and Delete Internet Gateways by VPC - AWS",
+      "type": "workflow",
+      "location": "/bundles/workflows/Detach and Delete Internet Gateways by VPC - AWS.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63e641b023ad20015d2a0621",
+      "name": "Build EC2 Tag Data",
+      "type": "transformation",
+      "location": "/bundles/transformations/Build EC2 Tag Data.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "652ff25180403501cbadcbe5",
+      "name": "Build Ingress Rule List",
+      "type": "transformation",
+      "location": "/bundles/transformations/Build Ingress Rule List.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63e6410623ad20015d2a0620",
+      "name": "Build Security Group Rule List",
+      "type": "transformation",
+      "location": "/bundles/transformations/Build Security Group Rule List.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "6245ac411678ea01c7fbcd3e",
+      "name": "Build SG Delete Array",
+      "type": "transformation",
+      "location": "/bundles/transformations/Build SG Delete Array.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "6245bcff1678ea01c7fbcd3f",
+      "name": "Build Subnet Delete Array",
+      "type": "transformation",
+      "location": "/bundles/transformations/Build Subnet Delete Array.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63e3a39ed59d6601415e4e09",
+      "name": "Build VPC Filter",
+      "type": "transformation",
+      "location": "/bundles/transformations/Build VPC Filter.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63e39d7cd59d6601415e4e08",
+      "name": "Build VPC Tag Data",
+      "type": "transformation",
+      "location": "/bundles/transformations/Build VPC Tag Data.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63e50af123ad20015d2a061b",
+      "name": "Prepare VPC ID",
+      "type": "transformation",
+      "location": "/bundles/transformations/Prepare VPC ID.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63e520f723ad20015d2a061d",
+      "name": "Process Instance Status",
+      "type": "transformation",
+      "location": "/bundles/transformations/Process Instance Status.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "63e50d6a23ad20015d2a061c",
+      "name": "Process Instance Response",
+      "type": "transformation",
+      "location": "/bundles/transformations/Process Instance Response.json",
+      "properties": {
+        "entryPoint": false
+      }
+    }
+  ]
+}

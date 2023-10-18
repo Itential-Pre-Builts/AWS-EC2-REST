@@ -1,0 +1,186 @@
+{
+  "_id": "63e3a39ed59d6601415e4e09",
+  "name": "Build VPC Filter",
+  "description": "",
+  "incoming": [
+    {
+      "$id": "vpcId",
+      "type": "string"
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "vpcFilter",
+      "type": "array"
+    }
+  ],
+  "steps": [
+    {
+      "id": 3,
+      "type": "function",
+      "function": "buildFilterObject",
+      "args": [
+        "vpc-id",
+        null
+      ],
+      "view": {
+        "row": 1,
+        "col": 1
+      }
+    },
+    {
+      "id": 10,
+      "type": "declaration",
+      "library": "Array",
+      "method": "new Array",
+      "args": [
+        null
+      ],
+      "view": {
+        "row": 1,
+        "col": 2
+      },
+      "context": "#",
+      "polymorphIndex": 0
+    },
+    {
+      "id": 11,
+      "type": "assign",
+      "from": {
+        "location": "function",
+        "name": 3,
+        "ptr": "/return/tag"
+      },
+      "to": {
+        "location": "declaration",
+        "name": 10,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 12,
+      "type": "assign",
+      "from": {
+        "location": "declaration",
+        "name": 10,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "vpcFilter",
+        "ptr": ""
+      },
+      "context": "#"
+    },
+    {
+      "id": 13,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "vpcId",
+        "ptr": ""
+      },
+      "to": {
+        "location": "function",
+        "name": 3,
+        "ptr": "/args/1/value"
+      },
+      "context": "#"
+    }
+  ],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "$id": "Name",
+          "type": "string"
+        },
+        {
+          "$id": "Value",
+          "type": "string"
+        }
+      ],
+      "outgoing": [
+        {
+          "$id": "tag",
+          "type": "object",
+          "properties": {
+            "Name": {
+              "type": "string",
+              "examples": [
+                "Name"
+              ]
+            },
+            "Value": {
+              "type": "string",
+              "examples": [
+                "Value"
+              ]
+            }
+          },
+          "required": []
+        }
+      ],
+      "steps": [
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "Value",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "tag",
+            "ptr": "/Value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 3,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "Name",
+            "ptr": ""
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "tag",
+            "ptr": "/Name"
+          },
+          "context": "#"
+        }
+      ],
+      "functions": [],
+      "name": "buildFilterObject",
+      "view": {
+        "col": 1,
+        "row": 5
+      },
+      "id": "buildFilterObject",
+      "comments": []
+    }
+  ],
+  "comments": [],
+  "view": {
+    "col": 2,
+    "row": 5
+  },
+  "created": "2023-10-16T17:21:50.493Z",
+  "createdBy": {
+    "_id": "652054b92c281c82e5b4c8b4",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "lastUpdated": "2023-10-16T17:21:50.493Z",
+  "lastUpdatedBy": {
+    "_id": "652054b92c281c82e5b4c8b4",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "version": "4.1.2-2023.1.10",
+  "tags": []
+}

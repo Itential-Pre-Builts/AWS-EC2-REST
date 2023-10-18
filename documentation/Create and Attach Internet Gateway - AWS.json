@@ -1,0 +1,19 @@
+{
+  "iapVersions": [
+    "2023.1"
+  ],
+  "capabilities": [
+    {
+      "capability": "The workflow is used to create and attach Internet gateway in AWS EC2"
+    }
+  ],
+  "entryPoint": {
+    "name": "Create and Attach Internet Gateway - AWS",
+    "type": "Workflow"
+  },
+  "queryOutput": {},
+  "name": "Create and Attach Internet Gateway - AWS",
+  "overview": "Create and Attach Internet gateway in AWS EC2",
+  "webName": "Create and Attach Internet Gateway - AWS - EC2",
+  "assetType": "Workflow"
+}

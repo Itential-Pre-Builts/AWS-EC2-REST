@@ -1,0 +1,773 @@
+{
+  "name": "Provision VPC with Networking - AWS",
+  "tasks": {
+    "6105": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Create VPC",
+      "description": "Create VPC Using Itential Pre-Built",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Create VPC - AWS",
+          "variables": {
+            "cidrBlock": {
+              "editable": true,
+              "task": "job",
+              "value": "vpcSubnet"
+            },
+            "vpcName": {
+              "task": "job",
+              "value": "vpcName"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "groups": [],
+      "actor": "job",
+      "x": 0.011703511053315995,
+      "y": 0.4861111111111111,
+      "nodeLocation": {
+        "x": 372,
+        "y": 1068
+      }
+    },
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": -0.06819553409776705,
+      "y": 0.4891089108910891,
+      "nodeLocation": {
+        "x": 132,
+        "y": 1068
+      }
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 1.147254073627037,
+      "y": 0.49405940594059405,
+      "nodeLocation": {
+        "x": 3420,
+        "y": 1068
+      }
+    },
+    "7a4f": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Query VPC ID",
+      "description": "Query VPC ID",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "createdVpc.response.CreateVpcResponse.vpc.vpcId",
+          "obj": "$var.6105.job_details"
+        },
+        "outgoing": {
+          "return_data": "$var.job.vpcId"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "x": 0.09232769830949285,
+      "y": 0.48518518518518516,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 684,
+        "y": 1068
+      }
+    },
+    "cb2e": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Create Subnet",
+      "description": "Create Subnet Using Itential Pre-Built",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Create VPC Subnet - AWS",
+          "variables": {
+            "cidrBlock": {
+              "editable": true,
+              "task": "job",
+              "value": "vpcSubnet"
+            },
+            "vpcId": {
+              "editable": true,
+              "task": "7a4f",
+              "value": "return_data"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "groups": [],
+      "actor": "job",
+      "x": 0.19375812743823148,
+      "y": 0.4842592592592593,
+      "nodeLocation": {
+        "x": 996,
+        "y": 1068
+      }
+    },
+    "a632": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Query Subnet ID",
+      "description": "Query Subnet ID",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "subnetId",
+          "obj": "$var.cb2e.job_details"
+        },
+        "outgoing": {
+          "return_data": "$var.job.subnetId"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "x": 0.2958387516254877,
+      "y": 0.4888888888888889,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 1308,
+        "y": 1068
+      }
+    },
+    "ee02": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Create and Attach Internet Gateway",
+      "description": "Create and Attach Internet Gateway Using Itential Pre-Built",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Create and Attach Internet Gateway - AWS",
+          "variables": {
+            "vpcId": {
+              "editable": true,
+              "task": "7a4f",
+              "value": "return_data"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "groups": [],
+      "actor": "job",
+      "x": 0.4213046080191502,
+      "y": 0.487962962962963,
+      "nodeLocation": {
+        "x": 1620,
+        "y": 1068
+      }
+    },
+    "2f28": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Query Internet Gateway ID",
+      "description": "Query Internet Gateway ID",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "internetGatewayId",
+          "obj": "$var.ee02.job_details"
+        },
+        "outgoing": {
+          "return_data": "$var.job.internetGatewayId"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "x": 0.533213644524237,
+      "y": 0.48703703703703705,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 1932,
+        "y": 1068
+      }
+    },
+    "e5bc": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Create Default Route",
+      "description": "Create Default Route Using Itential Pre-Built",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Create Route - AWS",
+          "variables": {
+            "destinationCidrBlock": {
+              "editable": true,
+              "task": "static",
+              "value": "0.0.0.0/0"
+            },
+            "gatewayId": {
+              "editable": true,
+              "task": "2f28",
+              "value": "return_data"
+            },
+            "vpcId": {
+              "editable": true,
+              "task": "7a4f",
+              "value": "return_data"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "groups": [],
+      "actor": "job",
+      "x": 0.6306578153289076,
+      "y": 0.4891089108910891,
+      "nodeLocation": {
+        "x": 2244,
+        "y": 1068
+      }
+    },
+    "5d5e": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Create Security Group with Ingress Rules",
+      "description": "Create Security Group with Ingress Rules Using Itential Pre-Built",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Create Security Group with Ingress Rules - AWS",
+          "variables": {
+            "securityGroupDescription": {
+              "editable": true,
+              "task": "job",
+              "value": "securityGroupName"
+            },
+            "securityGroupName": {
+              "task": "job",
+              "value": "securityGroupDesc"
+            },
+            "vpcId": {
+              "editable": true,
+              "task": "7a4f",
+              "value": "return_data"
+            },
+            "ruleList": {
+              "editable": true,
+              "task": "5f81",
+              "value": "ruleList"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "groups": [],
+      "actor": "job",
+      "x": 0.9535304767652384,
+      "y": 0.48514851485148514,
+      "nodeLocation": {
+        "x": 2868,
+        "y": 1068
+      }
+    },
+    "5b97": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Query Security Group ID",
+      "description": "Query Security Group ID",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "securityGroupId",
+          "obj": "$var.5d5e.job_details"
+        },
+        "outgoing": {
+          "return_data": "$var.job.securityGroupId"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "x": 1.0844900422450212,
+      "y": 0.4891089108910891,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 3180,
+        "y": 1068
+      }
+    },
+    "5f81": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "Build Security Group Rule List",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63e6410623ad20015d2a0620",
+          "variableMap": {
+            "ingressRules": "$var.job.ingressRules"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "ruleList": null
+        },
+        "decorators": []
+      },
+      "groups": [],
+      "x": 0.7742908871454436,
+      "y": 0.48316831683168315,
+      "task_name": "Build Security Group Rule List",
+      "retrySettings": null,
+      "nodeLocation": {
+        "x": 2556,
+        "y": 1068
+      }
+    }
+  },
+  "transitions": {
+    "6105": {
+      "7a4f": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_start": {
+      "6105": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "7a4f": {
+      "cb2e": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "cb2e": {
+      "a632": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "a632": {
+      "ee02": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "ee02": {
+      "2f28": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "2f28": {
+      "e5bc": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e5bc": {
+      "5f81": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "5d5e": {
+      "5b97": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "5b97": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "5f81": {
+      "5d5e": {
+        "type": "standard",
+        "state": "success"
+      }
+    }
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "vpcSubnet": {
+        "title": "cidrBlock",
+        "type": "string"
+      },
+      "vpcName": {
+        "$id": "vpcName",
+        "type": "string"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "securityGroupName": {
+        "title": "groupDescription",
+        "type": "string"
+      },
+      "securityGroupDesc": {
+        "title": "groupName",
+        "type": "string"
+      },
+      "ingressRules": {
+        "$id": "ingressRules",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "sourceSubnetCidrMask": {
+              "type": "number",
+              "examples": [
+                32
+              ]
+            },
+            "port": {
+              "type": "number",
+              "examples": [
+                443
+              ]
+            },
+            "sourceIp": {
+              "type": "string",
+              "examples": [
+                "1%2E2%2E3%2E4"
+              ],
+              "format": "ipv4"
+            },
+            "protocol": {
+              "type": "string",
+              "examples": [
+                "TCP"
+              ]
+            }
+          },
+          "required": []
+        }
+      }
+    },
+    "required": [
+      "vpcSubnet",
+      "vpcName",
+      "adapterId",
+      "securityGroupName",
+      "securityGroupDesc",
+      "ingressRules"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "vpcSubnet": {
+        "title": "cidrBlock",
+        "type": "string"
+      },
+      "vpcName": {
+        "$id": "vpcName",
+        "type": "string"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "securityGroupName": {
+        "title": "groupDescription",
+        "type": "string"
+      },
+      "securityGroupDesc": {
+        "title": "groupName",
+        "type": "string"
+      },
+      "ingressRules": {
+        "$id": "ingressRules",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "sourceSubnetCidrMask": {
+              "type": "number",
+              "examples": [
+                32
+              ]
+            },
+            "port": {
+              "type": "number",
+              "examples": [
+                443
+              ]
+            },
+            "sourceIp": {
+              "type": "string",
+              "examples": [
+                "1%2E2%2E3%2E4"
+              ],
+              "format": "ipv4"
+            },
+            "protocol": {
+              "type": "string",
+              "examples": [
+                "TCP"
+              ]
+            }
+          },
+          "required": []
+        }
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "vpcId": {
+        "title": "return_data",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "type": "array"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "examples": [
+          "value"
+        ]
+      },
+      "subnetId": {
+        "title": "return_data",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "type": "array"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "examples": [
+          "value"
+        ]
+      },
+      "internetGatewayId": {
+        "title": "return_data",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "type": "array"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "examples": [
+          "value"
+        ]
+      },
+      "securityGroupId": {
+        "title": "return_data",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "type": "array"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "examples": [
+          "value"
+        ]
+      }
+    }
+  },
+  "type": "automation",
+  "font_size": 12,
+  "last_updated": "2023-10-16T20:41:45.658Z",
+  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+  "created": "2023-02-10T12:51:05.590Z",
+  "createdVersion": "5.44.64-2022.1.25.0",
+  "preAutomationTime": 0,
+  "sla": 0,
+  "canvasVersion": 1.5,
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 2
+}

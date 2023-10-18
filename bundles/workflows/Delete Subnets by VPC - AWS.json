@@ -1,0 +1,421 @@
+{
+  "name": "Delete Subnets by VPC - AWS",
+  "tasks": {
+    "2432": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "No Subnets Found",
+      "description": "No Subnets Found",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.53646408839779,
+      "y": 0.3493975903614458,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 1188,
+        "y": 852
+      }
+    },
+    "4685": {
+      "name": "arrayPush",
+      "canvasName": "push",
+      "summary": "Filter Array",
+      "description": "Filter Array",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Array",
+      "variables": {
+        "incoming": {
+          "arr": [],
+          "elementN": "$var.80a6.merged_object"
+        },
+        "outgoing": {
+          "pushedArray": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.1541436464088398,
+      "y": 0.5050200803212851,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 564,
+        "y": 960
+      }
+    },
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": 0,
+      "y": 0.5,
+      "nodeLocation": {
+        "x": 12,
+        "y": 960
+      }
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 0.6287292817679558,
+      "y": 0.5080321285140562,
+      "nodeLocation": {
+        "x": 2052,
+        "y": 960
+      }
+    },
+    "80a6": {
+      "name": "merge",
+      "canvasName": "merge",
+      "summary": "VPC ID Filter",
+      "description": "VPC ID Filter",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "data_to_merge": [
+            {
+              "key": "name",
+              "value": {
+                "task": "static",
+                "variable": "vpc-id",
+                "editable": true
+              }
+            },
+            {
+              "key": "value",
+              "value": {
+                "task": "job",
+                "variable": "vpcId",
+                "editable": true
+              }
+            }
+          ]
+        },
+        "outgoing": {
+          "merged_object": null
+        }
+      },
+      "groups": [],
+      "x": 0.05966850828729282,
+      "y": 0.5030120481927711,
+      "nodeLocation": {
+        "x": 252,
+        "y": 960
+      }
+    },
+    "daf4": {
+      "name": "evaluation",
+      "canvasName": "evaluation",
+      "summary": "Subnets Found?",
+      "description": "Subnets Found?",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "all_true_flag": false,
+          "evaluation_groups": [
+            {
+              "all_true_flag": false,
+              "evaluations": [
+                {
+                  "query": "response.DescribeSubnetsResponse.subnetSet",
+                  "operand_1": {
+                    "variable": "result",
+                    "task": "65d7"
+                  },
+                  "operator": "!=",
+                  "operand_2": {
+                    "variable": "",
+                    "task": "static"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "outgoing": {
+          "return_value": null
+        }
+      },
+      "groups": [],
+      "x": 0.3259668508287293,
+      "y": 0.5030120481927711,
+      "nodeLocation": {
+        "x": 1188,
+        "y": 960
+      }
+    },
+    "e541": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "Build Subnet Delete Array",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "6245bcff1678ea01c7fbcd3f",
+          "variableMap": {
+            "subnetResponse": "$var.65d7.result"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "subnetDeleteArray": null
+        }
+      },
+      "groups": [],
+      "x": 0.43480662983425417,
+      "y": 0.5090361445783133,
+      "task_name": "Build Subnet Delete Array",
+      "retrySettings": null,
+      "nodeLocation": {
+        "x": 1500,
+        "y": 960
+      }
+    },
+    "65d7": {
+      "name": "describeSubnets",
+      "canvasName": "describeSubnets",
+      "summary": "Find Subnets for VPC",
+      "description": "Find Subnets for VPC",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "filter": "$var.4685.pushedArray",
+          "subnetId": "",
+          "dryRun": "",
+          "nextToken": "",
+          "maxResults": "",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.2535911602209945,
+      "y": 0.5150602409638554,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 876,
+        "y": 960
+      }
+    },
+    "d988": {
+      "name": "deleteSubnets",
+      "canvasName": "deleteSubnets",
+      "summary": "Delete Subnets",
+      "description": "Delete Subnets",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "subnetArray": "$var.e541.subnetDeleteArray",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.5359116022099447,
+      "y": 0.501004016064257,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 1812,
+        "y": 960
+      }
+    }
+  },
+  "transitions": {
+    "212": {},
+    "2432": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "4685": {
+      "65d7": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_start": {
+      "80a6": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "80a6": {
+      "4685": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "daf4": {
+      "2432": {
+        "type": "standard",
+        "state": "failure"
+      },
+      "e541": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e541": {
+      "d988": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "65d7": {
+      "daf4": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "d988": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "dfad": {},
+    "50ac": {}
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "vpcId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      }
+    },
+    "required": [
+      "vpcId",
+      "adapterId"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "vpcId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      }
+    }
+  },
+  "created": "2022-03-31T14:36:27.377Z",
+  "createdVersion": "5.40.5-2021.1.52.0",
+  "font_size": 12,
+  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+  "last_updated": "2023-10-16T19:33:00.837Z",
+  "type": "automation",
+  "preAutomationTime": 0,
+  "sla": 0,
+  "canvasVersion": 1.5,
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 2
+}

@@ -1,0 +1,253 @@
+{
+  "name": "Create VPC - AWS",
+  "tasks": {
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": 0.06692913385826772,
+      "y": 0.6280884265279584,
+      "nodeLocation": {
+        "x": 408,
+        "y": 1296
+      }
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 0.4687906371911573,
+      "y": 0.6287037037037037,
+      "nodeLocation": {
+        "x": 1512,
+        "y": 1296
+      }
+    },
+    "997d": {
+      "name": "createVpc",
+      "canvasName": "createVpc",
+      "summary": "Create VPC",
+      "description": "Create VPC",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "cidrBlock": "$var.job.cidrBlock",
+          "amazonProvidedIpv6CidrBlock": false,
+          "dryRun": false,
+          "instanceTenancy": "",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": "$var.job.createdVpc"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.15019505851755527,
+      "y": 0.6277777777777778,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 648,
+        "y": 1296
+      }
+    },
+    "e803": {
+      "name": "createTags",
+      "canvasName": "createTags",
+      "summary": "Tag VPC",
+      "description": "Add Tag to VPC",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "dryRun": false,
+          "resourceId": "$var.f19d.vpcId",
+          "tag": "$var.f19d.vpcTags",
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.3836150845253576,
+      "y": 0.6268518518518519,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 1272,
+        "y": 1296
+      }
+    },
+    "f19d": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "Build VPC Tag Data",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "63e39d7cd59d6601415e4e08",
+          "variableMap": {
+            "createVpcResponse": "$var.997d.result",
+            "vpcName": "$var.job.vpcName"
+          },
+          "options": {
+            "extractOutput": false,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "vpcId": null,
+          "vpcTags": null
+        },
+        "decorators": []
+      },
+      "groups": [],
+      "x": 0.26202860858257476,
+      "y": 0.6277777777777778,
+      "task_name": "Build VPC Tag Data",
+      "retrySettings": null,
+      "nodeLocation": {
+        "x": 960,
+        "y": 1296
+      }
+    }
+  },
+  "transitions": {
+    "workflow_start": {
+      "997d": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "997d": {
+      "f19d": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e803": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "f19d": {
+      "e803": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "159a": {},
+    "e25f": {},
+    "7f1e": {},
+    "7caa": {},
+    "82d2": {},
+    "bde1": {},
+    "ac7": {},
+    "82ca": {},
+    "af52": {}
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "cidrBlock": {
+        "title": "cidrBlock",
+        "type": "string"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "vpcName": {
+        "$id": "vpcName",
+        "type": "string"
+      }
+    },
+    "required": [
+      "cidrBlock",
+      "adapterId",
+      "vpcName"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "cidrBlock": {
+        "title": "cidrBlock",
+        "type": "string"
+      },
+      "adapterId": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "vpcName": {
+        "$id": "vpcName",
+        "type": "string"
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "createdVpc": {
+        "title": "result",
+        "type": "object"
+      }
+    }
+  },
+  "font_size": 12,
+  "created": "2021-02-01T20:05:14.381Z",
+  "createdVersion": "5.10.4-2020.1.22.0",
+  "last_updated": "2023-10-16T18:18:09.872Z",
+  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+  "type": "automation",
+  "preAutomationTime": 0,
+  "sla": 0,
+  "canvasVersion": 1.5,
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 2
+}

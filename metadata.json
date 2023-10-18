@@ -1,0 +1,91 @@
+{
+  "name": "AWS - EC2 - REST",
+  "webName": "Provision and Destroy VPC and EC2 Instance in AWS EC2",
+  "type": "Workflow Project",
+  "vendor": "AWS",
+  "product": "EC2",
+  "method": "REST",
+  "osVersions": [],
+  "apiVersions": [],
+  "iapVersions": [
+    "2023.1"
+  ],
+  "domains": [
+    "Cloud"
+  ],
+  "tags": [],
+  "useCases": [],
+  "deprecated": {
+    "isDeprecated": false,
+    "deprecatedOn": "",
+    "endOfLife": "",
+    "replacedBy": {
+      "name": "",
+      "overview": "",
+      "repoLink": "",
+      "docLink": "",
+      "webLink": "",
+      "isProductFeature": false
+    }
+  },
+  "brokerSince": "",
+  "documentation": {
+    "storeLink": "",
+    "repoLink": "https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest",
+    "npmLink": "https://www.npmjs.com/package/@itentialopensource/aws-ec2-rest",
+    "docLink": "",
+    "demoLinks": [],
+    "faqLink": "",
+    "contributeLink": "",
+    "issueLink": "",
+    "webLink": "",
+    "vendorLink": "https://aws.amazon.com/",
+    "productLink": "https://aws.amazon.com/ec2/",
+    "apiLinks": []
+  },
+  "assets": [
+    {
+      "name": "Add Ingress Rule to Security Group - AWS - EC2 - REST",
+      "webName": "Add Ingress Rule to Security Group - AWS - EC2",
+      "assetType": "Workflow",
+      "overview": "Add Ingress Rule to Security group in AWS EC2",
+      "iapVersions": [
+        "2023.1"
+      ],
+      "exampleInput": "",
+      "exampleOutput": ""
+    },
+    {
+      "name": "Create and Attach Internet Gateway - AWS",
+      "webName": "Create and Attach Internet Gateway - AWS - EC2",
+      "assetType": "Workflow",
+      "overview": "Create and Attach Internet gateway in AWS EC2",
+      "iapVersions": [
+        "2023.1"
+      ],
+      "exampleInput": "",
+      "exampleOutput": ""
+    }
+  ],
+  "relatedItems": {
+    "adapters": [
+      {
+        "name": "adapter-aws_ec2",
+        "webName": "Amazon EC2",
+        "overview": "AWS EC2",
+        "isDependency": false,
+        "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
+        "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
+        "webLink": "https://www.itential.com/adapters/amazon-ec2/",
+        "versions": [
+          "0.6.9"
+        ]
+      }
+    ],
+    "integrations": [],
+    "ecosystemApplications": [],
+    "workflowProjects": [],
+    "transformationProjects": [],
+    "exampleProjects": []
+  }
+}

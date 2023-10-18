@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Project for use cases around AWS EC2 using REST protocol",
   "scripts": {
     "setup-hooks": "sh ./scripts/setup-hooks.sh",

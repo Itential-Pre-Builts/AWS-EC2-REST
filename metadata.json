@@ -13,15 +13,8 @@
   "domains": [
     "Cloud"
   ],
-  "tags": [
-    "VPC",
-    "EC2 Instance",
-    "Tagging"
-  ],
-  "useCases": [
-    "Create VPC and EC2 Instance",
-    "Destroy VPC and EC2 Instance"
-  ],
+  "tags": [],
+  "useCases": [],
   "deprecated": {
     "isDeprecated": false,
     "deprecatedOn": "",

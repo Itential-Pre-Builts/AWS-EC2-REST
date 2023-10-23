@@ -4,15 +4,8 @@
   "domains": [
     "Cloud"
   ],
-  "tags": [
-    "VPC",
-    "EC2 Instance",
-    "Tagging"
-  ],
-  "useCases": [
-    "Create VPC and EC2 Instance",
-    "Destroy VPC and EC2 Instance"
-  ],
+  "tags": [],
+  "useCases": [],
   "productLink": "https://aws.amazon.com/ec2/",
   "apiLinks": [
     "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html"

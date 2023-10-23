@@ -5,7 +5,12 @@
     "iapPassword": "admin",
     "logLevel": "debug",
     "provenance": "local_aaa",
-    "assignAllRolesToUser": true
+    "assignAllRolesToUser": true,
+    "iapHealthCheckConfig": {
+      "maxRetries": 5, 
+      "waitForDelay": 10,
+      "startDelay": 180
+    }
   },
   "video": false,
   "trashAssetsBeforeRuns": true,

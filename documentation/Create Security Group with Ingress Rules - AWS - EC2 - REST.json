@@ -1,0 +1,94 @@
+{
+  "iapVersions": [
+    "2023.1"
+  ],
+  "adapters": [
+    {
+      "isDependency": false,
+      "name": "adapter-aws_ec2",
+      "overview": "AWS EC2",
+      "webName": "Amazon EC2",
+      "version": "0.6.9",
+      "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
+      "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
+      "webLink": "https://www.itential.com/adapters/amazon-ec2/"
+    }
+  ],
+  "externalDependencyList": [
+    {
+      "name": "AWS"
+    }
+  ],
+  "capabilities": [
+    {
+      "capability": "The workflow is used to create Security group with Ingress rules for AWS EC2"
+    }
+  ],
+  "entryPoint": {
+    "name": "Create Security Group with Ingress Rules - AWS",
+    "type": "Workflow"
+  },
+  "inputs": [
+    {
+      "name": "securityGroupDescription",
+      "type": "string",
+      "required": "yes",
+      "description": "A description for the security group",
+      "exampleValue": "Web Servers"
+    },
+    {
+      "name": "securityGroupName",
+      "type": "string",
+      "required": "yes",
+      "description": "The name of the security group",
+      "exampleValue": "WebServerSG"
+    },
+    {
+      "name": "vpcId",
+      "type": "string",
+      "required": "yes",
+      "description": "ID of the VPC",
+      "exampleValue": "vpc-0324c35cf9d083a40"
+    },
+    {
+      "name": "ruleList",
+      "type": "array",
+      "required": "yes",
+      "description": "List of Ingress rules",
+      "exampleValue": "[\n        { \n          \"protocol\": \"TCP\", \n          \"port\": 80, \n          \"sourceIp\": \"199.27.253.134\", \n          \"sourceSubnetCidrMask\": 32 \n        },\n        { \n          \"protocol\": \"TCP\", \n          \"port\": 80, \n          \"sourceIp\": \"19.27.253.134\", \n          \"sourceSubnetCidrMask\": 32 \n        }\n      ]"
+    },
+    {
+      "name": "adapterId",
+      "type": "string",
+      "required": "yes",
+      "description": "AWS EC2 adapter to use",
+      "exampleValue": "EC2"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "securityGroupId",
+      "type": "string",
+      "description": "ID of the created Security group",
+      "exampleValue": "sg-0bd40e2d7195add77"
+    }
+  ],
+  "exampleInputsAndOutputs": [
+    {
+      "exampleInput": "{\n  \"securityGroupDescription\": \"TestING\",\n  \"securityGroupName\": \"FOR TESTING\",\n  \"vpcId\": \"vpc-004c7963c31a8d156\",\n  \"adapterId\": \"EC2\",\n  \"ruleList\": [\n    { \n      \"protocol\": \"TCP\", \n      \"port\": 80, \n      \"sourceIp\": \"199.27.253.134\", \n      \"sourceSubnetCidrMask\": 32 \n    },\n    { \n      \"protocol\": \"TCP\", \n      \"port\": 80, \n      \"sourceIp\": \"19.27.253.134\", \n      \"sourceSubnetCidrMask\": 32 \n    }\n  ]\n}",
+      "exampleOutput": "{\n  \"securityGroupId\": \"sg-0bd40e2d7195add77\"\n}"
+    }
+  ],
+  "queryOutput": {
+    "success": [
+      {
+        "name": "Security Group ID",
+        "value": "securityGroupId"
+      }
+    ]
+  },
+  "name": "Create Security Group with Ingress Rules - AWS",
+  "overview": "Create Security group with Ingress rules for AWS EC2",
+  "webName": "Create Security Group with Ingress Rules - AWS - EC2",
+  "assetType": "Workflow"
+}

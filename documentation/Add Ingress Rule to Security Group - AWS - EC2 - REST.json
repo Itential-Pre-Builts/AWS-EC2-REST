@@ -14,18 +14,88 @@
       "webLink": "https://www.itential.com/adapters/amazon-ec2/"
     }
   ],
+  "externalDependencyList": [
+    {
+      "name": "AWS"
+    }
+  ],
   "capabilities": [
     {
-      "capability": "The workflow is used to add Ingress Rule to Security group in AWS EC2"
+      "capability": "The workflow is used to add Ingress Rule to Security group in AWS"
     }
   ],
   "entryPoint": {
     "name": "Add Ingress Rule to Security Group - AWS",
     "type": "Workflow"
   },
-  "queryOutput": {},
+  "inputs": [
+    {
+      "name": "sourceCidrIp",
+      "type": "string",
+      "required": "yes",
+      "description": "The IPv4 address range, in CIDR format",
+      "exampleValue": "19.27.253.13/32"
+    },
+    {
+      "name": "fromPort",
+      "type": "number",
+      "required": "yes",
+      "description": "The start of port range for the TCP and UDP protocols, or an ICMP type number",
+      "exampleValue": "80"
+    },
+    {
+      "name": "toPort",
+      "type": "number",
+      "required": "yes",
+      "description": "The end of port range for the TCP and UDP protocols, or an ICMP code number",
+      "exampleValue": "80"
+    },
+    {
+      "name": "groupId",
+      "type": "string",
+      "required": "yes",
+      "description": "The ID of the security group",
+      "exampleValue": "sg-08f249db62d26d8a6"
+    },
+    {
+      "name": "ipProtocol",
+      "type": "string",
+      "required": "yes",
+      "description": "The IP protocol name ( tcp , udp , icmp ) or number",
+      "exampleValue": "TCP"
+    },
+    {
+      "name": "adapterId",
+      "type": "string",
+      "required": "yes",
+      "description": "AWS EC2 adapter to use",
+      "exampleValue": "EC2"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "updatedSecurityGroup",
+      "type": "object",
+      "description": "The result of Create rule request",
+      "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": {\n    \"AuthorizeSecurityGroupIngressResponse\": {\n      \"_attr\": { \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" },\n      \"requestId\": \"2cf4e379-aac3-4fbe-b75d-543127204d91\",\n      \"return\": \"true\",\n      \"securityGroupRuleSet\": {\n        \"item\": {\n          \"groupOwnerId\": \"314014972859\",\n          \"groupId\": \"sg-08f249db62d26d8a6\",\n          \"securityGroupRuleId\": \"sgr-08f9a989136861e6c\",\n          \"isEgress\": \"false\",\n          \"ipProtocol\": \"tcp\",\n          \"fromPort\": \"80\",\n          \"toPort\": \"80\",\n          \"cidrIpv4\": \"19.27.253.13\/32\"\n        }\n      }\n    }\n  }\n}"
+    }
+  ],
+  "exampleInputsAndOutputs": [
+    {
+      "exampleInput": "{\n  \"sourceCidrIp\": \"19.27.253.13\/32\", \n  \"fromPort\": 80, \n  \"groupId\": \"sg-08f249db62d26d8a6\", \n  \"ipProtocol\": \"TCP\", \n  \"toPort\": 80, \n  \"adapterId\": \"EC2\" \n}",
+      "exampleOutput": "{\n  \"updatedSecurityGroup\": {\n    \"icode\": \"AD.200\",\n    \"response\": {\n      \"AuthorizeSecurityGroupIngressResponse\": {\n        \"_attr\": { \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" },\n        \"requestId\": \"2cf4e379-aac3-4fbe-b75d-543127204d91\",\n        \"return\": \"true\",\n        \"securityGroupRuleSet\": {\n          \"item\": {\n            \"groupOwnerId\": \"314014972859\",\n            \"groupId\": \"sg-08f249db62d26d8a6\",\n            \"securityGroupRuleId\": \"sgr-08f9a989136861e6c\",\n            \"isEgress\": \"false\",\n            \"ipProtocol\": \"tcp\",\n            \"fromPort\": \"80\",\n            \"toPort\": \"80\",\n            \"cidrIpv4\": \"19.27.253.13\/32\"\n          }\n        }\n      }\n    }\n  }\n}"
+    }
+  ],
+  "queryOutput": {
+    "success": [
+      {
+        "name": "Create Rule Request Result",
+        "value": "updatedSecurityGroup.response"
+      }
+    ]
+  },
   "name": "Add Ingress Rule to Security Group - AWS - EC2 - REST",
-  "overview": "Add Ingress Rule to Security group in AWS EC2",
+  "overview": "Add Ingress Rule to Security group in AWS",
   "webName": "Add Ingress Rule to Security Group - AWS - EC2",
   "assetType": "Workflow"
 }

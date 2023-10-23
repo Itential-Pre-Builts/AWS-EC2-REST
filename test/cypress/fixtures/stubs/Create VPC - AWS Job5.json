@@ -1,0 +1,53 @@
+{
+  "input": { "description": "It should run Create VPC", "variables": { "cidrBlock": "10.0.0.0/24", "adapterId": "EC2", "vpcName": "TEST VPC" } },
+  "expectedTaskResults": {
+    "status": "complete",
+    "variables": {
+      "cidrBlock": "10.0.0.0/24",
+      "adapterId": "EC2",
+      "vpcName": "TEST VPC"
+    }
+  },
+  "stubTasks": [
+    {
+      "taskId": "997d",
+      "variables": {
+        "incoming": { "cidrBlock": "10.0.0.0/24", "amazonProvidedIpv6CidrBlock": false, "dryRun": false, "instanceTenancy": "" },
+        "outgoing": {
+          "result": {
+            "icode": "AD.200",
+            "response": {
+              "CreateVpcResponse": {
+                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "requestId": "da850668-b4d9-4c57-846a-7b64e487eef9",
+                "vpc": {
+                  "vpcId": "vpc-057e1defa8211ba74",
+                  "ownerId": "314014972859",
+                  "state": "pending",
+                  "cidrBlock": "10.0.0.0/24",
+                  "cidrBlockAssociationSet": { "item": { "cidrBlock": "10.0.0.0/24", "associationId": "vpc-cidr-assoc-0f0f4d51506a452cd", "cidrBlockState": { "state": "associated" } } },
+                  "ipv6CidrBlockAssociationSet": "",
+                  "dhcpOptionsId": "dopt-045a5c88c0d702d2b",
+                  "instanceTenancy": "default",
+                  "isDefault": "false"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "taskId": "e803",
+      "variables": {
+        "incoming": { "dryRun": false, "resourceId": ["vpc-057e1defa8211ba74"], "tag": [{ "Key": "Name", "Value": "TEST VPC" }] },
+        "outgoing": {
+          "result": {
+            "icode": "AD.200",
+            "response": { "CreateTagsResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "d7e7078e-76a0-420b-af2a-348526c34132", "return": "true" } }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "iapVersions": [
+    "2023.1"
+  ],
+  "adapters": [
+    {
+      "isDependency": false,
+      "name": "adapter-aws_ec2",
+      "overview": "AWS EC2",
+      "webName": "Amazon EC2",
+      "version": "0.6.9",
+      "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
+      "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
+      "webLink": "https://www.itential.com/adapters/amazon-ec2/"
+    }
+  ],
+  "externalDependencyList": [
+    {
+      "name": "AWS"
+    }
+  ],
+  "capabilities": [
+    {
+      "capability": "The workflow is used to destroy VPC And EC2 Instance in AWS"
+    }
+  ],
+  "entryPoint": {
+    "name": "Destroy VPC and EC2 Instance - AWS",
+    "type": "Workflow"
+  },
+  "inputs": [
+    {
+      "name": "vpcId",
+      "type": "string",
+      "required": "yes",
+      "description": "The ID of the VPC",
+      "exampleValue": "vpc-0ece2ed1b3725e018"
+    },
+    {
+      "name": "adapterId",
+      "type": "string",
+      "required": "yes",
+      "description": "AWS EC2 adapter to use",
+      "exampleValue": "EC2"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "deletedVPC",
+      "type": "object",
+      "description": "Delete VPC request result",
+      "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": {\n    \"DeleteVpcResponse\": {\n      \"_attr\": {\n        \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\"\n      },\n      \"requestId\": \"81a08c9a-f42d-49ea-9359-9213d2a11250\",\n      \"return\": \"true\"\n    }\n  }\n}"
+    }
+  ],
+  "exampleInputsAndOutputs": [
+    {
+      "exampleInput": "{\n  \"vpcId\": \"vpc-0ece2ed1b3725e018\", \n  \"adapterId\": \"EC2\" \n}",
+      "exampleOutput": "{\n  \"deletedVPC\": {\n    \"icode\": \"AD.200\",\n    \"response\": {\n      \"DeleteVpcResponse\": {\n        \"_attr\": {\n          \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\"\n        },\n        \"requestId\": \"81a08c9a-f42d-49ea-9359-9213d2a11250\",\n        \"return\": \"true\"\n      }\n    }\n  }\n}"
+    }
+  ],
+  "queryOutput": {
+    "success": [
+      {
+        "name": "Delete VPC Request Result",
+        "value": "deletedVPC.response"
+      }
+    ]
+  },
+  "name": "Destroy VPC And EC2 Instance - AWS",
+  "overview": "Destroy VPC And EC2 Instance in AWS",
+  "webName": "Destroy VPC And EC2 Instance - AWS - EC2",
+  "assetType": "Workflow"
+}

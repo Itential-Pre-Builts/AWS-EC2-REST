@@ -1,8 +1,8 @@
-# Add Ingress Rule to Security Group - AWS - EC2 - REST
+# Create VPC - AWS - EC2 - REST
 
 ## Table of Contents
 
-- [Add Ingress Rule to Security Group - AWS - EC2 - REST](#add-ingress-rule-to-security-group---aws---ec2---rest)
+- [Create VPC - AWS](#create-vpc---aws---ec2---rest)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Getting Started](#getting-started)
@@ -20,17 +20,17 @@
 
 ## Overview
 
-Add Ingress Rule to Security group in AWS
+Create a VPC in AWS
 
 Capabilities include:
-- The workflow is used to add Ingress Rule to Security group in AWS
+- The workflow is used to create a VPC in AWS
 
 
 ## Getting Started
 
 ### Supported IAP Versions
 
-Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has been tested with:
+Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Create VPC - AWS - EC2 - REST** has been tested with:
 
 
 - IAP **2023.1**
@@ -39,7 +39,7 @@ Itential Workflow Projects are built and tested on particular versions of IAP. I
 
 ### External Dependencies
 
-This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has been tested with:
+This version of **Create VPC - AWS - EC2 - REST** has been tested with:
 
 <table>
   <thead>
@@ -61,10 +61,7 @@ This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has be
 
 
 
-
 ### Adapters
-
-This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has been tested with:
 
 <table>
   <thead>
@@ -80,7 +77,6 @@ This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has be
     </tr>
   </tbody>
 </table>
-
 
 
 ### How to Install
@@ -108,15 +104,13 @@ The primary IAP component to run this Workflow Project is listed below:
     </tr>
   </thead>
   <tbody>
-      <td>Add Ingress Rule to Security Group - AWS</td>
+      <td>Create VPC - AWS</td>
       <td>Workflow</td>
     </tr>
   </tbody>
 </table>
 
 ### Inputs
-
-The following table lists the inputs to the Workflow Project:
 
 <table>
   <thead>
@@ -130,35 +124,17 @@ The following table lists the inputs to the Workflow Project:
   </thead>
   <tbody>
     <tr>
-      <td>sourceCidrIp</td>
+      <td>cidrBlock</td>
       <td>string</td>
       <td>yes</td>
-      <td>The IPv4 address range, in CIDR format</td>
-      <td><pre lang="json">19.27.253.13/32</pre></td>
+      <td>The IPv4 network range for the VPC, in CIDR notation</td>
+      <td><pre lang="json">10.0.0.0/24</pre></td>
     </tr>    <tr>
-      <td>fromPort</td>
-      <td>number</td>
-      <td>yes</td>
-      <td>The start of port range for the TCP and UDP protocols, or an ICMP type number</td>
-      <td><pre lang="json">80</pre></td>
-    </tr>    <tr>
-      <td>toPort</td>
-      <td>number</td>
-      <td>yes</td>
-      <td>The end of port range for the TCP and UDP protocols, or an ICMP code number</td>
-      <td><pre lang="json">80</pre></td>
-    </tr>    <tr>
-      <td>groupId</td>
+      <td>vpcName</td>
       <td>string</td>
       <td>yes</td>
-      <td>The ID of the security group</td>
-      <td><pre lang="json">sg-08f249db62d26d8a6</pre></td>
-    </tr>    <tr>
-      <td>ipProtocol</td>
-      <td>string</td>
-      <td>yes</td>
-      <td>The IP protocol name ( tcp , udp , icmp ) or number</td>
-      <td><pre lang="json">TCP</pre></td>
+      <td>Name of the VPC</td>
+      <td><pre lang="json">TEST VPC</pre></td>
     </tr>    <tr>
       <td>adapterId</td>
       <td>string</td>
@@ -168,6 +144,7 @@ The following table lists the inputs to the Workflow Project:
     </tr>
   </tbody>
 </table>
+
 
 
 
@@ -184,32 +161,40 @@ The following table lists the inputs to the Workflow Project:
   </thead>
   <tbody>
     <tr>
-      <td>updatedSecurityGroup</td>
+      <td>createdVpc</td>
       <td>object</td>
-      <td>Create Rule Request Result</td>
+      <td>The Create VPC request result</td>
       <td><pre lang="json">{
   "icode": "AD.200",
   "response": {
-    "AuthorizeSecurityGroupIngressResponse": {
-      "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
-      "requestId": "2cf4e379-aac3-4fbe-b75d-543127204d91",
-      "return": "true",
-      "securityGroupRuleSet": {
-        "item": {
-          "groupOwnerId": "314014972859",
-          "groupId": "sg-08f249db62d26d8a6",
-          "securityGroupRuleId": "sgr-08f9a989136861e6c",
-          "isEgress": "false",
-          "ipProtocol": "tcp",
-          "fromPort": "80",
-          "toPort": "80",
-          "cidrIpv4": "19.27.253.13/32"
-        }
+    "CreateVpcResponse": {
+      "_attr": {
+        "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+      },
+      "requestId": "da850668-b4d9-4c57-846a-7b64e487eef9",
+      "vpc": {
+        "vpcId": "vpc-057e1defa8211ba74",
+        "ownerId": "314014972859",
+        "state": "pending",
+        "cidrBlock": "10.0.0.0/24",
+        "cidrBlockAssociationSet": {
+          "item": {
+            "cidrBlock": "10.0.0.0/24",
+            "associationId": "vpc-cidr-assoc-0f0f4d51506a452cd",
+            "cidrBlockState": {
+              "state": "associated"
+            }
+          }
+        },
+        "ipv6CidrBlockAssociationSet": "",
+        "dhcpOptionsId": "dopt-045a5c88c0d702d2b",
+        "instanceTenancy": "default",
+        "isDefault": "false"
       }
     }
   }
 }</pre></td>
-    </tr>
+    </tr> 
   </tbody>
 </table>
 
@@ -220,9 +205,10 @@ The following table lists the inputs to the Workflow Project:
 The following items show how to query successful results from the output:
 
       
-##### Create Rule Request Result
+##### Create VPC Request Result
 
-`updatedSecurityGroup.response`
+`createdVpc.response`
+
 
 
 ### Example Inputs and Outputs
@@ -232,36 +218,40 @@ The following items show how to query successful results from the output:
     
 Input:
 <pre>{
-  "sourceCidrIp": "19.27.253.13/32", 
-  "fromPort": 80, 
-  "groupId": "sg-08f249db62d26d8a6", 
-  "ipProtocol": "TCP", 
-  "toPort": 80, 
-  "adapterId": "EC2" 
+  "cidrBlock": "10.0.0.0/24",
+  "adapterId": "EC2",
+  "vpcName": "TEST VPC"
 } </pre>
-
 
 
 Output:
 <pre>{
-  "updatedSecurityGroup": {
+  "createdVpc": {
     "icode": "AD.200",
     "response": {
-      "AuthorizeSecurityGroupIngressResponse": {
-        "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
-        "requestId": "2cf4e379-aac3-4fbe-b75d-543127204d91",
-        "return": "true",
-        "securityGroupRuleSet": {
-          "item": {
-            "groupOwnerId": "314014972859",
-            "groupId": "sg-08f249db62d26d8a6",
-            "securityGroupRuleId": "sgr-08f9a989136861e6c",
-            "isEgress": "false",
-            "ipProtocol": "tcp",
-            "fromPort": "80",
-            "toPort": "80",
-            "cidrIpv4": "19.27.253.13/32"
-          }
+      "CreateVpcResponse": {
+        "_attr": {
+          "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+        },
+        "requestId": "da850668-b4d9-4c57-846a-7b64e487eef9",
+        "vpc": {
+          "vpcId": "vpc-057e1defa8211ba74",
+          "ownerId": "314014972859",
+          "state": "pending",
+          "cidrBlock": "10.0.0.0/24",
+          "cidrBlockAssociationSet": {
+            "item": {
+              "cidrBlock": "10.0.0.0/24",
+              "associationId": "vpc-cidr-assoc-0f0f4d51506a452cd",
+              "cidrBlockState": {
+                "state": "associated"
+              }
+            }
+          },
+          "ipv6CidrBlockAssociationSet": "",
+          "dhcpOptionsId": "dopt-045a5c88c0d702d2b",
+          "instanceTenancy": "default",
+          "isDefault": "false"
         }
       }
     }

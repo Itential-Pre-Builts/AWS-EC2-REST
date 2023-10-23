@@ -1,0 +1,73 @@
+{
+  "iapVersions": [
+    "2023.1"
+  ],
+  "adapters": [
+    {
+      "isDependency": false,
+      "name": "adapter-aws_ec2",
+      "overview": "AWS EC2",
+      "webName": "Amazon EC2",
+      "version": "0.6.9",
+      "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
+      "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
+      "webLink": "https://www.itential.com/adapters/amazon-ec2/"
+    }
+  ],
+  "externalDependencyList": [
+    {
+      "name": "AWS"
+    }
+  ],
+  "capabilities": [
+    {
+      "capability": "The workflow is used to delete VPC Subnets from AWS"
+    }
+  ],
+  "entryPoint": {
+    "name": "Delete Subnets by VPC - AWS",
+    "type": "Workflow"
+  },
+  "inputs": [
+    {
+      "name": "vpcId",
+      "type": "string",
+      "required": "yes",
+      "description": "The ID of the VPC",
+      "exampleValue": "vpc-0b678b7a21e66ded8"
+    },
+    {
+      "name": "adapterId",
+      "type": "string",
+      "required": "yes",
+      "description": "AWS EC2 adapter to use",
+      "exampleValue": "EC2"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "deletedSubnet",
+      "type": "array",
+      "description": "Delete Subnet request result",
+      "exampleValue": "[\n  {\n    \"icode\": \"AD.200\",\n    \"response\": { \n      \"DeleteSubnetResponse\": { \n        \"_attr\": { \n          \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n        }, \n        \"requestId\": \"31ea90a8-8dbb-4cde-912a-df8d1f1021ec\", \n        \"return\": \"true\" \n      } \n    }\n  }\n]"
+    }
+  ],
+  "exampleInputsAndOutputs": [
+    {
+      "exampleInput": "{\n  \"vpcId\": \"vpc-0b678b7a21e66ded8\",\n  \"adapterId\": \"EC2\" \n}",
+      "exampleOutput": "{\n  \"deletedSubnet\": [\n    {\n      \"icode\": \"AD.200\",\n      \"response\": { \n        \"DeleteSubnetResponse\": { \n          \"_attr\": { \n            \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n          }, \n          \"requestId\": \"31ea90a8-8dbb-4cde-912a-df8d1f1021ec\", \n          \"return\": \"true\" \n        } \n      }\n    }\n  ]\n}"
+    }
+  ],
+  "queryOutput": {
+    "success": [
+      {
+        "name": "Delete Subnet Request Result",
+        "value": "deletedSubnet"
+      }
+    ]
+  },
+  "name": "Delete Subnets by VPC - AWS",
+  "overview": "Delete VPC Subnets",
+  "webName": "Delete Subnets by VPC - AWS - EC2",
+  "assetType": "Workflow"
+}

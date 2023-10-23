@@ -1,12 +1,22 @@
 {
   "name": "AWS - EC2 - REST",
-  "overview": "Project for use cases around AWS EC2 using REST protocol",
+  "overview": "Project with workflows for use cases around AWS EC2 using REST protocol",
   "domains": [
     "Cloud"
   ],
-  "tags": [],
+  "tags": [
+    "VPC",
+    "EC2 Instance",
+    "Tagging"
+  ],
+  "useCases": [
+    "Create VPC and EC2 Instance",
+    "Destroy VPC and EC2 Instance"
+  ],
   "productLink": "https://aws.amazon.com/ec2/",
-  "apiLinks": [],
+  "apiLinks": [
+    "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html"
+  ],
   "storeLink": "",
   "docLink": "",
   "issueLink": "",
@@ -28,7 +38,6 @@
   "faqLink": "",
   "contributeLink": "",
   "webName": "Provision and Destroy VPC and EC2 Instance in AWS EC2",
-  "useCases": [],
   "webLink": "",
   "demoLinks": []
 }

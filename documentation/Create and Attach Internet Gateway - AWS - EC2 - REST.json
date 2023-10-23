@@ -1,0 +1,73 @@
+{
+  "iapVersions": [
+    "2023.1"
+  ],
+  "adapters": [
+    {
+      "isDependency": false,
+      "name": "adapter-aws_ec2",
+      "overview": "AWS EC2",
+      "webName": "Amazon EC2",
+      "version": "0.6.9",
+      "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
+      "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
+      "webLink": "https://www.itential.com/adapters/amazon-ec2/"
+    }
+  ],
+  "externalDependencyList": [
+    {
+      "name": "AWS"
+    }
+  ],
+  "capabilities": [
+    {
+      "capability": "The workflow is used to create and attach Internet gateway to VPC in AWS"
+    }
+  ],
+  "entryPoint": {
+    "name": "Create and Attach Internet Gateway - AWS",
+    "type": "Workflow"
+  },
+  "inputs": [
+    {
+      "name": "vpcId",
+      "type": "string",
+      "required": "yes",
+      "description": "The ID of the VPC",
+      "exampleValue": "vpc-0c78b30c98d04b8ce"
+    },
+    {
+      "name": "adapterId",
+      "type": "string",
+      "required": "yes",
+      "description": "AWS EC2 adapter to use",
+      "exampleValue": "EC2"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "internetGatewayId",
+      "type": "string",
+      "description": "The ID of the created Internet gateway",
+      "exampleValue": "igw-01462c9d3d191a0b3"
+    }
+  ],
+  "exampleInputsAndOutputs": [
+    {
+      "exampleInput": "{\n  \"adapterId\": \"EC2\", \n  \"vpcId\": \"vpc-0c78b30c98d04b8ce\" \n}",
+      "exampleOutput": "{\n  \"internetGatewayId\": \"igw-01462c9d3d191a0b3\" \n}"
+    }
+  ],
+  "queryOutput": {
+    "success": [
+      {
+        "name": "The ID of the created Internet gateway",
+        "value": "internetGatewayId"
+      }
+    ]
+  },
+  "name": "Create and Attach Internet Gateway - AWS",
+  "overview": "Create and Attach Internet gateway to VPC in AWS",
+  "webName": "Create and Attach Internet Gateway - AWS - EC2",
+  "assetType": "Workflow"
+}

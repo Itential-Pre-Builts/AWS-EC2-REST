@@ -1,6 +1,33 @@
 {
   "name": "Destroy VPC and EC2 Instance - AWS",
   "tasks": {
+    "2868": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Query reservationSet item",
+      "description": "Query reservationSet item",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "response.DescribeInstancesResponse.reservationSet.item",
+          "obj": "$var.9653.result"
+        },
+        "outgoing": {
+          "return_data": ""
+        }
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "nodeLocation": {
+        "x": -180,
+        "y": 312
+      }
+    },
     "6253": {
       "name": "deleteVpc",
       "canvasName": "deleteVpc",
@@ -18,7 +45,7 @@
           "adapter_id": "$var.job.adapterId"
         },
         "outgoing": {
-          "result": null
+          "result": "$var.job.deletedVPC"
         },
         "error": "",
         "decorators": []
@@ -29,7 +56,7 @@
       "y": 0.15151515151515152,
       "scheduled": false,
       "nodeLocation": {
-        "x": 2016,
+        "x": 2964,
         "y": 312
       }
     },
@@ -59,7 +86,7 @@
       "actor": "Pronghorn",
       "groups": [],
       "nodeLocation": {
-        "x": -696,
+        "x": -792,
         "y": 312
       }
     },
@@ -79,8 +106,8 @@
       "x": 1.0124843945068664,
       "y": 0.15151515151515152,
       "nodeLocation": {
-        "x": 2256,
-        "y": 312
+        "x": 3228,
+        "y": 300
       }
     },
     "992b": {
@@ -95,7 +122,7 @@
       "displayName": "Awsec2",
       "variables": {
         "incoming": {
-          "instanceId": "$var.efc0.instanceIdArray",
+          "instanceId": "$var.dd21.instanceIdArray",
           "dryRun": false,
           "adapter_id": "$var.job.adapterId"
         },
@@ -111,7 +138,7 @@
       "y": 0.14858260019550343,
       "scheduled": false,
       "nodeLocation": {
-        "x": 144,
+        "x": 1044,
         "y": 312
       }
     },
@@ -139,7 +166,7 @@
       "y": 0.3176930596285435,
       "scheduled": false,
       "nodeLocation": {
-        "x": 2016,
+        "x": 2964,
         "y": 420
       }
     },
@@ -216,7 +243,7 @@
       "x": 0.5967540574282147,
       "y": 0.1495601173020528,
       "nodeLocation": {
-        "x": 1392,
+        "x": 2340,
         "y": 312
       }
     },
@@ -257,7 +284,7 @@
       "x": 0.7827715355805244,
       "y": 0.1495601173020528,
       "nodeLocation": {
-        "x": 1704,
+        "x": 2640,
         "y": 312
       }
     },
@@ -286,8 +313,8 @@
       "y": 0.28152492668621704,
       "scheduled": false,
       "nodeLocation": {
-        "x": 768,
-        "y": 420
+        "x": 1716,
+        "y": 432
       }
     },
     "ab1": {
@@ -321,7 +348,7 @@
       "y": 0.1495601173020528,
       "scheduled": false,
       "nodeLocation": {
-        "x": 456,
+        "x": 1368,
         "y": 312
       }
     },
@@ -366,7 +393,7 @@
       "x": 0.30087390761548066,
       "y": 0.15053763440860216,
       "nodeLocation": {
-        "x": 768,
+        "x": 1716,
         "y": 312
       }
     },
@@ -408,7 +435,7 @@
       "x": 0.433832709113608,
       "y": 0.14858260019550343,
       "nodeLocation": {
-        "x": 1080,
+        "x": 2028,
         "y": 312
       }
     },
@@ -483,12 +510,226 @@
       "task_name": "Process Instance Response",
       "retrySettings": null,
       "nodeLocation": {
-        "x": -168,
+        "x": 432,
+        "y": 432
+      }
+    },
+    "0f2e": {
+      "name": "evaluation",
+      "canvasName": "evaluation",
+      "summary": "Reserved Instances Found?",
+      "description": "Run an evaluation",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "all_true_flag": false,
+          "evaluation_groups": [
+            {
+              "all_true_flag": false,
+              "evaluations": [
+                {
+                  "operand_1": {
+                    "task": "9653",
+                    "variable": "result"
+                  },
+                  "operand_2": {
+                    "task": "static",
+                    "variable": ""
+                  },
+                  "operator": "!=",
+                  "query": "response.DescribeInstancesResponse.reservationSet",
+                  "rightQuery": ""
+                }
+              ]
+            }
+          ]
+        },
+        "outgoing": {
+          "return_value": ""
+        }
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "nodeLocation": {
+        "x": -480,
         "y": 312
+      }
+    },
+    "da24": {
+      "name": "stub",
+      "canvasName": "stub",
+      "summary": "No Reserved Instances Found",
+      "description": "No Reserved Instances Found",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "type": "success",
+          "delay": "",
+          "response": ""
+        },
+        "outgoing": {
+          "response": ""
+        }
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "nodeLocation": {
+        "x": -480,
+        "y": 180
+      }
+    },
+    "8e38": {
+      "name": "isArray",
+      "canvasName": "isArray",
+      "summary": "Checks if reservationSet item is array",
+      "description": "Returns a boolean that indicates if reservationSet item is an array.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Array",
+      "variables": {
+        "incoming": {
+          "arr": "$var.2868.return_data"
+        },
+        "outgoing": {
+          "isAnArray": ""
+        }
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "nodeLocation": {
+        "x": 120,
+        "y": 312
+      }
+    },
+    "82c6": {
+      "name": "evaluation",
+      "canvasName": "evaluation",
+      "summary": "reservationSet item is array?",
+      "description": "Run an evaluation",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "all_true_flag": false,
+          "evaluation_groups": [
+            {
+              "all_true_flag": false,
+              "evaluations": [
+                {
+                  "operand_1": {
+                    "task": "8e38",
+                    "variable": "isAnArray"
+                  },
+                  "operand_2": {
+                    "task": "static",
+                    "variable": true
+                  },
+                  "operator": "==",
+                  "query": "",
+                  "rightQuery": ""
+                }
+              ]
+            }
+          ]
+        },
+        "outgoing": {
+          "return_value": ""
+        }
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "nodeLocation": {
+        "x": 432,
+        "y": 312
+      }
+    },
+    "dd21": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "Process Instance Response with Multiple Reserved Instances",
+      "description": "Process Instance Response with Multiple Reserved Instances",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "6535d4e97c6b51019f8f4142",
+          "variableMap": {
+            "instanceResponse": "$var.9653.result"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "instanceIdArray": null
+        },
+        "decorators": []
+      },
+      "actor": "Pronghorn",
+      "groups": [],
+      "nodeLocation": {
+        "x": 744,
+        "y": 312
+      }
+    },
+    "a4ce": {
+      "name": "terminateInstances",
+      "canvasName": "terminateInstances",
+      "summary": "Terminate Instances",
+      "description": "Terminates EC2 Instances",
+      "location": "Adapter",
+      "locationType": "Awsec2",
+      "app": "Awsec2",
+      "type": "automatic",
+      "displayName": "Awsec2",
+      "variables": {
+        "incoming": {
+          "instanceId": "$var.efc0.instanceIdArray",
+          "dryRun": false,
+          "adapter_id": "$var.job.adapterId"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.06991260923845194,
+      "y": 0.14858260019550343,
+      "scheduled": false,
+      "nodeLocation": {
+        "x": 1044,
+        "y": 432
       }
     }
   },
   "transitions": {
+    "2868": {
+      "8e38": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
     "6253": {
       "477f": {
         "type": "standard",
@@ -500,7 +741,7 @@
       }
     },
     "9653": {
-      "efc0": {
+      "0f2e": {
         "state": "success",
         "type": "standard"
       }
@@ -577,9 +818,53 @@
       }
     },
     "efc0": {
-      "992b": {
+      "a4ce": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "0f2e": {
+      "2868": {
+        "state": "success",
+        "type": "standard"
+      },
+      "da24": {
         "type": "standard",
-        "state": "success"
+        "state": "failure"
+      }
+    },
+    "da24": {
+      "workflow_end": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "8e38": {
+      "82c6": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "82c6": {
+      "dd21": {
+        "state": "success",
+        "type": "standard"
+      },
+      "efc0": {
+        "type": "standard",
+        "state": "failure"
+      }
+    },
+    "dd21": {
+      "992b": {
+        "state": "success",
+        "type": "standard"
+      }
+    },
+    "a4ce": {
+      "ab1": {
+        "state": "success",
+        "type": "standard"
       }
     },
     "b2c3": {},
@@ -631,24 +916,28 @@
       },
       "initiator": {
         "type": "string"
+      },
+      "deletedVPC": {
+        "title": "result",
+        "type": "object"
       }
     }
   },
   "type": "automation",
   "font_size": 12,
-  "lastUpdatedVersion": "5.46.0-2023.1.21.0",
+  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
   "createdVersion": "5.46.0-2023.1.21.0",
   "preAutomationTime": 0,
   "sla": 0,
-  "canvasVersion": 1.5,
   "created_by": {
     "provenance": "local_aaa",
     "username": "admin@pronghorn",
     "firstname": "admin",
     "inactive": false
   },
-  "last_updated": "2023-10-17T20:31:12.790Z",
+  "last_updated": "2023-10-23T02:43:58.333Z",
   "created": "2023-10-17T18:10:18.488Z",
+  "canvasVersion": 1.5,
   "last_updated_by": {
     "provenance": "local_aaa",
     "username": "admin@pronghorn",

@@ -1,0 +1,97 @@
+{
+  "iapVersions": [
+    "2023.1"
+  ],
+  "adapters": [
+    {
+      "isDependency": false,
+      "name": "adapter-aws_ec2",
+      "overview": "AWS EC2",
+      "webName": "Amazon EC2",
+      "version": "0.6.9",
+      "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
+      "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
+      "webLink": "https://www.itential.com/adapters/amazon-ec2/"
+    }
+  ],
+  "externalDependencyList": [
+    {
+      "name": "AWS"
+    }
+  ],
+  "capabilities": [
+    {
+      "capability": "The workflow is used to create a route within a VPC in AWS"
+    }
+  ],
+  "entryPoint": {
+    "name": "Create Route - AWS",
+    "type": "Workflow"
+  },
+  "inputs": [
+    {
+      "name": "destinationCidrBlock",
+      "type": "string",
+      "required": "yes",
+      "description": "The IPv4 CIDR address block used for the destination match",
+      "exampleValue": "0.0.0.0/0"
+    },
+    {
+      "name": "gatewayId",
+      "type": "string",
+      "required": "yes",
+      "description": "The ID of an internet gateway or virtual private gateway attached to your VPC",
+      "exampleValue": "igw-0fae02dad528986b6"
+    },
+    {
+      "name": "vpcId",
+      "type": "string",
+      "required": "yes",
+      "description": "ID of the VPC",
+      "exampleValue": "vpc-0324c35cf9d083a40"
+    },
+    {
+      "name": "adapterId",
+      "type": "string",
+      "required": "yes",
+      "description": "AWS EC2 adapter to use",
+      "exampleValue": "EC2"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "routeTableId",
+      "type": "string",
+      "description": "ID of the route table",
+      "exampleValue": "rtb-06d646d475a5b5d48"
+    },
+    {
+      "name": "createdRoute",
+      "type": "object",
+      "description": "Result of the create route request",
+      "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": { \n    \"CreateRouteResponse\": { \n      \"_attr\": { \n        \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n      }, \n      \"requestId\": \"4e157878-b2fb-4f95-8312-8c3cbbec8b18\", \n      \"return\": \"true\" \n    } \n  }\n}"
+    }
+  ],
+  "exampleInputsAndOutputs": [
+    {
+      "exampleInput": "{\n  \"destinationCidrBlock\": \"0.0.0.0\/0\",\n  \"gatewayId\": \"igw-0fae02dad528986b6\", \n  \"adapterId\": \"EC2\", \n  \"vpcId\": \"vpc-0324c35cf9d083a40\" \n}",
+      "exampleOutput": "{\n  \"routeTableId\": \"rtb-06d646d475a5b5d48\",\n  \"createdRoute\": {\n    \"icode\": \"AD.200\",\n    \"response\": { \n      \"CreateRouteResponse\": { \n        \"_attr\": { \n          \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n        }, \n        \"requestId\": \"4e157878-b2fb-4f95-8312-8c3cbbec8b18\", \n        \"return\": \"true\" \n      } \n    }\n  }  \n}"
+    }
+  ],
+  "queryOutput": {
+    "success": [
+      {
+        "name": "Route table ID",
+        "value": "routeTableId"
+      },
+      {
+        "name": "Create Route Request",
+        "value": "createdRoute.response"
+      }
+    ]
+  },
+  "name": "Create Route - AWS",
+  "overview": "Create a route within a VPC in AWS",
+  "webName": "Create Route - AWS - EC2",
+  "assetType": "Workflow"
+}

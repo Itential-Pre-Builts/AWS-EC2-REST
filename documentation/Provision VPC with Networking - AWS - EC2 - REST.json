@@ -1,0 +1,131 @@
+{
+  "iapVersions": [
+    "2023.1"
+  ],
+  "adapters": [
+    {
+      "isDependency": false,
+      "name": "adapter-aws_ec2",
+      "overview": "AWS EC2",
+      "webName": "Amazon EC2",
+      "version": "0.6.9",
+      "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
+      "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
+      "webLink": "https://www.itential.com/adapters/amazon-ec2/"
+    }
+  ],
+  "externalDependencyList": [
+    {
+      "name": "AWS"
+    }
+  ],
+  "capabilities": [
+    {
+      "capability": "The workflow is used to create and configure VPC in AWS"
+    }
+  ],
+  "entryPoint": {
+    "name": "Provision VPC with Networking - AWS ",
+    "type": "Workflow"
+  },
+  "inputs": [
+    {
+      "name": "vpcSubnet",
+      "type": "string",
+      "required": "yes",
+      "description": "The IPv4 network range for the VPC, in CIDR notation",
+      "exampleValue": "10.20.30.1/28"
+    },
+    {
+      "name": "vpcName",
+      "type": "string",
+      "required": "yes",
+      "description": "Name of your VPC",
+      "exampleValue": "Test VPC1234"
+    },
+    {
+      "name": "securityGroupName",
+      "type": "string",
+      "required": "yes",
+      "description": "Name of the Security group",
+      "exampleValue": "TESTING 1"
+    },
+    {
+      "name": "securityGroupDesc",
+      "type": "string",
+      "required": "yes",
+      "description": "Description of the Security group",
+      "exampleValue": "Security Group for TESTING"
+    },
+    {
+      "name": "ingressRules",
+      "type": "array",
+      "required": "yes",
+      "description": "List of rules",
+      "exampleValue": "[\r\n   {\r\n      \"sourceSubnetCidrMask\": 32, \r\n      \"sourceIp\": \"199.27.253.134\", \r\n      \"protocol\": \"TCP\", \r\n      \"port\": 80\r\n   }\r\n]"
+    },
+    {
+      "name": "adapterId",
+      "type": "string",
+      "required": "yes",
+      "description": "AWS EC2 adapter to use",
+      "exampleValue": "EC2"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "vpcId",
+      "type": "string",
+      "description": "ID of the created VPC",
+      "exampleValue": "vpc-0b678b7a21e66ded8"
+    },
+    {
+      "name": "subnetId",
+      "type": "string",
+      "description": "ID of the created subnet",
+      "exampleValue": "subnet-097a82181b977273f"
+    },
+    {
+      "name": "internetGatewayId",
+      "type": "string",
+      "description": "ID of the created Internet gateway",
+      "exampleValue": "igw-070593dabfda1adf0"
+    },
+    {
+      "name": "securityGroupId",
+      "type": "string",
+      "description": "ID of the created Security group",
+      "exampleValue": "sg-0cdc4162d4cd16dfe"
+    }
+  ],
+  "exampleInputsAndOutputs": [
+    {
+      "exampleInput": "{\n  \"vpcSubnet\": \"10.20.30.1\/28\",\n  \"vpcName\": \"Test VPC1234\",\n  \"adapterId\": \"EC2\",\n  \"securityGroupName\": \"TESTING 1\",\n  \"securityGroupDesc\": \"Security Group for TESTING\",\n  \"ingressRules\": [\n    {\n      \"sourceSubnetCidrMask\": 32, \n      \"sourceIp\": \"199.27.253.134\", \n      \"protocol\": \"TCP\", \n      \"port\": 80\n    }\n  ] \n}",
+      "exampleOutput": "{\n  \"vpcId\": \"vpc-0b678b7a21e66ded8\",\n  \"subnetId\": \"subnet-097a82181b977273f\",\n  \"internetGatewayId\": \"igw-070593dabfda1adf0\",\n  \"securityGroupId\": \"sg-0cdc4162d4cd16dfe\"\n}"
+    }
+  ],
+  "queryOutput": {
+    "success": [
+      {
+        "name": "Create VPC Result",
+        "value": "vpcId"
+      },
+      {
+        "name": "Create Subnet Result",
+        "value": "subnetId"
+      },
+      {
+        "name": "Create Internet Gateway Result",
+        "value": "internetGatewayId"
+      },
+      {
+        "name": "Create Security Group Result",
+        "value": "securityGroupId"
+      }
+    ]
+  },
+  "name": "Provision VPC with Networking - AWS",
+  "overview": "Create and Configure VPC in AWS",
+  "webName": "Provision VPC with Networking - AWS - EC2",
+  "assetType": "Workflow"
+}

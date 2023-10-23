@@ -1,8 +1,8 @@
-# Add Ingress Rule to Security Group - AWS - EC2 - REST
+# Create Route - AWS - EC2 - REST
 
 ## Table of Contents
 
-- [Add Ingress Rule to Security Group - AWS - EC2 - REST](#add-ingress-rule-to-security-group---aws---ec2---rest)
+- [Create Route - AWS](#create-route---aws---ec2---rest)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Getting Started](#getting-started)
@@ -20,17 +20,17 @@
 
 ## Overview
 
-Add Ingress Rule to Security group in AWS
+Create a route within a VPC in AWS
 
 Capabilities include:
-- The workflow is used to add Ingress Rule to Security group in AWS
+- The workflow is used to create a route within a VPC in AWS
 
 
 ## Getting Started
 
 ### Supported IAP Versions
 
-Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has been tested with:
+Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Create Route - AWS - EC2 - REST** has been tested with:
 
 
 - IAP **2023.1**
@@ -39,7 +39,7 @@ Itential Workflow Projects are built and tested on particular versions of IAP. I
 
 ### External Dependencies
 
-This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has been tested with:
+This version of **Create Route - AWS - EC2 - REST** has been tested with:
 
 <table>
   <thead>
@@ -61,10 +61,7 @@ This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has be
 
 
 
-
 ### Adapters
-
-This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has been tested with:
 
 <table>
   <thead>
@@ -80,7 +77,6 @@ This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has be
     </tr>
   </tbody>
 </table>
-
 
 
 ### How to Install
@@ -108,15 +104,13 @@ The primary IAP component to run this Workflow Project is listed below:
     </tr>
   </thead>
   <tbody>
-      <td>Add Ingress Rule to Security Group - AWS</td>
+      <td>Create Route - AWS</td>
       <td>Workflow</td>
     </tr>
   </tbody>
 </table>
 
 ### Inputs
-
-The following table lists the inputs to the Workflow Project:
 
 <table>
   <thead>
@@ -130,35 +124,23 @@ The following table lists the inputs to the Workflow Project:
   </thead>
   <tbody>
     <tr>
-      <td>sourceCidrIp</td>
+      <td>destinationCidrBlock</td>
       <td>string</td>
       <td>yes</td>
-      <td>The IPv4 address range, in CIDR format</td>
-      <td><pre lang="json">19.27.253.13/32</pre></td>
+      <td>The IPv4 CIDR address block used for the destination match</td>
+      <td><pre lang="json">0.0.0.0/0</pre></td>
     </tr>    <tr>
-      <td>fromPort</td>
-      <td>number</td>
-      <td>yes</td>
-      <td>The start of port range for the TCP and UDP protocols, or an ICMP type number</td>
-      <td><pre lang="json">80</pre></td>
-    </tr>    <tr>
-      <td>toPort</td>
-      <td>number</td>
-      <td>yes</td>
-      <td>The end of port range for the TCP and UDP protocols, or an ICMP code number</td>
-      <td><pre lang="json">80</pre></td>
-    </tr>    <tr>
-      <td>groupId</td>
+      <td>gatewayId</td>
       <td>string</td>
       <td>yes</td>
-      <td>The ID of the security group</td>
-      <td><pre lang="json">sg-08f249db62d26d8a6</pre></td>
+      <td>The ID of an internet gateway or virtual private gateway attached to your VPC</td>
+      <td><pre lang="json">igw-0fae02dad528986b6</pre></td>
     </tr>    <tr>
-      <td>ipProtocol</td>
+      <td>vpcId</td>
       <td>string</td>
       <td>yes</td>
-      <td>The IP protocol name ( tcp , udp , icmp ) or number</td>
-      <td><pre lang="json">TCP</pre></td>
+      <td>ID of the VPC</td>
+      <td><pre lang="json">vpc-0324c35cf9d083a40</pre></td>
     </tr>    <tr>
       <td>adapterId</td>
       <td>string</td>
@@ -168,6 +150,7 @@ The following table lists the inputs to the Workflow Project:
     </tr>
   </tbody>
 </table>
+
 
 
 
@@ -184,29 +167,24 @@ The following table lists the inputs to the Workflow Project:
   </thead>
   <tbody>
     <tr>
-      <td>updatedSecurityGroup</td>
+      <td>routeTableId</td>
+      <td>string</td>
+      <td>ID of the route table</td>
+      <td><pre lang="json">rtb-06d646d475a5b5d48</pre></td>
+    </tr> <tr>
+      <td>createdRouted</td>
       <td>object</td>
-      <td>Create Rule Request Result</td>
+      <td>Result of the create route request</td>
       <td><pre lang="json">{
   "icode": "AD.200",
-  "response": {
-    "AuthorizeSecurityGroupIngressResponse": {
-      "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
-      "requestId": "2cf4e379-aac3-4fbe-b75d-543127204d91",
-      "return": "true",
-      "securityGroupRuleSet": {
-        "item": {
-          "groupOwnerId": "314014972859",
-          "groupId": "sg-08f249db62d26d8a6",
-          "securityGroupRuleId": "sgr-08f9a989136861e6c",
-          "isEgress": "false",
-          "ipProtocol": "tcp",
-          "fromPort": "80",
-          "toPort": "80",
-          "cidrIpv4": "19.27.253.13/32"
-        }
-      }
-    }
+  "response": { 
+    "CreateRouteResponse": { 
+      "_attr": { 
+        "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" 
+      }, 
+      "requestId": "4e157878-b2fb-4f95-8312-8c3cbbec8b18", 
+      "return": "true" 
+    } 
   }
 }</pre></td>
     </tr>
@@ -220,9 +198,13 @@ The following table lists the inputs to the Workflow Project:
 The following items show how to query successful results from the output:
 
       
-##### Create Rule Request Result
+##### ID of the route table
 
-`updatedSecurityGroup.response`
+`routeTableId`
+
+##### Create Route Request Result
+
+`createdRouted.response`
 
 
 ### Example Inputs and Outputs
@@ -231,39 +213,27 @@ The following items show how to query successful results from the output:
 
     
 Input:
-<pre>{
-  "sourceCidrIp": "19.27.253.13/32", 
-  "fromPort": 80, 
-  "groupId": "sg-08f249db62d26d8a6", 
-  "ipProtocol": "TCP", 
-  "toPort": 80, 
-  "adapterId": "EC2" 
+<pre>{ 
+  "destinationCidrBlock": "0.0.0.0/0", 
+  "gatewayId": "igw-0fae02dad528986b6", 
+  "adapterId": "EC2", 
+  "vpcId": "vpc-0324c35cf9d083a40" 
 } </pre>
-
 
 
 Output:
 <pre>{
-  "updatedSecurityGroup": {
+  "routeTableId": "rtb-06d646d475a5b5d48",
+  "createdRoute": {
     "icode": "AD.200",
-    "response": {
-      "AuthorizeSecurityGroupIngressResponse": {
-        "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
-        "requestId": "2cf4e379-aac3-4fbe-b75d-543127204d91",
-        "return": "true",
-        "securityGroupRuleSet": {
-          "item": {
-            "groupOwnerId": "314014972859",
-            "groupId": "sg-08f249db62d26d8a6",
-            "securityGroupRuleId": "sgr-08f9a989136861e6c",
-            "isEgress": "false",
-            "ipProtocol": "tcp",
-            "fromPort": "80",
-            "toPort": "80",
-            "cidrIpv4": "19.27.253.13/32"
-          }
-        }
-      }
+    "response": { 
+      "CreateRouteResponse": { 
+        "_attr": { 
+          "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" 
+        }, 
+        "requestId": "4e157878-b2fb-4f95-8312-8c3cbbec8b18", 
+        "return": "true" 
+      } 
     }
   }
 } </pre>

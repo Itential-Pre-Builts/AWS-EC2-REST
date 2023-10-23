@@ -158,6 +158,15 @@
       }
     },
     {
+      "id": "6532e52c344dfd019e4b388c",
+      "name": "Build Subnet Delete Array with Multiple Subnet Items",
+      "type": "transformation",
+      "location": "/bundles/transformations/Build Subnet Delete Array with Multiple Subnet Items.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
       "id": "63e3a39ed59d6601415e4e09",
       "name": "Build VPC Filter",
       "type": "transformation",
@@ -198,6 +207,15 @@
       "name": "Process Instance Response",
       "type": "transformation",
       "location": "/bundles/transformations/Process Instance Response.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "6535d4e97c6b51019f8f4142",
+      "name": "Process Instance Response with Multiple Reserved Instances",
+      "type": "transformation",
+      "location": "/bundles/transformations/Process Instance Response with Multiple Reserved Instances.json",
       "properties": {
         "entryPoint": false
       }

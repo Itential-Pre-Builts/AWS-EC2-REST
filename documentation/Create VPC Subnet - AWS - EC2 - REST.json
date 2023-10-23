@@ -1,0 +1,80 @@
+{
+  "iapVersions": [
+    "2023.1"
+  ],
+  "adapters": [
+    {
+      "isDependency": false,
+      "name": "adapter-aws_ec2",
+      "overview": "AWS EC2",
+      "webName": "Amazon EC2",
+      "version": "0.6.9",
+      "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
+      "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
+      "webLink": "https://www.itential.com/adapters/amazon-ec2/"
+    }
+  ],
+  "externalDependencyList": [
+    {
+      "name": "AWS"
+    }
+  ],
+  "capabilities": [
+    {
+      "capability": "The workflow is used to create subnet for a VPC in AWS"
+    }
+  ],
+  "entryPoint": {
+    "name": "Create VPC Subnet - AWS",
+    "type": "Workflow"
+  },
+  "inputs": [
+    {
+      "name": "cidrBlock",
+      "type": "string",
+      "required": "yes",
+      "description": "The IPv4 network range for the VPC, in CIDR notation",
+      "exampleValue": "10.0.0.0/24"
+    },
+    {
+      "name": "vpcId",
+      "type": "string",
+      "required": "yes",
+      "description": "The ID of the VPC",
+      "exampleValue": "vpc-0ece2ed1b3725e018"
+    },
+    {
+      "name": "adapterId",
+      "type": "string",
+      "required": "yes",
+      "description": "AWS EC2 adapter to use",
+      "exampleValue": "EC2"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "subnetId",
+      "type": "string",
+      "description": "ID of the created subnet",
+      "exampleValue": "subnet-04545f4e6b8bc63ea"
+    }
+  ],
+  "exampleInputsAndOutputs": [
+    {
+      "exampleInput": "{\n  \"cidrBlock\": \"100.68.0.1\/18\", \n  \"vpcId\": \"vpc-0ece2ed1b3725e018\", \n  \"adapterId\": \"EC2\" \n}",
+      "exampleOutput": "{\n  \"subnetId\": \"subnet-04545f4e6b8bc63ea\" \n}"
+    }
+  ],
+  "queryOutput": {
+    "success": [
+      {
+        "name": "Created Subnet ID",
+        "value": "subnetId"
+      }
+    ]
+  },
+  "name": "Create VPC Subnet - AWS",
+  "overview": "Create subnet for a VPC in AWS",
+  "webName": "Create VPC Subnet - AWS - EC2",
+  "assetType": "Workflow"
+}

@@ -180,6 +180,15 @@
         }
       },
       {
+        "id": "6532e52c344dfd019e4b388c",
+        "name": "Build Subnet Delete Array with Multiple Subnet Items",
+        "type": "transformation",
+        "location": "/bundles/transformations/Build Subnet Delete Array with Multiple Subnet Items.json",
+        "properties": {
+          "entryPoint": false
+        }
+      },
+      {
         "id": "63e3a39ed59d6601415e4e09",
         "name": "Build VPC Filter",
         "type": "transformation",
@@ -220,6 +229,15 @@
         "name": "Process Instance Response",
         "type": "transformation",
         "location": "/bundles/transformations/Process Instance Response.json",
+        "properties": {
+          "entryPoint": false
+        }
+      },
+      {
+        "id": "6535d4e97c6b51019f8f4142",
+        "name": "Process Instance Response with Multiple Reserved Instances",
+        "type": "transformation",
+        "location": "/bundles/transformations/Process Instance Response with Multiple Reserved Instances.json",
         "properties": {
           "entryPoint": false
         }
@@ -277,7 +295,7 @@
                 "adapter_id": "$var.job.adapterId"
               },
               "outgoing": {
-                "result": null
+                "result": "$var.job.updatedSecurityGroup"
               },
               "error": "",
               "decorators": []
@@ -399,18 +417,21 @@
             },
             "initiator": {
               "type": "string"
+            },
+            "updatedSecurityGroup": {
+              "title": "result",
+              "type": "object"
             }
           }
         },
         "font_size": 12,
         "created": "2023-02-08T13:42:54.948Z",
         "createdVersion": "5.44.64-2022.1.25.0",
-        "last_updated": "2023-10-17T20:22:18.193Z",
-        "lastUpdatedVersion": "5.46.0-2023.1.21.0",
+        "last_updated": "2023-10-19T18:37:37.043Z",
+        "lastUpdatedVersion": "5.46.0-2023.1.19.0",
         "type": "automation",
         "preAutomationTime": 0,
         "sla": 0,
-        "canvasVersion": 1.5,
         "created_by": {
           "provenance": "local_aaa",
           "username": "admin@pronghorn",
@@ -423,6 +444,7 @@
           "firstname": "admin",
           "inactive": false
         },
+        "canvasVersion": 1.5,
         "tags": [],
         "groups": [],
         "migrationVersion": 2
@@ -1346,7 +1368,7 @@
                 "adapter_id": "$var.job.adapterId"
               },
               "outgoing": {
-                "result": null
+                "result": "$var.job.createdRoute"
               },
               "error": "",
               "decorators": []
@@ -1566,30 +1588,34 @@
               "examples": [
                 "value"
               ]
+            },
+            "createdRoute": {
+              "title": "result",
+              "type": "object"
             }
           }
         },
-        "font_size": 12,
+        "canvasVersion": 1.5,
         "created": "2021-02-01T21:03:56.846Z",
         "createdVersion": "5.10.4-2020.1.22.0",
-        "last_updated": "2023-10-16T17:23:27.891Z",
-        "lastUpdatedVersion": "5.46.0-2023.1.19.0",
-        "type": "automation",
-        "preAutomationTime": 0,
-        "sla": 0,
-        "canvasVersion": 1.5,
         "created_by": {
           "provenance": "local_aaa",
           "username": "admin@pronghorn",
           "firstname": "admin",
           "inactive": false
         },
+        "font_size": 12,
+        "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+        "last_updated": "2023-10-19T19:42:10.110Z",
         "last_updated_by": {
           "provenance": "local_aaa",
           "username": "admin@pronghorn",
           "firstname": "admin",
           "inactive": false
         },
+        "preAutomationTime": 0,
+        "sla": 0,
+        "type": "automation",
         "tags": [],
         "groups": [],
         "migrationVersion": 2
@@ -3532,7 +3558,7 @@
                 "adapter_id": "$var.job.adapterId"
               },
               "outgoing": {
-                "result": ""
+                "result": "$var.job.deletedSecurityGroup"
               }
             },
             "actor": "Pronghorn",
@@ -3659,30 +3685,34 @@
             },
             "initiator": {
               "type": "string"
+            },
+            "deletedSecurityGroup": {
+              "title": "result",
+              "type": "array"
             }
           }
         },
+        "canvasVersion": 1.5,
         "created": "2022-03-31T12:29:42.937Z",
         "createdVersion": "5.40.5-2021.1.52.0",
-        "font_size": 12,
-        "lastUpdatedVersion": "5.46.0-2023.1.21.0",
-        "last_updated": "2023-10-17T20:25:05.190Z",
-        "type": "automation",
-        "preAutomationTime": 0,
-        "sla": 0,
-        "canvasVersion": 1.5,
         "created_by": {
           "provenance": "local_aaa",
           "username": "admin@pronghorn",
           "firstname": "admin",
           "inactive": false
         },
+        "font_size": 12,
+        "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+        "last_updated": "2023-10-19T20:09:21.504Z",
         "last_updated_by": {
           "provenance": "local_aaa",
           "username": "admin@pronghorn",
           "firstname": "admin",
           "inactive": false
         },
+        "preAutomationTime": 0,
+        "sla": 0,
+        "type": "automation",
         "tags": [],
         "groups": [],
         "migrationVersion": 2
@@ -3722,7 +3752,7 @@
             "scheduled": false,
             "nodeLocation": {
               "x": 1188,
-              "y": 852
+              "y": 804
             }
           },
           "4685": {
@@ -3756,6 +3786,51 @@
               "y": 960
             }
           },
+          "4967": {
+            "name": "evaluation",
+            "canvasName": "evaluation",
+            "summary": "item is array?",
+            "description": "Run an evaluation",
+            "location": "Application",
+            "locationType": null,
+            "app": "WorkFlowEngine",
+            "type": "operation",
+            "displayName": "WorkFlowEngine",
+            "variables": {
+              "incoming": {
+                "all_true_flag": false,
+                "evaluation_groups": [
+                  {
+                    "all_true_flag": false,
+                    "evaluations": [
+                      {
+                        "operand_1": {
+                          "task": "c2a4",
+                          "variable": "isAnArray"
+                        },
+                        "operand_2": {
+                          "task": "static",
+                          "variable": true
+                        },
+                        "operator": "==",
+                        "query": "",
+                        "rightQuery": ""
+                      }
+                    ]
+                  }
+                ]
+              },
+              "outgoing": {
+                "return_value": ""
+              }
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": 2112,
+              "y": 960
+            }
+          },
           "workflow_start": {
             "name": "workflow_start",
             "groups": [],
@@ -3772,7 +3847,7 @@
             "x": 0.6287292817679558,
             "y": 0.5080321285140562,
             "nodeLocation": {
-              "x": 2052,
+              "x": 3048,
               "y": 960
             }
           },
@@ -3896,8 +3971,8 @@
             "task_name": "Build Subnet Delete Array",
             "retrySettings": null,
             "nodeLocation": {
-              "x": 1500,
-              "y": 960
+              "x": 2112,
+              "y": 1104
             }
           },
           "65d7": {
@@ -3947,11 +4022,11 @@
             "displayName": "Awsec2",
             "variables": {
               "incoming": {
-                "subnetArray": "$var.e541.subnetDeleteArray",
+                "subnetArray": "$var.e7a5.subnetDeleteArray",
                 "adapter_id": "$var.job.adapterId"
               },
               "outgoing": {
-                "result": null
+                "result": "$var.job.deletedSubnet"
               },
               "error": "",
               "decorators": []
@@ -3962,7 +4037,124 @@
             "y": 0.501004016064257,
             "scheduled": false,
             "nodeLocation": {
-              "x": 1812,
+              "x": 2736,
+              "y": 960
+            }
+          },
+          "e7a5": {
+            "name": "transformation",
+            "canvasName": "transformation",
+            "summary": "Build Subnet Delete Array with Multiple Subnet Items",
+            "description": "Perform a JSON Transformation using the JST library.",
+            "location": "Application",
+            "locationType": null,
+            "app": "WorkFlowEngine",
+            "type": "operation",
+            "displayName": "WorkFlowEngine",
+            "variables": {
+              "incoming": {
+                "tr_id": "6532e52c344dfd019e4b388c",
+                "variableMap": {
+                  "subnetResponse": "$var.65d7.result"
+                },
+                "options": {
+                  "extractOutput": true,
+                  "validateIncoming": true,
+                  "revertToDefaultValue": true
+                }
+              },
+              "outgoing": {
+                "subnetDeleteArray": null
+              },
+              "decorators": []
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": 2424,
+              "y": 960
+            }
+          },
+          "231e": {
+            "name": "deleteSubnets",
+            "canvasName": "deleteSubnets",
+            "summary": "Delete Subnets",
+            "description": "Delete Subnets",
+            "location": "Adapter",
+            "locationType": "Awsec2",
+            "app": "Awsec2",
+            "type": "automatic",
+            "displayName": "Awsec2",
+            "variables": {
+              "incoming": {
+                "subnetArray": "$var.e541.subnetDeleteArray",
+                "adapter_id": "$var.job.adapterId"
+              },
+              "outgoing": {
+                "result": "$var.job.deletedSubnet"
+              },
+              "error": "",
+              "decorators": []
+            },
+            "groups": [],
+            "actor": "Pronghorn",
+            "x": 0.5359116022099447,
+            "y": 0.501004016064257,
+            "scheduled": false,
+            "nodeLocation": {
+              "x": 2736,
+              "y": 1092
+            }
+          },
+          "c2a4": {
+            "name": "isArray",
+            "canvasName": "isArray",
+            "summary": "Checks if subnetSet item is an array",
+            "description": "Returns a boolean that indicates if the input element is an array.",
+            "location": "Application",
+            "locationType": null,
+            "app": "WorkFlowEngine",
+            "type": "automatic",
+            "displayName": "Array",
+            "variables": {
+              "incoming": {
+                "arr": "$var.faff.return_data"
+              },
+              "outgoing": {
+                "isAnArray": ""
+              }
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": 1800,
+              "y": 960
+            }
+          },
+          "faff": {
+            "name": "query",
+            "canvasName": "query",
+            "summary": "Query subnetSet item",
+            "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+            "location": "Application",
+            "locationType": null,
+            "app": "WorkFlowEngine",
+            "type": "operation",
+            "displayName": "WorkFlowEngine",
+            "variables": {
+              "incoming": {
+                "pass_on_null": false,
+                "query": "response.DescribeSubnetsResponse.subnetSet.item",
+                "obj": "$var.65d7.result"
+              },
+              "outgoing": {
+                "return_data": ""
+              }
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": 1488,
               "y": 960
             }
           }
@@ -3979,6 +4171,16 @@
             "65d7": {
               "type": "standard",
               "state": "success"
+            }
+          },
+          "4967": {
+            "e7a5": {
+              "state": "success",
+              "type": "standard"
+            },
+            "e541": {
+              "type": "standard",
+              "state": "failure"
             }
           },
           "workflow_start": {
@@ -3999,15 +4201,15 @@
               "type": "standard",
               "state": "failure"
             },
-            "e541": {
-              "type": "standard",
-              "state": "success"
+            "faff": {
+              "state": "success",
+              "type": "standard"
             }
           },
           "e541": {
-            "d988": {
-              "type": "standard",
-              "state": "success"
+            "231e": {
+              "state": "success",
+              "type": "standard"
             }
           },
           "65d7": {
@@ -4020,6 +4222,30 @@
             "workflow_end": {
               "type": "standard",
               "state": "success"
+            }
+          },
+          "e7a5": {
+            "d988": {
+              "state": "success",
+              "type": "standard"
+            }
+          },
+          "231e": {
+            "workflow_end": {
+              "state": "success",
+              "type": "standard"
+            }
+          },
+          "c2a4": {
+            "4967": {
+              "state": "success",
+              "type": "standard"
+            }
+          },
+          "faff": {
+            "c2a4": {
+              "state": "success",
+              "type": "standard"
             }
           },
           "dfad": {},
@@ -4083,24 +4309,28 @@
             },
             "initiator": {
               "type": "string"
+            },
+            "deletedSubnet": {
+              "title": "result",
+              "type": "array"
             }
           }
         },
         "created": "2022-03-31T14:36:27.377Z",
         "createdVersion": "5.40.5-2021.1.52.0",
-        "font_size": 12,
-        "lastUpdatedVersion": "5.46.0-2023.1.19.0",
-        "last_updated": "2023-10-16T19:33:00.837Z",
-        "type": "automation",
-        "preAutomationTime": 0,
-        "sla": 0,
-        "canvasVersion": 1.5,
         "created_by": {
           "provenance": "local_aaa",
           "username": "admin@pronghorn",
           "firstname": "admin",
           "inactive": false
         },
+        "font_size": 12,
+        "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+        "last_updated": "2023-10-22T17:46:12.252Z",
+        "preAutomationTime": 0,
+        "sla": 0,
+        "type": "automation",
+        "canvasVersion": 1.5,
         "last_updated_by": {
           "provenance": "local_aaa",
           "username": "admin@pronghorn",
@@ -4117,6 +4347,33 @@
       "data": {
         "name": "Destroy VPC and EC2 Instance - AWS",
         "tasks": {
+          "2868": {
+            "name": "query",
+            "canvasName": "query",
+            "summary": "Query reservationSet item",
+            "description": "Query reservationSet item",
+            "location": "Application",
+            "locationType": null,
+            "app": "WorkFlowEngine",
+            "type": "operation",
+            "displayName": "WorkFlowEngine",
+            "variables": {
+              "incoming": {
+                "pass_on_null": false,
+                "query": "response.DescribeInstancesResponse.reservationSet.item",
+                "obj": "$var.9653.result"
+              },
+              "outgoing": {
+                "return_data": ""
+              }
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": -180,
+              "y": 312
+            }
+          },
           "6253": {
             "name": "deleteVpc",
             "canvasName": "deleteVpc",
@@ -4134,7 +4391,7 @@
                 "adapter_id": "$var.job.adapterId"
               },
               "outgoing": {
-                "result": null
+                "result": "$var.job.deletedVPC"
               },
               "error": "",
               "decorators": []
@@ -4145,7 +4402,7 @@
             "y": 0.15151515151515152,
             "scheduled": false,
             "nodeLocation": {
-              "x": 2016,
+              "x": 2964,
               "y": 312
             }
           },
@@ -4175,7 +4432,7 @@
             "actor": "Pronghorn",
             "groups": [],
             "nodeLocation": {
-              "x": -696,
+              "x": -792,
               "y": 312
             }
           },
@@ -4195,8 +4452,8 @@
             "x": 1.0124843945068664,
             "y": 0.15151515151515152,
             "nodeLocation": {
-              "x": 2256,
-              "y": 312
+              "x": 3228,
+              "y": 300
             }
           },
           "992b": {
@@ -4211,7 +4468,7 @@
             "displayName": "Awsec2",
             "variables": {
               "incoming": {
-                "instanceId": "$var.efc0.instanceIdArray",
+                "instanceId": "$var.dd21.instanceIdArray",
                 "dryRun": false,
                 "adapter_id": "$var.job.adapterId"
               },
@@ -4227,7 +4484,7 @@
             "y": 0.14858260019550343,
             "scheduled": false,
             "nodeLocation": {
-              "x": 144,
+              "x": 1044,
               "y": 312
             }
           },
@@ -4255,7 +4512,7 @@
             "y": 0.3176930596285435,
             "scheduled": false,
             "nodeLocation": {
-              "x": 2016,
+              "x": 2964,
               "y": 420
             }
           },
@@ -4332,7 +4589,7 @@
             "x": 0.5967540574282147,
             "y": 0.1495601173020528,
             "nodeLocation": {
-              "x": 1392,
+              "x": 2340,
               "y": 312
             }
           },
@@ -4373,7 +4630,7 @@
             "x": 0.7827715355805244,
             "y": 0.1495601173020528,
             "nodeLocation": {
-              "x": 1704,
+              "x": 2640,
               "y": 312
             }
           },
@@ -4402,8 +4659,8 @@
             "y": 0.28152492668621704,
             "scheduled": false,
             "nodeLocation": {
-              "x": 768,
-              "y": 420
+              "x": 1716,
+              "y": 432
             }
           },
           "ab1": {
@@ -4437,7 +4694,7 @@
             "y": 0.1495601173020528,
             "scheduled": false,
             "nodeLocation": {
-              "x": 456,
+              "x": 1368,
               "y": 312
             }
           },
@@ -4482,7 +4739,7 @@
             "x": 0.30087390761548066,
             "y": 0.15053763440860216,
             "nodeLocation": {
-              "x": 768,
+              "x": 1716,
               "y": 312
             }
           },
@@ -4524,7 +4781,7 @@
             "x": 0.433832709113608,
             "y": 0.14858260019550343,
             "nodeLocation": {
-              "x": 1080,
+              "x": 2028,
               "y": 312
             }
           },
@@ -4599,12 +4856,226 @@
             "task_name": "Process Instance Response",
             "retrySettings": null,
             "nodeLocation": {
-              "x": -168,
+              "x": 432,
+              "y": 432
+            }
+          },
+          "0f2e": {
+            "name": "evaluation",
+            "canvasName": "evaluation",
+            "summary": "Reserved Instances Found?",
+            "description": "Run an evaluation",
+            "location": "Application",
+            "locationType": null,
+            "app": "WorkFlowEngine",
+            "type": "operation",
+            "displayName": "WorkFlowEngine",
+            "variables": {
+              "incoming": {
+                "all_true_flag": false,
+                "evaluation_groups": [
+                  {
+                    "all_true_flag": false,
+                    "evaluations": [
+                      {
+                        "operand_1": {
+                          "task": "9653",
+                          "variable": "result"
+                        },
+                        "operand_2": {
+                          "task": "static",
+                          "variable": ""
+                        },
+                        "operator": "!=",
+                        "query": "response.DescribeInstancesResponse.reservationSet",
+                        "rightQuery": ""
+                      }
+                    ]
+                  }
+                ]
+              },
+              "outgoing": {
+                "return_value": ""
+              }
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": -480,
               "y": 312
+            }
+          },
+          "da24": {
+            "name": "stub",
+            "canvasName": "stub",
+            "summary": "No Reserved Instances Found",
+            "description": "No Reserved Instances Found",
+            "location": "Application",
+            "locationType": null,
+            "app": "WorkFlowEngine",
+            "type": "automatic",
+            "displayName": "Tools",
+            "variables": {
+              "incoming": {
+                "type": "success",
+                "delay": "",
+                "response": ""
+              },
+              "outgoing": {
+                "response": ""
+              }
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": -480,
+              "y": 180
+            }
+          },
+          "8e38": {
+            "name": "isArray",
+            "canvasName": "isArray",
+            "summary": "Checks if reservationSet item is array",
+            "description": "Returns a boolean that indicates if reservationSet item is an array.",
+            "location": "Application",
+            "locationType": null,
+            "app": "WorkFlowEngine",
+            "type": "automatic",
+            "displayName": "Array",
+            "variables": {
+              "incoming": {
+                "arr": "$var.2868.return_data"
+              },
+              "outgoing": {
+                "isAnArray": ""
+              }
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": 120,
+              "y": 312
+            }
+          },
+          "82c6": {
+            "name": "evaluation",
+            "canvasName": "evaluation",
+            "summary": "reservationSet item is array?",
+            "description": "Run an evaluation",
+            "location": "Application",
+            "locationType": null,
+            "app": "WorkFlowEngine",
+            "type": "operation",
+            "displayName": "WorkFlowEngine",
+            "variables": {
+              "incoming": {
+                "all_true_flag": false,
+                "evaluation_groups": [
+                  {
+                    "all_true_flag": false,
+                    "evaluations": [
+                      {
+                        "operand_1": {
+                          "task": "8e38",
+                          "variable": "isAnArray"
+                        },
+                        "operand_2": {
+                          "task": "static",
+                          "variable": true
+                        },
+                        "operator": "==",
+                        "query": "",
+                        "rightQuery": ""
+                      }
+                    ]
+                  }
+                ]
+              },
+              "outgoing": {
+                "return_value": ""
+              }
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": 432,
+              "y": 312
+            }
+          },
+          "dd21": {
+            "name": "transformation",
+            "canvasName": "transformation",
+            "summary": "Process Instance Response with Multiple Reserved Instances",
+            "description": "Process Instance Response with Multiple Reserved Instances",
+            "location": "Application",
+            "locationType": null,
+            "app": "WorkFlowEngine",
+            "type": "operation",
+            "displayName": "WorkFlowEngine",
+            "variables": {
+              "incoming": {
+                "tr_id": "6535d4e97c6b51019f8f4142",
+                "variableMap": {
+                  "instanceResponse": "$var.9653.result"
+                },
+                "options": {
+                  "extractOutput": true,
+                  "validateIncoming": true,
+                  "revertToDefaultValue": true
+                }
+              },
+              "outgoing": {
+                "instanceIdArray": null
+              },
+              "decorators": []
+            },
+            "actor": "Pronghorn",
+            "groups": [],
+            "nodeLocation": {
+              "x": 744,
+              "y": 312
+            }
+          },
+          "a4ce": {
+            "name": "terminateInstances",
+            "canvasName": "terminateInstances",
+            "summary": "Terminate Instances",
+            "description": "Terminates EC2 Instances",
+            "location": "Adapter",
+            "locationType": "Awsec2",
+            "app": "Awsec2",
+            "type": "automatic",
+            "displayName": "Awsec2",
+            "variables": {
+              "incoming": {
+                "instanceId": "$var.efc0.instanceIdArray",
+                "dryRun": false,
+                "adapter_id": "$var.job.adapterId"
+              },
+              "outgoing": {
+                "result": null
+              },
+              "error": "",
+              "decorators": []
+            },
+            "groups": [],
+            "actor": "Pronghorn",
+            "x": 0.06991260923845194,
+            "y": 0.14858260019550343,
+            "scheduled": false,
+            "nodeLocation": {
+              "x": 1044,
+              "y": 432
             }
           }
         },
         "transitions": {
+          "2868": {
+            "8e38": {
+              "state": "success",
+              "type": "standard"
+            }
+          },
           "6253": {
             "477f": {
               "type": "standard",
@@ -4616,7 +5087,7 @@
             }
           },
           "9653": {
-            "efc0": {
+            "0f2e": {
               "state": "success",
               "type": "standard"
             }
@@ -4693,9 +5164,53 @@
             }
           },
           "efc0": {
-            "992b": {
+            "a4ce": {
+              "state": "success",
+              "type": "standard"
+            }
+          },
+          "0f2e": {
+            "2868": {
+              "state": "success",
+              "type": "standard"
+            },
+            "da24": {
               "type": "standard",
-              "state": "success"
+              "state": "failure"
+            }
+          },
+          "da24": {
+            "workflow_end": {
+              "state": "success",
+              "type": "standard"
+            }
+          },
+          "8e38": {
+            "82c6": {
+              "state": "success",
+              "type": "standard"
+            }
+          },
+          "82c6": {
+            "dd21": {
+              "state": "success",
+              "type": "standard"
+            },
+            "efc0": {
+              "type": "standard",
+              "state": "failure"
+            }
+          },
+          "dd21": {
+            "992b": {
+              "state": "success",
+              "type": "standard"
+            }
+          },
+          "a4ce": {
+            "ab1": {
+              "state": "success",
+              "type": "standard"
             }
           },
           "b2c3": {},
@@ -4747,24 +5262,28 @@
             },
             "initiator": {
               "type": "string"
+            },
+            "deletedVPC": {
+              "title": "result",
+              "type": "object"
             }
           }
         },
         "type": "automation",
         "font_size": 12,
-        "lastUpdatedVersion": "5.46.0-2023.1.21.0",
+        "lastUpdatedVersion": "5.46.0-2023.1.19.0",
         "createdVersion": "5.46.0-2023.1.21.0",
         "preAutomationTime": 0,
         "sla": 0,
-        "canvasVersion": 1.5,
         "created_by": {
           "provenance": "local_aaa",
           "username": "admin@pronghorn",
           "firstname": "admin",
           "inactive": false
         },
-        "last_updated": "2023-10-17T20:31:12.790Z",
+        "last_updated": "2023-10-23T02:43:58.333Z",
         "created": "2023-10-17T18:10:18.488Z",
+        "canvasVersion": 1.5,
         "last_updated_by": {
           "provenance": "local_aaa",
           "username": "admin@pronghorn",
@@ -5068,7 +5587,7 @@
                 "adapter_id": "$var.job.adapterId"
               },
               "outgoing": {
-                "result": null
+                "result": "$var.job.deletedInternetGateway"
               },
               "error": "",
               "decorators": []
@@ -5197,30 +5716,34 @@
             },
             "initiator": {
               "type": "string"
+            },
+            "deletedInternetGateway": {
+              "title": "result",
+              "type": "object"
             }
           }
         },
+        "canvasVersion": 1.5,
         "created": "2022-03-31T14:44:06.846Z",
         "createdVersion": "5.40.5-2021.1.52.0",
-        "font_size": 12,
-        "lastUpdatedVersion": "5.46.0-2023.1.19.0",
-        "last_updated": "2023-10-16T19:38:19.876Z",
-        "type": "automation",
-        "preAutomationTime": 0,
-        "sla": 0,
-        "canvasVersion": 1.5,
         "created_by": {
           "provenance": "local_aaa",
           "username": "admin@pronghorn",
           "firstname": "admin",
           "inactive": false
         },
+        "font_size": 12,
+        "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+        "last_updated": "2023-10-19T21:14:32.852Z",
         "last_updated_by": {
           "provenance": "local_aaa",
           "username": "admin@pronghorn",
           "firstname": "admin",
           "inactive": false
         },
+        "preAutomationTime": 0,
+        "sla": 0,
+        "type": "automation",
         "tags": [],
         "groups": [],
         "migrationVersion": 2
@@ -7466,6 +7989,277 @@
     {
       "type": "transformation",
       "data": {
+        "_id": "6532e52c344dfd019e4b388c",
+        "name": "Build Subnet Delete Array with Multiple Subnet Items",
+        "description": "",
+        "incoming": [
+          {
+            "$id": "subnetResponse",
+            "type": "object",
+            "properties": {
+              "response": {
+                "type": "object",
+                "properties": {
+                  "DescribeSubnetsResponse": {
+                    "type": "object",
+                    "properties": {
+                      "subnetSet": {
+                        "type": "object",
+                        "properties": {
+                          "item": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "subnetId": {
+                                  "type": "string",
+                                  "examples": [
+                                    "subnet-0f7abee2208d3ffa0"
+                                  ]
+                                }
+                              },
+                              "required": []
+                            }
+                          }
+                        },
+                        "required": []
+                      }
+                    },
+                    "required": []
+                  }
+                },
+                "required": []
+              }
+            },
+            "required": []
+          }
+        ],
+        "outgoing": [
+          {
+            "$id": "subnetDeleteArray",
+            "type": "array"
+          }
+        ],
+        "steps": [
+          {
+            "id": 2,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "subnetResponse",
+              "ptr": "/response/DescribeSubnetsResponse/subnetSet/item"
+            },
+            "to": {
+              "location": "method",
+              "name": 1,
+              "ptr": "/args/0/value"
+            },
+            "context": "#"
+          },
+          {
+            "id": 1,
+            "type": "method",
+            "library": "Array",
+            "method": "map",
+            "args": [
+              null,
+              "subnet builder"
+            ],
+            "view": {
+              "row": 1,
+              "col": 1
+            },
+            "context": "#"
+          },
+          {
+            "id": 3,
+            "type": "assign",
+            "from": {
+              "location": "method",
+              "name": 1,
+              "ptr": "/return"
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "subnetDeleteArray",
+              "ptr": ""
+            },
+            "context": "#"
+          }
+        ],
+        "functions": [
+          {
+            "incoming": [
+              {
+                "type": "object",
+                "properties": {
+                  "subnetId": {
+                    "type": "string",
+                    "examples": [
+                      "subnet-0f7abee2208d3ffa0"
+                    ]
+                  }
+                },
+                "required": [],
+                "$id": "currentValue"
+              },
+              {
+                "title": "index",
+                "type": "number",
+                "optional": true,
+                "$id": "index"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "subnetId": {
+                      "type": "string",
+                      "examples": [
+                        "subnet-0f7abee2208d3ffa0"
+                      ]
+                    }
+                  },
+                  "required": []
+                },
+                "$id": "array",
+                "optional": true
+              },
+              {
+                "$id": "thisArg",
+                "type": "object",
+                "properties": {},
+                "isContext": true
+              }
+            ],
+            "outgoing": [
+              {
+                "title": "newValue",
+                "type": [
+                  "array",
+                  "boolean",
+                  "number",
+                  "integer",
+                  "string",
+                  "object",
+                  "null"
+                ],
+                "editable": true,
+                "$id": "newValue"
+              }
+            ],
+            "steps": [
+              {
+                "id": 1,
+                "type": "declaration",
+                "library": "Object",
+                "method": "new Object",
+                "args": [
+                  null
+                ],
+                "view": {
+                  "row": 1,
+                  "col": 1
+                },
+                "context": "#"
+              },
+              {
+                "id": 5,
+                "type": "assign",
+                "from": {
+                  "location": "incoming",
+                  "name": "currentValue",
+                  "ptr": "/subnetId"
+                },
+                "to": {
+                  "location": "method",
+                  "name": 3,
+                  "ptr": "/args/2/value"
+                },
+                "context": "#"
+              },
+              {
+                "id": 4,
+                "type": "assign",
+                "from": {
+                  "location": "declaration",
+                  "name": 1,
+                  "ptr": "/return"
+                },
+                "to": {
+                  "location": "method",
+                  "name": 3,
+                  "ptr": "/args/0/value"
+                },
+                "context": "#"
+              },
+              {
+                "id": 3,
+                "type": "method",
+                "library": "Object",
+                "method": "setProperty",
+                "args": [
+                  null,
+                  "subnetId",
+                  null
+                ],
+                "view": {
+                  "row": 1,
+                  "col": 2
+                },
+                "context": "#"
+              },
+              {
+                "id": 6,
+                "type": "assign",
+                "from": {
+                  "location": "method",
+                  "name": 3,
+                  "ptr": "/return"
+                },
+                "to": {
+                  "location": "outgoing",
+                  "name": "newValue",
+                  "ptr": ""
+                },
+                "context": "#"
+              }
+            ],
+            "functions": [],
+            "name": "subnet builder",
+            "view": {
+              "col": 2,
+              "row": 4
+            },
+            "id": "subnet builder",
+            "comments": []
+          }
+        ],
+        "comments": [],
+        "view": {
+          "col": 1,
+          "row": 5
+        },
+        "created": "2023-10-20T20:38:04.640Z",
+        "createdBy": {
+          "_id": "652054b92c281c82e5b4c8b4",
+          "provenance": "local_aaa",
+          "username": "admin@pronghorn"
+        },
+        "lastUpdated": "2023-10-20T20:50:23.301Z",
+        "lastUpdatedBy": {
+          "_id": "652054b92c281c82e5b4c8b4",
+          "provenance": "local_aaa",
+          "username": "admin@pronghorn"
+        },
+        "version": "4.1.2-2023.1.10",
+        "tags": []
+      }
+    },
+    {
+      "type": "transformation",
+      "data": {
         "_id": "63e3a39ed59d6601415e4e09",
         "name": "Build VPC Filter",
         "description": "",
@@ -7675,7 +8469,7 @@
                           "xmlns": {
                             "type": "string",
                             "examples": [
-                              "http://ec2%2Eamazonaws%2Ecom/doc/2016-11-15/"
+                              "http://ec2.amazonaws.com/doc/2016-11-15/"
                             ]
                           }
                         },
@@ -7712,7 +8506,7 @@
                           "cidrBlock": {
                             "type": "string",
                             "examples": [
-                              "10%2E0%2E0%2E0/24"
+                              "10.0.0.0/24"
                             ]
                           },
                           "cidrBlockAssociationSet": {
@@ -7724,7 +8518,7 @@
                                   "cidrBlock": {
                                     "type": "string",
                                     "examples": [
-                                      "10%2E0%2E0%2E0/24"
+                                      "10.0.0.0/24"
                                     ]
                                   },
                                   "associationId": {
@@ -7801,21 +8595,6 @@
         ],
         "steps": [
           {
-            "id": 1,
-            "type": "declaration",
-            "library": "Array",
-            "method": "new Array",
-            "args": [
-              null
-            ],
-            "view": {
-              "row": 1,
-              "col": 1
-            },
-            "context": "#",
-            "polymorphIndex": 0
-          },
-          {
             "id": 2,
             "type": "assign",
             "from": {
@@ -7829,19 +8608,6 @@
               "ptr": "/args/0/value"
             },
             "context": "#"
-          },
-          {
-            "id": 3,
-            "type": "function",
-            "function": "buildTagData",
-            "args": [
-              "Name",
-              null
-            ],
-            "view": {
-              "row": 2,
-              "col": 1
-            }
           },
           {
             "id": 4,
@@ -7859,34 +8625,32 @@
             "context": "#"
           },
           {
-            "id": 5,
+            "id": 1,
+            "type": "declaration",
+            "library": "Array",
+            "method": "new Array",
+            "args": [
+              null
+            ],
+            "view": {
+              "row": 1,
+              "col": 1
+            },
+            "context": "#",
+            "polymorphIndex": 0
+          },
+          {
+            "id": 3,
             "type": "function",
             "function": "buildTagData",
             "args": [
-              "Workshop-Instance",
-              "true"
-            ],
-            "view": {
-              "row": 3,
-              "col": 1
-            },
-            "context": "#"
-          },
-          {
-            "id": 6,
-            "type": "method",
-            "library": "Array",
-            "method": "concat",
-            "args": [
-              [],
-              null,
+              "Name",
               null
             ],
             "view": {
               "row": 2,
-              "col": 2
-            },
-            "context": "#"
+              "col": 1
+            }
           },
           {
             "id": 7,
@@ -7904,21 +8668,6 @@
             "context": "#"
           },
           {
-            "id": 8,
-            "type": "assign",
-            "from": {
-              "location": "function",
-              "name": 5,
-              "ptr": "/return/tag"
-            },
-            "to": {
-              "location": "method",
-              "name": 6,
-              "ptr": "/args/2/value"
-            },
-            "context": "#"
-          },
-          {
             "id": 9,
             "type": "assign",
             "from": {
@@ -7930,6 +8679,21 @@
               "location": "outgoing",
               "name": "vpcId",
               "ptr": ""
+            },
+            "context": "#"
+          },
+          {
+            "id": 6,
+            "type": "method",
+            "library": "Array",
+            "method": "concat",
+            "args": [
+              [],
+              null
+            ],
+            "view": {
+              "row": 2,
+              "col": 2
             },
             "context": "#"
           },
@@ -8029,13 +8793,13 @@
           "col": 2,
           "row": 5
         },
-        "created": "2023-10-16T18:17:17.309Z",
+        "created": "2023-10-19T13:09:48.291Z",
         "createdBy": {
           "_id": "652054b92c281c82e5b4c8b4",
           "provenance": "local_aaa",
           "username": "admin@pronghorn"
         },
-        "lastUpdated": "2023-10-16T18:17:17.309Z",
+        "lastUpdated": "2023-10-19T13:12:01.235Z",
         "lastUpdatedBy": {
           "_id": "652054b92c281c82e5b4c8b4",
           "provenance": "local_aaa",
@@ -8747,7 +9511,247 @@
         "version": "4.1.2-2023.1.10",
         "tags": []
       }
+    },
+    {
+      "type": "transformation",
+      "data": {
+        "_id": "6535d4e97c6b51019f8f4142",
+        "name": "Process Instance Response with Multiple Reserved Instances",
+        "description": "",
+        "incoming": [
+          {
+            "$id": "instanceResponse",
+            "type": "object",
+            "properties": {
+              "response": {
+                "type": "object",
+                "properties": {
+                  "DescribeInstancesResponse": {
+                    "type": "object",
+                    "properties": {
+                      "reservationSet": {
+                        "type": "object",
+                        "properties": {
+                          "item": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "instancesSet": {
+                                  "type": "object",
+                                  "properties": {
+                                    "item": {
+                                      "type": "object",
+                                      "properties": {
+                                        "instanceId": {
+                                          "type": "string",
+                                          "examples": [
+                                            "i-07010845088a369d9"
+                                          ]
+                                        }
+                                      },
+                                      "required": []
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "required": []
+          }
+        ],
+        "outgoing": [
+          {
+            "$id": "instanceIdArray",
+            "type": "array"
+          }
+        ],
+        "steps": [
+          {
+            "id": 2,
+            "type": "assign",
+            "from": {
+              "location": "incoming",
+              "name": "instanceResponse",
+              "ptr": "/response/DescribeInstancesResponse/reservationSet/item"
+            },
+            "to": {
+              "location": "method",
+              "name": 1,
+              "ptr": "/args/0/value"
+            },
+            "context": "#"
+          },
+          {
+            "id": 1,
+            "type": "method",
+            "library": "Array",
+            "method": "map",
+            "args": [
+              null,
+              "instanceId builder"
+            ],
+            "view": {
+              "row": 1,
+              "col": 1
+            },
+            "context": "#"
+          },
+          {
+            "id": 3,
+            "type": "assign",
+            "from": {
+              "location": "method",
+              "name": 1,
+              "ptr": "/return"
+            },
+            "to": {
+              "location": "outgoing",
+              "name": "instanceIdArray",
+              "ptr": ""
+            },
+            "context": "#"
+          }
+        ],
+        "functions": [
+          {
+            "incoming": [
+              {
+                "type": "object",
+                "properties": {
+                  "instancesSet": {
+                    "type": "object",
+                    "properties": {
+                      "item": {
+                        "type": "object",
+                        "properties": {
+                          "instanceId": {
+                            "type": "string",
+                            "examples": [
+                              "i-07010845088a369d9"
+                            ]
+                          }
+                        },
+                        "required": []
+                      }
+                    }
+                  }
+                },
+                "$id": "currentValue"
+              },
+              {
+                "title": "index",
+                "type": "number",
+                "optional": true,
+                "$id": "index"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "instancesSet": {
+                      "type": "object",
+                      "properties": {
+                        "item": {
+                          "type": "object",
+                          "properties": {
+                            "instanceId": {
+                              "type": "string",
+                              "examples": [
+                                "i-07010845088a369d9"
+                              ]
+                            }
+                          },
+                          "required": []
+                        }
+                      }
+                    }
+                  }
+                },
+                "$id": "array",
+                "optional": true
+              },
+              {
+                "$id": "thisArg",
+                "type": "object",
+                "properties": {},
+                "isContext": true,
+                "isThis": true,
+                "isIndexed": true
+              }
+            ],
+            "outgoing": [
+              {
+                "title": "newValue",
+                "type": [
+                  "array",
+                  "boolean",
+                  "number",
+                  "integer",
+                  "string",
+                  "object",
+                  "null"
+                ],
+                "editable": true,
+                "$id": "newValue"
+              }
+            ],
+            "steps": [
+              {
+                "id": 1,
+                "type": "assign",
+                "from": {
+                  "location": "incoming",
+                  "name": "currentValue",
+                  "ptr": "/instancesSet/item/instanceId"
+                },
+                "to": {
+                  "location": "outgoing",
+                  "name": "newValue",
+                  "ptr": ""
+                },
+                "context": "#"
+              }
+            ],
+            "functions": [],
+            "name": "instanceId builder",
+            "view": {
+              "col": 1,
+              "row": 4
+            },
+            "id": "instanceId builder",
+            "comments": []
+          }
+        ],
+        "comments": [],
+        "view": {
+          "col": 3,
+          "row": 5
+        },
+        "created": "2023-10-23T02:05:29.837Z",
+        "createdBy": {
+          "_id": "652054b92c281c82e5b4c8b4",
+          "provenance": "local_aaa",
+          "username": "admin@pronghorn"
+        },
+        "lastUpdated": "2023-10-23T02:15:50.059Z",
+        "lastUpdatedBy": {
+          "_id": "652054b92c281c82e5b4c8b4",
+          "provenance": "local_aaa",
+          "username": "admin@pronghorn"
+        },
+        "version": "4.1.2-2023.1.10",
+        "tags": []
+      }
     }
   ],
-  "readme": "# AWS - EC2 - REST\n\n## Overview\n\nProject for use cases around AWS EC2 using REST protocol\n\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Add Ingress Rule to Security Group - AWS - EC2 - REST.md' target='_blank'>Add Ingress Rule to Security Group - AWS - EC2 - REST</a>\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Create and Attach Internet Gateway - AWS.md' target='_blank'>Create and Attach Internet Gateway - AWS</a>\n\n\n\n## External Dependencies\n\nNo external dependencies required to run this Workflow Project.\n\n## Adapters\n\n<table>\n  <thead>\n    <tr>\n      <th>Name</th>\n      <th>Version</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>adapter-aws_ec2</td>\n      <td>0.6.9</td>\n    </tr>\n  </tbody>\n</table>"
+  "readme": "# AWS - EC2 - REST\n\n## Overview\n\nProject for use cases around AWS EC2 using REST protocol\n\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Add Ingress Rule to Security Group - AWS - EC2 - REST.md' target='_blank'>Add Ingress Rule to Security Group - AWS - EC2 - REST</a>\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Create and Attach Internet Gateway - AWS - EC2 - REST.md' target='_blank'>Create and Attach Internet Gateway - AWS - EC2 - REST</a>\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Create EC2 Instance - AWS - EC2 - REST.md' target='_blank'>Create EC2 Instance - AWS - EC2 - REST</a>\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Create Route - AWS - EC2 - REST.md' target='_blank'>Create Route - AWS - EC2 - REST</a>\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Create Security Group with Ingress Rules - AWS - EC2 - REST.md' target='_blank'>Create Security Group with Ingress Rules - AWS - EC2 - REST</a>\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Create VPC - AWS - EC2 - REST.md' target='_blank'>Create VPC - AWS - EC2 - REST</a>\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Create VPC Subnet - AWS - EC2 - REST.md' target='_blank'>Create VPC Subnet - AWS - EC2 - REST</a>\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Provision VPC with Networking - AWS - EC2 - REST.md' target='_blank'>Provision VPC with Networking - AWS - EC2 - REST</a>\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Delete Security Groups by VPC - AWS - EC2 - REST.md' target='_blank'>Delete Security Groups by VPC - AWS - EC2 - REST</a>\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Delete Subnets by VPC - AWS - EC2 - REST.md' target='_blank'>Delete Subnets by VPC - AWS - EC2 - REST</a>\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Destroy VPC and EC2 Instance - AWS - EC2 - REST.md' target='_blank'>Destroy VPC and EC2 Instance - AWS - EC2 - REST</a>\n\n<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Detach and Delete Internet Gateways by VPC - AWS - EC2 - REST.md' target='_blank'>Detach and Delete Internet Gateways by VPC - AWS - EC2 - REST</a>\n\n\n\n## External Dependencies\n\nNo external dependencies required to run this Workflow Project.\n\n## Adapters\n\n<table>\n  <thead>\n    <tr>\n      <th>Name</th>\n      <th>Version</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>adapter-aws_ec2</td>\n      <td>0.6.9</td>\n    </tr>\n  </tbody>\n</table>"
 }

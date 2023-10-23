@@ -1,0 +1,73 @@
+{
+  "iapVersions": [
+    "2023.1"
+  ],
+  "adapters": [
+    {
+      "isDependency": false,
+      "name": "adapter-aws_ec2",
+      "overview": "AWS EC2",
+      "webName": "Amazon EC2",
+      "version": "0.6.9",
+      "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
+      "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
+      "webLink": "https://www.itential.com/adapters/amazon-ec2/"
+    }
+  ],
+  "externalDependencyList": [
+    {
+      "name": "AWS"
+    }
+  ],
+  "capabilities": [
+    {
+      "capability": "The workflow is used to detach and delete VPC Internet gateways in AWS"
+    }
+  ],
+  "entryPoint": {
+    "name": "Detach and Delete Internet Gateways by VPC - AWS",
+    "type": "Workflow"
+  },
+  "inputs": [
+    {
+      "name": "vpcId",
+      "type": "string",
+      "required": "yes",
+      "description": "The ID of the VPC",
+      "exampleValue": "vpc-0ba78c5ca9aaecd64"
+    },
+    {
+      "name": "adapterId",
+      "type": "string",
+      "required": "yes",
+      "description": "AWS EC2 adapter to use",
+      "exampleValue": "EC2"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "deletedInternetGateway",
+      "type": "object",
+      "description": "Delete Internet Gateway request result",
+      "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": {\n    \"DeleteInternetGatewayResponse\": {\n      \"_attr\": {\n        \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\"\n      },\n      \"requestId\": \"f743ec7e-1039-4261-8f74-4f8ba72a6c35\",\n      \"return\": \"true\"\n    }\n  }\n}"
+    }
+  ],
+  "exampleInputsAndOutputs": [
+    {
+      "exampleInput": "{\n  \"adapterId\": \"EC2\", \n  \"vpcId\": \"vpc-0ba78c5ca9aaecd64\" \n}",
+      "exampleOutput": "{\n  \"deletedInternetGateway\": {\n    \"icode\": \"AD.200\",\n    \"response\": {\n      \"DeleteInternetGatewayResponse\": {\n        \"_attr\": {\n          \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\"\n        },\n        \"requestId\": \"f743ec7e-1039-4261-8f74-4f8ba72a6c35\",\n        \"return\": \"true\"\n      }\n    }\n  }\n}"
+    }
+  ],
+  "queryOutput": {
+    "success": [
+      {
+        "name": "Delete Internet Gateway Request Result",
+        "value": "deletedInternetGateway.response"
+      }
+    ]
+  },
+  "name": "Detach and Delete Internet Gateways by VPC - AWS",
+  "overview": "Detach and Delete VPC Internet gateways in AWS",
+  "webName": "Detach and Delete Internet Gateways by VPC - AWS - EC2",
+  "assetType": "Workflow"
+}

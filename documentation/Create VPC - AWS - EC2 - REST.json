@@ -1,0 +1,80 @@
+{
+  "iapVersions": [
+    "2023.1"
+  ],
+  "adapters": [
+    {
+      "isDependency": false,
+      "name": "adapter-aws_ec2",
+      "overview": "AWS EC2",
+      "webName": "Amazon EC2",
+      "version": "0.6.9",
+      "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
+      "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
+      "webLink": "https://www.itential.com/adapters/amazon-ec2/"
+    }
+  ],
+  "externalDependencyList": [
+    {
+      "name": "AWS"
+    }
+  ],
+  "capabilities": [
+    {
+      "capability": "The workflow is used to create a VPC in AWS"
+    }
+  ],
+  "entryPoint": {
+    "name": "Create VPC - AWS",
+    "type": "Workflow"
+  },
+  "inputs": [
+    {
+      "name": "cidrBlock",
+      "type": "string",
+      "required": "yes",
+      "description": "The IPv4 network range for the VPC, in CIDR notation",
+      "exampleValue": "10.0.0.0/24"
+    },
+    {
+      "name": "vpcName",
+      "type": "string",
+      "required": "yes",
+      "description": "Name of the VPC",
+      "exampleValue": "TEST VPC"
+    },
+    {
+      "name": "adapterId",
+      "type": "string",
+      "required": "yes",
+      "description": "AWS EC2 adapter to use",
+      "exampleValue": "EC2"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "createdVpc",
+      "type": "object",
+      "description": "The Create VPC request result",
+      "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": {\n    \"CreateVpcResponse\": {\n      \"_attr\": {\n        \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\"\n      },\n      \"requestId\": \"da850668-b4d9-4c57-846a-7b64e487eef9\",\n      \"vpc\": {\n        \"vpcId\": \"vpc-057e1defa8211ba74\",\n        \"ownerId\": \"314014972859\",\n        \"state\": \"pending\",\n        \"cidrBlock\": \"10.0.0.0\/24\",\n        \"cidrBlockAssociationSet\": {\n          \"item\": {\n            \"cidrBlock\": \"10.0.0.0\/24\",\n            \"associationId\": \"vpc-cidr-assoc-0f0f4d51506a452cd\",\n            \"cidrBlockState\": {\n              \"state\": \"associated\"\n            }\n          }\n        },\n        \"ipv6CidrBlockAssociationSet\": \"\",\n        \"dhcpOptionsId\": \"dopt-045a5c88c0d702d2b\",\n        \"instanceTenancy\": \"default\",\n        \"isDefault\": \"false\"\n      }\n    }\n  }\n}"
+    }
+  ],
+  "exampleInputsAndOutputs": [
+    {
+      "exampleInput": "{\n  \"cidrBlock\": \"10.0.0.0\/24\",\n  \"adapterId\": \"EC2\",\n  \"vpcName\": \"TEST VPC\"\n}",
+      "exampleOutput": "{\n  \"createdVpc\": {\n    \"icode\": \"AD.200\",\n    \"response\": {\n      \"CreateVpcResponse\": {\n        \"_attr\": {\n          \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\"\n        },\n        \"requestId\": \"da850668-b4d9-4c57-846a-7b64e487eef9\",\n        \"vpc\": {\n          \"vpcId\": \"vpc-057e1defa8211ba74\",\n          \"ownerId\": \"314014972859\",\n          \"state\": \"pending\",\n          \"cidrBlock\": \"10.0.0.0\/24\",\n          \"cidrBlockAssociationSet\": {\n            \"item\": {\n              \"cidrBlock\": \"10.0.0.0\/24\",\n              \"associationId\": \"vpc-cidr-assoc-0f0f4d51506a452cd\",\n              \"cidrBlockState\": {\n                \"state\": \"associated\"\n              }\n            }\n          },\n          \"ipv6CidrBlockAssociationSet\": \"\",\n          \"dhcpOptionsId\": \"dopt-045a5c88c0d702d2b\",\n          \"instanceTenancy\": \"default\",\n          \"isDefault\": \"false\"\n        }\n      }\n    }\n  }\n}"
+    }
+  ],
+  "queryOutput": {
+    "success": [
+      {
+        "name": "Create VPC Request Result",
+        "value": "createdVpc.response"
+      }
+    ]
+  },
+  "name": "Create VPC - AWS",
+  "overview": "Create a VPC in AWS",
+  "webName": "Create VPC - AWS - EC2",
+  "assetType": "Workflow"
+}

@@ -288,7 +288,7 @@
           "adapter_id": "$var.job.adapterId"
         },
         "outgoing": {
-          "result": null
+          "result": "$var.job.deletedInternetGateway"
         },
         "error": "",
         "decorators": []
@@ -417,30 +417,34 @@
       },
       "initiator": {
         "type": "string"
+      },
+      "deletedInternetGateway": {
+        "title": "result",
+        "type": "object"
       }
     }
   },
+  "canvasVersion": 1.5,
   "created": "2022-03-31T14:44:06.846Z",
   "createdVersion": "5.40.5-2021.1.52.0",
-  "font_size": 12,
-  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
-  "last_updated": "2023-10-16T19:38:19.876Z",
-  "type": "automation",
-  "preAutomationTime": 0,
-  "sla": 0,
-  "canvasVersion": 1.5,
   "created_by": {
     "provenance": "local_aaa",
     "username": "admin@pronghorn",
     "firstname": "admin",
     "inactive": false
   },
+  "font_size": 12,
+  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+  "last_updated": "2023-10-19T21:14:32.852Z",
   "last_updated_by": {
     "provenance": "local_aaa",
     "username": "admin@pronghorn",
     "firstname": "admin",
     "inactive": false
   },
+  "preAutomationTime": 0,
+  "sla": 0,
+  "type": "automation",
   "tags": [],
   "groups": [],
   "migrationVersion": 2

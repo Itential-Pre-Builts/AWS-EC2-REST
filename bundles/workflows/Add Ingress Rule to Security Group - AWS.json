@@ -46,7 +46,7 @@
           "adapter_id": "$var.job.adapterId"
         },
         "outgoing": {
-          "result": null
+          "result": "$var.job.updatedSecurityGroup"
         },
         "error": "",
         "decorators": []
@@ -168,18 +168,21 @@
       },
       "initiator": {
         "type": "string"
+      },
+      "updatedSecurityGroup": {
+        "title": "result",
+        "type": "object"
       }
     }
   },
   "font_size": 12,
   "created": "2023-02-08T13:42:54.948Z",
   "createdVersion": "5.44.64-2022.1.25.0",
-  "last_updated": "2023-10-17T20:22:18.193Z",
-  "lastUpdatedVersion": "5.46.0-2023.1.21.0",
+  "last_updated": "2023-10-19T18:37:37.043Z",
+  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
   "type": "automation",
   "preAutomationTime": 0,
   "sla": 0,
-  "canvasVersion": 1.5,
   "created_by": {
     "provenance": "local_aaa",
     "username": "admin@pronghorn",
@@ -192,6 +195,7 @@
     "firstname": "admin",
     "inactive": false
   },
+  "canvasVersion": 1.5,
   "tags": [],
   "groups": [],
   "migrationVersion": 2

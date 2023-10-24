@@ -1,14 +1,13 @@
 {
-  "baseUrl": "http://127.0.0.1:3231/",
+  "baseUrl": "http://localhost:3231/",
   "env": {
     "iapUserName": "admin@pronghorn",
     "iapPassword": "admin",
     "logLevel": "debug",
-    "environment": "production",
     "provenance": "local_aaa",
     "assignAllRolesToUser": true,
     "iapHealthCheckConfig": {
-      "maxRetries": 10,
+      "maxRetries": 20,
       "waitForDelay": 20,
       "startDelay": 180
     }
@@ -24,8 +23,6 @@
   "supportFile": "test/cypress/support/index.js",
   "videosFolder": "test/cypress/videos",
   "reporter": "cypress-multi-reporters",
-  "responseTimeout": 120000,
-  "defaultCommandTimeout": 20000,
   "reporterOptions": {
     "reporterEnabled": [
       "mocha-junit-reporter",

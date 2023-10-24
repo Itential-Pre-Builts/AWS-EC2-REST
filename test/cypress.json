@@ -9,7 +9,7 @@
     "assignAllRolesToUser": true,
     "iapHealthCheckConfig": {
       "maxRetries": 5, 
-      "waitForDelay": 10,
+      "waitForDelay": 20,
       "startDelay": 180
     }
   },

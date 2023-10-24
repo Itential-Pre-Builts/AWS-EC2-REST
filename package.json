@@ -44,7 +44,6 @@
   },
   "IAPDependencies": {
     "@itential/app-workflow_engine": "",
-    "@itentialopensource/adapter-aws_ec2": "",
     "@itential/app-json_forms": ""
   },
   "name": "@itentialopensource/aws-ec2-rest"

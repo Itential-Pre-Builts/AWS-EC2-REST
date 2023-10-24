@@ -4,6 +4,7 @@
     "iapUserName": "admin@pronghorn",
     "iapPassword": "admin",
     "logLevel": "debug",
+    "environment": "production",
     "provenance": "local_aaa",
     "assignAllRolesToUser": true,
     "iapHealthCheckConfig": {

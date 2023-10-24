@@ -8,7 +8,7 @@
     "provenance": "local_aaa",
     "assignAllRolesToUser": true,
     "iapHealthCheckConfig": {
-      "maxRetries": 5, 
+      "maxRetries": 10,
       "waitForDelay": 20,
       "startDelay": 180
     }

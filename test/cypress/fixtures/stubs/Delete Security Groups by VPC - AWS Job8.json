@@ -1,0 +1,97 @@
+{
+  "input": { 
+    "description": "It should run Delete Security Groups by VPC", 
+    "variables": { 
+      "vpcId": "vpc-0b678b7a21e66ded8",
+      "adapterId": "EC2" 
+    } 
+  },
+  "expectedTaskResults": {
+    "status": "complete",
+    "variables": {
+      "vpcId": "vpc-0b678b7a21e66ded8",
+      "adapterId": "EC2"
+    }
+  },
+  "stubTasks": [
+    {
+      "taskId": "5ee3",
+      "variables": {
+        "incoming": { "filter": [{ "name": "vpc-id", "value": "vpc-0b678b7a21e66ded8" }], "groupId": "", "groupName": "", "dryRun": "", "nextToken": "", "maxResults": "" },
+        "outgoing": {
+          "result": {
+            "icode": "AD.200",
+            "response": {
+              "DescribeSecurityGroupsResponse": {
+                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "requestId": "c2eecdf7-f961-4229-bf4e-c14d061f92d3",
+                "securityGroupInfo": {
+                  "item": [
+                    {
+                      "ownerId": "314014972859",
+                      "groupId": "sg-0cdc4162d4cd16dfe",
+                      "groupName": "Security Group for TESTING",
+                      "groupDescription": "TESTING 1",
+                      "vpcId": "vpc-0b678b7a21e66ded8",
+                      "ipPermissions": {
+                        "item": {
+                          "ipProtocol": "tcp",
+                          "fromPort": "80",
+                          "toPort": "80",
+                          "groups": "",
+                          "ipRanges": { "item": { "cidrIp": "199.27.253.134/32" } },
+                          "ipv6Ranges": "",
+                          "prefixListIds": ""
+                        }
+                      },
+                      "ipPermissionsEgress": { "item": { "ipProtocol": "-1", "groups": "", "ipRanges": { "item": { "cidrIp": "0.0.0.0/0" } }, "ipv6Ranges": "", "prefixListIds": "" } }
+                    },
+                    {
+                      "ownerId": "314014972859",
+                      "groupId": "sg-087664521c7daf27c",
+                      "groupName": "default",
+                      "groupDescription": "default VPC security group",
+                      "vpcId": "vpc-0b678b7a21e66ded8",
+                      "ipPermissions": {
+                        "item": { "ipProtocol": "-1", "groups": { "item": { "userId": "314014972859", "groupId": "sg-087664521c7daf27c" } }, "ipRanges": "", "ipv6Ranges": "", "prefixListIds": "" }
+                      },
+                      "ipPermissionsEgress": { "item": { "ipProtocol": "-1", "groups": "", "ipRanges": { "item": { "cidrIp": "0.0.0.0/0" } }, "ipv6Ranges": "", "prefixListIds": "" } }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "taskId": "f643",
+      "variables": {
+        "incoming": { "securityGroupArray": [{ "groupId": "sg-0cdc4162d4cd16dfe" }] },
+        "outgoing": {
+          "result": [
+            {
+              "icode": "AD.200",
+              "response": {
+                "DeleteSecurityGroupResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "2cdea5d3-b27b-4a39-ab90-26bf31051769", "return": "true" }
+              },
+              "headers": {
+                "x-amzn-requestid": "2cdea5d3-b27b-4a39-ab90-26bf31051769",
+                "cache-control": "no-cache, no-store",
+                "strict-transport-security": "max-age=31536000; includeSubDomains",
+                "content-type": "text/xml;charset=UTF-8",
+                "content-length": "239",
+                "date": "Thu, 19 Oct 2023 20:12:29 GMT",
+                "keep-alive": "timeout=20",
+                "server": "AmazonEC2",
+                "connection": "close"
+              },
+              "metrics": { "code": 200, "timeouts": 0, "redirects": 0, "retries": 0, "tripTime": 621, "isThrottling": false, "capabilityTime": "1012ms" }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

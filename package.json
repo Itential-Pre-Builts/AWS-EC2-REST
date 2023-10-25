@@ -17,7 +17,6 @@
     "IAP"
   ],
   "contributors": [
-    "Itential",
     "Itential"
   ],
   "author": "Itential",
@@ -44,7 +43,8 @@
   },
   "IAPDependencies": {
     "@itential/app-workflow_engine": "",
-    "@itential/app-json_forms": ""
+    "@itential/app-json_forms": "",
+    "@itentialopensource/adapter-aws_ec2": ""
   },
   "name": "@itentialopensource/aws-ec2-rest"
 }

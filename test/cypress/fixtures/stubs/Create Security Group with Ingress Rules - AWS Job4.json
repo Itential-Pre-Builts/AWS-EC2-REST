@@ -1,0 +1,87 @@
+{
+  "input": {
+    "description": "It should run Create Security Group with Ingress Rules",
+    "variables": {
+      "securityGroupDescription": "TestING",
+      "securityGroupName": "FOR TESTING",
+      "vpcId": "vpc-004c7963c31a8d156",
+      "adapterId": "EC2",
+      "ruleList": [
+        { 
+          "protocol": "TCP", 
+          "port": 80, 
+          "sourceIp": "199.27.253.134", 
+          "sourceSubnetCidrMask": 32 
+        },
+        { 
+          "protocol": "TCP", 
+          "port": 80, 
+          "sourceIp": "19.27.253.134", 
+          "sourceSubnetCidrMask": 32 
+        }
+      ]
+    }
+  },
+  "expectedTaskResults": {
+    "status": "complete",
+    "variables": {
+      "ruleList": [
+        { 
+          "protocol": "TCP", 
+          "port": 80, 
+          "sourceIp": "199.27.253.134", 
+          "sourceSubnetCidrMask": 32 
+        },
+        { 
+          "protocol": "TCP", 
+          "port": 80, 
+          "sourceIp": "19.27.253.134", 
+          "sourceSubnetCidrMask": 32 
+        }
+      ],
+      "securityGroupDescription": "TestING",
+      "securityGroupName": "FOR TESTING",
+      "vpcId": "vpc-004c7963c31a8d156",
+      "adapterId": "EC2",
+      "securityGroupId": "sg-0bd40e2d7195add77"
+    }
+  },
+  "stubTasks": [
+    {
+      "taskId": "e62f",
+      "variables": {
+        "incoming": { "groupDescription": "TestING", "groupName": "FOR TESTING", "vpcId": "vpc-004c7963c31a8d156", "dryRun": false },
+        "outgoing": {
+          "result": {
+            "icode": "AD.200",
+            "response": {
+              "CreateSecurityGroupResponse": {
+                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "requestId": "5eb5cedd-f4e5-4040-864d-4bb3631faa05",
+                "return": "true",
+                "groupId": "sg-0bd40e2d7195add77"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "taskId": "c96d",
+      "variables": {
+        "incoming": {
+          "task": "c96d",
+          "workflow": "Add Ingress Rule to Security Group - AWS",
+          "variables": { "adapterId": { "task": "12c9", "value": "ruleList" } },
+          "data_array": [
+            { "groupId": "sg-0bd40e2d7195add77", "adapterId": "EC2", "toPort": 80, "fromPort": 80, "ipProtocol": "TCP", "sourceCidrIp": "199.27.253.134/32" },
+            { "groupId": "sg-0bd40e2d7195add77", "adapterId": "EC2", "toPort": 80, "fromPort": 80, "ipProtocol": "TCP", "sourceCidrIp": "19.27.253.134/32" }
+          ],
+          "transformation": "",
+          "loopType": "sequential"
+        },
+        "outgoing": { "job_details": { "status": "complete", "loop": ["6f5c4ca109794e388284bcd2", "3a487a2293b847eda71fb010"] } }
+      }
+    }
+  ]
+}

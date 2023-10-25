@@ -64,23 +64,7 @@ This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has be
 
 ### Adapters
 
-This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has been tested with:
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>adapter-aws_ec2</td>
-      <td>0.6.9</td>
-    </tr>
-  </tbody>
-</table>
-
+No adapters required to run this Workflow Project.
 
 
 ### How to Install
@@ -169,9 +153,12 @@ The following table lists the inputs to the Workflow Project:
   </tbody>
 </table>
 
+  
 
 
 ### Outputs
+
+The following table lists the outputs of the Workflow Project:
 
 <table>
   <thead>
@@ -186,12 +173,14 @@ The following table lists the inputs to the Workflow Project:
     <tr>
       <td>updatedSecurityGroup</td>
       <td>object</td>
-      <td>Create Rule Request Result</td>
+      <td>The result of Create rule request</td>
       <td><pre lang="json">{
   "icode": "AD.200",
   "response": {
     "AuthorizeSecurityGroupIngressResponse": {
-      "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+      "_attr": {
+        "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+      },
       "requestId": "2cf4e379-aac3-4fbe-b75d-543127204d91",
       "return": "true",
       "securityGroupRuleSet": {
@@ -213,7 +202,7 @@ The following table lists the inputs to the Workflow Project:
   </tbody>
 </table>
 
-
+  
 #### Query Output
     
 
@@ -224,9 +213,16 @@ The following items show how to query successful results from the output:
 
 `updatedSecurityGroup.response`
 
+      
+    
+    
+  
+
+
 
 ### Example Inputs and Outputs
 
+  
 #### Example 1
 
     
@@ -240,8 +236,8 @@ Input:
   "adapterId": "EC2" 
 } </pre>
 
-
-
+    
+    
 Output:
 <pre>{
   "updatedSecurityGroup": {
@@ -268,6 +264,8 @@ Output:
   }
 } </pre>
 
+    
+  
 
 
 ## Support

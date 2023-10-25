@@ -1,8 +1,8 @@
-# Create VPC - AWS - EC2 - REST
+# Create VPC - AWS
 
 ## Table of Contents
 
-- [Create VPC - AWS](#create-vpc---aws---ec2---rest)
+- [Create VPC - AWS](#create-vpc---aws)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Getting Started](#getting-started)
@@ -30,7 +30,7 @@ Capabilities include:
 
 ### Supported IAP Versions
 
-Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Create VPC - AWS - EC2 - REST** has been tested with:
+Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Create VPC - AWS** has been tested with:
 
 
 - IAP **2023.1**
@@ -39,7 +39,7 @@ Itential Workflow Projects are built and tested on particular versions of IAP. I
 
 ### External Dependencies
 
-This version of **Create VPC - AWS - EC2 - REST** has been tested with:
+This version of **Create VPC - AWS** has been tested with:
 
 <table>
   <thead>
@@ -61,22 +61,10 @@ This version of **Create VPC - AWS - EC2 - REST** has been tested with:
 
 
 
+
 ### Adapters
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>adapter-aws_ec2</td>
-      <td>0.6.9</td>
-    </tr>
-  </tbody>
-</table>
+No adapters required to run this Workflow Project.
 
 
 ### How to Install
@@ -112,6 +100,8 @@ The primary IAP component to run this Workflow Project is listed below:
 
 ### Inputs
 
+The following table lists the inputs to the Workflow Project:
+
 <table>
   <thead>
     <tr>
@@ -145,10 +135,12 @@ The primary IAP component to run this Workflow Project is listed below:
   </tbody>
 </table>
 
-
+  
 
 
 ### Outputs
+
+The following table lists the outputs of the Workflow Project:
 
 <table>
   <thead>
@@ -194,11 +186,11 @@ The primary IAP component to run this Workflow Project is listed below:
     }
   }
 }</pre></td>
-    </tr> 
+    </tr>
   </tbody>
 </table>
 
-
+  
 #### Query Output
     
 
@@ -209,10 +201,16 @@ The following items show how to query successful results from the output:
 
 `createdVpc.response`
 
+      
+    
+    
+  
+
 
 
 ### Example Inputs and Outputs
 
+  
 #### Example 1
 
     
@@ -223,7 +221,8 @@ Input:
   "vpcName": "TEST VPC"
 } </pre>
 
-
+    
+    
 Output:
 <pre>{
   "createdVpc": {
@@ -258,6 +257,8 @@ Output:
   }
 } </pre>
 
+    
+  
 
 
 ## Support

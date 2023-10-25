@@ -1,8 +1,8 @@
-# Create and Attach Internet Gateway - AWS - EC2 - REST
+# Create and Attach Internet Gateway - AWS
 
 ## Table of Contents
 
-- [Create and Attach Internet Gateway - AWS](#create-and-attach-internet-gateway---aws---ec2---rest)
+- [Create and Attach Internet Gateway - AWS](#create-and-attach-internet-gateway---aws)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Getting Started](#getting-started)
@@ -30,7 +30,7 @@ Capabilities include:
 
 ### Supported IAP Versions
 
-Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Create and Attach Internet Gateway - AWS - EC2 - REST** has been tested with:
+Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Create and Attach Internet Gateway - AWS** has been tested with:
 
 
 - IAP **2023.1**
@@ -39,7 +39,7 @@ Itential Workflow Projects are built and tested on particular versions of IAP. I
 
 ### External Dependencies
 
-This version of **Create and Attach Internet Gateway - AWS - EC2 - REST** has been tested with:
+This version of **Create and Attach Internet Gateway - AWS** has been tested with:
 
 <table>
   <thead>
@@ -61,22 +61,10 @@ This version of **Create and Attach Internet Gateway - AWS - EC2 - REST** has be
 
 
 
+
 ### Adapters
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>adapter-aws_ec2</td>
-      <td>0.6.9</td>
-    </tr>
-  </tbody>
-</table>
+No adapters required to run this Workflow Project.
 
 
 ### How to Install
@@ -112,6 +100,8 @@ The primary IAP component to run this Workflow Project is listed below:
 
 ### Inputs
 
+The following table lists the inputs to the Workflow Project:
+
 <table>
   <thead>
     <tr>
@@ -139,10 +129,12 @@ The primary IAP component to run this Workflow Project is listed below:
   </tbody>
 </table>
 
-
+  
 
 
 ### Outputs
+
+The following table lists the outputs of the Workflow Project:
 
 <table>
   <thead>
@@ -163,35 +155,45 @@ The primary IAP component to run this Workflow Project is listed below:
   </tbody>
 </table>
 
-
+  
 #### Query Output
     
 
 The following items show how to query successful results from the output:
 
       
-##### Internet Gateway Id
+##### The ID of the created Internet gateway
 
 `internetGatewayId`
+
+      
+    
+    
+  
+
 
 
 ### Example Inputs and Outputs
 
+  
 #### Example 1
 
     
 Input:
-<pre>{ 
+<pre>{
   "adapterId": "EC2", 
   "vpcId": "vpc-0c78b30c98d04b8ce" 
 } </pre>
 
-
+    
+    
 Output:
 <pre>{
   "internetGatewayId": "igw-01462c9d3d191a0b3" 
 } </pre>
 
+    
+  
 
 
 ## Support

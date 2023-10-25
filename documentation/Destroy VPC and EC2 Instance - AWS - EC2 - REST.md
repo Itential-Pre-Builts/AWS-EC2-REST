@@ -1,8 +1,8 @@
-# Destroy VPC and EC2 Instance - AWS - EC2 - REST
+# Destroy VPC And EC2 Instance - AWS
 
 ## Table of Contents
 
-- [Destroy VPC and EC2 Instance - AWS](#destroy-vpc-and-ec2-instance---aws---ec2---rest)
+- [Destroy VPC And EC2 Instance - AWS](#destroy-vpc-and-ec2-instance---aws)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Getting Started](#getting-started)
@@ -30,7 +30,7 @@ Capabilities include:
 
 ### Supported IAP Versions
 
-Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Destroy VPC and EC2 Instance - AWS - EC2 - REST** has been tested with:
+Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Destroy VPC And EC2 Instance - AWS** has been tested with:
 
 
 - IAP **2023.1**
@@ -39,7 +39,7 @@ Itential Workflow Projects are built and tested on particular versions of IAP. I
 
 ### External Dependencies
 
-This version of **Destroy VPC and EC2 Instance - AWS - EC2 - REST** has been tested with:
+This version of **Destroy VPC And EC2 Instance - AWS** has been tested with:
 
 <table>
   <thead>
@@ -61,22 +61,10 @@ This version of **Destroy VPC and EC2 Instance - AWS - EC2 - REST** has been tes
 
 
 
+
 ### Adapters
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>adapter-aws_ec2</td>
-      <td>0.6.9</td>
-    </tr>
-  </tbody>
-</table>
+No adapters required to run this Workflow Project.
 
 
 ### How to Install
@@ -112,6 +100,8 @@ The primary IAP component to run this Workflow Project is listed below:
 
 ### Inputs
 
+The following table lists the inputs to the Workflow Project:
+
 <table>
   <thead>
     <tr>
@@ -139,10 +129,12 @@ The primary IAP component to run this Workflow Project is listed below:
   </tbody>
 </table>
 
-
+  
 
 
 ### Outputs
+
+The following table lists the outputs of the Workflow Project:
 
 <table>
   <thead>
@@ -170,11 +162,11 @@ The primary IAP component to run this Workflow Project is listed below:
     }
   }
 }</pre></td>
-    </tr> 
+    </tr>
   </tbody>
 </table>
 
-
+  
 #### Query Output
     
 
@@ -185,20 +177,27 @@ The following items show how to query successful results from the output:
 
 `deletedVPC.response`
 
+      
+    
+    
+  
+
 
 
 ### Example Inputs and Outputs
 
+  
 #### Example 1
 
     
 Input:
-<pre>{ 
-  "vpcId": "vpc-0ece2ed1b3725e018",
+<pre>{
+  "vpcId": "vpc-0ece2ed1b3725e018", 
   "adapterId": "EC2" 
 } </pre>
 
-
+    
+    
 Output:
 <pre>{
   "deletedVPC": {
@@ -215,6 +214,8 @@ Output:
   }
 } </pre>
 
+    
+  
 
 
 ## Support

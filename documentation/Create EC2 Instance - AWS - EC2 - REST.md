@@ -1,8 +1,8 @@
-# Create EC2 Instance - AWS - EC2 - REST
+# Create EC2 Instance - AWS
 
 ## Table of Contents
 
-- [Create EC2 Instance - AWS](#create-ec2-instance---aws---ec2---rest)
+- [Create EC2 Instance - AWS](#create-ec2-instance---aws)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Getting Started](#getting-started)
@@ -30,7 +30,7 @@ Capabilities include:
 
 ### Supported IAP Versions
 
-Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Create EC2 Instance - AWS - EC2 - REST** has been tested with:
+Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Create EC2 Instance - AWS** has been tested with:
 
 
 - IAP **2023.1**
@@ -39,7 +39,7 @@ Itential Workflow Projects are built and tested on particular versions of IAP. I
 
 ### External Dependencies
 
-This version of **Create EC2 Instance - AWS - EC2 - REST** has been tested with:
+This version of **Create EC2 Instance - AWS** has been tested with:
 
 <table>
   <thead>
@@ -61,22 +61,10 @@ This version of **Create EC2 Instance - AWS - EC2 - REST** has been tested with:
 
 
 
+
 ### Adapters
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>adapter-aws_ec2</td>
-      <td>0.6.9</td>
-    </tr>
-  </tbody>
-</table>
+No adapters required to run this Workflow Project.
 
 
 ### How to Install
@@ -112,6 +100,8 @@ The primary IAP component to run this Workflow Project is listed below:
 
 ### Inputs
 
+The following table lists the inputs to the Workflow Project:
+
 <table>
   <thead>
     <tr>
@@ -138,13 +128,13 @@ The primary IAP component to run this Workflow Project is listed below:
     </tr>    <tr>
       <td>securityGroupId</td>
       <td>array</td>
-      <td>no</td>
+      <td>yes</td>
       <td>The IDs of the security groups</td>
       <td><pre lang="json">[
   "sg-0df320af9c57973a4"
 ]</pre></td>
     </tr>    <tr>
-      <td>networkInterfaced</td>
+      <td>networkInterface</td>
       <td>array</td>
       <td>no</td>
       <td>The network interfaces to associate with the instance</td>
@@ -174,10 +164,12 @@ The primary IAP component to run this Workflow Project is listed below:
   </tbody>
 </table>
 
-
+  
 
 
 ### Outputs
+
+The following table lists the outputs of the Workflow Project:
 
 <table>
   <thead>
@@ -197,7 +189,7 @@ The primary IAP component to run this Workflow Project is listed below:
     </tr>    <tr>
       <td>instanceInfo</td>
       <td>object</td>
-      <td>Result of Describe Instance</td>
+      <td>Created Instance Info</td>
       <td><pre lang="json">{
   "icode": "AD.200",
   "response": {
@@ -363,7 +355,7 @@ The primary IAP component to run this Workflow Project is listed below:
   </tbody>
 </table>
 
-
+  
 #### Query Output
     
 
@@ -374,18 +366,26 @@ The following items show how to query successful results from the output:
 
 `publicIp`
 
+      
+##### Describe Instance Request
 
-##### Describe Instance Request Result 
 `instanceInfo.response`
+
+      
+    
+    
+  
+
 
 
 ### Example Inputs and Outputs
 
+  
 #### Example 1
 
     
 Input:
-<pre>{ 
+<pre>{
   "imageId": "ami-041feb57c611358bd", 
   "instanceType": "t2.micro", 
   "securityGroupId": [
@@ -396,7 +396,8 @@ Input:
   "vpcName": "" 
 } </pre>
 
-
+    
+    
 Output:
 <pre>{
   "instanceInfo": {
@@ -561,8 +562,11 @@ Output:
     }
   },
   "publicIp": "54.204.78.24"
-} </pre>
+}
+ </pre>
 
+    
+  
 
 
 ## Support

@@ -1,8 +1,8 @@
-# Create Security Group with Ingress Rules - AWS - EC2 - REST
+# Create Security Group with Ingress Rules - AWS
 
 ## Table of Contents
 
-- [Create Security Group with Ingress Rules - AWS](#create-security-group-with-ingress-rules---aws---ec2---rest)
+- [Create Security Group with Ingress Rules - AWS](#create-security-group-with-ingress-rules---aws)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Getting Started](#getting-started)
@@ -30,7 +30,7 @@ Capabilities include:
 
 ### Supported IAP Versions
 
-Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Create Security Group with Ingress Rules - AWS - EC2 - REST** has been tested with:
+Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Create Security Group with Ingress Rules - AWS** has been tested with:
 
 
 - IAP **2023.1**
@@ -39,7 +39,7 @@ Itential Workflow Projects are built and tested on particular versions of IAP. I
 
 ### External Dependencies
 
-This version of **Create Security Group with Ingress Rules - AWS - EC2 - REST** has been tested with:
+This version of **Create Security Group with Ingress Rules - AWS** has been tested with:
 
 <table>
   <thead>
@@ -61,22 +61,10 @@ This version of **Create Security Group with Ingress Rules - AWS - EC2 - REST** 
 
 
 
+
 ### Adapters
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>adapter-aws_ec2</td>
-      <td>0.6.9</td>
-    </tr>
-  </tbody>
-</table>
+No adapters required to run this Workflow Project.
 
 
 ### How to Install
@@ -112,6 +100,8 @@ The primary IAP component to run this Workflow Project is listed below:
 
 ### Inputs
 
+The following table lists the inputs to the Workflow Project:
+
 <table>
   <thead>
     <tr>
@@ -142,22 +132,22 @@ The primary IAP component to run this Workflow Project is listed below:
       <td>ID of the VPC</td>
       <td><pre lang="json">vpc-0324c35cf9d083a40</pre></td>
     </tr>    <tr>
-    <td>ruleList</td>
+      <td>ruleList</td>
       <td>array</td>
       <td>yes</td>
-      <td>"List of Ingress rules</td>
+      <td>List of Ingress rules</td>
       <td><pre lang="json">[
-  { 
-    "protocol": "TCP", 
-    "port": 80, 
-    "sourceIp": "199.27.253.134", 
-    "sourceSubnetCidrMask": 32 
+  {
+    "protocol": "TCP",
+    "port": 80,
+    "sourceIp": "199.27.253.134",
+    "sourceSubnetCidrMask": 32
   },
-  { 
-    "protocol": "TCP", 
-    "port": 80, 
-    "sourceIp": "19.27.253.134", 
-    "sourceSubnetCidrMask": 32 
+  {
+    "protocol": "TCP",
+    "port": 80,
+    "sourceIp": "19.27.253.134",
+    "sourceSubnetCidrMask": 32
   }
 ]</pre></td>
     </tr>    <tr>
@@ -170,10 +160,12 @@ The primary IAP component to run this Workflow Project is listed below:
   </tbody>
 </table>
 
-
+  
 
 
 ### Outputs
+
+The following table lists the outputs of the Workflow Project:
 
 <table>
   <thead>
@@ -190,25 +182,31 @@ The primary IAP component to run this Workflow Project is listed below:
       <td>string</td>
       <td>ID of the created Security group</td>
       <td><pre lang="json">sg-0bd40e2d7195add77</pre></td>
-    </tr> 
+    </tr>
   </tbody>
 </table>
 
-
+  
 #### Query Output
     
 
 The following items show how to query successful results from the output:
 
       
-##### ID of the created Security group
+##### Security Group ID
 
 `securityGroupId`
+
+      
+    
+    
+  
 
 
 
 ### Example Inputs and Outputs
 
+  
 #### Example 1
 
     
@@ -234,12 +232,15 @@ Input:
   ]
 } </pre>
 
-
+    
+    
 Output:
 <pre>{
-  "securityGroupId": "sg-0bd40e2d7195add77" 
+  "securityGroupId": "sg-0bd40e2d7195add77"
 } </pre>
 
+    
+  
 
 
 ## Support

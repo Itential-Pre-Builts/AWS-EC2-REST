@@ -1,8 +1,8 @@
-# Delete Security Groups by VPC - AWS - EC2 - REST
+# Delete Security Groups by VPC - AWS
 
 ## Table of Contents
 
-- [Delete Security Groups by VPC - AWS](#delete-security-groups-by-vpc---aws---ec2---rest)
+- [Delete Security Groups by VPC - AWS](#delete-security-groups-by-vpc---aws)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Getting Started](#getting-started)
@@ -30,7 +30,7 @@ Capabilities include:
 
 ### Supported IAP Versions
 
-Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Delete Security Groups by VPC - AWS - EC2 - REST** has been tested with:
+Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Delete Security Groups by VPC - AWS** has been tested with:
 
 
 - IAP **2023.1**
@@ -39,7 +39,7 @@ Itential Workflow Projects are built and tested on particular versions of IAP. I
 
 ### External Dependencies
 
-This version of **Delete Security Groups by VPC - AWS - EC2 - REST** has been tested with:
+This version of **Delete Security Groups by VPC - AWS** has been tested with:
 
 <table>
   <thead>
@@ -61,22 +61,10 @@ This version of **Delete Security Groups by VPC - AWS - EC2 - REST** has been te
 
 
 
+
 ### Adapters
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>adapter-aws_ec2</td>
-      <td>0.6.9</td>
-    </tr>
-  </tbody>
-</table>
+No adapters required to run this Workflow Project.
 
 
 ### How to Install
@@ -112,6 +100,8 @@ The primary IAP component to run this Workflow Project is listed below:
 
 ### Inputs
 
+The following table lists the inputs to the Workflow Project:
+
 <table>
   <thead>
     <tr>
@@ -139,10 +129,12 @@ The primary IAP component to run this Workflow Project is listed below:
   </tbody>
 </table>
 
-
+  
 
 
 ### Outputs
+
+The following table lists the outputs of the Workflow Project:
 
 <table>
   <thead>
@@ -161,22 +153,22 @@ The primary IAP component to run this Workflow Project is listed below:
       <td><pre lang="json">[
   {
     "icode": "AD.200",
-    "response": { 
-      "DeleteSecurityGroupResponse": { 
-        "_attr": { 
-          "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" 
-        }, 
-        "requestId": "2cdea5d3-b27b-4a39-ab90-26bf31051769", 
-        "return": "true" 
-      } 
+    "response": {
+      "DeleteSecurityGroupResponse": {
+        "_attr": {
+          "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+        },
+        "requestId": "2cdea5d3-b27b-4a39-ab90-26bf31051769",
+        "return": "true"
+      }
     }
   }
 ]</pre></td>
-    </tr> 
+    </tr>
   </tbody>
 </table>
 
-
+  
 #### Query Output
     
 
@@ -187,20 +179,27 @@ The following items show how to query successful results from the output:
 
 `deletedSecurityGroup`
 
+      
+    
+    
+  
+
 
 
 ### Example Inputs and Outputs
 
+  
 #### Example 1
 
     
 Input:
-<pre>{ 
+<pre>{
   "vpcId": "vpc-0b678b7a21e66ded8",
   "adapterId": "EC2" 
 } </pre>
 
-
+    
+    
 Output:
 <pre>{
   "deletedSecurityGroup": [
@@ -219,6 +218,8 @@ Output:
   ]
 } </pre>
 
+    
+  
 
 
 ## Support

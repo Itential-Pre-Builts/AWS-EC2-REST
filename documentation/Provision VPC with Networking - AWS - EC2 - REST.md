@@ -1,8 +1,8 @@
-# Provision VPC with Networking - AWS - EC2 - REST
+# Provision VPC with Networking - AWS
 
 ## Table of Contents
 
-- [Provision VPC with Networking - AWS](#provision-vpc-with-networking---aws---ec2---rest)
+- [Provision VPC with Networking - AWS](#provision-vpc-with-networking---aws)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Getting Started](#getting-started)
@@ -20,7 +20,7 @@
 
 ## Overview
 
-Create and configure VPC in AWS
+Create and Configure VPC in AWS
 
 Capabilities include:
 - The workflow is used to create and configure VPC in AWS
@@ -30,7 +30,7 @@ Capabilities include:
 
 ### Supported IAP Versions
 
-Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Provision VPC with Networking - AWS - EC2 - REST** has been tested with:
+Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Provision VPC with Networking - AWS** has been tested with:
 
 
 - IAP **2023.1**
@@ -39,7 +39,7 @@ Itential Workflow Projects are built and tested on particular versions of IAP. I
 
 ### External Dependencies
 
-This version of **Provision VPC with Networking - AWS - EC2 - REST** has been tested with:
+This version of **Provision VPC with Networking - AWS** has been tested with:
 
 <table>
   <thead>
@@ -61,22 +61,10 @@ This version of **Provision VPC with Networking - AWS - EC2 - REST** has been te
 
 
 
+
 ### Adapters
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>adapter-aws_ec2</td>
-      <td>0.6.9</td>
-    </tr>
-  </tbody>
-</table>
+No adapters required to run this Workflow Project.
 
 
 ### How to Install
@@ -104,13 +92,15 @@ The primary IAP component to run this Workflow Project is listed below:
     </tr>
   </thead>
   <tbody>
-      <td>Provision VPC with Networking - AWS</td>
+      <td>Provision VPC with Networking - AWS </td>
       <td>Workflow</td>
     </tr>
   </tbody>
 </table>
 
 ### Inputs
+
+The following table lists the inputs to the Workflow Project:
 
 <table>
   <thead>
@@ -148,21 +138,15 @@ The primary IAP component to run this Workflow Project is listed below:
       <td>Description of the Security group</td>
       <td><pre lang="json">Security Group for TESTING</pre></td>
     </tr>    <tr>
-      <td>securityGroupDesc</td>
-      <td>string</td>
-      <td>yes</td>
-      <td>Description of the Security group</td>
-      <td><pre lang="json">Security Group for TESTING</pre></td>
-    </tr>    <tr>
       <td>ingressRules</td>
       <td>array</td>
       <td>yes</td>
       <td>List of rules</td>
       <td><pre lang="json">[
   {
-    "sourceSubnetCidrMask": 32, 
-    "sourceIp": "199.27.253.134", 
-    "protocol": "TCP", 
+    "sourceSubnetCidrMask": 32,
+    "sourceIp": "199.27.253.134",
+    "protocol": "TCP",
     "port": 80
   }
 ]</pre></td>
@@ -176,10 +160,12 @@ The primary IAP component to run this Workflow Project is listed below:
   </tbody>
 </table>
 
-
+  
 
 
 ### Outputs
+
+The following table lists the outputs of the Workflow Project:
 
 <table>
   <thead>
@@ -196,17 +182,17 @@ The primary IAP component to run this Workflow Project is listed below:
       <td>string</td>
       <td>ID of the created VPC</td>
       <td><pre lang="json">vpc-0b678b7a21e66ded8</pre></td>
-    </tr> <tr>
+    </tr>    <tr>
       <td>subnetId</td>
       <td>string</td>
       <td>ID of the created subnet</td>
       <td><pre lang="json">subnet-097a82181b977273f</pre></td>
-    </tr> <tr>
+    </tr>    <tr>
       <td>internetGatewayId</td>
       <td>string</td>
       <td>ID of the created Internet gateway</td>
       <td><pre lang="json">igw-070593dabfda1adf0</pre></td>
-    </tr> <tr>
+    </tr>    <tr>
       <td>securityGroupId</td>
       <td>string</td>
       <td>ID of the created Security group</td>
@@ -215,7 +201,7 @@ The primary IAP component to run this Workflow Project is listed below:
   </tbody>
 </table>
 
-
+  
 #### Query Output
     
 
@@ -226,27 +212,36 @@ The following items show how to query successful results from the output:
 
 `vpcId`
 
+      
 ##### Create Subnet Result
 
 `subnetId`
 
+      
 ##### Create Internet Gateway Result
 
 `internetGatewayId`
 
+      
 ##### Create Security Group Result
 
 `securityGroupId`
+
+      
+    
+    
+  
 
 
 
 ### Example Inputs and Outputs
 
+  
 #### Example 1
 
     
 Input:
-<pre>{ 
+<pre>{
   "vpcSubnet": "10.20.30.1/28",
   "vpcName": "Test VPC1234",
   "adapterId": "EC2",
@@ -262,7 +257,8 @@ Input:
   ] 
 } </pre>
 
-
+    
+    
 Output:
 <pre>{
   "vpcId": "vpc-0b678b7a21e66ded8",
@@ -271,6 +267,8 @@ Output:
   "securityGroupId": "sg-0cdc4162d4cd16dfe"
 } </pre>
 
+    
+  
 
 
 ## Support

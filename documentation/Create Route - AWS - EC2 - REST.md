@@ -1,8 +1,8 @@
-# Create Route - AWS - EC2 - REST
+# Create Route - AWS
 
 ## Table of Contents
 
-- [Create Route - AWS](#create-route---aws---ec2---rest)
+- [Create Route - AWS](#create-route---aws)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Getting Started](#getting-started)
@@ -30,7 +30,7 @@ Capabilities include:
 
 ### Supported IAP Versions
 
-Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Create Route - AWS - EC2 - REST** has been tested with:
+Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Create Route - AWS** has been tested with:
 
 
 - IAP **2023.1**
@@ -39,7 +39,7 @@ Itential Workflow Projects are built and tested on particular versions of IAP. I
 
 ### External Dependencies
 
-This version of **Create Route - AWS - EC2 - REST** has been tested with:
+This version of **Create Route - AWS** has been tested with:
 
 <table>
   <thead>
@@ -61,22 +61,10 @@ This version of **Create Route - AWS - EC2 - REST** has been tested with:
 
 
 
+
 ### Adapters
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>adapter-aws_ec2</td>
-      <td>0.6.9</td>
-    </tr>
-  </tbody>
-</table>
+No adapters required to run this Workflow Project.
 
 
 ### How to Install
@@ -111,6 +99,8 @@ The primary IAP component to run this Workflow Project is listed below:
 </table>
 
 ### Inputs
+
+The following table lists the inputs to the Workflow Project:
 
 <table>
   <thead>
@@ -151,10 +141,12 @@ The primary IAP component to run this Workflow Project is listed below:
   </tbody>
 </table>
 
-
+  
 
 
 ### Outputs
+
+The following table lists the outputs of the Workflow Project:
 
 <table>
   <thead>
@@ -171,56 +163,65 @@ The primary IAP component to run this Workflow Project is listed below:
       <td>string</td>
       <td>ID of the route table</td>
       <td><pre lang="json">rtb-06d646d475a5b5d48</pre></td>
-    </tr> <tr>
-      <td>createdRouted</td>
+    </tr>    <tr>
+      <td>createdRoute</td>
       <td>object</td>
       <td>Result of the create route request</td>
       <td><pre lang="json">{
   "icode": "AD.200",
-  "response": { 
-    "CreateRouteResponse": { 
-      "_attr": { 
-        "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" 
-      }, 
-      "requestId": "4e157878-b2fb-4f95-8312-8c3cbbec8b18", 
-      "return": "true" 
-    } 
+  "response": {
+    "CreateRouteResponse": {
+      "_attr": {
+        "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+      },
+      "requestId": "4e157878-b2fb-4f95-8312-8c3cbbec8b18",
+      "return": "true"
+    }
   }
 }</pre></td>
     </tr>
   </tbody>
 </table>
 
-
+  
 #### Query Output
     
 
 The following items show how to query successful results from the output:
 
       
-##### ID of the route table
+##### Route table ID
 
 `routeTableId`
 
-##### Create Route Request Result
+      
+##### Create Route Request
 
-`createdRouted.response`
+`createdRoute.response`
+
+      
+    
+    
+  
+
 
 
 ### Example Inputs and Outputs
 
+  
 #### Example 1
 
     
 Input:
-<pre>{ 
-  "destinationCidrBlock": "0.0.0.0/0", 
+<pre>{
+  "destinationCidrBlock": "0.0.0.0/0",
   "gatewayId": "igw-0fae02dad528986b6", 
   "adapterId": "EC2", 
   "vpcId": "vpc-0324c35cf9d083a40" 
 } </pre>
 
-
+    
+    
 Output:
 <pre>{
   "routeTableId": "rtb-06d646d475a5b5d48",
@@ -235,9 +236,11 @@ Output:
         "return": "true" 
       } 
     }
-  }
+  }  
 } </pre>
 
+    
+  
 
 
 ## Support

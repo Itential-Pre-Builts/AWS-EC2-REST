@@ -1,8 +1,8 @@
-# Detach and Delete Internet Gateways by VPC - AWS - EC2 - REST
+# Detach and Delete Internet Gateways by VPC - AWS
 
 ## Table of Contents
 
-- [Detach and Delete Internet Gateways by VPC - AWS](#detach-and-delete-internet-gateways-by-vpc---aws---ec2---rest)
+- [Detach and Delete Internet Gateways by VPC - AWS](#detach-and-delete-internet-gateways-by-vpc---aws)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Getting Started](#getting-started)
@@ -20,7 +20,7 @@
 
 ## Overview
 
-Detach and delete VPC Internet gateways in AWS
+Detach and Delete VPC Internet gateways in AWS
 
 Capabilities include:
 - The workflow is used to detach and delete VPC Internet gateways in AWS
@@ -30,7 +30,7 @@ Capabilities include:
 
 ### Supported IAP Versions
 
-Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Detach and Delete Internet Gateways by VPC - AWS - EC2 - REST** has been tested with:
+Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Detach and Delete Internet Gateways by VPC - AWS** has been tested with:
 
 
 - IAP **2023.1**
@@ -39,7 +39,7 @@ Itential Workflow Projects are built and tested on particular versions of IAP. I
 
 ### External Dependencies
 
-This version of **Detach and Delete Internet Gateways by VPC - AWS - EC2 - REST** has been tested with:
+This version of **Detach and Delete Internet Gateways by VPC - AWS** has been tested with:
 
 <table>
   <thead>
@@ -61,22 +61,10 @@ This version of **Detach and Delete Internet Gateways by VPC - AWS - EC2 - REST*
 
 
 
+
 ### Adapters
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>adapter-aws_ec2</td>
-      <td>0.6.9</td>
-    </tr>
-  </tbody>
-</table>
+No adapters required to run this Workflow Project.
 
 
 ### How to Install
@@ -112,6 +100,8 @@ The primary IAP component to run this Workflow Project is listed below:
 
 ### Inputs
 
+The following table lists the inputs to the Workflow Project:
+
 <table>
   <thead>
     <tr>
@@ -139,10 +129,12 @@ The primary IAP component to run this Workflow Project is listed below:
   </tbody>
 </table>
 
-
+  
 
 
 ### Outputs
+
+The following table lists the outputs of the Workflow Project:
 
 <table>
   <thead>
@@ -157,7 +149,7 @@ The primary IAP component to run this Workflow Project is listed below:
     <tr>
       <td>deletedInternetGateway</td>
       <td>object</td>
-      <td>Delete Internet Gateway request resultt</td>
+      <td>Delete Internet Gateway request result</td>
       <td><pre lang="json">{
   "icode": "AD.200",
   "response": {
@@ -170,11 +162,11 @@ The primary IAP component to run this Workflow Project is listed below:
     }
   }
 }</pre></td>
-    </tr> 
+    </tr>
   </tbody>
 </table>
 
-
+  
 #### Query Output
     
 
@@ -185,20 +177,27 @@ The following items show how to query successful results from the output:
 
 `deletedInternetGateway.response`
 
+      
+    
+    
+  
+
 
 
 ### Example Inputs and Outputs
 
+  
 #### Example 1
 
     
 Input:
-<pre>{ 
-  "vpcId": "vpc-0ba78c5ca9aaecd64",
-  "adapterId": "EC2" 
+<pre>{
+  "adapterId": "EC2", 
+  "vpcId": "vpc-0ba78c5ca9aaecd64" 
 } </pre>
 
-
+    
+    
 Output:
 <pre>{
   "deletedInternetGateway": {
@@ -215,6 +214,8 @@ Output:
   }
 } </pre>
 
+    
+  
 
 
 ## Support

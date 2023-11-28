@@ -64,23 +64,7 @@ This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has be
 
 ### Adapters
 
-This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has been tested with:
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Version</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>adapter-aws_ec2</td>
-      <td>0.7.2</td>
-    </tr>
-  </tbody>
-</table>
-
+No adapters required to run this Workflow Project.
 
 
 ### How to Install

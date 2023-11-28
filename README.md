@@ -5,7 +5,7 @@
 This Pre-Built Automation bundle contains use cases around performing actions on Amazon EC2 plus additional service Amazon VPC
 
 
-<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Add Ingress Rule to Security Group - AWS - EC2 - REST.md' target='_blank'>Add Ingress Rule to Security Group - AWS</a>
+<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Add Ingress Rule to Security Group - AWS - EC2 - REST.md' target='_blank'>Add Ingress Rule to Security Group - AWS - EC2 - REST</a>
 
 <a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Create and Attach Internet Gateway - AWS - EC2 - REST.md' target='_blank'>Create and Attach Internet Gateway - AWS</a>
 

@@ -100,7 +100,7 @@
       "displayName": "WorkFlowEngine",
       "variables": {
         "incoming": {
-          "tr_id": "63e39d7cd59d6601415e4e08",
+          "tr_id": "655e0ee83bd5d401c431dc95",
           "variableMap": {
             "createVpcResponse": "$var.997d.result",
             "vpcName": "$var.job.vpcName"
@@ -229,12 +229,11 @@
   "font_size": 12,
   "created": "2021-02-01T20:05:14.381Z",
   "createdVersion": "5.10.4-2020.1.22.0",
-  "last_updated": "2023-10-16T18:18:09.872Z",
+  "last_updated": "2023-11-22T14:27:20.935Z",
   "lastUpdatedVersion": "5.46.0-2023.1.19.0",
   "type": "automation",
   "preAutomationTime": 0,
   "sla": 0,
-  "canvasVersion": 1.5,
   "created_by": {
     "provenance": "local_aaa",
     "username": "admin@pronghorn",
@@ -247,6 +246,7 @@
     "firstname": "admin",
     "inactive": false
   },
+  "canvasVersion": 1.5,
   "tags": [],
   "groups": [],
   "migrationVersion": 2

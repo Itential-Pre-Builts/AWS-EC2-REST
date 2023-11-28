@@ -2,20 +2,21 @@
   "input": {
     "description": "It should run Create Route",
     "variables": { 
+      "routeTableId": "",
       "destinationCidrBlock": "0.0.0.0/0", 
-      "gatewayId": "igw-0fae02dad528986b6", 
+      "gatewayId": "igw-0d436c219dfe3e4f4", 
       "adapterId": "EC2", 
-      "vpcId": "vpc-0324c35cf9d083a40" 
+      "vpcId": "vpc-04840026f5a8b6c6b"
     }
   },
   "expectedTaskResults": {
     "status": "complete",
     "variables": {
+      "routeTableId": "rtb-0ad7e6ee9a78362f1",
       "destinationCidrBlock": "0.0.0.0/0",
-      "gatewayId": "igw-0fae02dad528986b6",
+      "gatewayId": "igw-0d436c219dfe3e4f4",
       "adapterId": "EC2",
-      "vpcId": "vpc-0324c35cf9d083a40",
-      "routeTableId": "rtb-06d646d475a5b5d48"
+      "vpcId": "vpc-04840026f5a8b6c6b"
     }
   },
   "stubTasks": [
@@ -27,18 +28,18 @@
           "destinationIpv6CidrBlock": "",
           "dryRun": false,
           "egressOnlyInternetGatewayId": "",
-          "gatewayId": "igw-0fae02dad528986b6",
+          "gatewayId": "igw-0d436c219dfe3e4f4",
           "instanceId": "",
           "natGatewayId": "",
           "transitGatewayId": "",
           "networkInterfaceId": "",
-          "routeTableId": "rtb-06d646d475a5b5d48",
+          "routeTableId": "rtb-0ad7e6ee9a78362f1",
           "vpcPeeringConnectionId": ""
         },
         "outgoing": {
           "result": {
             "icode": "AD.200",
-            "response": { "CreateRouteResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "4e157878-b2fb-4f95-8312-8c3cbbec8b18", "return": "true" } }
+            "response": { "CreateRouteResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "0ac30011-5190-4b13-83b2-020a86771c71", "return": "true" } }
           }
         }
       }
@@ -46,31 +47,28 @@
     {
       "taskId": "6b15",
       "variables": {
-        "incoming": { "filter": [{ "Value": "vpc-0324c35cf9d083a40", "Name": "vpc-id" }], "dryRun": false, "routeTableId": "", "nextToken": "", "maxResults": "" },
+        "incoming": { "filter": [{ "Value": "vpc-04840026f5a8b6c6b", "Name": "vpc-id" }], "dryRun": false, "routeTableId": "", "nextToken": "", "maxResults": "" },
         "outgoing": {
           "result": {
             "icode": "AD.200",
             "response": {
               "DescribeRouteTablesResponse": {
                 "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
-                "requestId": "b1e8b8ed-c798-46b9-b432-4560b1ae5c71",
+                "requestId": "8e8d0361-9fab-4c99-9370-6522a572dc5c",
                 "routeTableSet": {
-                  "item": {
-                    "routeTableId": "rtb-06d646d475a5b5d48",
-                    "vpcId": "vpc-0324c35cf9d083a40",
-                    "ownerId": "314014972859",
-                    "routeSet": {
-                      "item": [
-                        { "destinationCidrBlock": "172.31.0.0/16", "gatewayId": "local", "state": "active", "origin": "CreateRouteTable" },
-                        { "destinationCidrBlock": "0.0.0.0/0", "gatewayId": "igw-0fae02dad528986b6", "state": "active", "origin": "CreateRoute" }
-                      ]
-                    },
-                    "associationSet": {
-                      "item": { "routeTableAssociationId": "rtbassoc-05b135d7ff8858a68", "routeTableId": "rtb-06d646d475a5b5d48", "main": "true", "associationState": { "state": "associated" } }
-                    },
-                    "propagatingVgwSet": "",
-                    "tagSet": ""
-                  }
+                  "item": [
+                    {
+                      "routeTableId": "rtb-0ad7e6ee9a78362f1",
+                      "vpcId": "vpc-04840026f5a8b6c6b",
+                      "ownerId": "314014972859",
+                      "routeSet": { "item": [{ "destinationCidrBlock": "172.31.0.0/16", "gatewayId": "local", "state": "active", "origin": "CreateRouteTable" }] },
+                      "associationSet": {
+                        "item": [{ "routeTableAssociationId": "rtbassoc-09382fb4044aa6880", "routeTableId": "rtb-0ad7e6ee9a78362f1", "main": "true", "associationState": { "state": "associated" } }]
+                      },
+                      "propagatingVgwSet": "",
+                      "tagSet": ""
+                    }
+                  ]
                 }
               }
             }

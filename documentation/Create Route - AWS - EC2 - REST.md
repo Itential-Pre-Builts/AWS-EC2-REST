@@ -64,7 +64,22 @@ This version of **Create Route - AWS** has been tested with:
 
 ### Adapters
 
-No adapters required to run this Workflow Project.
+This version of **Create Route - AWS** has been tested with:
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>adapter-aws_ec2</td>
+      <td>0.7.2</td>
+    </tr>
+  </tbody>
+</table>
 
 
 ### How to Install
@@ -114,6 +129,12 @@ The following table lists the inputs to the Workflow Project:
   </thead>
   <tbody>
     <tr>
+      <td>routeTableId</td>
+      <td>string</td>
+      <td>no</td>
+      <td>ID of the route table</td>
+      <td><pre lang="json">rtb-06d646d475a5b5d48</pre></td>
+    </tr>    <tr>
       <td>destinationCidrBlock</td>
       <td>string</td>
       <td>yes</td>
@@ -214,6 +235,7 @@ The following items show how to query successful results from the output:
     
 Input:
 <pre>{
+  "routeTableId": "",
   "destinationCidrBlock": "0.0.0.0/0",
   "gatewayId": "igw-0fae02dad528986b6", 
   "adapterId": "EC2", 

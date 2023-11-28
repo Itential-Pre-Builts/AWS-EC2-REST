@@ -8,7 +8,7 @@
       "name": "adapter-aws_ec2",
       "overview": "AWS EC2",
       "webName": "Amazon EC2",
-      "version": "0.6.9",
+      "version": "0.7.2",
       "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
       "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
       "webLink": "https://www.itential.com/adapters/amazon-ec2/"
@@ -77,13 +77,13 @@
       "name": "updatedSecurityGroup",
       "type": "object",
       "description": "The result of Create rule request",
-      "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": {\n    \"AuthorizeSecurityGroupIngressResponse\": {\n      \"_attr\": { \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" },\n      \"requestId\": \"2cf4e379-aac3-4fbe-b75d-543127204d91\",\n      \"return\": \"true\",\n      \"securityGroupRuleSet\": {\n        \"item\": {\n          \"groupOwnerId\": \"314014972859\",\n          \"groupId\": \"sg-08f249db62d26d8a6\",\n          \"securityGroupRuleId\": \"sgr-08f9a989136861e6c\",\n          \"isEgress\": \"false\",\n          \"ipProtocol\": \"tcp\",\n          \"fromPort\": \"80\",\n          \"toPort\": \"80\",\n          \"cidrIpv4\": \"19.27.253.13\/32\"\n        }\n      }\n    }\n  }\n}"
+      "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": {\n    \"AuthorizeSecurityGroupIngressResponse\": {\n      \"_attr\": { \n        \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n      },\n      \"requestId\": \"2cf4e379-aac3-4fbe-b75d-543127204d91\",\n      \"return\": \"true\",\n      \"securityGroupRuleSet\": {\n        \"item\": [\n          {\n            \"groupOwnerId\": \"314014972859\",\n            \"groupId\": \"sg-08f249db62d26d8a6\",\n            \"securityGroupRuleId\": \"sgr-08f9a989136861e6c\",\n            \"isEgress\": \"false\",\n            \"ipProtocol\": \"tcp\",\n            \"fromPort\": \"80\",\n            \"toPort\": \"80\",\n            \"cidrIpv4\": \"19.27.253.13\/32\"\n          }\n        ]\n      }\n    }\n  }\n}"
     }
   ],
   "exampleInputsAndOutputs": [
     {
       "exampleInput": "{\n  \"sourceCidrIp\": \"19.27.253.13\/32\", \n  \"fromPort\": 80, \n  \"groupId\": \"sg-08f249db62d26d8a6\", \n  \"ipProtocol\": \"TCP\", \n  \"toPort\": 80, \n  \"adapterId\": \"EC2\" \n}",
-      "exampleOutput": "{\n  \"updatedSecurityGroup\": {\n    \"icode\": \"AD.200\",\n    \"response\": {\n      \"AuthorizeSecurityGroupIngressResponse\": {\n        \"_attr\": { \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" },\n        \"requestId\": \"2cf4e379-aac3-4fbe-b75d-543127204d91\",\n        \"return\": \"true\",\n        \"securityGroupRuleSet\": {\n          \"item\": {\n            \"groupOwnerId\": \"314014972859\",\n            \"groupId\": \"sg-08f249db62d26d8a6\",\n            \"securityGroupRuleId\": \"sgr-08f9a989136861e6c\",\n            \"isEgress\": \"false\",\n            \"ipProtocol\": \"tcp\",\n            \"fromPort\": \"80\",\n            \"toPort\": \"80\",\n            \"cidrIpv4\": \"19.27.253.13\/32\"\n          }\n        }\n      }\n    }\n  }\n}"
+      "exampleOutput": "{\n  \"updatedSecurityGroup\": {\n    \"icode\": \"AD.200\",\n    \"response\": {\n      \"AuthorizeSecurityGroupIngressResponse\": {\n        \"_attr\": { \n          \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n        },\n        \"requestId\": \"2cf4e379-aac3-4fbe-b75d-543127204d91\",\n        \"return\": \"true\",\n        \"securityGroupRuleSet\": {\n          \"item\": [\n            {\n              \"groupOwnerId\": \"314014972859\",\n              \"groupId\": \"sg-08f249db62d26d8a6\",\n              \"securityGroupRuleId\": \"sgr-08f9a989136861e6c\",\n              \"isEgress\": \"false\",\n              \"ipProtocol\": \"tcp\",\n              \"fromPort\": \"80\",\n              \"toPort\": \"80\",\n              \"cidrIpv4\": \"19.27.253.13\/32\"\n            }\n          ]\n        }\n      }\n    }\n  }\n}"
     }
   ],
   "queryOutput": {

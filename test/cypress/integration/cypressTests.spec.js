@@ -6,13 +6,11 @@ const CreateRouteAWSJob3Data = require('../fixtures/stubs/Create Route - AWS Job
 const CreateSecurityGroupwithIngressRulesAWSJob4Data = require('../fixtures/stubs/Create Security Group with Ingress Rules - AWS Job4.json');
 const CreateVPCAWSJob5Data = require('../fixtures/stubs/Create VPC - AWS Job5.json');
 const CreateVPCSubnetAWSJob6Data = require('../fixtures/stubs/Create VPC Subnet - AWS Job6.json');
-const ProvisionVPCwithNetworkingAWSJob7Data = require('../fixtures/stubs/Provision VPC with Networking - AWS Job7.json');
-const DeleteSecurityGroupsbyVPCAWSJob8Data = require('../fixtures/stubs/Delete Security Groups by VPC - AWS Job8.json');
-const DeleteSubnetsbyVPCAWSJob9Data = require('../fixtures/stubs/Delete Subnets by VPC - AWS Job9.json');
-const DeleteSubnetsbyVPCAWSJob12Data = require('../fixtures/stubs/Delete Subnets by VPC - AWS Job12.json');
-const DestroyVPCandEC2InstanceAWSJob10Data = require('../fixtures/stubs/Destroy VPC And EC2 Instance - AWS Job10.json');
-const DestroyVPCandEC2InstanceAWSJob13Data = require('../fixtures/stubs/Destroy VPC And EC2 Instance - AWS Job13.json');
-const DetachandDeleteInternetGatewaysbyVPCAWSJob11Data = require('../fixtures/stubs/Detach and Delete Internet Gateways by VPC - AWS Job11.json');
+const DeleteSecurityGroupsbyVPCAWSJob7Data = require('../fixtures/stubs/Delete Security Groups by VPC - AWS Job7.json');
+const DeleteSubnetsbyVPCAWSJob8Data = require('../fixtures/stubs/Delete Subnets by VPC - AWS Job8.json');
+const DestroyVPCandEC2InstanceAWSJob9Data = require('../fixtures/stubs/Destroy VPC and EC2 Instance - AWS Job9.json');
+const DetachandDeleteInternetGatewaysbyVPCAWSJob10Data = require('../fixtures/stubs/Detach and Delete Internet Gateways by VPC - AWS Job10.json');
+const ProvisionVPCwithNetworkingAWSJob11Data = require('../fixtures/stubs/Provision VPC with Networking - AWS Job11.json');
 
 function initializeWorkflowRunner(workflow, importWorkflow, isStub, stubTasks) {
   let workflowRunner = new WorkflowRunner(workflow.name);
@@ -66,13 +64,11 @@ describe('Default: Cypress Tests', function () {
   let CreateSecurityGroupwithIngressRulesAWSJob4Workflow;
   let CreateVPCAWSJob5Workflow;
   let CreateVPCSubnetAWSJob6Workflow;
-  let ProvisionVPCwithNetworkingAWSJob7Workflow;
-  let DeleteSecurityGroupsbyVPCAWSJob8Workflow;
-  let DeleteSubnetsbyVPCAWSJob9Workflow;
-  let DeleteSubnetsbyVPCAWSJob12Workflow;
-  let DestroyVPCandEC2InstanceAWSJob10Workflow;
-  let DestroyVPCandEC2InstanceAWSJob13Workflow;
-  let DetachandDeleteInternetGatewaysbyVPCAWSJob11Workflow;
+  let DeleteSecurityGroupsbyVPCAWSJob7Workflow;
+  let DeleteSubnetsbyVPCAWSJob8Workflow;
+  let DestroyVPCandEC2InstanceAWSJob9Workflow;
+  let DetachandDeleteInternetGatewaysbyVPCAWSJob10Workflow;
+  let ProvisionVPCwithNetworkingAWSJob11Workflow;
   
   before(function () {
     //creates a prebuilt runner for importing the prebuilt
@@ -100,26 +96,20 @@ describe('Default: Cypress Tests', function () {
     cy.fixture(`../../../bundles/workflows/Create VPC Subnet - AWS.json`).then((data) => {
       CreateVPCSubnetAWSJob6Workflow = data;
     });
-    cy.fixture(`../../../bundles/workflows/Provision VPC with Networking - AWS.json`).then((data) => {
-      ProvisionVPCwithNetworkingAWSJob7Workflow = data;
-    });
     cy.fixture(`../../../bundles/workflows/Delete Security Groups by VPC - AWS.json`).then((data) => {
-      DeleteSecurityGroupsbyVPCAWSJob8Workflow = data;
+      DeleteSecurityGroupsbyVPCAWSJob7Workflow = data;
     });
     cy.fixture(`../../../bundles/workflows/Delete Subnets by VPC - AWS.json`).then((data) => {
-      DeleteSubnetsbyVPCAWSJob9Workflow = data;
+      DeleteSubnetsbyVPCAWSJob8Workflow = data;
     });
-    cy.fixture(`../../../bundles/workflows/Delete Subnets by VPC - AWS.json`).then((data) => {
-      DeleteSubnetsbyVPCAWSJob12Workflow = data;
-    });
-    cy.fixture(`../../../bundles/workflows/Destroy VPC And EC2 Instance - AWS.json`).then((data) => {
-      DestroyVPCandEC2InstanceAWSJob10Workflow = data;
-    });
-    cy.fixture(`../../../bundles/workflows/Destroy VPC And EC2 Instance - AWS.json`).then((data) => {
-      DestroyVPCandEC2InstanceAWSJob13Workflow = data;
+    cy.fixture(`../../../bundles/workflows/Destroy VPC and EC2 Instance - AWS.json`).then((data) => {
+      DestroyVPCandEC2InstanceAWSJob9Workflow = data;
     });
     cy.fixture(`../../../bundles/workflows/Detach and Delete Internet Gateways by VPC - AWS.json`).then((data) => {
-      DetachandDeleteInternetGatewaysbyVPCAWSJob11Workflow = data;
+      DetachandDeleteInternetGatewaysbyVPCAWSJob10Workflow = data;
+    });
+    cy.fixture(`../../../bundles/workflows/Provision VPC with Networking - AWS.json`).then((data) => {
+      ProvisionVPCwithNetworkingAWSJob11Workflow = data;
     });
     
   });
@@ -304,146 +294,74 @@ describe('Default: Cypress Tests', function () {
     })
   })
 
-  describe('Provision VPC with Networking - AWS', function() {
-    it('It should run Provision VPC with Networking', function () {
-      const importWorkflow = true;
-      const isStub = true;
-      // create the job runner so it can be used in future tests
-      const workflowRunner = initializeWorkflowRunner(ProvisionVPCwithNetworkingAWSJob7Workflow, importWorkflow, isStub, ProvisionVPCwithNetworkingAWSJob7Data.stubTasks);
-      // this has to be customized to each IAP version.
-
-      workflowRunner.job.startAndReturnResultsWhenComplete({
-        options: ProvisionVPCwithNetworkingAWSJob7Data.input,
-        retryTime: 2000,
-      }).then((jobVariableResults) => {
-        expect(jobVariableResults['status']).eql(ProvisionVPCwithNetworkingAWSJob7Data.expectedTaskResults.status);
-        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
-          delete jobVariables._id;
-          delete jobVariables.initiator;
-          expect(jobVariables).eql(ProvisionVPCwithNetworkingAWSJob7Data.expectedTaskResults.variables);
-        });
-        /* Restore the workflow without the stub tasks */
-        replaceStubTasks(workflowRunner, ProvisionVPCwithNetworkingAWSJob7Workflow);
-      });
-    })
-  })
-
   describe('Delete Security Groups by VPC - AWS', function() {
     it('It should run Delete Security Groups by VPC', function () {
       const importWorkflow = true;
       const isStub = true;
       // create the job runner so it can be used in future tests
-      const workflowRunner = initializeWorkflowRunner(DeleteSecurityGroupsbyVPCAWSJob8Workflow, importWorkflow, isStub, DeleteSecurityGroupsbyVPCAWSJob8Data.stubTasks);
+      const workflowRunner = initializeWorkflowRunner(DeleteSecurityGroupsbyVPCAWSJob7Workflow, importWorkflow, isStub, DeleteSecurityGroupsbyVPCAWSJob7Data.stubTasks);
       // this has to be customized to each IAP version.
 
       workflowRunner.job.startAndReturnResultsWhenComplete({
-        options: DeleteSecurityGroupsbyVPCAWSJob8Data.input,
+        options: DeleteSecurityGroupsbyVPCAWSJob7Data.input,
         retryTime: 2000,
       }).then((jobVariableResults) => {
-        expect(jobVariableResults['status']).eql(DeleteSecurityGroupsbyVPCAWSJob8Data.expectedTaskResults.status);
+        expect(jobVariableResults['status']).eql(DeleteSecurityGroupsbyVPCAWSJob7Data.expectedTaskResults.status);
         workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
           delete jobVariables._id;
           delete jobVariables.initiator;
-          expect(jobVariables).eql(DeleteSecurityGroupsbyVPCAWSJob8Data.expectedTaskResults.variables);
+          expect(jobVariables).eql(DeleteSecurityGroupsbyVPCAWSJob7Data.expectedTaskResults.variables);
         });
         /* Restore the workflow without the stub tasks */
-        replaceStubTasks(workflowRunner, DeleteSecurityGroupsbyVPCAWSJob8Workflow);
+        replaceStubTasks(workflowRunner, DeleteSecurityGroupsbyVPCAWSJob7Workflow);
       });
     })
   })
 
   describe('Delete Subnets by VPC - AWS', function() {
-    it('It should run Delete Subnets by VPC when VPC has a subnet', function () {
+    it('It should run Delete Subnets by VPC', function () {
       const importWorkflow = true;
       const isStub = true;
       // create the job runner so it can be used in future tests
-      const workflowRunner = initializeWorkflowRunner(DeleteSubnetsbyVPCAWSJob9Workflow, importWorkflow, isStub, DeleteSubnetsbyVPCAWSJob9Data.stubTasks);
+      const workflowRunner = initializeWorkflowRunner(DeleteSubnetsbyVPCAWSJob8Workflow, importWorkflow, isStub, DeleteSubnetsbyVPCAWSJob8Data.stubTasks);
       // this has to be customized to each IAP version.
 
       workflowRunner.job.startAndReturnResultsWhenComplete({
-        options: DeleteSubnetsbyVPCAWSJob9Data.input,
+        options: DeleteSubnetsbyVPCAWSJob8Data.input,
         retryTime: 2000,
       }).then((jobVariableResults) => {
-        expect(jobVariableResults['status']).eql(DeleteSubnetsbyVPCAWSJob9Data.expectedTaskResults.status);
+        expect(jobVariableResults['status']).eql(DeleteSubnetsbyVPCAWSJob8Data.expectedTaskResults.status);
         workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
           delete jobVariables._id;
           delete jobVariables.initiator;
-          expect(jobVariables).eql(DeleteSubnetsbyVPCAWSJob9Data.expectedTaskResults.variables);
+          expect(jobVariables).eql(DeleteSubnetsbyVPCAWSJob8Data.expectedTaskResults.variables);
         });
         /* Restore the workflow without the stub tasks */
-        replaceStubTasks(workflowRunner, DeleteSubnetsbyVPCAWSJob9Workflow);
-      });
-    })
-  })
-
-  describe('Delete Subnets by VPC - AWS', function() {
-    it('It should run Delete Subnets by VPC when VPC has multiple subnets', function () {
-      const importWorkflow = true;
-      const isStub = true;
-      // create the job runner so it can be used in future tests
-      const workflowRunner = initializeWorkflowRunner(DeleteSubnetsbyVPCAWSJob12Workflow, importWorkflow, isStub, DeleteSubnetsbyVPCAWSJob12Data.stubTasks);
-      // this has to be customized to each IAP version.
-
-      workflowRunner.job.startAndReturnResultsWhenComplete({
-        options: DeleteSubnetsbyVPCAWSJob12Data.input,
-        retryTime: 2000,
-      }).then((jobVariableResults) => {
-        expect(jobVariableResults['status']).eql(DeleteSubnetsbyVPCAWSJob12Data.expectedTaskResults.status);
-        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
-          delete jobVariables._id;
-          delete jobVariables.initiator;
-          expect(jobVariables).eql(DeleteSubnetsbyVPCAWSJob12Data.expectedTaskResults.variables);
-        });
-        /* Restore the workflow without the stub tasks */
-        replaceStubTasks(workflowRunner, DeleteSubnetsbyVPCAWSJob12Workflow);
+        replaceStubTasks(workflowRunner, DeleteSubnetsbyVPCAWSJob8Workflow);
       });
     })
   })
 
   describe('Destroy VPC and EC2 Instance - AWS', function() {
-    it('It should run Destroy VPC and EC2 Instance when there are multiple instances', function () {
+    it('It should run Destroy VPC and EC2 Instance', function () {
       const importWorkflow = true;
       const isStub = true;
       // create the job runner so it can be used in future tests
-      const workflowRunner = initializeWorkflowRunner(DestroyVPCandEC2InstanceAWSJob10Workflow, importWorkflow, isStub, DestroyVPCandEC2InstanceAWSJob10Data.stubTasks);
+      const workflowRunner = initializeWorkflowRunner(DestroyVPCandEC2InstanceAWSJob9Workflow, importWorkflow, isStub, DestroyVPCandEC2InstanceAWSJob9Data.stubTasks);
       // this has to be customized to each IAP version.
 
       workflowRunner.job.startAndReturnResultsWhenComplete({
-        options: DestroyVPCandEC2InstanceAWSJob10Data.input,
+        options: DestroyVPCandEC2InstanceAWSJob9Data.input,
         retryTime: 2000,
       }).then((jobVariableResults) => {
-        expect(jobVariableResults['status']).eql(DestroyVPCandEC2InstanceAWSJob10Data.expectedTaskResults.status);
+        expect(jobVariableResults['status']).eql(DestroyVPCandEC2InstanceAWSJob9Data.expectedTaskResults.status);
         workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
           delete jobVariables._id;
           delete jobVariables.initiator;
-          expect(jobVariables).eql(DestroyVPCandEC2InstanceAWSJob10Data.expectedTaskResults.variables);
+          expect(jobVariables).eql(DestroyVPCandEC2InstanceAWSJob9Data.expectedTaskResults.variables);
         });
         /* Restore the workflow without the stub tasks */
-        replaceStubTasks(workflowRunner, DestroyVPCandEC2InstanceAWSJob10Workflow);
-      });
-    })
-  })
-
-  describe('Destroy VPC and EC2 Instance - AWS', function() {
-    it('It should run Destroy VPC and EC2 Instance when there is one instance', function () {
-      const importWorkflow = true;
-      const isStub = true;
-      // create the job runner so it can be used in future tests
-      const workflowRunner = initializeWorkflowRunner(DestroyVPCandEC2InstanceAWSJob13Workflow, importWorkflow, isStub, DestroyVPCandEC2InstanceAWSJob13Data.stubTasks);
-      // this has to be customized to each IAP version.
-
-      workflowRunner.job.startAndReturnResultsWhenComplete({
-        options: DestroyVPCandEC2InstanceAWSJob13Data.input,
-        retryTime: 2000,
-      }).then((jobVariableResults) => {
-        expect(jobVariableResults['status']).eql(DestroyVPCandEC2InstanceAWSJob13Data.expectedTaskResults.status);
-        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
-          delete jobVariables._id;
-          delete jobVariables.initiator;
-          expect(jobVariables).eql(DestroyVPCandEC2InstanceAWSJob13Data.expectedTaskResults.variables);
-        });
-        /* Restore the workflow without the stub tasks */
-        replaceStubTasks(workflowRunner, DestroyVPCandEC2InstanceAWSJob13Workflow);
+        replaceStubTasks(workflowRunner, DestroyVPCandEC2InstanceAWSJob9Workflow);
       });
     })
   })
@@ -453,21 +371,45 @@ describe('Default: Cypress Tests', function () {
       const importWorkflow = true;
       const isStub = true;
       // create the job runner so it can be used in future tests
-      const workflowRunner = initializeWorkflowRunner(DetachandDeleteInternetGatewaysbyVPCAWSJob11Workflow, importWorkflow, isStub, DetachandDeleteInternetGatewaysbyVPCAWSJob11Data.stubTasks);
+      const workflowRunner = initializeWorkflowRunner(DetachandDeleteInternetGatewaysbyVPCAWSJob10Workflow, importWorkflow, isStub, DetachandDeleteInternetGatewaysbyVPCAWSJob10Data.stubTasks);
       // this has to be customized to each IAP version.
 
       workflowRunner.job.startAndReturnResultsWhenComplete({
-        options: DetachandDeleteInternetGatewaysbyVPCAWSJob11Data.input,
+        options: DetachandDeleteInternetGatewaysbyVPCAWSJob10Data.input,
         retryTime: 2000,
       }).then((jobVariableResults) => {
-        expect(jobVariableResults['status']).eql(DetachandDeleteInternetGatewaysbyVPCAWSJob11Data.expectedTaskResults.status);
+        expect(jobVariableResults['status']).eql(DetachandDeleteInternetGatewaysbyVPCAWSJob10Data.expectedTaskResults.status);
         workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
           delete jobVariables._id;
           delete jobVariables.initiator;
-          expect(jobVariables).eql(DetachandDeleteInternetGatewaysbyVPCAWSJob11Data.expectedTaskResults.variables);
+          expect(jobVariables).eql(DetachandDeleteInternetGatewaysbyVPCAWSJob10Data.expectedTaskResults.variables);
         });
         /* Restore the workflow without the stub tasks */
-        replaceStubTasks(workflowRunner, DetachandDeleteInternetGatewaysbyVPCAWSJob11Workflow);
+        replaceStubTasks(workflowRunner, DetachandDeleteInternetGatewaysbyVPCAWSJob10Workflow);
+      });
+    })
+  })
+
+  describe('Provision VPC with Networking - AWS', function() {
+    it('It should run Provision VPC with Networking', function () {
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(ProvisionVPCwithNetworkingAWSJob11Workflow, importWorkflow, isStub, ProvisionVPCwithNetworkingAWSJob11Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: ProvisionVPCwithNetworkingAWSJob11Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(ProvisionVPCwithNetworkingAWSJob11Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(ProvisionVPCwithNetworkingAWSJob11Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, ProvisionVPCwithNetworkingAWSJob11Workflow);
       });
     })
   })

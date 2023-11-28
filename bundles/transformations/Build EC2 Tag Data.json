@@ -21,16 +21,19 @@
                   "type": "object",
                   "properties": {
                     "item": {
-                      "type": "object",
-                      "properties": {
-                        "instanceId": {
-                          "type": "string",
-                          "examples": [
-                            "i-010d73ead26ab1902"
-                          ]
-                        }
-                      },
-                      "required": []
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "instanceId": {
+                            "type": "string",
+                            "examples": [
+                              "i-0e5a940bc1fc03f1a"
+                            ]
+                          }
+                        },
+                        "required": []
+                      }
                     }
                   },
                   "required": []
@@ -57,60 +60,32 @@
   ],
   "steps": [
     {
-      "id": 21,
-      "type": "function",
-      "function": "buildEc2Tags",
-      "args": [
-        "Name",
-        ""
-      ],
-      "view": {
-        "row": 1,
-        "col": 2
-      }
-    },
-    {
-      "id": 22,
-      "type": "declaration",
-      "library": "Array",
-      "method": "new Array",
-      "args": [
-        null
-      ],
-      "view": {
-        "row": 1,
-        "col": 3
-      },
-      "context": "#",
-      "polymorphIndex": 0
-    },
-    {
-      "id": 23,
+      "id": 26,
       "type": "assign",
       "from": {
-        "location": "function",
-        "name": 21,
-        "ptr": "/return/ec2Tags"
+        "location": "incoming",
+        "name": "vpcName",
+        "ptr": ""
       },
       "to": {
-        "location": "declaration",
-        "name": 22,
-        "ptr": "/args/0/value"
+        "location": "method",
+        "name": 25,
+        "ptr": "/args/1/value"
       },
       "context": "#"
     },
     {
-      "id": 24,
+      "id": 32,
       "type": "assign",
       "from": {
-        "location": "declaration",
-        "name": 22,
-        "ptr": "/return"
+        "location": "incoming",
+        "name": "launchResponse",
+        "ptr": "/response/RunInstancesResponse/instancesSet/item"
       },
       "to": {
-        "location": "outgoing",
-        "name": "ec2Tags",
-        "ptr": ""
+        "location": "method",
+        "name": 31,
+        "ptr": "/args/0/value"
       },
       "context": "#"
     },
@@ -130,17 +105,17 @@
       "context": "#"
     },
     {
-      "id": 26,
-      "type": "assign",
-      "from": {
-        "location": "incoming",
-        "name": "vpcName",
-        "ptr": ""
-      },
-      "to": {
-        "location": "method",
-        "name": 25,
-        "ptr": "/args/1/value"
+      "id": 31,
+      "type": "method",
+      "library": "Array",
+      "method": "getIndex",
+      "args": [
+        null,
+        0
+      ],
+      "view": {
+        "row": 2,
+        "col": 1
       },
       "context": "#"
     },
@@ -160,7 +135,95 @@
       "context": "#"
     },
     {
-      "id": 28,
+      "id": 34,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 31,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "method",
+        "name": 33,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 21,
+      "type": "function",
+      "function": "buildEc2Tags",
+      "args": [
+        "Name",
+        ""
+      ],
+      "view": {
+        "row": 1,
+        "col": 2
+      }
+    },
+    {
+      "id": 33,
+      "type": "method",
+      "library": "Object",
+      "method": "getProperty",
+      "args": [
+        null,
+        "instanceId"
+      ],
+      "view": {
+        "row": 2,
+        "col": 2
+      },
+      "context": "#"
+    },
+    {
+      "id": 23,
+      "type": "assign",
+      "from": {
+        "location": "function",
+        "name": 21,
+        "ptr": "/return/ec2Tags"
+      },
+      "to": {
+        "location": "declaration",
+        "name": 22,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 36,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 33,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "declaration",
+        "name": 35,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 22,
+      "type": "declaration",
+      "library": "Array",
+      "method": "new Array",
+      "args": [
+        null
+      ],
+      "view": {
+        "row": 1,
+        "col": 3
+      },
+      "context": "#",
+      "polymorphIndex": 0
+    },
+    {
+      "id": 35,
       "type": "declaration",
       "library": "Array",
       "method": "new Array",
@@ -169,32 +232,32 @@
       ],
       "view": {
         "row": 2,
-        "col": 1
+        "col": 3
       },
       "context": "#",
       "polymorphIndex": 0
     },
     {
-      "id": 29,
+      "id": 24,
       "type": "assign",
       "from": {
-        "location": "incoming",
-        "name": "launchResponse",
-        "ptr": "/response/RunInstancesResponse/instancesSet/item/instanceId"
+        "location": "declaration",
+        "name": 22,
+        "ptr": "/return"
       },
       "to": {
-        "location": "declaration",
-        "name": 28,
-        "ptr": "/args/0/value"
+        "location": "outgoing",
+        "name": "ec2Tags",
+        "ptr": ""
       },
       "context": "#"
     },
     {
-      "id": 30,
+      "id": 37,
       "type": "assign",
       "from": {
         "location": "declaration",
-        "name": 28,
+        "name": 35,
         "ptr": "/return"
       },
       "to": {
@@ -612,13 +675,13 @@
     "col": 3,
     "row": 8
   },
-  "created": "2023-10-16T16:43:17.923Z",
+  "created": "2023-11-21T19:36:03.859Z",
   "createdBy": {
     "_id": "652054b92c281c82e5b4c8b4",
     "provenance": "local_aaa",
     "username": "admin@pronghorn"
   },
-  "lastUpdated": "2023-10-16T16:43:17.923Z",
+  "lastUpdated": "2023-11-21T21:18:27.652Z",
   "lastUpdatedBy": {
     "_id": "652054b92c281c82e5b4c8b4",
     "provenance": "local_aaa",

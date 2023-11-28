@@ -2,10 +2,10 @@
 
 ## Overview
 
-Project with workflows for use cases around AWS EC2 using REST protocol
+This Pre-Built Automation bundle contains use cases around performing actions on Amazon EC2 plus additional service Amazon VPC
 
 
-<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Add Ingress Rule to Security Group - AWS - EC2 - REST.md' target='_blank'>Add Ingress Rule to Security Group - AWS - EC2 - REST</a>
+<a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Add Ingress Rule to Security Group - AWS - EC2 - REST.md' target='_blank'>Add Ingress Rule to Security Group - AWS</a>
 
 <a href='https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest/-/blob/master/documentation/Create and Attach Internet Gateway - AWS - EC2 - REST.md' target='_blank'>Create and Attach Internet Gateway - AWS</a>
 
@@ -62,7 +62,7 @@ Project with workflows for use cases around AWS EC2 using REST protocol
   <tbody>
     <tr>
       <td>adapter-aws_ec2</td>
-      <td>0.6.9</td>
+      <td>0.7.2</td>
     </tr>
   </tbody>
 </table>

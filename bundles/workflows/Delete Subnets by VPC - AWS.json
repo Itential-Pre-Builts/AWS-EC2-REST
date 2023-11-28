@@ -64,51 +64,6 @@
         "y": 960
       }
     },
-    "4967": {
-      "name": "evaluation",
-      "canvasName": "evaluation",
-      "summary": "item is array?",
-      "description": "Run an evaluation",
-      "location": "Application",
-      "locationType": null,
-      "app": "WorkFlowEngine",
-      "type": "operation",
-      "displayName": "WorkFlowEngine",
-      "variables": {
-        "incoming": {
-          "all_true_flag": false,
-          "evaluation_groups": [
-            {
-              "all_true_flag": false,
-              "evaluations": [
-                {
-                  "operand_1": {
-                    "task": "c2a4",
-                    "variable": "isAnArray"
-                  },
-                  "operand_2": {
-                    "task": "static",
-                    "variable": true
-                  },
-                  "operator": "==",
-                  "query": "",
-                  "rightQuery": ""
-                }
-              ]
-            }
-          ]
-        },
-        "outgoing": {
-          "return_value": ""
-        }
-      },
-      "actor": "Pronghorn",
-      "groups": [],
-      "nodeLocation": {
-        "x": 2112,
-        "y": 960
-      }
-    },
     "workflow_start": {
       "name": "workflow_start",
       "groups": [],
@@ -125,7 +80,7 @@
       "x": 0.6287292817679558,
       "y": 0.5080321285140562,
       "nodeLocation": {
-        "x": 3048,
+        "x": 2112,
         "y": 960
       }
     },
@@ -217,42 +172,6 @@
         "y": 960
       }
     },
-    "e541": {
-      "name": "transformation",
-      "canvasName": "transformation",
-      "summary": "Build Subnet Delete Array",
-      "description": "Perform a JSON Transformation using the JST library.",
-      "location": "Application",
-      "locationType": null,
-      "app": "WorkFlowEngine",
-      "type": "operation",
-      "displayName": "WorkFlowEngine",
-      "variables": {
-        "incoming": {
-          "tr_id": "6245bcff1678ea01c7fbcd3f",
-          "variableMap": {
-            "subnetResponse": "$var.65d7.result"
-          },
-          "options": {
-            "extractOutput": true,
-            "validateIncoming": true,
-            "revertToDefaultValue": true
-          }
-        },
-        "outgoing": {
-          "subnetDeleteArray": null
-        }
-      },
-      "groups": [],
-      "x": 0.43480662983425417,
-      "y": 0.5090361445783133,
-      "task_name": "Build Subnet Delete Array",
-      "retrySettings": null,
-      "nodeLocation": {
-        "x": 2112,
-        "y": 1104
-      }
-    },
     "65d7": {
       "name": "describeSubnets",
       "canvasName": "describeSubnets",
@@ -315,14 +234,14 @@
       "y": 0.501004016064257,
       "scheduled": false,
       "nodeLocation": {
-        "x": 2736,
+        "x": 1836,
         "y": 960
       }
     },
     "e7a5": {
       "name": "transformation",
       "canvasName": "transformation",
-      "summary": "Build Subnet Delete Array with Multiple Subnet Items",
+      "summary": "Build Subnet Delete Array",
       "description": "Perform a JSON Transformation using the JST library.",
       "location": "Application",
       "locationType": null,
@@ -349,90 +268,7 @@
       "actor": "Pronghorn",
       "groups": [],
       "nodeLocation": {
-        "x": 2424,
-        "y": 960
-      }
-    },
-    "231e": {
-      "name": "deleteSubnets",
-      "canvasName": "deleteSubnets",
-      "summary": "Delete Subnets",
-      "description": "Delete Subnets",
-      "location": "Adapter",
-      "locationType": "Awsec2",
-      "app": "Awsec2",
-      "type": "automatic",
-      "displayName": "Awsec2",
-      "variables": {
-        "incoming": {
-          "subnetArray": "$var.e541.subnetDeleteArray",
-          "adapter_id": "$var.job.adapterId"
-        },
-        "outgoing": {
-          "result": "$var.job.deletedSubnet"
-        },
-        "error": "",
-        "decorators": []
-      },
-      "groups": [],
-      "actor": "Pronghorn",
-      "x": 0.5359116022099447,
-      "y": 0.501004016064257,
-      "scheduled": false,
-      "nodeLocation": {
-        "x": 2736,
-        "y": 1092
-      }
-    },
-    "c2a4": {
-      "name": "isArray",
-      "canvasName": "isArray",
-      "summary": "Checks if subnetSet item is an array",
-      "description": "Returns a boolean that indicates if the input element is an array.",
-      "location": "Application",
-      "locationType": null,
-      "app": "WorkFlowEngine",
-      "type": "automatic",
-      "displayName": "Array",
-      "variables": {
-        "incoming": {
-          "arr": "$var.faff.return_data"
-        },
-        "outgoing": {
-          "isAnArray": ""
-        }
-      },
-      "actor": "Pronghorn",
-      "groups": [],
-      "nodeLocation": {
-        "x": 1800,
-        "y": 960
-      }
-    },
-    "faff": {
-      "name": "query",
-      "canvasName": "query",
-      "summary": "Query subnetSet item",
-      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
-      "location": "Application",
-      "locationType": null,
-      "app": "WorkFlowEngine",
-      "type": "operation",
-      "displayName": "WorkFlowEngine",
-      "variables": {
-        "incoming": {
-          "pass_on_null": false,
-          "query": "response.DescribeSubnetsResponse.subnetSet.item",
-          "obj": "$var.65d7.result"
-        },
-        "outgoing": {
-          "return_data": ""
-        }
-      },
-      "actor": "Pronghorn",
-      "groups": [],
-      "nodeLocation": {
-        "x": 1488,
+        "x": 1512,
         "y": 960
       }
     }
@@ -449,16 +285,6 @@
       "65d7": {
         "type": "standard",
         "state": "success"
-      }
-    },
-    "4967": {
-      "e7a5": {
-        "state": "success",
-        "type": "standard"
-      },
-      "e541": {
-        "type": "standard",
-        "state": "failure"
       }
     },
     "workflow_start": {
@@ -479,13 +305,7 @@
         "type": "standard",
         "state": "failure"
       },
-      "faff": {
-        "state": "success",
-        "type": "standard"
-      }
-    },
-    "e541": {
-      "231e": {
+      "e7a5": {
         "state": "success",
         "type": "standard"
       }
@@ -504,24 +324,6 @@
     },
     "e7a5": {
       "d988": {
-        "state": "success",
-        "type": "standard"
-      }
-    },
-    "231e": {
-      "workflow_end": {
-        "state": "success",
-        "type": "standard"
-      }
-    },
-    "c2a4": {
-      "4967": {
-        "state": "success",
-        "type": "standard"
-      }
-    },
-    "faff": {
-      "c2a4": {
         "state": "success",
         "type": "standard"
       }
@@ -604,17 +406,17 @@
   },
   "font_size": 12,
   "lastUpdatedVersion": "5.46.0-2023.1.19.0",
-  "last_updated": "2023-10-22T17:46:12.252Z",
+  "last_updated": "2023-11-22T16:04:12.067Z",
   "preAutomationTime": 0,
   "sla": 0,
   "type": "automation",
-  "canvasVersion": 1.5,
   "last_updated_by": {
     "provenance": "local_aaa",
     "username": "admin@pronghorn",
     "firstname": "admin",
     "inactive": false
   },
+  "canvasVersion": 1.5,
   "tags": [],
   "groups": [],
   "migrationVersion": 2

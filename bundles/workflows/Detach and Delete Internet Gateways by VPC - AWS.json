@@ -220,7 +220,7 @@
       "variables": {
         "incoming": {
           "pass_on_null": false,
-          "query": "response.DescribeInternetGatewaysResponse.internetGatewaySet.item.internetGatewayId",
+          "query": "response.DescribeInternetGatewaysResponse.internetGatewaySet.item[0].internetGatewayId",
           "obj": "$var.3151.result"
         },
         "outgoing": {
@@ -424,7 +424,6 @@
       }
     }
   },
-  "canvasVersion": 1.5,
   "created": "2022-03-31T14:44:06.846Z",
   "createdVersion": "5.40.5-2021.1.52.0",
   "created_by": {
@@ -435,7 +434,7 @@
   },
   "font_size": 12,
   "lastUpdatedVersion": "5.46.0-2023.1.19.0",
-  "last_updated": "2023-10-19T21:14:32.852Z",
+  "last_updated": "2023-11-22T15:33:54.835Z",
   "last_updated_by": {
     "provenance": "local_aaa",
     "username": "admin@pronghorn",
@@ -445,6 +444,7 @@
   "preAutomationTime": 0,
   "sla": 0,
   "type": "automation",
+  "canvasVersion": 1.5,
   "tags": [],
   "groups": [],
   "migrationVersion": 2

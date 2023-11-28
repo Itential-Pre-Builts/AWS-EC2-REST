@@ -1,5 +1,5 @@
 {
-  "_id": "63e39d7cd59d6601415e4e08",
+  "_id": "655e0ee83bd5d401c431dc95",
   "name": "Build VPC Tag Data",
   "description": "",
   "incoming": [
@@ -28,7 +28,7 @@
                 "requestId": {
                   "type": "string",
                   "examples": [
-                    "4375365e-f2a1-4626-9059-dabcf1409755"
+                    "7f29ef6d-b4ec-463d-971b-d28d4b1d73b3"
                   ],
                   "format": "uuid"
                 },
@@ -38,13 +38,13 @@
                     "vpcId": {
                       "type": "string",
                       "examples": [
-                        "vpc-0ec264d15f8bc59eb"
+                        "vpc-061a2673e5d59fb85"
                       ]
                     },
                     "ownerId": {
                       "type": "string",
                       "examples": [
-                        "623933009299"
+                        "314014972859"
                       ]
                     },
                     "state": {
@@ -56,41 +56,44 @@
                     "cidrBlock": {
                       "type": "string",
                       "examples": [
-                        "10.0.0.0/24"
+                        "10.20.30.0/28"
                       ]
                     },
                     "cidrBlockAssociationSet": {
                       "type": "object",
                       "properties": {
                         "item": {
-                          "type": "object",
-                          "properties": {
-                            "cidrBlock": {
-                              "type": "string",
-                              "examples": [
-                                "10.0.0.0/24"
-                              ]
-                            },
-                            "associationId": {
-                              "type": "string",
-                              "examples": [
-                                "vpc-cidr-assoc-0822c320e554dcd4a"
-                              ]
-                            },
-                            "cidrBlockState": {
-                              "type": "object",
-                              "properties": {
-                                "state": {
-                                  "type": "string",
-                                  "examples": [
-                                    "associated"
-                                  ]
-                                }
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "cidrBlock": {
+                                "type": "string",
+                                "examples": [
+                                  "10.20.30.0/28"
+                                ]
                               },
-                              "required": []
-                            }
-                          },
-                          "required": []
+                              "associationId": {
+                                "type": "string",
+                                "examples": [
+                                  "vpc-cidr-assoc-0dbe5ead82813290a"
+                                ]
+                              },
+                              "cidrBlockState": {
+                                "type": "object",
+                                "properties": {
+                                  "state": {
+                                    "type": "string",
+                                    "examples": [
+                                      "associated"
+                                    ]
+                                  }
+                                },
+                                "required": []
+                              }
+                            },
+                            "required": []
+                          }
                         }
                       },
                       "required": []
@@ -101,7 +104,7 @@
                     "dhcpOptionsId": {
                       "type": "string",
                       "examples": [
-                        "dopt-0ea7cc2e990da8e94"
+                        "dopt-0a03008489c05e706"
                       ]
                     },
                     "instanceTenancy": {
@@ -343,13 +346,13 @@
     "col": 2,
     "row": 5
   },
-  "created": "2023-10-19T13:09:48.291Z",
+  "created": "2023-11-22T14:23:36.016Z",
   "createdBy": {
     "_id": "652054b92c281c82e5b4c8b4",
     "provenance": "local_aaa",
     "username": "admin@pronghorn"
   },
-  "lastUpdated": "2023-10-19T13:12:01.235Z",
+  "lastUpdated": "2023-11-22T14:24:22.233Z",
   "lastUpdatedBy": {
     "_id": "652054b92c281c82e5b4c8b4",
     "provenance": "local_aaa",

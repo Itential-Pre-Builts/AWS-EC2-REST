@@ -64,7 +64,22 @@ This version of **Create VPC - AWS** has been tested with:
 
 ### Adapters
 
-No adapters required to run this Workflow Project.
+This version of **Create VPC - AWS** has been tested with:
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>adapter-aws_ec2</td>
+      <td>0.7.2</td>
+    </tr>
+  </tbody>
+</table>
 
 
 ### How to Install
@@ -170,13 +185,15 @@ The following table lists the outputs of the Workflow Project:
         "state": "pending",
         "cidrBlock": "10.0.0.0/24",
         "cidrBlockAssociationSet": {
-          "item": {
-            "cidrBlock": "10.0.0.0/24",
-            "associationId": "vpc-cidr-assoc-0f0f4d51506a452cd",
-            "cidrBlockState": {
-              "state": "associated"
+          "item": [
+            {
+              "cidrBlock": "10.0.0.0/24",
+              "associationId": "vpc-cidr-assoc-0f0f4d51506a452cd",
+              "cidrBlockState": {
+                "state": "associated"
+              }
             }
-          }
+          ]
         },
         "ipv6CidrBlockAssociationSet": "",
         "dhcpOptionsId": "dopt-045a5c88c0d702d2b",
@@ -239,13 +256,15 @@ Output:
           "state": "pending",
           "cidrBlock": "10.0.0.0/24",
           "cidrBlockAssociationSet": {
-            "item": {
-              "cidrBlock": "10.0.0.0/24",
-              "associationId": "vpc-cidr-assoc-0f0f4d51506a452cd",
-              "cidrBlockState": {
-                "state": "associated"
+            "item": [
+              {
+                "cidrBlock": "10.0.0.0/24",
+                "associationId": "vpc-cidr-assoc-0f0f4d51506a452cd",
+                "cidrBlockState": {
+                  "state": "associated"
+                }
               }
-            }
+            ]
           },
           "ipv6CidrBlockAssociationSet": "",
           "dhcpOptionsId": "dopt-045a5c88c0d702d2b",

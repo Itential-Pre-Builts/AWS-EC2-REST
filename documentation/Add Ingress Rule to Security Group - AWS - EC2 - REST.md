@@ -64,7 +64,23 @@ This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has be
 
 ### Adapters
 
-No adapters required to run this Workflow Project.
+This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has been tested with:
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>adapter-aws_ec2</td>
+      <td>0.7.2</td>
+    </tr>
+  </tbody>
+</table>
+
 
 
 ### How to Install
@@ -184,16 +200,18 @@ The following table lists the outputs of the Workflow Project:
       "requestId": "2cf4e379-aac3-4fbe-b75d-543127204d91",
       "return": "true",
       "securityGroupRuleSet": {
-        "item": {
-          "groupOwnerId": "314014972859",
-          "groupId": "sg-08f249db62d26d8a6",
-          "securityGroupRuleId": "sgr-08f9a989136861e6c",
-          "isEgress": "false",
-          "ipProtocol": "tcp",
-          "fromPort": "80",
-          "toPort": "80",
-          "cidrIpv4": "19.27.253.13/32"
-        }
+        "item": [
+          {
+            "groupOwnerId": "314014972859",
+            "groupId": "sg-08f249db62d26d8a6",
+            "securityGroupRuleId": "sgr-08f9a989136861e6c",
+            "isEgress": "false",
+            "ipProtocol": "tcp",
+            "fromPort": "80",
+            "toPort": "80",
+            "cidrIpv4": "19.27.253.13/32"
+          }
+        ]
       }
     }
   }
@@ -244,20 +262,24 @@ Output:
     "icode": "AD.200",
     "response": {
       "AuthorizeSecurityGroupIngressResponse": {
-        "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+        "_attr": { 
+          "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" 
+        },
         "requestId": "2cf4e379-aac3-4fbe-b75d-543127204d91",
         "return": "true",
         "securityGroupRuleSet": {
-          "item": {
-            "groupOwnerId": "314014972859",
-            "groupId": "sg-08f249db62d26d8a6",
-            "securityGroupRuleId": "sgr-08f9a989136861e6c",
-            "isEgress": "false",
-            "ipProtocol": "tcp",
-            "fromPort": "80",
-            "toPort": "80",
-            "cidrIpv4": "19.27.253.13/32"
-          }
+          "item": [
+            {
+              "groupOwnerId": "314014972859",
+              "groupId": "sg-08f249db62d26d8a6",
+              "securityGroupRuleId": "sgr-08f9a989136861e6c",
+              "isEgress": "false",
+              "ipProtocol": "tcp",
+              "fromPort": "80",
+              "toPort": "80",
+              "cidrIpv4": "19.27.253.13/32"
+            }
+          ]
         }
       }
     }

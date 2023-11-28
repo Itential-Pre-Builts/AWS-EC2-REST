@@ -64,7 +64,22 @@ This version of **Create Security Group with Ingress Rules - AWS** has been test
 
 ### Adapters
 
-No adapters required to run this Workflow Project.
+This version of **Create Security Group with Ingress Rules - AWS** has been tested with:
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>adapter-aws_ec2</td>
+      <td>0.7.2</td>
+    </tr>
+  </tbody>
+</table>
 
 
 ### How to Install

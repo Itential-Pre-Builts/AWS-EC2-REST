@@ -1,6 +1,6 @@
 {
   "name": "AWS - EC2 - REST",
-  "overview": "Project with workflows for use cases around AWS EC2 using REST protocol",
+  "overview": "This Pre-Built Automation bundle contains use cases around performing actions on Amazon EC2 plus additional service Amazon VPC",
   "domains": [
     "Cloud"
   ],
@@ -30,7 +30,7 @@
   "vendorLink": "https://aws.amazon.com/",
   "faqLink": "",
   "contributeLink": "",
-  "webName": "Provision and Destroy VPC and EC2 Instance in AWS EC2",
+  "webName": "AWS EC2 - Use Cases Around Performing Actions on Amazon EC2 plus additional service Amazon VPC",
   "webLink": "",
   "demoLinks": []
 }

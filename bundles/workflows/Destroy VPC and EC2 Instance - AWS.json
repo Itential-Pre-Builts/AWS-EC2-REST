@@ -1,33 +1,6 @@
 {
   "name": "Destroy VPC and EC2 Instance - AWS",
   "tasks": {
-    "2868": {
-      "name": "query",
-      "canvasName": "query",
-      "summary": "Query reservationSet item",
-      "description": "Query reservationSet item",
-      "location": "Application",
-      "locationType": null,
-      "app": "WorkFlowEngine",
-      "type": "operation",
-      "displayName": "WorkFlowEngine",
-      "variables": {
-        "incoming": {
-          "pass_on_null": false,
-          "query": "response.DescribeInstancesResponse.reservationSet.item",
-          "obj": "$var.9653.result"
-        },
-        "outgoing": {
-          "return_data": ""
-        }
-      },
-      "actor": "Pronghorn",
-      "groups": [],
-      "nodeLocation": {
-        "x": -180,
-        "y": 312
-      }
-    },
     "6253": {
       "name": "deleteVpc",
       "canvasName": "deleteVpc",
@@ -56,7 +29,7 @@
       "y": 0.15151515151515152,
       "scheduled": false,
       "nodeLocation": {
-        "x": 2964,
+        "x": 2172,
         "y": 312
       }
     },
@@ -106,8 +79,8 @@
       "x": 1.0124843945068664,
       "y": 0.15151515151515152,
       "nodeLocation": {
-        "x": 3228,
-        "y": 300
+        "x": 2508,
+        "y": 312
       }
     },
     "992b": {
@@ -138,36 +111,8 @@
       "y": 0.14858260019550343,
       "scheduled": false,
       "nodeLocation": {
-        "x": 1044,
+        "x": 204,
         "y": 312
-      }
-    },
-    "477f": {
-      "name": "delay",
-      "canvasName": "delay",
-      "summary": "Delay a Job",
-      "description": "Delay a Job for a duration by Job ID and number of seconds.",
-      "location": "Application",
-      "locationType": null,
-      "app": "WorkFlowEngine",
-      "type": "operation",
-      "displayName": "WorkFlowEngine",
-      "variables": {
-        "incoming": {
-          "time": 60
-        },
-        "outgoing": {
-          "time_in_milliseconds": null
-        },
-        "error": ""
-      },
-      "groups": [],
-      "x": 0.9350811485642946,
-      "y": 0.3176930596285435,
-      "scheduled": false,
-      "nodeLocation": {
-        "x": 2964,
-        "y": 420
       }
     },
     "e0fe": {
@@ -243,7 +188,7 @@
       "x": 0.5967540574282147,
       "y": 0.1495601173020528,
       "nodeLocation": {
-        "x": 2340,
+        "x": 1524,
         "y": 312
       }
     },
@@ -284,7 +229,7 @@
       "x": 0.7827715355805244,
       "y": 0.1495601173020528,
       "nodeLocation": {
-        "x": 2640,
+        "x": 1848,
         "y": 312
       }
     },
@@ -313,8 +258,8 @@
       "y": 0.28152492668621704,
       "scheduled": false,
       "nodeLocation": {
-        "x": 1716,
-        "y": 432
+        "x": 864,
+        "y": 420
       }
     },
     "ab1": {
@@ -348,7 +293,7 @@
       "y": 0.1495601173020528,
       "scheduled": false,
       "nodeLocation": {
-        "x": 1368,
+        "x": 540,
         "y": 312
       }
     },
@@ -393,7 +338,7 @@
       "x": 0.30087390761548066,
       "y": 0.15053763440860216,
       "nodeLocation": {
-        "x": 1716,
+        "x": 864,
         "y": 312
       }
     },
@@ -435,7 +380,7 @@
       "x": 0.433832709113608,
       "y": 0.14858260019550343,
       "nodeLocation": {
-        "x": 2028,
+        "x": 1200,
         "y": 312
       }
     },
@@ -475,43 +420,6 @@
       "nodeLocation": {
         "x": -1404,
         "y": 312
-      }
-    },
-    "efc0": {
-      "name": "transformation",
-      "canvasName": "transformation",
-      "summary": "Process Instance Response",
-      "description": "Perform a JSON Transformation using the JST library.",
-      "location": "Application",
-      "locationType": null,
-      "app": "WorkFlowEngine",
-      "type": "operation",
-      "displayName": "WorkFlowEngine",
-      "variables": {
-        "incoming": {
-          "tr_id": "63e50d6a23ad20015d2a061c",
-          "variableMap": {
-            "instanceResponse": "$var.9653.result"
-          },
-          "options": {
-            "extractOutput": true,
-            "validateIncoming": true,
-            "revertToDefaultValue": true
-          }
-        },
-        "outgoing": {
-          "instanceIdArray": null
-        },
-        "decorators": []
-      },
-      "groups": [],
-      "x": -0.05118601747815231,
-      "y": 0.14467253176930597,
-      "task_name": "Process Instance Response",
-      "retrySettings": null,
-      "nodeLocation": {
-        "x": 432,
-        "y": 432
       }
     },
     "0f2e": {
@@ -586,81 +494,11 @@
         "y": 180
       }
     },
-    "8e38": {
-      "name": "isArray",
-      "canvasName": "isArray",
-      "summary": "Checks if reservationSet item is array",
-      "description": "Returns a boolean that indicates if reservationSet item is an array.",
-      "location": "Application",
-      "locationType": null,
-      "app": "WorkFlowEngine",
-      "type": "automatic",
-      "displayName": "Array",
-      "variables": {
-        "incoming": {
-          "arr": "$var.2868.return_data"
-        },
-        "outgoing": {
-          "isAnArray": ""
-        }
-      },
-      "actor": "Pronghorn",
-      "groups": [],
-      "nodeLocation": {
-        "x": 120,
-        "y": 312
-      }
-    },
-    "82c6": {
-      "name": "evaluation",
-      "canvasName": "evaluation",
-      "summary": "reservationSet item is array?",
-      "description": "Run an evaluation",
-      "location": "Application",
-      "locationType": null,
-      "app": "WorkFlowEngine",
-      "type": "operation",
-      "displayName": "WorkFlowEngine",
-      "variables": {
-        "incoming": {
-          "all_true_flag": false,
-          "evaluation_groups": [
-            {
-              "all_true_flag": false,
-              "evaluations": [
-                {
-                  "operand_1": {
-                    "task": "8e38",
-                    "variable": "isAnArray"
-                  },
-                  "operand_2": {
-                    "task": "static",
-                    "variable": true
-                  },
-                  "operator": "==",
-                  "query": "",
-                  "rightQuery": ""
-                }
-              ]
-            }
-          ]
-        },
-        "outgoing": {
-          "return_value": ""
-        }
-      },
-      "actor": "Pronghorn",
-      "groups": [],
-      "nodeLocation": {
-        "x": 432,
-        "y": 312
-      }
-    },
     "dd21": {
       "name": "transformation",
       "canvasName": "transformation",
-      "summary": "Process Instance Response with Multiple Reserved Instances",
-      "description": "Process Instance Response with Multiple Reserved Instances",
+      "summary": "Process Instance Response",
+      "description": "Process Instance Response",
       "location": "Application",
       "locationType": null,
       "app": "WorkFlowEngine",
@@ -686,58 +524,47 @@
       "actor": "Pronghorn",
       "groups": [],
       "nodeLocation": {
-        "x": 744,
+        "x": -132,
         "y": 312
       }
     },
-    "a4ce": {
-      "name": "terminateInstances",
-      "canvasName": "terminateInstances",
-      "summary": "Terminate Instances",
-      "description": "Terminates EC2 Instances",
-      "location": "Adapter",
-      "locationType": "Awsec2",
-      "app": "Awsec2",
-      "type": "automatic",
-      "displayName": "Awsec2",
+    "62a6": {
+      "name": "ViewData",
+      "canvasName": "ViewData",
+      "summary": "View Error",
+      "description": "Displays a message and runtime data to an operator. This can be used to request a decision, or used for acknowledgement only.",
+      "location": "Application",
+      "app": "WorkFlowEngine",
+      "displayName": "WorkFlowEngine",
+      "type": "manual",
       "variables": {
         "incoming": {
-          "instanceId": "$var.efc0.instanceIdArray",
-          "dryRun": false,
-          "adapter_id": "$var.job.adapterId"
+          "header": "View Delete VPC Error",
+          "message": "Failed to delete VPC. See error below. Do you want to retry?",
+          "body": "$var.6253.error",
+          "variables": "",
+          "btn_success": "Yes",
+          "btn_failure": "No"
         },
-        "outgoing": {
-          "result": null
-        },
-        "error": "",
-        "decorators": []
+        "outgoing": {}
       },
+      "view": "/workflow_engine/task/ViewData",
       "groups": [],
-      "actor": "Pronghorn",
-      "x": 0.06991260923845194,
-      "y": 0.14858260019550343,
-      "scheduled": false,
       "nodeLocation": {
-        "x": 1044,
-        "y": 432
+        "x": 2172,
+        "y": 408
       }
     }
   },
   "transitions": {
-    "2868": {
-      "8e38": {
-        "state": "success",
-        "type": "standard"
-      }
-    },
     "6253": {
-      "477f": {
-        "type": "standard",
-        "state": "error"
-      },
       "workflow_end": {
         "type": "standard",
         "state": "success"
+      },
+      "62a6": {
+        "type": "standard",
+        "state": "error"
       }
     },
     "9653": {
@@ -756,12 +583,6 @@
     "992b": {
       "ab1": {
         "type": "standard",
-        "state": "success"
-      }
-    },
-    "477f": {
-      "6253": {
-        "type": "revert",
         "state": "success"
       }
     },
@@ -817,20 +638,14 @@
         "state": "success"
       }
     },
-    "efc0": {
-      "a4ce": {
-        "state": "success",
-        "type": "standard"
-      }
-    },
     "0f2e": {
-      "2868": {
-        "state": "success",
-        "type": "standard"
-      },
       "da24": {
         "type": "standard",
         "state": "failure"
+      },
+      "dd21": {
+        "state": "success",
+        "type": "standard"
       }
     },
     "da24": {
@@ -839,32 +654,16 @@
         "type": "standard"
       }
     },
-    "8e38": {
-      "82c6": {
-        "state": "success",
-        "type": "standard"
-      }
-    },
-    "82c6": {
-      "dd21": {
-        "state": "success",
-        "type": "standard"
-      },
-      "efc0": {
-        "type": "standard",
-        "state": "failure"
-      }
-    },
     "dd21": {
       "992b": {
         "state": "success",
         "type": "standard"
       }
     },
-    "a4ce": {
-      "ab1": {
+    "62a6": {
+      "6253": {
         "state": "success",
-        "type": "standard"
+        "type": "revert"
       }
     },
     "b2c3": {},
@@ -935,7 +734,7 @@
     "firstname": "admin",
     "inactive": false
   },
-  "last_updated": "2023-10-23T02:43:58.333Z",
+  "last_updated": "2023-11-22T18:37:08.194Z",
   "created": "2023-10-17T18:10:18.488Z",
   "canvasVersion": 1.5,
   "last_updated_by": {

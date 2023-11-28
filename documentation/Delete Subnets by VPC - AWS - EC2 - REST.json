@@ -8,7 +8,7 @@
       "name": "adapter-aws_ec2",
       "overview": "AWS EC2",
       "webName": "Amazon EC2",
-      "version": "0.6.9",
+      "version": "0.7.2",
       "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
       "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
       "webLink": "https://www.itential.com/adapters/amazon-ec2/"

@@ -149,19 +149,10 @@
       }
     },
     {
-      "id": "6245bcff1678ea01c7fbcd3f",
+      "id": "6532e52c344dfd019e4b388c",
       "name": "Build Subnet Delete Array",
       "type": "transformation",
       "location": "/bundles/transformations/Build Subnet Delete Array.json",
-      "properties": {
-        "entryPoint": false
-      }
-    },
-    {
-      "id": "6532e52c344dfd019e4b388c",
-      "name": "Build Subnet Delete Array with Multiple Subnet Items",
-      "type": "transformation",
-      "location": "/bundles/transformations/Build Subnet Delete Array with Multiple Subnet Items.json",
       "properties": {
         "entryPoint": false
       }
@@ -176,7 +167,7 @@
       }
     },
     {
-      "id": "63e39d7cd59d6601415e4e08",
+      "id": "655e0ee83bd5d401c431dc95",
       "name": "Build VPC Tag Data",
       "type": "transformation",
       "location": "/bundles/transformations/Build VPC Tag Data.json",
@@ -203,19 +194,10 @@
       }
     },
     {
-      "id": "63e50d6a23ad20015d2a061c",
+      "id": "6535d4e97c6b51019f8f4142",
       "name": "Process Instance Response",
       "type": "transformation",
       "location": "/bundles/transformations/Process Instance Response.json",
-      "properties": {
-        "entryPoint": false
-      }
-    },
-    {
-      "id": "6535d4e97c6b51019f8f4142",
-      "name": "Process Instance Response with Multiple Reserved Instances",
-      "type": "transformation",
-      "location": "/bundles/transformations/Process Instance Response with Multiple Reserved Instances.json",
       "properties": {
         "entryPoint": false
       }

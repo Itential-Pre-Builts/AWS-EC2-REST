@@ -1,5 +1,5 @@
 {
-  "_id": "63e50d6a23ad20015d2a061c",
+  "_id": "6535d4e97c6b51019f8f4142",
   "name": "Process Instance Response",
   "description": "",
   "incoming": [
@@ -17,28 +17,34 @@
                   "type": "object",
                   "properties": {
                     "item": {
-                      "type": "object",
-                      "properties": {
-                        "instancesSet": {
-                          "type": "object",
-                          "properties": {
-                            "item": {
-                              "type": "object",
-                              "properties": {
-                                "instanceId": {
-                                  "type": "string",
-                                  "examples": [
-                                    "i-065087232edd9c7f7"
-                                  ]
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "instancesSet": {
+                            "type": "object",
+                            "properties": {
+                              "item": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "instanceId": {
+                                      "type": "string",
+                                      "examples": [
+                                        "i-091629e3a896331c2"
+                                      ]
+                                    }
+                                  },
+                                  "required": []
                                 }
-                              },
-                              "required": []
-                            }
-                          },
-                          "required": []
-                        }
-                      },
-                      "required": []
+                              }
+                            },
+                            "required": []
+                          }
+                        },
+                        "required": []
+                      }
                     }
                   },
                   "required": []
@@ -61,41 +67,71 @@
   ],
   "steps": [
     {
-      "id": 1,
-      "type": "declaration",
-      "library": "Array",
-      "method": "new Array",
-      "args": [
-        null
-      ],
-      "view": {
-        "row": 1,
-        "col": 1
-      },
-      "context": "#",
-      "polymorphIndex": 0
-    },
-    {
-      "id": 2,
+      "id": 5,
       "type": "assign",
       "from": {
         "location": "incoming",
         "name": "instanceResponse",
-        "ptr": "/response/DescribeInstancesResponse/reservationSet/item/instancesSet/item/instanceId"
+        "ptr": "/response/DescribeInstancesResponse/reservationSet/item"
       },
       "to": {
-        "location": "declaration",
-        "name": 1,
+        "location": "method",
+        "name": 4,
         "ptr": "/args/0/value"
       },
       "context": "#"
     },
     {
-      "id": 3,
+      "id": 4,
+      "type": "method",
+      "library": "Array",
+      "method": "flatMap",
+      "args": [
+        null,
+        "extractAndFlattenInstances"
+      ],
+      "view": {
+        "row": 1,
+        "col": 1
+      },
+      "context": "#"
+    },
+    {
+      "id": 7,
       "type": "assign",
       "from": {
-        "location": "declaration",
-        "name": 1,
+        "location": "method",
+        "name": 4,
+        "ptr": "/return"
+      },
+      "to": {
+        "location": "method",
+        "name": 6,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
+      "id": 6,
+      "type": "method",
+      "library": "Array",
+      "method": "map",
+      "args": [
+        null,
+        "extractInstanceIds"
+      ],
+      "view": {
+        "row": 1,
+        "col": 2
+      },
+      "context": "#"
+    },
+    {
+      "id": 8,
+      "type": "assign",
+      "from": {
+        "location": "method",
+        "name": 6,
         "ptr": "/return"
       },
       "to": {
@@ -106,19 +142,244 @@
       "context": "#"
     }
   ],
-  "functions": [],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "type": "object",
+          "properties": {
+            "instancesSet": {
+              "type": "object",
+              "properties": {
+                "item": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "instanceId": {
+                        "type": "string",
+                        "examples": [
+                          "i-091629e3a896331c2"
+                        ]
+                      }
+                    },
+                    "required": []
+                  }
+                }
+              },
+              "required": []
+            }
+          },
+          "required": [],
+          "$id": "currentValue"
+        },
+        {
+          "title": "index",
+          "type": "number",
+          "optional": true,
+          "$id": "index"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "instancesSet": {
+                "type": "object",
+                "properties": {
+                  "item": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "instanceId": {
+                          "type": "string",
+                          "examples": [
+                            "i-091629e3a896331c2"
+                          ]
+                        }
+                      },
+                      "required": []
+                    }
+                  }
+                },
+                "required": []
+              }
+            },
+            "required": []
+          },
+          "$id": "array",
+          "optional": true
+        },
+        {
+          "$id": "thisArg",
+          "type": "object",
+          "properties": {},
+          "isContext": true,
+          "isThis": true,
+          "isIndexed": true
+        }
+      ],
+      "outgoing": [
+        {
+          "title": "newValue",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ],
+          "$id": "newValue"
+        }
+      ],
+      "steps": [
+        {
+          "id": 1,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": "/instancesSet/item"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "newValue",
+            "ptr": ""
+          },
+          "context": "#"
+        }
+      ],
+      "functions": [],
+      "name": "extractAndFlattenInstances",
+      "view": {
+        "col": 2,
+        "row": 4
+      },
+      "id": "extractAndFlattenInstances",
+      "comments": []
+    },
+    {
+      "incoming": [
+        {
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ],
+          "$id": "currentValue"
+        },
+        {
+          "title": "index",
+          "type": "number",
+          "optional": true,
+          "$id": "index"
+        },
+        {
+          "type": "array",
+          "$id": "array",
+          "optional": true
+        },
+        {
+          "$id": "thisArg",
+          "type": "object",
+          "properties": {},
+          "isContext": true,
+          "isThis": true,
+          "isIndexed": true
+        }
+      ],
+      "outgoing": [
+        {
+          "title": "newValue",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ],
+          "editable": true,
+          "$id": "newValue"
+        }
+      ],
+      "steps": [
+        {
+          "id": 2,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": ""
+          },
+          "to": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/args/0/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 1,
+          "type": "method",
+          "library": "Object",
+          "method": "getProperty",
+          "args": [
+            null,
+            "instanceId"
+          ],
+          "view": {
+            "row": 1,
+            "col": 1
+          },
+          "context": "#"
+        },
+        {
+          "id": 3,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 1,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "newValue",
+            "ptr": ""
+          },
+          "context": "#"
+        }
+      ],
+      "functions": [],
+      "name": "extractInstanceIds",
+      "view": {
+        "col": 1,
+        "row": 4
+      },
+      "id": "extractInstanceIds",
+      "comments": []
+    }
+  ],
   "comments": [],
   "view": {
     "col": 2,
     "row": 5
   },
-  "created": "2023-10-16T19:37:06.980Z",
+  "created": "2023-11-21T19:36:03.812Z",
   "createdBy": {
     "_id": "652054b92c281c82e5b4c8b4",
     "provenance": "local_aaa",
     "username": "admin@pronghorn"
   },
-  "lastUpdated": "2023-10-16T19:37:06.980Z",
+  "lastUpdated": "2023-11-22T17:04:48.195Z",
   "lastUpdatedBy": {
     "_id": "652054b92c281c82e5b4c8b4",
     "provenance": "local_aaa",

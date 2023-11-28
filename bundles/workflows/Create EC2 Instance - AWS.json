@@ -14,7 +14,7 @@
       "variables": {
         "incoming": {
           "pass_on_null": false,
-          "query": "response.DescribeInstancesResponse.reservationSet.item.instancesSet.item.networkInterfaceSet.item.association.publicIp",
+          "query": "response.DescribeInstancesResponse.reservationSet.item[0].instancesSet.item[0].networkInterfaceSet.item[0].association.publicIp",
           "obj": "$var.d9b4.result"
         },
         "outgoing": {
@@ -556,12 +556,11 @@
   "font_size": 12,
   "created": "2021-10-07T02:44:08.337Z",
   "createdVersion": "5.40.5-2021.1.8.0",
-  "last_updated": "2023-10-17T20:23:34.348Z",
-  "lastUpdatedVersion": "5.46.0-2023.1.21.0",
+  "last_updated": "2023-11-21T21:03:40.496Z",
+  "lastUpdatedVersion": "5.46.0-2023.1.19.0",
   "type": "automation",
   "preAutomationTime": 0,
   "sla": 0,
-  "canvasVersion": 1.5,
   "created_by": {
     "provenance": "local_aaa",
     "username": "admin@pronghorn",
@@ -574,6 +573,7 @@
     "firstname": "admin",
     "inactive": false
   },
+  "canvasVersion": 1.5,
   "tags": [],
   "groups": [],
   "migrationVersion": 2

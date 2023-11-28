@@ -2,22 +2,16 @@
   "input": {
     "description": "It should run Create Security Group with Ingress Rules",
     "variables": {
-      "securityGroupDescription": "TestING",
-      "securityGroupName": "FOR TESTING",
-      "vpcId": "vpc-004c7963c31a8d156",
+      "securityGroupDescription": "VPC1_SG",
+      "securityGroupName": "Security Group for VPC My VPC",
+      "vpcId": "vpc-0279684cef337aff6",
       "adapterId": "EC2",
       "ruleList": [
         { 
-          "protocol": "TCP", 
+          "sourceSubnetCidrMask": 32, 
           "port": 80, 
           "sourceIp": "199.27.253.134", 
-          "sourceSubnetCidrMask": 32 
-        },
-        { 
-          "protocol": "TCP", 
-          "port": 80, 
-          "sourceIp": "19.27.253.134", 
-          "sourceSubnetCidrMask": 32 
+          "protocol": "TCP" 
         }
       ]
     }
@@ -25,41 +19,28 @@
   "expectedTaskResults": {
     "status": "complete",
     "variables": {
-      "ruleList": [
-        { 
-          "protocol": "TCP", 
-          "port": 80, 
-          "sourceIp": "199.27.253.134", 
-          "sourceSubnetCidrMask": 32 
-        },
-        { 
-          "protocol": "TCP", 
-          "port": 80, 
-          "sourceIp": "19.27.253.134", 
-          "sourceSubnetCidrMask": 32 
-        }
-      ],
-      "securityGroupDescription": "TestING",
-      "securityGroupName": "FOR TESTING",
-      "vpcId": "vpc-004c7963c31a8d156",
+      "securityGroupDescription": "VPC1_SG",
+      "securityGroupName": "Security Group for VPC My VPC",
       "adapterId": "EC2",
-      "securityGroupId": "sg-0bd40e2d7195add77"
+      "vpcId": "vpc-0279684cef337aff6",
+      "ruleList": [{ "sourceSubnetCidrMask": 32, "port": 80, "sourceIp": "199.27.253.134", "protocol": "TCP" }],
+      "securityGroupId": "sg-07d3c82f855581c6e"
     }
   },
   "stubTasks": [
     {
       "taskId": "e62f",
       "variables": {
-        "incoming": { "groupDescription": "TestING", "groupName": "FOR TESTING", "vpcId": "vpc-004c7963c31a8d156", "dryRun": false },
+        "incoming": { "groupDescription": "VPC1_SG", "groupName": "Security Group for VPC My VPC", "vpcId": "vpc-0279684cef337aff6", "dryRun": false },
         "outgoing": {
           "result": {
             "icode": "AD.200",
             "response": {
               "CreateSecurityGroupResponse": {
                 "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
-                "requestId": "5eb5cedd-f4e5-4040-864d-4bb3631faa05",
+                "requestId": "5da260d2-3c43-41d0-a48b-181897c4fd79",
                 "return": "true",
-                "groupId": "sg-0bd40e2d7195add77"
+                "groupId": "sg-07d3c82f855581c6e"
               }
             }
           }
@@ -73,14 +54,11 @@
           "task": "c96d",
           "workflow": "Add Ingress Rule to Security Group - AWS",
           "variables": { "adapterId": { "task": "12c9", "value": "ruleList" } },
-          "data_array": [
-            { "groupId": "sg-0bd40e2d7195add77", "adapterId": "EC2", "toPort": 80, "fromPort": 80, "ipProtocol": "TCP", "sourceCidrIp": "199.27.253.134/32" },
-            { "groupId": "sg-0bd40e2d7195add77", "adapterId": "EC2", "toPort": 80, "fromPort": 80, "ipProtocol": "TCP", "sourceCidrIp": "19.27.253.134/32" }
-          ],
+          "data_array": [{ "groupId": "sg-07d3c82f855581c6e", "adapterId": "EC2", "toPort": 80, "fromPort": 80, "ipProtocol": "TCP", "sourceCidrIp": "199.27.253.134/32" }],
           "transformation": "",
           "loopType": "sequential"
         },
-        "outgoing": { "job_details": { "status": "complete", "loop": ["6f5c4ca109794e388284bcd2", "3a487a2293b847eda71fb010"] } }
+        "outgoing": { "job_details": { "status": "complete", "loop": ["51ea5378d28e497cbaad92e8"] } }
       }
     }
   ]

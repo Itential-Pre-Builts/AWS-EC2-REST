@@ -3,15 +3,15 @@
     "description": "It should run Create and Attach Internet Gateway", 
     "variables": { 
       "adapterId": "EC2", 
-      "vpcId": "vpc-0c78b30c98d04b8ce" 
-      } 
-    },
+      "vpcId": "vpc-0279684cef337aff6" 
+    } 
+  },
   "expectedTaskResults": {
     "status": "complete",
     "variables": { 
       "adapterId": "EC2", 
-      "vpcId": "vpc-0c78b30c98d04b8ce", 
-      "internetGatewayId": "igw-01462c9d3d191a0b3" 
+      "vpcId": "vpc-0279684cef337aff6", 
+      "internetGatewayId": "igw-0c387e6b5cfed903e" 
     }
   },
   "stubTasks": [
@@ -25,8 +25,8 @@
             "response": {
               "CreateInternetGatewayResponse": {
                 "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
-                "requestId": "72aec4c6-e628-4036-8f18-7e1f5bf4ab0c",
-                "internetGateway": { "internetGatewayId": "igw-01462c9d3d191a0b3", "ownerId": "314014972859", "attachmentSet": "", "tagSet": "", "association": "" }
+                "requestId": "2e450807-cef1-4743-b415-65921448c2dc",
+                "internetGateway": { "internetGatewayId": "igw-0c387e6b5cfed903e", "ownerId": "314014972859", "attachmentSet": "", "tagSet": "", "association": "" }
               }
             }
           }
@@ -36,11 +36,11 @@
     {
       "taskId": "6a0c",
       "variables": {
-        "incoming": { "dryRun": false, "internetGatewayId": "igw-01462c9d3d191a0b3", "vpcId": "vpc-0c78b30c98d04b8ce" },
+        "incoming": { "dryRun": false, "internetGatewayId": "igw-0c387e6b5cfed903e", "vpcId": "vpc-0279684cef337aff6" },
         "outgoing": {
           "result": {
             "icode": "AD.200",
-            "response": { "AttachInternetGatewayResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "7c2929d2-e15c-40ee-947a-23bdf92eaa50", "return": "true" } }
+            "response": { "AttachInternetGatewayResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "3236f1d2-a116-4d16-85ba-acc743ffec98", "return": "true" } }
           }
         }
       }

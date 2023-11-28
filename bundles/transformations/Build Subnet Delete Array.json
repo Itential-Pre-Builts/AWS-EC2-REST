@@ -1,5 +1,5 @@
 {
-  "_id": "6245bcff1678ea01c7fbcd3f",
+  "_id": "6532e52c344dfd019e4b388c",
   "name": "Build Subnet Delete Array",
   "description": "",
   "incoming": [
@@ -17,16 +17,19 @@
                   "type": "object",
                   "properties": {
                     "item": {
-                      "type": "object",
-                      "properties": {
-                        "subnetId": {
-                          "type": "string",
-                          "examples": [
-                            "subnet-05adc6db86d072b1f"
-                          ]
-                        }
-                      },
-                      "required": []
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "subnetId": {
+                            "type": "string",
+                            "examples": [
+                              "subnet-0f7abee2208d3ffa0"
+                            ]
+                          }
+                        },
+                        "required": []
+                      }
                     }
                   },
                   "required": []
@@ -49,117 +52,212 @@
   ],
   "steps": [
     {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "subnetResponse",
+        "ptr": "/response/DescribeSubnetsResponse/subnetSet/item"
+      },
+      "to": {
+        "location": "method",
+        "name": 1,
+        "ptr": "/args/0/value"
+      },
+      "context": "#"
+    },
+    {
       "id": 1,
-      "type": "declaration",
-      "library": "Object",
-      "method": "new Object",
+      "type": "method",
+      "library": "Array",
+      "method": "map",
       "args": [
-        null
+        null,
+        "subnet builder"
       ],
       "view": {
         "row": 1,
         "col": 1
-      }
-    },
-    {
-      "id": 2,
-      "type": "method",
-      "library": "Object",
-      "method": "setProperty",
-      "args": [
-        null,
-        "subnetId",
-        null
-      ],
-      "view": {
-        "row": 1,
-        "col": 2
-      }
+      },
+      "context": "#"
     },
     {
       "id": 3,
       "type": "assign",
       "from": {
-        "location": "declaration",
+        "location": "method",
         "name": 1,
-        "ptr": "/return"
-      },
-      "to": {
-        "location": "method",
-        "name": 2,
-        "ptr": "/args/0/value"
-      }
-    },
-    {
-      "id": 4,
-      "type": "assign",
-      "from": {
-        "location": "incoming",
-        "name": "subnetResponse",
-        "ptr": "/response/DescribeSubnetsResponse/subnetSet/item/subnetId"
-      },
-      "to": {
-        "location": "method",
-        "name": 2,
-        "ptr": "/args/2/value"
-      }
-    },
-    {
-      "id": 5,
-      "type": "declaration",
-      "library": "Array",
-      "method": "new Array",
-      "args": [
-        null
-      ],
-      "view": {
-        "row": 1,
-        "col": 3
-      },
-      "polymorphIndex": 0
-    },
-    {
-      "id": 6,
-      "type": "assign",
-      "from": {
-        "location": "method",
-        "name": 2,
-        "ptr": "/return"
-      },
-      "to": {
-        "location": "declaration",
-        "name": 5,
-        "ptr": "/args/0/value"
-      }
-    },
-    {
-      "id": 7,
-      "type": "assign",
-      "from": {
-        "location": "declaration",
-        "name": 5,
         "ptr": "/return"
       },
       "to": {
         "location": "outgoing",
         "name": "subnetDeleteArray",
         "ptr": ""
-      }
+      },
+      "context": "#"
     }
   ],
-  "functions": [],
+  "functions": [
+    {
+      "incoming": [
+        {
+          "type": "object",
+          "properties": {
+            "subnetId": {
+              "type": "string",
+              "examples": [
+                "subnet-0f7abee2208d3ffa0"
+              ]
+            }
+          },
+          "required": [],
+          "$id": "currentValue"
+        },
+        {
+          "title": "index",
+          "type": "number",
+          "optional": true,
+          "$id": "index"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "subnetId": {
+                "type": "string",
+                "examples": [
+                  "subnet-0f7abee2208d3ffa0"
+                ]
+              }
+            },
+            "required": []
+          },
+          "$id": "array",
+          "optional": true
+        },
+        {
+          "$id": "thisArg",
+          "type": "object",
+          "properties": {},
+          "isContext": true
+        }
+      ],
+      "outgoing": [
+        {
+          "title": "newValue",
+          "type": [
+            "array",
+            "boolean",
+            "number",
+            "integer",
+            "string",
+            "object",
+            "null"
+          ],
+          "editable": true,
+          "$id": "newValue"
+        }
+      ],
+      "steps": [
+        {
+          "id": 1,
+          "type": "declaration",
+          "library": "Object",
+          "method": "new Object",
+          "args": [
+            null
+          ],
+          "view": {
+            "row": 1,
+            "col": 1
+          },
+          "context": "#"
+        },
+        {
+          "id": 5,
+          "type": "assign",
+          "from": {
+            "location": "incoming",
+            "name": "currentValue",
+            "ptr": "/subnetId"
+          },
+          "to": {
+            "location": "method",
+            "name": 3,
+            "ptr": "/args/2/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 4,
+          "type": "assign",
+          "from": {
+            "location": "declaration",
+            "name": 1,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "method",
+            "name": 3,
+            "ptr": "/args/0/value"
+          },
+          "context": "#"
+        },
+        {
+          "id": 3,
+          "type": "method",
+          "library": "Object",
+          "method": "setProperty",
+          "args": [
+            null,
+            "subnetId",
+            null
+          ],
+          "view": {
+            "row": 1,
+            "col": 2
+          },
+          "context": "#"
+        },
+        {
+          "id": 6,
+          "type": "assign",
+          "from": {
+            "location": "method",
+            "name": 3,
+            "ptr": "/return"
+          },
+          "to": {
+            "location": "outgoing",
+            "name": "newValue",
+            "ptr": ""
+          },
+          "context": "#"
+        }
+      ],
+      "functions": [],
+      "name": "subnet builder",
+      "view": {
+        "col": 2,
+        "row": 4
+      },
+      "id": "subnet builder",
+      "comments": []
+    }
+  ],
   "comments": [],
   "view": {
-    "col": 3,
+    "col": 1,
     "row": 5
   },
-  "created": "2023-10-16T19:31:59.303Z",
+  "created": "2023-11-21T19:36:03.825Z",
   "createdBy": {
     "_id": "652054b92c281c82e5b4c8b4",
     "provenance": "local_aaa",
     "username": "admin@pronghorn"
   },
-  "lastUpdated": "2023-10-16T19:31:59.303Z",
+  "lastUpdated": "2023-11-22T15:22:22.473Z",
   "lastUpdatedBy": {
     "_id": "652054b92c281c82e5b4c8b4",
     "provenance": "local_aaa",

@@ -282,6 +282,10 @@
             "adapterId": {
               "task": "job",
               "value": "adapterId"
+            },
+            "routeTableId": {
+              "task": "static",
+              "value": ""
             }
           },
           "data_array": "",
@@ -507,14 +511,8 @@
         "type": "string"
       },
       "adapterId": {
-        "type": [
-          "array",
-          "boolean",
-          "null",
-          "number",
-          "object",
-          "string"
-        ]
+        "$id": "adapterId",
+        "type": "string"
       },
       "securityGroupName": {
         "title": "groupDescription",
@@ -581,14 +579,8 @@
         "type": "string"
       },
       "adapterId": {
-        "type": [
-          "array",
-          "boolean",
-          "null",
-          "number",
-          "object",
-          "string"
-        ]
+        "$id": "adapterId",
+        "type": "string"
       },
       "securityGroupName": {
         "title": "groupDescription",
@@ -748,13 +740,12 @@
   },
   "type": "automation",
   "font_size": 12,
-  "last_updated": "2023-10-16T20:41:45.658Z",
+  "last_updated": "2023-11-22T15:55:57.238Z",
   "lastUpdatedVersion": "5.46.0-2023.1.19.0",
   "created": "2023-02-10T12:51:05.590Z",
   "createdVersion": "5.44.64-2022.1.25.0",
   "preAutomationTime": 0,
   "sla": 0,
-  "canvasVersion": 1.5,
   "created_by": {
     "provenance": "local_aaa",
     "username": "admin@pronghorn",
@@ -767,6 +758,7 @@
     "firstname": "admin",
     "inactive": false
   },
+  "canvasVersion": 1.5,
   "tags": [],
   "groups": [],
   "migrationVersion": 2

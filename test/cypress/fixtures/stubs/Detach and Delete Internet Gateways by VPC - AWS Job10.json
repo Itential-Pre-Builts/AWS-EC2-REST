@@ -1,0 +1,69 @@
+{
+  "input": { 
+    "description": "It should run Detach and Delete Internet Gateways by VPC", 
+    "variables": { 
+      "adapterId": "EC2", 
+      "vpcId": "vpc-0ba5b10165237d605" 
+    } 
+  },
+  "expectedTaskResults": {
+    "status": "complete",
+    "variables": {
+      "adapterId": "EC2",
+      "vpcId": "vpc-0ba5b10165237d605"
+    }
+  },
+  "stubTasks": [
+    {
+      "taskId": "3151",
+      "variables": {
+        "incoming": { "filter": [{ "name": "attachment.vpc-id", "value": "vpc-0ba5b10165237d605" }], "dryRun": "", "internetGatewayId": "", "nextToken": "", "maxResults": "" },
+        "outgoing": {
+          "result": {
+            "icode": "AD.200",
+            "response": {
+              "DescribeInternetGatewaysResponse": {
+                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "requestId": "e8ef8b02-3282-45d4-ab65-5bb9cf1f87ea",
+                "internetGatewaySet": {
+                  "item": [
+                    {
+                      "internetGatewayId": "igw-03f8581c79f75393f",
+                      "ownerId": "314014972859",
+                      "attachmentSet": { "item": [{ "vpcId": "vpc-0ba5b10165237d605", "state": "available" }] },
+                      "tagSet": { "item": [{ "key": "Name", "value": "my-ig" }] }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "taskId": "ccb2",
+      "variables": {
+        "incoming": { "dryRun": false, "internetGatewayId": "igw-03f8581c79f75393f", "vpcId": "vpc-0ba5b10165237d605" },
+        "outgoing": {
+          "result": {
+            "icode": "AD.200",
+            "response": { "DetachInternetGatewayResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "b7f204b1-a8dc-46eb-bd7b-70f1554272a5", "return": "true" } }
+          }
+        }
+      }
+    },
+    {
+      "taskId": "61f9",
+      "variables": {
+        "incoming": { "dryRun": false, "internetGatewayId": "igw-03f8581c79f75393f" },
+        "outgoing": {
+          "result": {
+            "icode": "AD.200",
+            "response": { "DeleteInternetGatewayResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "278fa313-9ddd-49ea-9fb5-90599392f935", "return": "true" } }
+          }
+        }
+      }
+    }
+  ]
+}

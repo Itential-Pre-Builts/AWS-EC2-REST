@@ -70,12 +70,22 @@ This version of **Create Security Group with Ingress Rules - AWS** has been test
     <tr>
       <th>Name</th>
       <th>Version</th>
+      <th>Configuration Notes</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>adapter-aws_ec2</td>
       <td>^0.7.2</td>
+      <td>In order to run the workflows in this Pre-Built, the adapter property `xmlArrayKeys` must be added to the AWS EC2 adapter configuration and be assigned the value:
+
+```json
+[
+  "item"
+]
+```
+
+This will ensure all response objects will set the data type of any instance of property `item` to an array, even if a single element is assigned to the property.</td>
     </tr>
   </tbody>
 </table>
@@ -87,7 +97,7 @@ This version of **Create Security Group with Ingress Rules - AWS** has been test
 To install the Workflow Project:
 
 - Verify you are running a supported version of the Itential Automation Platform (IAP) as listed above in the [Supported IAP Versions](#supported-iap-versions) section in order to install the Workflow Project.
-- Import the Workflow Project in [Admin Essentials](https://docs.itential.com/docs/importing-a-prebuilt-4). 
+- Import the Workflow Project in [Admin Essentials](https://docs.itential.com/docs/importing-a-prebuilt-4).
 
 ### Testing
 

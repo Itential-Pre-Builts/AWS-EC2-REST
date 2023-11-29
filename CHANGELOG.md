@@ -1,4 +1,12 @@
 
+## 0.0.7 [11-29-2023]
+
+* Bug fixes and performance improvements
+
+See commit 94c3a19n
+
+---
+
 ## 0.0.6 [11-29-2023]
 
 * Bug fixes and performance improvements
@@ -38,4 +46,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n
+\n\n\n\n\n\n

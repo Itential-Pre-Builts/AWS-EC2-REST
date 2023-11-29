@@ -57,12 +57,14 @@ This Pre-Built Automation bundle contains use cases around performing actions on
     <tr>
       <th>Name</th>
       <th>Version</th>
+      <th>Configuration Notes</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>adapter-aws_ec2</td>
       <td>^0.7.2</td>
+      <td></td>
     </tr>
   </tbody>
 </table>

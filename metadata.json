@@ -189,12 +189,12 @@
         "name": "adapter-aws_ec2",
         "webName": "Amazon EC2",
         "overview": "AWS EC2",
-        "isDependency": false,
+        "isDependency": true,
         "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
         "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
         "webLink": "https://www.itential.com/adapters/amazon-ec2/",
         "versions": [
-          "0.7.2"
+          "^0.7.2"
         ]
       }
     ],

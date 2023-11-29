@@ -12,7 +12,7 @@
       "repoLink": "https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2",
       "docLink": "https://docs.itential.com/opensource/docs/amazon-aws-ec2",
       "webLink": "https://www.itential.com/adapters/amazon-ec2/",
-      "configurationNotes": "In order to run the workflows in this Pre-Built, the adapter property `xmlArrayKeys` must be added to the AWS EC2 adapter configuration and be assigned the value:\n\n```json\n[\n  \"item\"\n]\n```\n\nThis will ensure all response objects will set the data type of any instance of property `item` to an array, even if a single element is assigned to the property."
+      "configurationNotes": "In order to run the workflows in this Pre-Built Automation, the adapter property <code>xmlArrayKeys</code> must be added to the AWS EC2 adapter configuration with value as seen below:\n\n```json\n\"xmlArrayKeys\": [\n  \"item\"\n]\n```\n\nThis will ensure all response objects will set the data type of any instance of property <code>item</code> to an array, even if a single element is assigned to the property."
     }
   ],
   "externalDependencyList": [

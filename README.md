@@ -62,7 +62,7 @@ This Pre-Built Automation bundle contains use cases around performing actions on
   </thead>
   <tbody>
     <tr>
-      <td>adapter-aws_ec2</td>
+      <td><a href="https://gitlab.com/itentialopensource/adapters/cloud/adapter-aws_ec2">adapter-aws_ec2</a></td>
       <td>^0.7.2</td>
       <td>In order to run the workflows in this Pre-Built Automation, the adapter property <code>xmlArrayKeys</code> must be added to the AWS EC2 adapter configuration with value as seen below:
 

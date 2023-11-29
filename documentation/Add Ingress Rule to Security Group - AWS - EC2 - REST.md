@@ -77,15 +77,15 @@ This version of **Add Ingress Rule to Security Group - AWS - EC2 - REST** has be
     <tr>
       <td>adapter-aws_ec2</td>
       <td>^0.7.2</td>
-      <td>In order to run the workflows in this Pre-Built, the adapter property `xmlArrayKeys` must be added to the AWS EC2 adapter configuration and be assigned the value:
+      <td>In order to run the workflows in this Pre-Built Automation, the adapter property <code>xmlArrayKeys</code> must be added to the AWS EC2 adapter configuration with value as seen below:
 
 ```json
-[
+"xmlArrayKeys": [
   "item"
 ]
 ```
 
-This will ensure all response objects will set the data type of any instance of property `item` to an array, even if a single element is assigned to the property.</td>
+This will ensure all response objects will set the data type of any instance of property <code>item</code> to an array, even if a single element is assigned to the property.</td>
     </tr>
   </tbody>
 </table>

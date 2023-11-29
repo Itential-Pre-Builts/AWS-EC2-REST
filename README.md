@@ -62,7 +62,7 @@ This Pre-Built Automation bundle contains use cases around performing actions on
   <tbody>
     <tr>
       <td>adapter-aws_ec2</td>
-      <td>0.7.2</td>
+      <td>^0.7.2</td>
     </tr>
   </tbody>
 </table>

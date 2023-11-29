@@ -166,8 +166,8 @@
     "daf4": {
       "name": "evaluation",
       "canvasName": "evaluation",
-      "summary": "Security Groups Found?",
-      "description": "Security Groups Found?",
+      "summary": "Check if Security Groups Found",
+      "description": "Check if Security Groups Found",
       "location": "Application",
       "locationType": null,
       "app": "WorkFlowEngine",
@@ -211,8 +211,8 @@
     "e541": {
       "name": "transformation",
       "canvasName": "transformation",
-      "summary": "Build SG Delete Array",
-      "description": "Perform a JSON Transformation using the JST library.",
+      "summary": "Build SG Delete List",
+      "description": "Build security group delete list",
       "location": "Application",
       "locationType": null,
       "app": "WorkFlowEngine",

@@ -130,8 +130,8 @@
     "daf4": {
       "name": "evaluation",
       "canvasName": "evaluation",
-      "summary": "Subnets Found?",
-      "description": "Subnets Found?",
+      "summary": "Check if Subnets Found",
+      "description": "Check if Subnets Found",
       "location": "Application",
       "locationType": null,
       "app": "WorkFlowEngine",
@@ -241,8 +241,8 @@
     "e7a5": {
       "name": "transformation",
       "canvasName": "transformation",
-      "summary": "Build Subnet Delete Array",
-      "description": "Perform a JSON Transformation using the JST library.",
+      "summary": "Build Subnet Delete List",
+      "description": "Build subnet delete list",
       "location": "Application",
       "locationType": null,
       "app": "WorkFlowEngine",

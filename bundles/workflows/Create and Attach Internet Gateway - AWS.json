@@ -87,7 +87,7 @@
       "name": "attachInternetGateway",
       "canvasName": "attachInternetGateway",
       "summary": "Attache Internet Gateway",
-      "description": "Attache Internet Gateway to VPC",
+      "description": "Attach Internet Gateway to VPC",
       "location": "Adapter",
       "locationType": "Awsec2",
       "app": "Awsec2",

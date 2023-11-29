@@ -165,8 +165,8 @@
     "daf4": {
       "name": "evaluation",
       "canvasName": "evaluation",
-      "summary": "Internet Gateways Found?",
-      "description": "Internet Gateways Found?",
+      "summary": "Check If Internet Gateways Found",
+      "description": "Check if internet gateways found",
       "location": "Application",
       "locationType": null,
       "app": "WorkFlowEngine",

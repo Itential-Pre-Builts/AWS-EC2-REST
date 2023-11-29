@@ -92,7 +92,7 @@
       "name": "transformation",
       "canvasName": "transformation",
       "summary": "Build VPC Tag Data",
-      "description": "Perform a JSON Transformation using the JST library.",
+      "description": "Build VPC Tag Data",
       "location": "Application",
       "locationType": null,
       "app": "WorkFlowEngine",

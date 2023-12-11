@@ -1,11 +1,11 @@
 {
-  "input": { 
-    "description": "It should run Create VPC", 
-    "variables": { 
-      "cidrBlock": "10.20.30.1/28", 
-      "adapterId": "EC2", 
-      "vpcName": "My VPC" 
-    } 
+  "input": {
+    "description": "It should run Create VPC",
+    "variables": {
+      "cidrBlock": "10.20.30.1/28",
+      "adapterId": "EC2",
+      "vpcName": "My VPC"
+    }
   },
   "expectedTaskResults": {
     "status": "complete",
@@ -19,20 +19,37 @@
     {
       "taskId": "997d",
       "variables": {
-        "incoming": { "cidrBlock": "10.20.30.1/28", "amazonProvidedIpv6CidrBlock": false, "dryRun": false, "instanceTenancy": "" },
+        "incoming": {
+          "cidrBlock": "10.20.30.1/28",
+          "amazonProvidedIpv6CidrBlock": false,
+          "dryRun": false,
+          "instanceTenancy": ""
+        },
         "outgoing": {
           "result": {
             "icode": "AD.200",
             "response": {
               "CreateVpcResponse": {
-                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
                 "requestId": "6142aba1-53c1-437e-a52d-8171e779a500",
                 "vpc": {
                   "vpcId": "vpc-0eb7725d56516b9d6",
                   "ownerId": "314014972859",
                   "state": "pending",
                   "cidrBlock": "10.20.30.0/28",
-                  "cidrBlockAssociationSet": { "item": [{ "cidrBlock": "10.20.30.0/28", "associationId": "vpc-cidr-assoc-067f9cb21942bfb49", "cidrBlockState": { "state": "associated" } }] },
+                  "cidrBlockAssociationSet": {
+                    "item": [
+                      {
+                        "cidrBlock": "10.20.30.0/28",
+                        "associationId": "vpc-cidr-assoc-067f9cb21942bfb49",
+                        "cidrBlockState": {
+                          "state": "associated"
+                        }
+                      }
+                    ]
+                  },
                   "ipv6CidrBlockAssociationSet": "",
                   "dhcpOptionsId": "dopt-0a03008489c05e706",
                   "instanceTenancy": "default",
@@ -47,11 +64,30 @@
     {
       "taskId": "e803",
       "variables": {
-        "incoming": { "dryRun": false, "resourceId": ["vpc-0eb7725d56516b9d6"], "tag": [{ "Key": "Name", "Value": "My VPC" }] },
+        "incoming": {
+          "dryRun": false,
+          "resourceId": [
+            "vpc-0eb7725d56516b9d6"
+          ],
+          "tag": [
+            {
+              "Key": "Name",
+              "Value": "My VPC"
+            }
+          ]
+        },
         "outgoing": {
           "result": {
             "icode": "AD.200",
-            "response": { "CreateTagsResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "724ef7ea-726c-4659-8cc1-fc376c2201c9", "return": "true" } }
+            "response": {
+              "CreateTagsResponse": {
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
+                "requestId": "724ef7ea-726c-4659-8cc1-fc376c2201c9",
+                "return": "true"
+              }
+            }
           }
         }
       }

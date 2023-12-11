@@ -1,32 +1,41 @@
 {
-  "input": { 
-    "description": "It should run Create VPC Subnet", 
-    "variables": { 
-      "cidrBlock": "10.20.30.1/28", 
-      "vpcId": "vpc-0279684cef337aff6", 
-      "adapterId": "EC2" 
-    } 
+  "input": {
+    "description": "It should run Create VPC Subnet",
+    "variables": {
+      "cidrBlock": "10.20.30.1/28",
+      "vpcId": "vpc-0279684cef337aff6",
+      "adapterId": "EC2"
+    }
   },
   "expectedTaskResults": {
     "status": "complete",
-    "variables": { 
-      "cidrBlock": "10.20.30.1/28", 
-      "adapterId": "EC2", 
-      "vpcId": "vpc-0279684cef337aff6", 
-      "subnetId": "subnet-0611fc683c5306652" 
+    "variables": {
+      "cidrBlock": "10.20.30.1/28",
+      "adapterId": "EC2",
+      "vpcId": "vpc-0279684cef337aff6",
+      "subnetId": "subnet-0611fc683c5306652"
     }
   },
   "stubTasks": [
     {
       "taskId": "303c",
       "variables": {
-        "incoming": { "availabilityZone": "", "availabilityZoneId": "", "cidrBlock": "10.20.30.1/28", "ipv6CidrBlock": "", "vpcId": "vpc-0279684cef337aff6", "dryRun": "" },
+        "incoming": {
+          "availabilityZone": "",
+          "availabilityZoneId": "",
+          "cidrBlock": "10.20.30.1/28",
+          "ipv6CidrBlock": "",
+          "vpcId": "vpc-0279684cef337aff6",
+          "dryRun": ""
+        },
         "outgoing": {
           "result": {
             "icode": "AD.200",
             "response": {
               "CreateSubnetResponse": {
-                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
                 "requestId": "e753fa29-bc17-4f4c-9d0a-1e5aca2c9586",
                 "subnet": {
                   "subnetId": "subnet-0611fc683c5306652",
@@ -42,7 +51,11 @@
                   "defaultForAz": "false",
                   "mapPublicIpOnLaunch": "false",
                   "assignIpv6AddressOnCreation": "false",
-                  "privateDnsNameOptionsOnLaunch": { "hostnameType": "ip-name", "enableResourceNameDnsARecord": "false", "enableResourceNameDnsAAAARecord": "false" },
+                  "privateDnsNameOptionsOnLaunch": {
+                    "hostnameType": "ip-name",
+                    "enableResourceNameDnsARecord": "false",
+                    "enableResourceNameDnsAAAARecord": "false"
+                  },
                   "ipv6Native": "false",
                   "enableDns64": "false"
                 }

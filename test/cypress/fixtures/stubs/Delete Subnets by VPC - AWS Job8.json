@@ -1,10 +1,10 @@
 {
-  "input": { 
-    "description": "It should run Delete Subnets by VPC", 
-    "variables": { 
+  "input": {
+    "description": "It should run Delete Subnets by VPC",
+    "variables": {
       "vpcId": "vpc-0ba5b10165237d605",
-      "adapterId": "EC2" 
-    } 
+      "adapterId": "EC2"
+    }
   },
   "expectedTaskResults": {
     "status": "complete",
@@ -17,13 +17,26 @@
     {
       "taskId": "65d7",
       "variables": {
-        "incoming": { "filter": [{ "name": "vpc-id", "value": "vpc-0ba5b10165237d605" }], "subnetId": "", "dryRun": "", "nextToken": "", "maxResults": "" },
+        "incoming": {
+          "filter": [
+            {
+              "name": "vpc-id",
+              "value": "vpc-0ba5b10165237d605"
+            }
+          ],
+          "subnetId": "",
+          "dryRun": "",
+          "nextToken": "",
+          "maxResults": ""
+        },
         "outgoing": {
           "result": {
             "icode": "AD.200",
             "response": {
               "DescribeSubnetsResponse": {
-                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
                 "requestId": "7bdd0423-c780-4aa6-917a-98d5a9a0f2c7",
                 "subnetSet": {
                   "item": [
@@ -42,7 +55,11 @@
                       "mapPublicIpOnLaunch": "false",
                       "assignIpv6AddressOnCreation": "false",
                       "mapCustomerOwnedIpOnLaunch": "false",
-                      "privateDnsNameOptionsOnLaunch": { "hostnameType": "ip-name", "enableResourceNameDnsARecord": "false", "enableResourceNameDnsAAAARecord": "false" },
+                      "privateDnsNameOptionsOnLaunch": {
+                        "hostnameType": "ip-name",
+                        "enableResourceNameDnsARecord": "false",
+                        "enableResourceNameDnsAAAARecord": "false"
+                      },
                       "ipv6Native": "false",
                       "enableDns64": "false"
                     },
@@ -61,7 +78,11 @@
                       "mapPublicIpOnLaunch": "false",
                       "assignIpv6AddressOnCreation": "false",
                       "mapCustomerOwnedIpOnLaunch": "false",
-                      "privateDnsNameOptionsOnLaunch": { "hostnameType": "ip-name", "enableResourceNameDnsARecord": "false", "enableResourceNameDnsAAAARecord": "false" },
+                      "privateDnsNameOptionsOnLaunch": {
+                        "hostnameType": "ip-name",
+                        "enableResourceNameDnsARecord": "false",
+                        "enableResourceNameDnsAAAARecord": "false"
+                      },
                       "ipv6Native": "false",
                       "enableDns64": "false"
                     }
@@ -76,12 +97,29 @@
     {
       "taskId": "d988",
       "variables": {
-        "incoming": { "subnetArray": [{ "subnetId": "subnet-053b6ae47606c3a4c" }, { "subnetId": "subnet-00fac5b312f310f65" }] },
+        "incoming": {
+          "subnetArray": [
+            {
+              "subnetId": "subnet-053b6ae47606c3a4c"
+            },
+            {
+              "subnetId": "subnet-00fac5b312f310f65"
+            }
+          ]
+        },
         "outgoing": {
           "result": [
             {
               "icode": "AD.200",
-              "response": { "DeleteSubnetResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "e76c029f-c2fc-4cf9-9d48-8e19691ec315", "return": "true" } },
+              "response": {
+                "DeleteSubnetResponse": {
+                  "_attr": {
+                    "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                  },
+                  "requestId": "e76c029f-c2fc-4cf9-9d48-8e19691ec315",
+                  "return": "true"
+                }
+              },
               "headers": {
                 "x-amzn-requestid": "e76c029f-c2fc-4cf9-9d48-8e19691ec315",
                 "cache-control": "no-cache, no-store",
@@ -93,11 +131,27 @@
                 "server": "AmazonEC2",
                 "connection": "close"
               },
-              "metrics": { "code": 200, "timeouts": 0, "redirects": 0, "retries": 0, "tripTime": 844, "isThrottling": false, "capabilityTime": "1061ms" }
+              "metrics": {
+                "code": 200,
+                "timeouts": 0,
+                "redirects": 0,
+                "retries": 0,
+                "tripTime": 844,
+                "isThrottling": false,
+                "capabilityTime": "1061ms"
+              }
             },
             {
               "icode": "AD.200",
-              "response": { "DeleteSubnetResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "49c3525c-d03d-4c6b-9787-41ae10e4c9cd", "return": "true" } },
+              "response": {
+                "DeleteSubnetResponse": {
+                  "_attr": {
+                    "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                  },
+                  "requestId": "49c3525c-d03d-4c6b-9787-41ae10e4c9cd",
+                  "return": "true"
+                }
+              },
               "headers": {
                 "x-amzn-requestid": "49c3525c-d03d-4c6b-9787-41ae10e4c9cd",
                 "cache-control": "no-cache, no-store",
@@ -109,7 +163,15 @@
                 "server": "AmazonEC2",
                 "connection": "close"
               },
-              "metrics": { "code": 200, "timeouts": 0, "redirects": 0, "retries": 0, "tripTime": 626, "isThrottling": false, "capabilityTime": "879ms" }
+              "metrics": {
+                "code": 200,
+                "timeouts": 0,
+                "redirects": 0,
+                "retries": 0,
+                "tripTime": 626,
+                "isThrottling": false,
+                "capabilityTime": "879ms"
+              }
             }
           ]
         }

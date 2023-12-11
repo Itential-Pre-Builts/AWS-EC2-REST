@@ -1,20 +1,20 @@
 {
   "input": {
     "description": "It should run Provision VPC with Networking",
-    "variables": { 
+    "variables": {
       "vpcSubnet": "10.20.30.1/28",
       "vpcName": "My VPC",
       "adapterId": "EC2",
       "securityGroupName": "VPC1_SG",
       "securityGroupDesc": "Security Group for VPC My VPC",
       "ingressRules": [
-        { 
-          "sourceSubnetCidrMask": 32, 
-          "sourceIp": "199.27.253.134", 
-          "protocol": "TCP", 
-          "port": 80 
+        {
+          "sourceSubnetCidrMask": 32,
+          "sourceIp": "199.27.253.134",
+          "protocol": "TCP",
+          "port": 80
         }
-      ] 
+      ]
     }
   },
   "expectedTaskResults": {
@@ -25,7 +25,14 @@
       "adapterId": "EC2",
       "securityGroupName": "VPC1_SG",
       "securityGroupDesc": "Security Group for VPC My VPC",
-      "ingressRules": [{ "sourceSubnetCidrMask": 32, "sourceIp": "199.27.253.134", "protocol": "TCP", "port": 80 }],
+      "ingressRules": [
+        {
+          "sourceSubnetCidrMask": 32,
+          "sourceIp": "199.27.253.134",
+          "protocol": "TCP",
+          "port": 80
+        }
+      ],
       "vpcId": "vpc-0279684cef337aff6",
       "subnetId": "subnet-0611fc683c5306652",
       "internetGatewayId": "igw-0c387e6b5cfed903e",
@@ -40,9 +47,19 @@
           "task": "6105",
           "workflow": "Create VPC - AWS",
           "variables": {
-            "cidrBlock": { "editable": true, "task": "job", "value": "vpcSubnet" },
-            "vpcName": { "task": "job", "value": "vpcName" },
-            "adapterId": { "task": "job", "value": "adapterId" }
+            "cidrBlock": {
+              "editable": true,
+              "task": "job",
+              "value": "vpcSubnet"
+            },
+            "vpcName": {
+              "task": "job",
+              "value": "vpcName"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
           },
           "data_array": "",
           "transformation": "",
@@ -60,14 +77,26 @@
               "icode": "AD.200",
               "response": {
                 "CreateVpcResponse": {
-                  "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                  "_attr": {
+                    "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                  },
                   "requestId": "22eb40f9-1138-4b30-9159-1b5e755a4f5a",
                   "vpc": {
                     "vpcId": "vpc-0279684cef337aff6",
                     "ownerId": "314014972859",
                     "state": "pending",
                     "cidrBlock": "10.20.30.0/28",
-                    "cidrBlockAssociationSet": { "item": [{ "cidrBlock": "10.20.30.0/28", "associationId": "vpc-cidr-assoc-0bbfb6ff6b6475db3", "cidrBlockState": { "state": "associated" } }] },
+                    "cidrBlockAssociationSet": {
+                      "item": [
+                        {
+                          "cidrBlock": "10.20.30.0/28",
+                          "associationId": "vpc-cidr-assoc-0bbfb6ff6b6475db3",
+                          "cidrBlockState": {
+                            "state": "associated"
+                          }
+                        }
+                      ]
+                    },
                     "ipv6CidrBlockAssociationSet": "",
                     "dhcpOptionsId": "dopt-0a03008489c05e706",
                     "instanceTenancy": "default",
@@ -86,7 +115,15 @@
                 "server": "AmazonEC2",
                 "connection": "close"
               },
-              "metrics": { "code": 200, "timeouts": 0, "redirects": 0, "retries": 0, "tripTime": 629, "isThrottling": false, "capabilityTime": "1130ms" }
+              "metrics": {
+                "code": 200,
+                "timeouts": 0,
+                "redirects": 0,
+                "retries": 0,
+                "tripTime": 629,
+                "isThrottling": false,
+                "capabilityTime": "1130ms"
+              }
             }
           }
         }
@@ -99,9 +136,20 @@
           "task": "cb2e",
           "workflow": "Create VPC Subnet - AWS",
           "variables": {
-            "cidrBlock": { "editable": true, "task": "job", "value": "vpcSubnet" },
-            "vpcId": { "editable": true, "task": "7a4f", "value": "return_data" },
-            "adapterId": { "task": "job", "value": "adapterId" }
+            "cidrBlock": {
+              "editable": true,
+              "task": "job",
+              "value": "vpcSubnet"
+            },
+            "vpcId": {
+              "editable": true,
+              "task": "7a4f",
+              "value": "return_data"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
           },
           "data_array": "",
           "transformation": "",
@@ -126,7 +174,17 @@
         "incoming": {
           "task": "ee02",
           "workflow": "Create and Attach Internet Gateway - AWS",
-          "variables": { "vpcId": { "editable": true, "task": "7a4f", "value": "return_data" }, "adapterId": { "task": "job", "value": "adapterId" } },
+          "variables": {
+            "vpcId": {
+              "editable": true,
+              "task": "7a4f",
+              "value": "return_data"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
+          },
           "data_array": "",
           "transformation": "",
           "loopType": ""
@@ -150,11 +208,29 @@
           "task": "e5bc",
           "workflow": "Create Route - AWS",
           "variables": {
-            "destinationCidrBlock": { "editable": true, "task": "static", "value": "0.0.0.0/0" },
-            "gatewayId": { "editable": true, "task": "2f28", "value": "return_data" },
-            "vpcId": { "editable": true, "task": "7a4f", "value": "return_data" },
-            "adapterId": { "task": "job", "value": "adapterId" },
-            "routeTableId": { "task": "static", "value": "" }
+            "destinationCidrBlock": {
+              "editable": true,
+              "task": "static",
+              "value": "0.0.0.0/0"
+            },
+            "gatewayId": {
+              "editable": true,
+              "task": "2f28",
+              "value": "return_data"
+            },
+            "vpcId": {
+              "editable": true,
+              "task": "7a4f",
+              "value": "return_data"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            },
+            "routeTableId": {
+              "task": "static",
+              "value": ""
+            }
           },
           "data_array": "",
           "transformation": "",
@@ -172,7 +248,15 @@
             "initiator": "admin@pronghorn",
             "createdRoute": {
               "icode": "AD.200",
-              "response": { "CreateRouteResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "c7437a9a-003c-4d0a-8641-3355e053b656", "return": "true" } },
+              "response": {
+                "CreateRouteResponse": {
+                  "_attr": {
+                    "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                  },
+                  "requestId": "c7437a9a-003c-4d0a-8641-3355e053b656",
+                  "return": "true"
+                }
+              },
               "headers": {
                 "x-amzn-requestid": "c7437a9a-003c-4d0a-8641-3355e053b656",
                 "cache-control": "no-cache, no-store",
@@ -184,7 +268,15 @@
                 "server": "AmazonEC2",
                 "connection": "close"
               },
-              "metrics": { "code": 200, "timeouts": 0, "redirects": 0, "retries": 0, "tripTime": 368, "isThrottling": false, "capabilityTime": "543ms" }
+              "metrics": {
+                "code": 200,
+                "timeouts": 0,
+                "redirects": 0,
+                "retries": 0,
+                "tripTime": 368,
+                "isThrottling": false,
+                "capabilityTime": "543ms"
+              }
             }
           }
         }
@@ -197,11 +289,29 @@
           "task": "5d5e",
           "workflow": "Create Security Group with Ingress Rules - AWS",
           "variables": {
-            "securityGroupDescription": { "editable": true, "task": "job", "value": "securityGroupName" },
-            "securityGroupName": { "task": "job", "value": "securityGroupDesc" },
-            "vpcId": { "editable": true, "task": "7a4f", "value": "return_data" },
-            "ruleList": { "editable": true, "task": "5f81", "value": "ruleList" },
-            "adapterId": { "task": "job", "value": "adapterId" }
+            "securityGroupDescription": {
+              "editable": true,
+              "task": "job",
+              "value": "securityGroupName"
+            },
+            "securityGroupName": {
+              "task": "job",
+              "value": "securityGroupDesc"
+            },
+            "vpcId": {
+              "editable": true,
+              "task": "7a4f",
+              "value": "return_data"
+            },
+            "ruleList": {
+              "editable": true,
+              "task": "5f81",
+              "value": "ruleList"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
           },
           "data_array": "",
           "transformation": "",
@@ -214,7 +324,14 @@
             "securityGroupName": "Security Group for VPC My VPC",
             "adapterId": "EC2",
             "vpcId": "vpc-0279684cef337aff6",
-            "ruleList": [{ "sourceSubnetCidrMask": 32, "port": 80, "sourceIp": "199.27.253.134", "protocol": "TCP" }],
+            "ruleList": [
+              {
+                "sourceSubnetCidrMask": 32,
+                "port": 80,
+                "sourceIp": "199.27.253.134",
+                "protocol": "TCP"
+              }
+            ],
             "_id": null,
             "initiator": null,
             "securityGroupId": "sg-07d3c82f855581c6e",

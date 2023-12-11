@@ -1,32 +1,42 @@
 {
-  "input": { 
-    "description": "It should run Create and Attach Internet Gateway", 
-    "variables": { 
-      "adapterId": "EC2", 
-      "vpcId": "vpc-0279684cef337aff6" 
-    } 
+  "input": {
+    "description": "It should run Create and Attach Internet Gateway",
+    "variables": {
+      "adapterId": "EC2",
+      "vpcId": "vpc-0279684cef337aff6"
+    }
   },
   "expectedTaskResults": {
     "status": "complete",
-    "variables": { 
-      "adapterId": "EC2", 
-      "vpcId": "vpc-0279684cef337aff6", 
-      "internetGatewayId": "igw-0c387e6b5cfed903e" 
+    "variables": {
+      "adapterId": "EC2",
+      "vpcId": "vpc-0279684cef337aff6",
+      "internetGatewayId": "igw-0c387e6b5cfed903e"
     }
   },
   "stubTasks": [
     {
       "taskId": "a0b6",
       "variables": {
-        "incoming": { "dryRun": false },
+        "incoming": {
+          "dryRun": false
+        },
         "outgoing": {
           "result": {
             "icode": "AD.200",
             "response": {
               "CreateInternetGatewayResponse": {
-                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
                 "requestId": "2e450807-cef1-4743-b415-65921448c2dc",
-                "internetGateway": { "internetGatewayId": "igw-0c387e6b5cfed903e", "ownerId": "314014972859", "attachmentSet": "", "tagSet": "", "association": "" }
+                "internetGateway": {
+                  "internetGatewayId": "igw-0c387e6b5cfed903e",
+                  "ownerId": "314014972859",
+                  "attachmentSet": "",
+                  "tagSet": "",
+                  "association": ""
+                }
               }
             }
           }
@@ -36,11 +46,23 @@
     {
       "taskId": "6a0c",
       "variables": {
-        "incoming": { "dryRun": false, "internetGatewayId": "igw-0c387e6b5cfed903e", "vpcId": "vpc-0279684cef337aff6" },
+        "incoming": {
+          "dryRun": false,
+          "internetGatewayId": "igw-0c387e6b5cfed903e",
+          "vpcId": "vpc-0279684cef337aff6"
+        },
         "outgoing": {
           "result": {
             "icode": "AD.200",
-            "response": { "AttachInternetGatewayResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "3236f1d2-a116-4d16-85ba-acc743ffec98", "return": "true" } }
+            "response": {
+              "AttachInternetGatewayResponse": {
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
+                "requestId": "3236f1d2-a116-4d16-85ba-acc743ffec98",
+                "return": "true"
+              }
+            }
           }
         }
       }

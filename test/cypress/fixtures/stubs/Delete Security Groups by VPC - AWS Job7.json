@@ -1,10 +1,10 @@
 {
-  "input": { 
-    "description": "It should run Delete Security Groups by VPC", 
-    "variables": { 
+  "input": {
+    "description": "It should run Delete Security Groups by VPC",
+    "variables": {
       "vpcId": "vpc-04660d5627c76f77f",
-      "adapterId": "EC2" 
-    } 
+      "adapterId": "EC2"
+    }
   },
   "expectedTaskResults": {
     "status": "complete",
@@ -17,13 +17,27 @@
     {
       "taskId": "5ee3",
       "variables": {
-        "incoming": { "filter": [{ "name": "vpc-id", "value": "vpc-04660d5627c76f77f" }], "groupId": "", "groupName": "", "dryRun": "", "nextToken": "", "maxResults": "" },
+        "incoming": {
+          "filter": [
+            {
+              "name": "vpc-id",
+              "value": "vpc-04660d5627c76f77f"
+            }
+          ],
+          "groupId": "",
+          "groupName": "",
+          "dryRun": "",
+          "nextToken": "",
+          "maxResults": ""
+        },
         "outgoing": {
           "result": {
             "icode": "AD.200",
             "response": {
               "DescribeSecurityGroupsResponse": {
-                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
                 "requestId": "db5c063d-0646-4ac5-bf8b-94aa92628907",
                 "securityGroupInfo": {
                   "item": [
@@ -34,7 +48,23 @@
                       "groupDescription": "Test",
                       "vpcId": "vpc-04660d5627c76f77f",
                       "ipPermissions": "",
-                      "ipPermissionsEgress": { "item": [{ "ipProtocol": "-1", "groups": "", "ipRanges": { "item": [{ "cidrIp": "0.0.0.0/0" }] }, "ipv6Ranges": "", "prefixListIds": "" }] }
+                      "ipPermissionsEgress": {
+                        "item": [
+                          {
+                            "ipProtocol": "-1",
+                            "groups": "",
+                            "ipRanges": {
+                              "item": [
+                                {
+                                  "cidrIp": "0.0.0.0/0"
+                                }
+                              ]
+                            },
+                            "ipv6Ranges": "",
+                            "prefixListIds": ""
+                          }
+                        ]
+                      }
                     },
                     {
                       "ownerId": "314014972859",
@@ -43,9 +73,40 @@
                       "groupDescription": "default VPC security group",
                       "vpcId": "vpc-04660d5627c76f77f",
                       "ipPermissions": {
-                        "item": [{ "ipProtocol": "-1", "groups": { "item": [{ "userId": "314014972859", "groupId": "sg-0b00bbb95c27a4c62" }] }, "ipRanges": "", "ipv6Ranges": "", "prefixListIds": "" }]
+                        "item": [
+                          {
+                            "ipProtocol": "-1",
+                            "groups": {
+                              "item": [
+                                {
+                                  "userId": "314014972859",
+                                  "groupId": "sg-0b00bbb95c27a4c62"
+                                }
+                              ]
+                            },
+                            "ipRanges": "",
+                            "ipv6Ranges": "",
+                            "prefixListIds": ""
+                          }
+                        ]
                       },
-                      "ipPermissionsEgress": { "item": [{ "ipProtocol": "-1", "groups": "", "ipRanges": { "item": [{ "cidrIp": "0.0.0.0/0" }] }, "ipv6Ranges": "", "prefixListIds": "" }] }
+                      "ipPermissionsEgress": {
+                        "item": [
+                          {
+                            "ipProtocol": "-1",
+                            "groups": "",
+                            "ipRanges": {
+                              "item": [
+                                {
+                                  "cidrIp": "0.0.0.0/0"
+                                }
+                              ]
+                            },
+                            "ipv6Ranges": "",
+                            "prefixListIds": ""
+                          }
+                        ]
+                      }
                     }
                   ]
                 }
@@ -58,13 +119,25 @@
     {
       "taskId": "f643",
       "variables": {
-        "incoming": { "securityGroupArray": [{ "groupId": "sg-0dcc2fc585c988fb1" }] },
+        "incoming": {
+          "securityGroupArray": [
+            {
+              "groupId": "sg-0dcc2fc585c988fb1"
+            }
+          ]
+        },
         "outgoing": {
           "result": [
             {
               "icode": "AD.200",
               "response": {
-                "DeleteSecurityGroupResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "32856973-fdc1-4487-8ac3-90283b7b9170", "return": "true" }
+                "DeleteSecurityGroupResponse": {
+                  "_attr": {
+                    "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                  },
+                  "requestId": "32856973-fdc1-4487-8ac3-90283b7b9170",
+                  "return": "true"
+                }
               },
               "headers": {
                 "x-amzn-requestid": "32856973-fdc1-4487-8ac3-90283b7b9170",
@@ -77,7 +150,15 @@
                 "server": "AmazonEC2",
                 "connection": "close"
               },
-              "metrics": { "code": 200, "timeouts": 0, "redirects": 0, "retries": 0, "tripTime": 574, "isThrottling": false, "capabilityTime": "904ms" }
+              "metrics": {
+                "code": 200,
+                "timeouts": 0,
+                "redirects": 0,
+                "retries": 0,
+                "tripTime": 574,
+                "isThrottling": false,
+                "capabilityTime": "904ms"
+              }
             }
           ]
         }

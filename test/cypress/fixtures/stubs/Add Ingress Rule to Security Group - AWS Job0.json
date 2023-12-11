@@ -1,13 +1,13 @@
 {
   "input": {
     "description": "It should run Add Ingress Rule to Security Group",
-    "variables": { 
-      "sourceCidrIp": "199.27.253.134/32", 
-      "fromPort": 80, 
-      "groupId": "sg-07d3c82f855581c6e", 
-      "ipProtocol": "TCP", 
-      "toPort": 80, 
-      "adapterId": "EC2" 
+    "variables": {
+      "sourceCidrIp": "199.27.253.134/32",
+      "fromPort": 80,
+      "groupId": "sg-07d3c82f855581c6e",
+      "ipProtocol": "TCP",
+      "toPort": 80,
+      "adapterId": "EC2"
     }
   },
   "expectedTaskResults": {
@@ -42,7 +42,9 @@
             "icode": "AD.200",
             "response": {
               "AuthorizeSecurityGroupIngressResponse": {
-                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
                 "requestId": "48b0914e-5353-489a-80b8-e2e8a503bc4e",
                 "return": "true",
                 "securityGroupRuleSet": {

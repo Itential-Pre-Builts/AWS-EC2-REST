@@ -1,11 +1,11 @@
 {
   "input": {
     "description": "It should run Create Route",
-    "variables": { 
+    "variables": {
       "routeTableId": "",
-      "destinationCidrBlock": "0.0.0.0/0", 
-      "gatewayId": "igw-0d436c219dfe3e4f4", 
-      "adapterId": "EC2", 
+      "destinationCidrBlock": "0.0.0.0/0",
+      "gatewayId": "igw-0d436c219dfe3e4f4",
+      "adapterId": "EC2",
       "vpcId": "vpc-04840026f5a8b6c6b"
     }
   },
@@ -39,7 +39,15 @@
         "outgoing": {
           "result": {
             "icode": "AD.200",
-            "response": { "CreateRouteResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "0ac30011-5190-4b13-83b2-020a86771c71", "return": "true" } }
+            "response": {
+              "CreateRouteResponse": {
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
+                "requestId": "0ac30011-5190-4b13-83b2-020a86771c71",
+                "return": "true"
+              }
+            }
           }
         }
       }
@@ -47,13 +55,26 @@
     {
       "taskId": "6b15",
       "variables": {
-        "incoming": { "filter": [{ "Value": "vpc-04840026f5a8b6c6b", "Name": "vpc-id" }], "dryRun": false, "routeTableId": "", "nextToken": "", "maxResults": "" },
+        "incoming": {
+          "filter": [
+            {
+              "Value": "vpc-04840026f5a8b6c6b",
+              "Name": "vpc-id"
+            }
+          ],
+          "dryRun": false,
+          "routeTableId": "",
+          "nextToken": "",
+          "maxResults": ""
+        },
         "outgoing": {
           "result": {
             "icode": "AD.200",
             "response": {
               "DescribeRouteTablesResponse": {
-                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
                 "requestId": "8e8d0361-9fab-4c99-9370-6522a572dc5c",
                 "routeTableSet": {
                   "item": [
@@ -61,9 +82,27 @@
                       "routeTableId": "rtb-0ad7e6ee9a78362f1",
                       "vpcId": "vpc-04840026f5a8b6c6b",
                       "ownerId": "314014972859",
-                      "routeSet": { "item": [{ "destinationCidrBlock": "172.31.0.0/16", "gatewayId": "local", "state": "active", "origin": "CreateRouteTable" }] },
+                      "routeSet": {
+                        "item": [
+                          {
+                            "destinationCidrBlock": "172.31.0.0/16",
+                            "gatewayId": "local",
+                            "state": "active",
+                            "origin": "CreateRouteTable"
+                          }
+                        ]
+                      },
                       "associationSet": {
-                        "item": [{ "routeTableAssociationId": "rtbassoc-09382fb4044aa6880", "routeTableId": "rtb-0ad7e6ee9a78362f1", "main": "true", "associationState": { "state": "associated" } }]
+                        "item": [
+                          {
+                            "routeTableAssociationId": "rtbassoc-09382fb4044aa6880",
+                            "routeTableId": "rtb-0ad7e6ee9a78362f1",
+                            "main": "true",
+                            "associationState": {
+                              "state": "associated"
+                            }
+                          }
+                        ]
                       },
                       "propagatingVgwSet": "",
                       "tagSet": ""

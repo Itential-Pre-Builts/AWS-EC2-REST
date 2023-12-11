@@ -1,10 +1,10 @@
 {
-  "input": { 
-    "description": "It should run Destroy VPC and EC2 Instance", 
-    "variables": { 
-      "vpcId": "vpc-0279684cef337aff6", 
-      "adapterId": "EC2" 
-    } 
+  "input": {
+    "description": "It should run Destroy VPC and EC2 Instance",
+    "variables": {
+      "vpcId": "vpc-0279684cef337aff6",
+      "adapterId": "EC2"
+    }
   },
   "expectedTaskResults": {
     "status": "complete",
@@ -17,11 +17,22 @@
     {
       "taskId": "6253",
       "variables": {
-        "incoming": { "vpcId": "vpc-0279684cef337aff6", "dryRun": false },
+        "incoming": {
+          "vpcId": "vpc-0279684cef337aff6",
+          "dryRun": false
+        },
         "outgoing": {
           "result": {
             "icode": "AD.200",
-            "response": { "DeleteVpcResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "20acb350-7ee3-4573-9b69-5ba1c6038131", "return": "true" } }
+            "response": {
+              "DeleteVpcResponse": {
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
+                "requestId": "20acb350-7ee3-4573-9b69-5ba1c6038131",
+                "return": "true"
+              }
+            }
           }
         }
       }
@@ -29,13 +40,26 @@
     {
       "taskId": "9653",
       "variables": {
-        "incoming": { "filter": [{ "name": "network-interface.vpc-id", "value": "vpc-0279684cef337aff6" }], "instanceId": "", "dryRun": false, "maxResults": "", "nextToken": "" },
+        "incoming": {
+          "filter": [
+            {
+              "name": "network-interface.vpc-id",
+              "value": "vpc-0279684cef337aff6"
+            }
+          ],
+          "instanceId": "",
+          "dryRun": false,
+          "maxResults": "",
+          "nextToken": ""
+        },
         "outgoing": {
           "result": {
             "icode": "AD.200",
             "response": {
               "DescribeInstancesResponse": {
-                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
                 "requestId": "0c8e063d-4fec-43aa-aa88-442aac43e34a",
                 "reservationSet": {
                   "item": [
@@ -48,7 +72,10 @@
                           {
                             "instanceId": "i-05020afda2dc7b6b2",
                             "imageId": "ami-0230bd60aa48260c6",
-                            "instanceState": { "code": "16", "name": "running" },
+                            "instanceState": {
+                              "code": "16",
+                              "name": "running"
+                            },
                             "privateDnsName": "ip-10-20-30-6.ec2.internal",
                             "dnsName": "",
                             "reason": "",
@@ -56,13 +83,26 @@
                             "productCodes": "",
                             "instanceType": "t2.micro",
                             "launchTime": "2023-11-22T18:17:15.000Z",
-                            "placement": { "availabilityZone": "us-east-1f", "groupName": "", "tenancy": "default" },
-                            "monitoring": { "state": "disabled" },
+                            "placement": {
+                              "availabilityZone": "us-east-1f",
+                              "groupName": "",
+                              "tenancy": "default"
+                            },
+                            "monitoring": {
+                              "state": "disabled"
+                            },
                             "subnetId": "subnet-0611fc683c5306652",
                             "vpcId": "vpc-0279684cef337aff6",
                             "privateIpAddress": "10.20.30.6",
                             "sourceDestCheck": "true",
-                            "groupSet": { "item": [{ "groupId": "sg-03d13d5461fe415a2", "groupName": "launch-wizard-1" }] },
+                            "groupSet": {
+                              "item": [
+                                {
+                                  "groupId": "sg-03d13d5461fe415a2",
+                                  "groupName": "launch-wizard-1"
+                                }
+                              ]
+                            },
                             "architecture": "x86_64",
                             "rootDeviceType": "ebs",
                             "rootDeviceName": "/dev/xvda",
@@ -70,7 +110,12 @@
                               "item": [
                                 {
                                   "deviceName": "/dev/xvda",
-                                  "ebs": { "volumeId": "vol-0707fa908d809286e", "status": "attached", "attachTime": "2023-11-22T18:17:16.000Z", "deleteOnTermination": "true" }
+                                  "ebs": {
+                                    "volumeId": "vol-0707fa908d809286e",
+                                    "status": "attached",
+                                    "attachTime": "2023-11-22T18:17:16.000Z",
+                                    "deleteOnTermination": "true"
+                                  }
                                 }
                               ]
                             },
@@ -89,7 +134,14 @@
                                   "macAddress": "16:41:30:7b:4d:b9",
                                   "privateIpAddress": "10.20.30.6",
                                   "sourceDestCheck": "true",
-                                  "groupSet": { "item": [{ "groupId": "sg-03d13d5461fe415a2", "groupName": "launch-wizard-1" }] },
+                                  "groupSet": {
+                                    "item": [
+                                      {
+                                        "groupId": "sg-03d13d5461fe415a2",
+                                        "groupName": "launch-wizard-1"
+                                      }
+                                    ]
+                                  },
                                   "attachment": {
                                     "attachmentId": "eni-attach-01afd35bcf76c1125",
                                     "deviceIndex": "0",
@@ -98,7 +150,14 @@
                                     "deleteOnTermination": "true",
                                     "networkCardIndex": "0"
                                   },
-                                  "privateIpAddressesSet": { "item": [{ "privateIpAddress": "10.20.30.6", "primary": "true" }] },
+                                  "privateIpAddressesSet": {
+                                    "item": [
+                                      {
+                                        "privateIpAddress": "10.20.30.6",
+                                        "primary": "true"
+                                      }
+                                    ]
+                                  },
                                   "ipv6AddressesSet": "",
                                   "interfaceType": "interface"
                                 }
@@ -106,10 +165,19 @@
                             },
                             "ebsOptimized": "false",
                             "enaSupport": "true",
-                            "cpuOptions": { "coreCount": "1", "threadsPerCore": "1" },
-                            "capacityReservationSpecification": { "capacityReservationPreference": "open" },
-                            "hibernationOptions": { "configured": "false" },
-                            "enclaveOptions": { "enabled": "false" },
+                            "cpuOptions": {
+                              "coreCount": "1",
+                              "threadsPerCore": "1"
+                            },
+                            "capacityReservationSpecification": {
+                              "capacityReservationPreference": "open"
+                            },
+                            "hibernationOptions": {
+                              "configured": "false"
+                            },
+                            "enclaveOptions": {
+                              "enabled": "false"
+                            },
                             "metadataOptions": {
                               "state": "applied",
                               "httpTokens": "required",
@@ -119,13 +187,19 @@
                               "httpProtocolIpv6": "disabled",
                               "instanceMetadataTags": "disabled"
                             },
-                            "maintenanceOptions": { "autoRecovery": "default" },
+                            "maintenanceOptions": {
+                              "autoRecovery": "default"
+                            },
                             "bootMode": "uefi-preferred",
                             "currentInstanceBootMode": "legacy-bios",
                             "platformDetails": "Linux/UNIX",
                             "usageOperation": "RunInstances",
                             "usageOperationUpdateTime": "2023-11-22T18:17:15.000Z",
-                            "privateDnsNameOptions": { "hostnameType": "ip-name", "enableResourceNameDnsARecord": "false", "enableResourceNameDnsAAAARecord": "false" }
+                            "privateDnsNameOptions": {
+                              "hostnameType": "ip-name",
+                              "enableResourceNameDnsARecord": "false",
+                              "enableResourceNameDnsAAAARecord": "false"
+                            }
                           }
                         ]
                       }
@@ -139,7 +213,10 @@
                           {
                             "instanceId": "i-0c9d63531f3fce43b",
                             "imageId": "ami-0230bd60aa48260c6",
-                            "instanceState": { "code": "16", "name": "running" },
+                            "instanceState": {
+                              "code": "16",
+                              "name": "running"
+                            },
                             "privateDnsName": "ip-10-20-30-12.ec2.internal",
                             "dnsName": "",
                             "reason": "",
@@ -147,13 +224,26 @@
                             "productCodes": "",
                             "instanceType": "t2.micro",
                             "launchTime": "2023-11-22T18:46:58.000Z",
-                            "placement": { "availabilityZone": "us-east-1f", "groupName": "", "tenancy": "default" },
-                            "monitoring": { "state": "disabled" },
+                            "placement": {
+                              "availabilityZone": "us-east-1f",
+                              "groupName": "",
+                              "tenancy": "default"
+                            },
+                            "monitoring": {
+                              "state": "disabled"
+                            },
                             "subnetId": "subnet-0611fc683c5306652",
                             "vpcId": "vpc-0279684cef337aff6",
                             "privateIpAddress": "10.20.30.12",
                             "sourceDestCheck": "true",
-                            "groupSet": { "item": [{ "groupId": "sg-037ac46d35b6cb9a7", "groupName": "launch-wizard-2" }] },
+                            "groupSet": {
+                              "item": [
+                                {
+                                  "groupId": "sg-037ac46d35b6cb9a7",
+                                  "groupName": "launch-wizard-2"
+                                }
+                              ]
+                            },
                             "architecture": "x86_64",
                             "rootDeviceType": "ebs",
                             "rootDeviceName": "/dev/xvda",
@@ -161,7 +251,12 @@
                               "item": [
                                 {
                                   "deviceName": "/dev/xvda",
-                                  "ebs": { "volumeId": "vol-01bd418a87a9e35cd", "status": "attached", "attachTime": "2023-11-22T18:46:59.000Z", "deleteOnTermination": "true" }
+                                  "ebs": {
+                                    "volumeId": "vol-01bd418a87a9e35cd",
+                                    "status": "attached",
+                                    "attachTime": "2023-11-22T18:46:59.000Z",
+                                    "deleteOnTermination": "true"
+                                  }
                                 }
                               ]
                             },
@@ -180,7 +275,14 @@
                                   "macAddress": "16:a8:e4:c3:ac:cf",
                                   "privateIpAddress": "10.20.30.12",
                                   "sourceDestCheck": "true",
-                                  "groupSet": { "item": [{ "groupId": "sg-037ac46d35b6cb9a7", "groupName": "launch-wizard-2" }] },
+                                  "groupSet": {
+                                    "item": [
+                                      {
+                                        "groupId": "sg-037ac46d35b6cb9a7",
+                                        "groupName": "launch-wizard-2"
+                                      }
+                                    ]
+                                  },
                                   "attachment": {
                                     "attachmentId": "eni-attach-03e470040381665c7",
                                     "deviceIndex": "0",
@@ -189,7 +291,14 @@
                                     "deleteOnTermination": "true",
                                     "networkCardIndex": "0"
                                   },
-                                  "privateIpAddressesSet": { "item": [{ "privateIpAddress": "10.20.30.12", "primary": "true" }] },
+                                  "privateIpAddressesSet": {
+                                    "item": [
+                                      {
+                                        "privateIpAddress": "10.20.30.12",
+                                        "primary": "true"
+                                      }
+                                    ]
+                                  },
                                   "ipv6AddressesSet": "",
                                   "interfaceType": "interface"
                                 }
@@ -197,10 +306,19 @@
                             },
                             "ebsOptimized": "false",
                             "enaSupport": "true",
-                            "cpuOptions": { "coreCount": "1", "threadsPerCore": "1" },
-                            "capacityReservationSpecification": { "capacityReservationPreference": "open" },
-                            "hibernationOptions": { "configured": "false" },
-                            "enclaveOptions": { "enabled": "false" },
+                            "cpuOptions": {
+                              "coreCount": "1",
+                              "threadsPerCore": "1"
+                            },
+                            "capacityReservationSpecification": {
+                              "capacityReservationPreference": "open"
+                            },
+                            "hibernationOptions": {
+                              "configured": "false"
+                            },
+                            "enclaveOptions": {
+                              "enabled": "false"
+                            },
                             "metadataOptions": {
                               "state": "applied",
                               "httpTokens": "required",
@@ -210,13 +328,19 @@
                               "httpProtocolIpv6": "disabled",
                               "instanceMetadataTags": "disabled"
                             },
-                            "maintenanceOptions": { "autoRecovery": "default" },
+                            "maintenanceOptions": {
+                              "autoRecovery": "default"
+                            },
                             "bootMode": "uefi-preferred",
                             "currentInstanceBootMode": "legacy-bios",
                             "platformDetails": "Linux/UNIX",
                             "usageOperation": "RunInstances",
                             "usageOperationUpdateTime": "2023-11-22T18:46:58.000Z",
-                            "privateDnsNameOptions": { "hostnameType": "ip-name", "enableResourceNameDnsARecord": "false", "enableResourceNameDnsAAAARecord": "false" }
+                            "privateDnsNameOptions": {
+                              "hostnameType": "ip-name",
+                              "enableResourceNameDnsARecord": "false",
+                              "enableResourceNameDnsAAAARecord": "false"
+                            }
                           }
                         ]
                       }
@@ -232,18 +356,46 @@
     {
       "taskId": "992b",
       "variables": {
-        "incoming": { "instanceId": ["i-05020afda2dc7b6b2", "i-0c9d63531f3fce43b"], "dryRun": false },
+        "incoming": {
+          "instanceId": [
+            "i-05020afda2dc7b6b2",
+            "i-0c9d63531f3fce43b"
+          ],
+          "dryRun": false
+        },
         "outgoing": {
           "result": {
             "icode": "AD.200",
             "response": {
               "TerminateInstancesResponse": {
-                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
                 "requestId": "8bc03a38-ab26-42eb-9ab9-70e5f76fcb2b",
                 "instancesSet": {
                   "item": [
-                    { "instanceId": "i-05020afda2dc7b6b2", "currentState": { "code": "32", "name": "shutting-down" }, "previousState": { "code": "16", "name": "running" } },
-                    { "instanceId": "i-0c9d63531f3fce43b", "currentState": { "code": "32", "name": "shutting-down" }, "previousState": { "code": "16", "name": "running" } }
+                    {
+                      "instanceId": "i-05020afda2dc7b6b2",
+                      "currentState": {
+                        "code": "32",
+                        "name": "shutting-down"
+                      },
+                      "previousState": {
+                        "code": "16",
+                        "name": "running"
+                      }
+                    },
+                    {
+                      "instanceId": "i-0c9d63531f3fce43b",
+                      "currentState": {
+                        "code": "32",
+                        "name": "shutting-down"
+                      },
+                      "previousState": {
+                        "code": "16",
+                        "name": "running"
+                      }
+                    }
                   ]
                 }
               }
@@ -255,13 +407,23 @@
     {
       "taskId": "e0fe",
       "variables": {
-        "incoming": { "filter": "", "vpcId": ["vpc-0279684cef337aff6"], "dryRun": false, "nextToken": "", "maxResults": "" },
+        "incoming": {
+          "filter": "",
+          "vpcId": [
+            "vpc-0279684cef337aff6"
+          ],
+          "dryRun": false,
+          "nextToken": "",
+          "maxResults": ""
+        },
         "outgoing": {
           "result": {
             "icode": "AD.200",
             "response": {
               "DescribeVpcsResponse": {
-                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
                 "requestId": "42c42405-87cd-44aa-a3c5-ad17f7e859e3",
                 "vpcSet": {
                   "item": [
@@ -270,9 +432,26 @@
                       "ownerId": "314014972859",
                       "state": "available",
                       "cidrBlock": "10.20.30.0/28",
-                      "cidrBlockAssociationSet": { "item": [{ "cidrBlock": "10.20.30.0/28", "associationId": "vpc-cidr-assoc-0bbfb6ff6b6475db3", "cidrBlockState": { "state": "associated" } }] },
+                      "cidrBlockAssociationSet": {
+                        "item": [
+                          {
+                            "cidrBlock": "10.20.30.0/28",
+                            "associationId": "vpc-cidr-assoc-0bbfb6ff6b6475db3",
+                            "cidrBlockState": {
+                              "state": "associated"
+                            }
+                          }
+                        ]
+                      },
                       "dhcpOptionsId": "dopt-0a03008489c05e706",
-                      "tagSet": { "item": [{ "key": "Name", "value": "My VPC" }] },
+                      "tagSet": {
+                        "item": [
+                          {
+                            "key": "Name",
+                            "value": "My VPC"
+                          }
+                        ]
+                      },
                       "instanceTenancy": "default",
                       "isDefault": "false"
                     }
@@ -290,7 +469,17 @@
         "incoming": {
           "task": "9b69",
           "workflow": "Delete Subnets by VPC - AWS",
-          "variables": { "vpcId": { "editable": false, "task": "job", "value": "vpcId" }, "adapterId": { "task": "job", "value": "adapterId" } },
+          "variables": {
+            "vpcId": {
+              "editable": false,
+              "task": "job",
+              "value": "vpcId"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
+          },
           "data_array": "",
           "transformation": "",
           "loopType": ""
@@ -305,7 +494,15 @@
             "deletedSubnet": [
               {
                 "icode": "AD.200",
-                "response": { "DeleteSubnetResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "0f06d4ec-0ddc-445b-a7d1-2a26b4111a1f", "return": "true" } },
+                "response": {
+                  "DeleteSubnetResponse": {
+                    "_attr": {
+                      "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                    },
+                    "requestId": "0f06d4ec-0ddc-445b-a7d1-2a26b4111a1f",
+                    "return": "true"
+                  }
+                },
                 "headers": {
                   "x-amzn-requestid": "0f06d4ec-0ddc-445b-a7d1-2a26b4111a1f",
                   "cache-control": "no-cache, no-store",
@@ -317,7 +514,15 @@
                   "server": "AmazonEC2",
                   "connection": "close"
                 },
-                "metrics": { "code": 200, "timeouts": 0, "redirects": 0, "retries": 0, "tripTime": 586, "isThrottling": false, "capabilityTime": "818ms" }
+                "metrics": {
+                  "code": 200,
+                  "timeouts": 0,
+                  "redirects": 0,
+                  "retries": 0,
+                  "tripTime": 586,
+                  "isThrottling": false,
+                  "capabilityTime": "818ms"
+                }
               }
             ]
           }
@@ -330,7 +535,16 @@
         "incoming": {
           "task": "cac5",
           "workflow": "Detach and Delete Internet Gateways by VPC - AWS",
-          "variables": { "vpcId": { "task": "job", "value": "vpcId" }, "adapterId": { "task": "job", "value": "adapterId" } },
+          "variables": {
+            "vpcId": {
+              "task": "job",
+              "value": "vpcId"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
+          },
           "data_array": "",
           "transformation": "",
           "loopType": ""
@@ -345,7 +559,13 @@
             "deletedInternetGateway": {
               "icode": "AD.200",
               "response": {
-                "DeleteInternetGatewayResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "05e5afa1-6b9d-451a-b798-16d9cb56abf7", "return": "true" }
+                "DeleteInternetGatewayResponse": {
+                  "_attr": {
+                    "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                  },
+                  "requestId": "05e5afa1-6b9d-451a-b798-16d9cb56abf7",
+                  "return": "true"
+                }
               },
               "headers": {
                 "x-amzn-requestid": "05e5afa1-6b9d-451a-b798-16d9cb56abf7",
@@ -358,7 +578,15 @@
                 "server": "AmazonEC2",
                 "connection": "close"
               },
-              "metrics": { "code": 200, "timeouts": 0, "redirects": 0, "retries": 0, "tripTime": 369, "isThrottling": false, "capabilityTime": "590ms" }
+              "metrics": {
+                "code": 200,
+                "timeouts": 0,
+                "redirects": 0,
+                "retries": 0,
+                "tripTime": 369,
+                "isThrottling": false,
+                "capabilityTime": "590ms"
+              }
             }
           }
         }
@@ -367,13 +595,26 @@
     {
       "taskId": "ab1",
       "variables": {
-        "incoming": { "filter": [{ "name": "network-interface.vpc-id", "value": "vpc-0279684cef337aff6" }], "instanceId": "", "dryRun": false, "maxResults": "", "nextToken": "" },
+        "incoming": {
+          "filter": [
+            {
+              "name": "network-interface.vpc-id",
+              "value": "vpc-0279684cef337aff6"
+            }
+          ],
+          "instanceId": "",
+          "dryRun": false,
+          "maxResults": "",
+          "nextToken": ""
+        },
         "outgoing": {
           "result": {
             "icode": "AD.200",
             "response": {
               "DescribeInstancesResponse": {
-                "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" },
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
                 "requestId": "0d62b33f-2517-46e6-b478-e3bf3abc36e2",
                 "reservationSet": ""
               }
@@ -388,7 +629,17 @@
         "incoming": {
           "task": "a879",
           "workflow": "Delete Security Groups by VPC - AWS",
-          "variables": { "vpcId": { "editable": false, "task": "job", "value": "vpcId" }, "adapterId": { "task": "job", "value": "adapterId" } },
+          "variables": {
+            "vpcId": {
+              "editable": false,
+              "task": "job",
+              "value": "vpcId"
+            },
+            "adapterId": {
+              "task": "job",
+              "value": "adapterId"
+            }
+          },
           "data_array": "",
           "transformation": "",
           "loopType": ""
@@ -404,7 +655,13 @@
               {
                 "icode": "AD.200",
                 "response": {
-                  "DeleteSecurityGroupResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "10361ad6-63b5-4c94-9782-934235a9a821", "return": "true" }
+                  "DeleteSecurityGroupResponse": {
+                    "_attr": {
+                      "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                    },
+                    "requestId": "10361ad6-63b5-4c94-9782-934235a9a821",
+                    "return": "true"
+                  }
                 },
                 "headers": {
                   "x-amzn-requestid": "10361ad6-63b5-4c94-9782-934235a9a821",
@@ -417,12 +674,26 @@
                   "server": "AmazonEC2",
                   "connection": "close"
                 },
-                "metrics": { "code": 200, "timeouts": 0, "redirects": 0, "retries": 0, "tripTime": 898, "isThrottling": false, "capabilityTime": "1127ms" }
+                "metrics": {
+                  "code": 200,
+                  "timeouts": 0,
+                  "redirects": 0,
+                  "retries": 0,
+                  "tripTime": 898,
+                  "isThrottling": false,
+                  "capabilityTime": "1127ms"
+                }
               },
               {
                 "icode": "AD.200",
                 "response": {
-                  "DeleteSecurityGroupResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "9446f9d1-f104-463f-99a9-ce52597470c2", "return": "true" }
+                  "DeleteSecurityGroupResponse": {
+                    "_attr": {
+                      "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                    },
+                    "requestId": "9446f9d1-f104-463f-99a9-ce52597470c2",
+                    "return": "true"
+                  }
                 },
                 "headers": {
                   "x-amzn-requestid": "9446f9d1-f104-463f-99a9-ce52597470c2",
@@ -435,12 +706,26 @@
                   "server": "AmazonEC2",
                   "connection": "close"
                 },
-                "metrics": { "code": 200, "timeouts": 0, "redirects": 0, "retries": 0, "tripTime": 751, "isThrottling": false, "capabilityTime": "976ms" }
+                "metrics": {
+                  "code": 200,
+                  "timeouts": 0,
+                  "redirects": 0,
+                  "retries": 0,
+                  "tripTime": 751,
+                  "isThrottling": false,
+                  "capabilityTime": "976ms"
+                }
               },
               {
                 "icode": "AD.200",
                 "response": {
-                  "DeleteSecurityGroupResponse": { "_attr": { "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/" }, "requestId": "fc7575ba-9c2d-421d-8862-d25c27e54f9d", "return": "true" }
+                  "DeleteSecurityGroupResponse": {
+                    "_attr": {
+                      "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                    },
+                    "requestId": "fc7575ba-9c2d-421d-8862-d25c27e54f9d",
+                    "return": "true"
+                  }
                 },
                 "headers": {
                   "x-amzn-requestid": "fc7575ba-9c2d-421d-8862-d25c27e54f9d",
@@ -453,7 +738,15 @@
                   "server": "AmazonEC2",
                   "connection": "close"
                 },
-                "metrics": { "code": 200, "timeouts": 0, "redirects": 0, "retries": 0, "tripTime": 524, "isThrottling": false, "capabilityTime": "718ms" }
+                "metrics": {
+                  "code": 200,
+                  "timeouts": 0,
+                  "redirects": 0,
+                  "retries": 0,
+                  "tripTime": 524,
+                  "isThrottling": false,
+                  "capabilityTime": "718ms"
+                }
               }
             ]
           }

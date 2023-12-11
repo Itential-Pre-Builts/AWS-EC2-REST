@@ -1,0 +1,572 @@
+{
+  "input": {
+    "description": "It should create an EC2 instance",
+    "variables": {
+      "imageId": "ami-0dbc3d7bc646e8516",
+      "instanceType": "t2.micro",
+      "networkInterface": [
+        {
+          "SubnetId": "subnet-09aa364d394fbacde",
+          "DeviceIndex": 0,
+          "AssociatePublicIpAddress": true,
+          "SecurityGroupId": [
+            "sg-0b42d3c025b094832"
+          ]
+        }
+      ],
+      "adapterId": "aws-ec2",
+      "vpcName": "Test VPC 2"
+    }
+  },
+  "expectedTaskResults": {
+    "status": "complete",
+    "variables": {
+      "imageId": "ami-0dbc3d7bc646e8516",
+      "instanceType": "t2.micro",
+      "networkInterface": [
+        {
+          "SubnetId": "subnet-09aa364d394fbacde",
+          "DeviceIndex": 0,
+          "AssociatePublicIpAddress": true,
+          "SecurityGroupId": [
+            "sg-0b42d3c025b094832"
+          ]
+        }
+      ],
+      "adapterId": "aws-ec2",
+      "vpcName": "Test VPC 2",
+      "publicIp": "54.157.139.56"
+    }
+  },
+  "stubTasks": [
+    {
+      "taskId": "f799",
+      "variables": {
+        "incoming": {
+          "blockDeviceMapping": "",
+          "imageId": "ami-0dbc3d7bc646e8516",
+          "instanceType": "t2.micro",
+          "ipv6AddressCount": "",
+          "ipv6Address": "",
+          "kernelId": "",
+          "keyName": "",
+          "maxCount": 1,
+          "minCount": 1,
+          "monitoringEnabled": "",
+          "placementAvailabilityZone": "",
+          "placementAffinity": "",
+          "placementGroupName": "",
+          "placementPartitionNumber": "",
+          "placementHostId": "",
+          "placementTenancy": "",
+          "placementSpreadDomain": "",
+          "ramdiskId": "",
+          "securityGroupId": "",
+          "securityGroup": "",
+          "subnetId": "",
+          "userData": "",
+          "additionalInfo": "",
+          "clientToken": "",
+          "disableApiTermination": "",
+          "dryRun": false,
+          "ebsOptimized": "",
+          "iamInstanceProfileArn": "",
+          "iamInstanceProfileName": "",
+          "instanceInitiatedShutdownBehavior": "",
+          "networkInterface": [
+            {
+              "SubnetId": "subnet-09aa364d394fbacde",
+              "DeviceIndex": 0,
+              "AssociatePublicIpAddress": true,
+              "SecurityGroupId": [
+                "sg-0b42d3c025b094832"
+              ]
+            }
+          ],
+          "privateIpAddress": "",
+          "elasticGpuSpecification": "",
+          "elasticInferenceAccelerator": "",
+          "tagSpecification": "",
+          "launchTemplateLaunchTemplateId": "",
+          "launchTemplateLaunchTemplateName": "",
+          "launchTemplateVersion": "",
+          "instanceMarketOptionsMarketType": "",
+          "instanceMarketOptionsSpotOptions": "",
+          "creditSpecificationCpuCredits": "",
+          "cpuOptionsCoreCount": "",
+          "cpuOptionsThreadsPerCore": "",
+          "capacityReservationSpecificationCapacityReservationPreference": "",
+          "capacityReservationSpecificationCapacityReservationTarget": "",
+          "hibernationOptionsConfigured": "",
+          "licenseSpecification": ""
+        },
+        "outgoing": {
+          "result": {
+            "icode": "AD.200",
+            "response": {
+              "RunInstancesResponse": {
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
+                "requestId": "ecde7c9e-a35e-4deb-936d-0661b65b1528",
+                "reservationId": "r-0ed29474f2ca82644",
+                "ownerId": "181368134383",
+                "groupSet": "",
+                "instancesSet": {
+                  "item": [
+                    {
+                      "instanceId": "i-0b4fa972a807ef76d",
+                      "imageId": "ami-0dbc3d7bc646e8516",
+                      "instanceState": {
+                        "code": "0",
+                        "name": "pending"
+                      },
+                      "privateDnsName": "ip-175-12-15-11.ec2.internal",
+                      "dnsName": "",
+                      "reason": "",
+                      "amiLaunchIndex": "0",
+                      "productCodes": "",
+                      "instanceType": "t2.micro",
+                      "launchTime": "2023-12-11T18:55:11.000Z",
+                      "placement": {
+                        "availabilityZone": "us-east-1e",
+                        "groupName": "",
+                        "tenancy": "default"
+                      },
+                      "monitoring": {
+                        "state": "disabled"
+                      },
+                      "subnetId": "subnet-09aa364d394fbacde",
+                      "vpcId": "vpc-048f1d2ee35180a77",
+                      "privateIpAddress": "175.12.15.11",
+                      "sourceDestCheck": "true",
+                      "groupSet": {
+                        "item": [
+                          {
+                            "groupId": "sg-0b42d3c025b094832",
+                            "groupName": "Security Group 1 for Test VPC 2"
+                          }
+                        ]
+                      },
+                      "stateReason": {
+                        "code": "pending",
+                        "message": "pending"
+                      },
+                      "architecture": "x86_64",
+                      "rootDeviceType": "ebs",
+                      "rootDeviceName": "/dev/xvda",
+                      "blockDeviceMapping": "",
+                      "virtualizationType": "hvm",
+                      "clientToken": "",
+                      "hypervisor": "xen",
+                      "networkInterfaceSet": {
+                        "item": [
+                          {
+                            "networkInterfaceId": "eni-05f63928a846ffc32",
+                            "subnetId": "subnet-09aa364d394fbacde",
+                            "vpcId": "vpc-048f1d2ee35180a77",
+                            "description": "",
+                            "ownerId": "181368134383",
+                            "status": "in-use",
+                            "macAddress": "06:4b:99:36:80:ef",
+                            "privateIpAddress": "175.12.15.11",
+                            "sourceDestCheck": "true",
+                            "groupSet": {
+                              "item": [
+                                {
+                                  "groupId": "sg-0b42d3c025b094832",
+                                  "groupName": "Security Group 1 for Test VPC 2"
+                                }
+                              ]
+                            },
+                            "attachment": {
+                              "attachmentId": "eni-attach-020af5ea6576682ae",
+                              "deviceIndex": "0",
+                              "status": "attaching",
+                              "attachTime": "2023-12-11T18:55:11.000Z",
+                              "deleteOnTermination": "true",
+                              "networkCardIndex": "0"
+                            },
+                            "privateIpAddressesSet": {
+                              "item": [
+                                {
+                                  "privateIpAddress": "175.12.15.11",
+                                  "primary": "true"
+                                }
+                              ]
+                            },
+                            "ipv6AddressesSet": "",
+                            "interfaceType": "interface"
+                          }
+                        ]
+                      },
+                      "ebsOptimized": "false",
+                      "enaSupport": "true",
+                      "cpuOptions": {
+                        "coreCount": "1",
+                        "threadsPerCore": "1"
+                      },
+                      "capacityReservationSpecification": {
+                        "capacityReservationPreference": "open"
+                      },
+                      "enclaveOptions": {
+                        "enabled": "false"
+                      },
+                      "metadataOptions": {
+                        "state": "pending",
+                        "httpTokens": "required",
+                        "httpPutResponseHopLimit": "2",
+                        "httpEndpoint": "enabled",
+                        "httpProtocolIpv4": "enabled",
+                        "httpProtocolIpv6": "disabled",
+                        "instanceMetadataTags": "disabled"
+                      },
+                      "maintenanceOptions": {
+                        "autoRecovery": "default"
+                      },
+                      "bootMode": "uefi-preferred",
+                      "currentInstanceBootMode": "legacy-bios",
+                      "privateDnsNameOptions": {
+                        "hostnameType": "ip-name",
+                        "enableResourceNameDnsARecord": "false",
+                        "enableResourceNameDnsAAAARecord": "false"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "nodeLocation": {
+        "x": 1068,
+        "y": 984
+      }
+    },
+    {
+      "taskId": "e1c2",
+      "variables": {
+        "incoming": {
+          "dryRun": false,
+          "resourceId": [
+            "i-0b4fa972a807ef76d"
+          ],
+          "tag": [
+            {
+              "Key": "Name",
+              "Value": "Apache Web Server for Test VPC 2"
+            }
+          ]
+        },
+        "outgoing": {
+          "result": {
+            "icode": "AD.200",
+            "response": {
+              "CreateTagsResponse": {
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
+                "requestId": "cc93e0b7-30cc-47bd-afe7-3dadb6e36543",
+                "return": "true"
+              }
+            }
+          }
+        }
+      },
+      "nodeLocation": {
+        "x": 1692,
+        "y": 984
+      }
+    },
+    {
+      "taskId": "55d8",
+      "variables": {
+        "incoming": {
+          "filter": "",
+          "instanceId": [
+            "i-0b4fa972a807ef76d"
+          ],
+          "maxResults": "",
+          "nextToken": "",
+          "dryRun": false,
+          "includeAllInstances": true
+        },
+        "outgoing": {
+          "result": {
+            "icode": "AD.200",
+            "response": {
+              "DescribeInstanceStatusResponse": {
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
+                "requestId": "57d4d13b-5f9e-48b1-9f0a-032d52637141",
+                "instanceStatusSet": {
+                  "item": [
+                    {
+                      "instanceId": "i-0b4fa972a807ef76d",
+                      "availabilityZone": "us-east-1e",
+                      "instanceState": {
+                        "code": "16",
+                        "name": "running"
+                      },
+                      "systemStatus": {
+                        "status": "ok",
+                        "details": {
+                          "item": [
+                            {
+                              "name": "reachability",
+                              "status": "passed"
+                            }
+                          ]
+                        }
+                      },
+                      "instanceStatus": {
+                        "status": "ok",
+                        "details": {
+                          "item": [
+                            {
+                              "name": "reachability",
+                              "status": "passed"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "headers": {
+              "x-amzn-requestid": "57d4d13b-5f9e-48b1-9f0a-032d52637141",
+              "cache-control": "no-cache, no-store",
+              "strict-transport-security": "max-age=31536000; includeSubDomains",
+              "content-type": "text/xml;charset=UTF-8",
+              "content-length": "1139",
+              "date": "Mon, 11 Dec 2023 18:58:16 GMT",
+              "keep-alive": "timeout=20",
+              "server": "AmazonEC2",
+              "connection": "close"
+            },
+            "metrics": {
+              "code": 200,
+              "timeouts": 0,
+              "redirects": 0,
+              "retries": 0,
+              "tripTime": 658,
+              "isThrottling": false,
+              "capabilityTime": "1104ms"
+            }
+          }
+        }
+      },
+      "nodeLocation": {
+        "x": 2004,
+        "y": 984
+      }
+    },
+    {
+      "taskId": "d9b4",
+      "variables": {
+        "incoming": {
+          "filter": "",
+          "instanceId": [
+            "i-0b4fa972a807ef76d"
+          ],
+          "dryRun": false,
+          "maxResults": "",
+          "nextToken": ""
+        },
+        "outgoing": {
+          "result": {
+            "icode": "AD.200",
+            "response": {
+              "DescribeInstancesResponse": {
+                "_attr": {
+                  "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/"
+                },
+                "requestId": "c8b003f4-91a3-4323-ae9b-d3d282cccc36",
+                "reservationSet": {
+                  "item": [
+                    {
+                      "reservationId": "r-0ed29474f2ca82644",
+                      "ownerId": "181368134383",
+                      "groupSet": "",
+                      "instancesSet": {
+                        "item": [
+                          {
+                            "instanceId": "i-0b4fa972a807ef76d",
+                            "imageId": "ami-0dbc3d7bc646e8516",
+                            "instanceState": {
+                              "code": "16",
+                              "name": "running"
+                            },
+                            "privateDnsName": "ip-175-12-15-11.ec2.internal",
+                            "dnsName": "",
+                            "reason": "",
+                            "amiLaunchIndex": "0",
+                            "productCodes": "",
+                            "instanceType": "t2.micro",
+                            "launchTime": "2023-12-11T18:55:11.000Z",
+                            "placement": {
+                              "availabilityZone": "us-east-1e",
+                              "groupName": "",
+                              "tenancy": "default"
+                            },
+                            "monitoring": {
+                              "state": "disabled"
+                            },
+                            "subnetId": "subnet-09aa364d394fbacde",
+                            "vpcId": "vpc-048f1d2ee35180a77",
+                            "privateIpAddress": "175.12.15.11",
+                            "ipAddress": "54.157.139.56",
+                            "sourceDestCheck": "true",
+                            "groupSet": {
+                              "item": [
+                                {
+                                  "groupId": "sg-0b42d3c025b094832",
+                                  "groupName": "Security Group 1 for Test VPC 2"
+                                }
+                              ]
+                            },
+                            "architecture": "x86_64",
+                            "rootDeviceType": "ebs",
+                            "rootDeviceName": "/dev/xvda",
+                            "blockDeviceMapping": {
+                              "item": [
+                                {
+                                  "deviceName": "/dev/xvda",
+                                  "ebs": {
+                                    "volumeId": "vol-069590145b0826d7a",
+                                    "status": "attached",
+                                    "attachTime": "2023-12-11T18:55:12.000Z",
+                                    "deleteOnTermination": "true"
+                                  }
+                                }
+                              ]
+                            },
+                            "virtualizationType": "hvm",
+                            "clientToken": "",
+                            "tagSet": {
+                              "item": [
+                                {
+                                  "key": "VantaOwner",
+                                  "value": "svc.cloudops@itential.com"
+                                },
+                                {
+                                  "key": "Name",
+                                  "value": "Apache Web Server for Test VPC 2"
+                                },
+                                {
+                                  "key": "owner",
+                                  "value": "project_service_account"
+                                }
+                              ]
+                            },
+                            "hypervisor": "xen",
+                            "networkInterfaceSet": {
+                              "item": [
+                                {
+                                  "networkInterfaceId": "eni-05f63928a846ffc32",
+                                  "subnetId": "subnet-09aa364d394fbacde",
+                                  "vpcId": "vpc-048f1d2ee35180a77",
+                                  "description": "",
+                                  "ownerId": "181368134383",
+                                  "status": "in-use",
+                                  "macAddress": "06:4b:99:36:80:ef",
+                                  "privateIpAddress": "175.12.15.11",
+                                  "sourceDestCheck": "true",
+                                  "groupSet": {
+                                    "item": [
+                                      {
+                                        "groupId": "sg-0b42d3c025b094832",
+                                        "groupName": "Security Group 1 for Test VPC 2"
+                                      }
+                                    ]
+                                  },
+                                  "attachment": {
+                                    "attachmentId": "eni-attach-020af5ea6576682ae",
+                                    "deviceIndex": "0",
+                                    "status": "attached",
+                                    "attachTime": "2023-12-11T18:55:11.000Z",
+                                    "deleteOnTermination": "true",
+                                    "networkCardIndex": "0"
+                                  },
+                                  "association": {
+                                    "publicIp": "54.157.139.56",
+                                    "publicDnsName": "",
+                                    "ipOwnerId": "amazon"
+                                  },
+                                  "privateIpAddressesSet": {
+                                    "item": [
+                                      {
+                                        "privateIpAddress": "175.12.15.11",
+                                        "primary": "true",
+                                        "association": {
+                                          "publicIp": "54.157.139.56",
+                                          "publicDnsName": "",
+                                          "ipOwnerId": "amazon"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  "ipv6AddressesSet": "",
+                                  "interfaceType": "interface"
+                                }
+                              ]
+                            },
+                            "ebsOptimized": "false",
+                            "enaSupport": "true",
+                            "cpuOptions": {
+                              "coreCount": "1",
+                              "threadsPerCore": "1"
+                            },
+                            "capacityReservationSpecification": {
+                              "capacityReservationPreference": "open"
+                            },
+                            "hibernationOptions": {
+                              "configured": "false"
+                            },
+                            "enclaveOptions": {
+                              "enabled": "false"
+                            },
+                            "metadataOptions": {
+                              "state": "applied",
+                              "httpTokens": "required",
+                              "httpPutResponseHopLimit": "2",
+                              "httpEndpoint": "enabled",
+                              "httpProtocolIpv4": "enabled",
+                              "httpProtocolIpv6": "disabled",
+                              "instanceMetadataTags": "disabled"
+                            },
+                            "maintenanceOptions": {
+                              "autoRecovery": "default"
+                            },
+                            "bootMode": "uefi-preferred",
+                            "currentInstanceBootMode": "legacy-bios",
+                            "platformDetails": "Linux/UNIX",
+                            "usageOperation": "RunInstances",
+                            "usageOperationUpdateTime": "2023-12-11T18:55:11.000Z",
+                            "privateDnsNameOptions": {
+                              "hostnameType": "ip-name",
+                              "enableResourceNameDnsARecord": "false",
+                              "enableResourceNameDnsAAAARecord": "false"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "nodeLocation": {
+        "x": 2940,
+        "y": 984
+      }
+    }
+  ]
+}

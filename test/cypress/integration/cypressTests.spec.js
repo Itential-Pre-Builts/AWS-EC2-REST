@@ -1,7 +1,7 @@
 import { WorkflowRunner, PrebuiltRunner } from '@itential-tools/iap-cypress-testing-library/testRunner/testRunners';
 const AddIngressRuletoSecurityGroupAWSJob0Data = require('../fixtures/stubs/Add Ingress Rule to Security Group - AWS Job0.json');
 const CreateandAttachInternetGatewayAWSJob1Data = require('../fixtures/stubs/Create and Attach Internet Gateway - AWS Job1.json');
-const CreateEC2InstanceAWSJob2Data = require('../fixtures/stubs/Create EC2 Instance - AWS Job2.json');
+const CreateEC2InstanceAWSJob1Data = require('../fixtures/stubs/Create EC2 Instance - AWS Job1.json');
 const CreateRouteAWSJob3Data = require('../fixtures/stubs/Create Route - AWS Job3.json');
 const CreateSecurityGroupwithIngressRulesAWSJob4Data = require('../fixtures/stubs/Create Security Group with Ingress Rules - AWS Job4.json');
 const CreateVPCAWSJob5Data = require('../fixtures/stubs/Create VPC - AWS Job5.json');
@@ -59,7 +59,7 @@ describe('Default: Cypress Tests', function () {
   let prebuiltRunner;
   let AddIngressRuletoSecurityGroupAWSJob0Workflow;
   let CreateandAttachInternetGatewayAWSJob1Workflow;
-  let CreateEC2InstanceAWSJob2Workflow;
+  let CreateEC2InstanceAWSJob1Workflow;
   let CreateRouteAWSJob3Workflow;
   let CreateSecurityGroupwithIngressRulesAWSJob4Workflow;
   let CreateVPCAWSJob5Workflow;
@@ -82,7 +82,7 @@ describe('Default: Cypress Tests', function () {
       CreateandAttachInternetGatewayAWSJob1Workflow = data;
     });
     cy.fixture(`../../../bundles/workflows/Create EC2 Instance - AWS.json`).then((data) => {
-      CreateEC2InstanceAWSJob2Workflow = data;
+      CreateEC2InstanceAWSJob1Workflow = data;
     });
     cy.fixture(`../../../bundles/workflows/Create Route - AWS.json`).then((data) => {
       CreateRouteAWSJob3Workflow = data;
@@ -179,21 +179,21 @@ describe('Default: Cypress Tests', function () {
       const importWorkflow = true;
       const isStub = true;
       // create the job runner so it can be used in future tests
-      const workflowRunner = initializeWorkflowRunner(CreateEC2InstanceAWSJob2Workflow, importWorkflow, isStub, CreateEC2InstanceAWSJob2Data.stubTasks);
+      const workflowRunner = initializeWorkflowRunner(CreateEC2InstanceAWSJob1Workflow, importWorkflow, isStub, CreateEC2InstanceAWSJob1Data.stubTasks);
       // this has to be customized to each IAP version.
 
       workflowRunner.job.startAndReturnResultsWhenComplete({
-        options: CreateEC2InstanceAWSJob2Data.input,
+        options: CreateEC2InstanceAWSJob1Data.input,
         retryTime: 2000,
       }).then((jobVariableResults) => {
-        expect(jobVariableResults['status']).eql(CreateEC2InstanceAWSJob2Data.expectedTaskResults.status);
+        expect(jobVariableResults['status']).eql(CreateEC2InstanceAWSJob1Data.expectedTaskResults.status);
         workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
           delete jobVariables._id;
           delete jobVariables.initiator;
-          expect(jobVariables).eql(CreateEC2InstanceAWSJob2Data.expectedTaskResults.variables);
+          expect(jobVariables).eql(CreateEC2InstanceAWSJob1Data.expectedTaskResults.variables);
         });
         /* Restore the workflow without the stub tasks */
-        replaceStubTasks(workflowRunner, CreateEC2InstanceAWSJob2Workflow);
+        replaceStubTasks(workflowRunner, CreateEC2InstanceAWSJob1Workflow);
       });
     })
   })

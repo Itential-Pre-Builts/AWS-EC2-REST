@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "@itentialopensource/aws-ec2-rest",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "description": "Project for use cases around AWS EC2 using REST protocol",
     "license": "Apache-2.0",
     "repository": {
@@ -839,7 +839,7 @@
                 "placementTenancy": "",
                 "placementSpreadDomain": "",
                 "ramdiskId": "",
-                "securityGroupId": "$var.job.securityGroupId",
+                "securityGroupId": "",
                 "securityGroup": "",
                 "subnetId": "",
                 "userData": "",
@@ -1138,10 +1138,6 @@
               "title": "instanceType",
               "type": "string"
             },
-            "securityGroupId": {
-              "title": "securityGroupId",
-              "type": "array"
-            },
             "networkInterface": {
               "title": "networkInterface",
               "type": "array"
@@ -1164,7 +1160,6 @@
           "required": [
             "imageId",
             "instanceType",
-            "securityGroupId",
             "networkInterface",
             "adapterId",
             "vpcName"
@@ -1180,10 +1175,6 @@
             "instanceType": {
               "title": "instanceType",
               "type": "string"
-            },
-            "securityGroupId": {
-              "title": "securityGroupId",
-              "type": "array"
             },
             "networkInterface": {
               "title": "networkInterface",
@@ -1245,8 +1236,8 @@
         "font_size": 12,
         "created": "2021-10-07T02:44:08.337Z",
         "createdVersion": "5.40.5-2021.1.8.0",
-        "last_updated": "2023-11-21T21:03:40.496Z",
-        "lastUpdatedVersion": "5.46.0-2023.1.19.0",
+        "last_updated": "2023-12-11T19:52:06.754Z",
+        "lastUpdatedVersion": "5.46.0-2023.1.30.0",
         "type": "automation",
         "preAutomationTime": 0,
         "sla": 0,

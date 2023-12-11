@@ -8,9 +8,9 @@
     "provenance": "local_aaa",
     "assignAllRolesToUser": true,
     "iapHealthCheckConfig": {
-      "maxRetries": 1,
-      "waitForDelay": 1,
-      "startDelay": 1
+      "maxRetries": 5, 
+      "waitForDelay": 10,
+      "startDelay": 180
     }
   },
   "video": false,

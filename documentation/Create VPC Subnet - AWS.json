@@ -76,13 +76,13 @@
   "queryOutput": {
     "success": [
       {
-        "name": "Created Subnet ID",
+        "name": "Created VPC Subnet ID",
         "value": "subnetId"
       }
     ]
   },
   "name": "Create VPC Subnet - AWS",
-  "overview": "Create subnet for a VPC in AWS",
-  "webName": "Create VPC Subnet - AWS - EC2",
+  "overview": "A modular workflow that automates creating a subnet for a VPC in AWS.",
+  "webName": "Create VPC Subnet - AWS",
   "assetType": "Workflow"
 }

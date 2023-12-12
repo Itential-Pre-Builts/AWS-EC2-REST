@@ -97,13 +97,13 @@
   "queryOutput": {
     "success": [
       {
-        "name": "Create Rule Request Result",
-        "value": "updatedSecurityGroup.response"
+        "name": "Security Group Rule ID",
+        "value": "updatedSecurityGroup.response.AuthorizeSecurityGroupIngressResponse.securityGroupRuleSet.item[0].securityGroupRuleId"
       }
     ]
   },
-  "name": "Add Ingress Rule to Security Group - AWS - EC2 - REST",
-  "overview": "Add Ingress Rule to Security group in AWS",
-  "webName": "Add Ingress Rule to Security Group - AWS - EC2",
+  "name": "Add Ingress Rule to Security Group - AWS",
+  "overview": "A modular workflow that automates adding an ingress rule to a security group.",
+  "webName": "Add Ingress Rule to Security Group - AWS",
   "assetType": "Workflow"
 }

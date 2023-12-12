@@ -81,13 +81,17 @@
   "queryOutput": {
     "success": [
       {
-        "name": "Create VPC Request Result",
-        "value": "createdVpc.response"
+        "name": "Created VPC ID",
+        "value": "createdVpc.response.CreateVpcResponse.vpc.vpcId"
+      },
+      {
+        "name": "Created VPC State",
+        "value": "createdVpc.response.CreateVpcResponse.vpc.state"
       }
     ]
   },
   "name": "Create VPC - AWS",
-  "overview": "Create a VPC in AWS",
-  "webName": "Create VPC - AWS - EC2",
+  "overview": "A modular workflow that automates creating a VPC in AWS.",
+  "webName": "Create VPC - AWS",
   "assetType": "Workflow"
 }

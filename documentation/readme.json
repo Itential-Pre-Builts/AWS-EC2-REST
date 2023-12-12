@@ -31,7 +31,7 @@
     "endOfLife": ""
   },
   "name": "AWS - EC2 - REST",
-  "overview": "This Pre-Built Automation bundle contains use cases around performing actions on Amazon EC2 plus additional service Amazon VPC",
+  "overview": "This Pre-Built Automation bundle contains several example use cases that are applicable when Itential Automation Platform is integrated with the AWS EC2 REST API. Because every environment is different, these use cases are fully functioning examples that can be easily modified to operate in your specific environment. These workflows have been written with modularity in mind to make them easy to understand and simple to modify to suit your needs. Modular workflows in this project include:\n\n**Add Ingress Rule to Security Group - AWS** A modular workflow that automates adding an ingress rule to a security group.\n\n**Create and Attach Internet Gateway - AWS** A modular workflow that automates creating and attaching an internet gateway to a VPC in AWS.\n\n**Create EC2 Instance - AWS** A modular workflow that automates creating an EC2 instance in AWS.\n\n**Create Route - AWS** A modular workflow that automates creating a route within a VPC in AWS.\n\n**Create Security Group with Ingress Rules - AWS** A modular workflow that automates creating a security group with ingress rules in AWS.\n\n**Create VPC - AWS** A modular workflow that automates creating a VPC in AWS.\n\n**Create VPC Subnet - AWS** A modular workflow that automates creating a subnet for a VPC in AWS.\n\n**Provision VPC with Networking - AWS** A modular workflow that automates creating and configuring a VPC with networking in AWS.\n\n**Delete Security Groups by VPC - AWS** A modular workflow that automates deleting VPC Security groups in AWS.\n\n**Delete Subnets by VPC - AWS** A modular workflow that automates deleting subnets by VPC in AWS.\n\n**Destroy VPC and EC2 Instance - AWS** A modular workflow that automates destroying a VPC and EC2 Instance in AWS\n\n**Detach and Delete Internet Gateways by VPC - AWS** A modular workflow that automates detaching and deleting VPC internet gateways in AWS.",
   "productLink": "https://aws.amazon.com/ec2/",
   "storeLink": "",
   "docLink": "",
@@ -41,5 +41,6 @@
   "faqLink": "",
   "contributeLink": "",
   "webName": "AWS - Modular Workflows for EC2 Services",
+  "webLink": "",
   "demoLinks": []
 }

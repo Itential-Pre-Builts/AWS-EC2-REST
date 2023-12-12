@@ -1,6 +1,6 @@
 {
   "name": "AWS - EC2 - REST",
-  "webName": "AWS EC2 - Use Cases Around Performing Actions on Amazon EC2 plus additional service Amazon VPC",
+  "webName": "AWS - Modular Workflows for EC2 Services",
   "type": "Workflow Project",
   "vendor": "AWS",
   "product": "EC2",
@@ -17,20 +17,30 @@
   "domains": [
     "Cloud"
   ],
-  "tags": [],
-  "useCases": [],
+  "tags": [
+    "Cloud Networking",
+    "Virtual Compute"
+  ],
+  "useCases": [
+    "Add or remove Virtual Machine Images",
+    "Instantiate, manage, remove Virtual Machine Instances",
+    "Management of Cloud Network Assignments",
+    "Deploy Virtual Services and Functions",
+    "Add or remove Virtual Networks",
+    "Provision, update, manage or remove Virtual Private Networks"
+  ],
   "deprecated": {
     "isDeprecated": false,
-    "deprecatedOn": "",
-    "endOfLife": "",
     "replacedBy": {
+      "isProductFeature": false,
       "name": "",
       "overview": "",
       "repoLink": "",
       "docLink": "",
-      "webLink": "",
-      "isProductFeature": false
-    }
+      "webLink": ""
+    },
+    "deprecatedOn": "",
+    "endOfLife": ""
   },
   "brokerSince": "",
   "documentation": {
@@ -42,7 +52,7 @@
     "faqLink": "",
     "contributeLink": "",
     "issueLink": "",
-    "webLink": "AWS - Modular Workflows for EC2 Services",
+    "webLink": "",
     "vendorLink": "https://aws.amazon.com/",
     "productLink": "https://aws.amazon.com/ec2/",
     "apiLinks": [

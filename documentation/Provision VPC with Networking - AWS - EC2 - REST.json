@@ -99,6 +99,58 @@
       "exampleValue": "sg-0cdc4162d4cd16dfe"
     }
   ],
+  "relatedDocumentation": [
+    {
+      "name": "Create VPC - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpc.html",
+      "description": "Documentation for creating a VPC in AWS EC2"
+    },
+    {
+      "name": "Create Tags - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html",
+      "description": "Documentation adding or overwriting the specified tags for the specified Amazon EC2 resource or resources"
+    },
+    {
+      "name": "Create Subnet - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSubnet.html",
+      "description": "Documentation for creating a subnet in a specified VPC in AWS EC2"
+    },
+    {
+      "name": "Create Internet Gateway - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInternetGateway.html",
+      "description": "Documentation for creating an internet gateway for use with a VPC. After creating the internet gateway, you attach it to a VPC using AttachInternetGateway"
+    },
+    {
+      "name": "Attach Internet Gateway - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachInternetGateway.html",
+      "description": "Documentation for attaching an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and the VPC."
+    },
+    {
+      "name": "Create Route - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRoute.html",
+      "description": "API Documentation for creating a route in a route table within a VPC"
+    },
+    {
+      "name": "Configure Route Tables - AWS EC2",
+      "link": "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html",
+      "description": "General documentation for configuring route tables in AWS EC2"
+    },
+    {
+      "name": "Describe Route Tables - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html",
+      "description": "API documentation for getting details of one or more route tables"
+    },
+    {
+      "name": "Create Security Group - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html",
+      "description": "Documentation for creating a security group"
+    },
+    {
+      "name": "Authorize Security Group Ingress - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html",
+      "description": "Documentation for adding specified inbound (ingress) rules to a security group"
+    }
+  ],
   "exampleInputsAndOutputs": [
     {
       "exampleInput": "{\n  \"vpcSubnet\": \"10.20.30.1\/28\",\n  \"vpcName\": \"Test VPC1234\",\n  \"adapterId\": \"EC2\",\n  \"securityGroupName\": \"TESTING 1\",\n  \"securityGroupDesc\": \"Security Group for TESTING\",\n  \"ingressRules\": [\n    {\n      \"sourceSubnetCidrMask\": 32, \n      \"sourceIp\": \"199.27.253.134\", \n      \"protocol\": \"TCP\", \n      \"port\": 80\n    }\n  ] \n}",

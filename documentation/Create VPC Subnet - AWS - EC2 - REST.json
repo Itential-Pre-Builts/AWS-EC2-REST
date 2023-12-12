@@ -60,6 +60,13 @@
       "exampleValue": "subnet-04545f4e6b8bc63ea"
     }
   ],
+  "relatedDocumentation": [
+    {
+      "name": "Create Subnet - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSubnet.html",
+      "description": "Documentation for creating a subnet in a specified VPC in AWS EC2"
+    }
+  ],
   "exampleInputsAndOutputs": [
     {
       "exampleInput": "{\n  \"cidrBlock\": \"100.68.0.1\/18\", \n  \"vpcId\": \"vpc-0ece2ed1b3725e018\", \n  \"adapterId\": \"EC2\" \n}",

@@ -53,6 +53,23 @@
       "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": {\n    \"DeleteInternetGatewayResponse\": {\n      \"_attr\": {\n        \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\"\n      },\n      \"requestId\": \"f743ec7e-1039-4261-8f74-4f8ba72a6c35\",\n      \"return\": \"true\"\n    }\n  }\n}"
     }
   ],
+  "relatedDocumentation": [
+    {
+      "name": "Describe Internet Gateways - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html",
+      "description": "Documentation getting details of internet gateways"
+    },
+    {
+      "name": "Detach Internet Gateway - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachInternetGateway.html",
+      "description": "Documentation for detaching an internet gateway from a VPC, disabling connectivity between the internet and the VPC"
+    },
+    {
+      "name": "Delete Internet Gateway - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteInternetGateway.html",
+      "description": "Documentation for deleting an internet gateway"
+    }
+  ],
   "exampleInputsAndOutputs": [
     {
       "exampleInput": "{\n  \"adapterId\": \"EC2\", \n  \"vpcId\": \"vpc-0ba78c5ca9aaecd64\" \n}",

@@ -22,7 +22,13 @@
   ],
   "capabilities": [
     {
-      "capability": "The workflow is used to create a route within a VPC in AWS"
+      "capability": "Create a route in a route table associated with a VPC in AWS"
+    },
+    {
+      "capability": "If no route ID provided, default route table is used"
+    },
+    {
+      "capability": "If more than one route table found associated with VPC and no route ID provied, manual task confirms using first route table to create route"
     }
   ],
   "entryPoint": {
@@ -34,7 +40,7 @@
       "name": "routeTableId",
       "type": "string",
       "required": "no",
-      "description": "ID of the route table",
+      "description": "ID of the route table in which to create route",
       "exampleValue": "rtb-06d646d475a5b5d48"
     },
     {
@@ -48,7 +54,7 @@
       "name": "gatewayId",
       "type": "string",
       "required": "yes",
-      "description": "The ID of an internet gateway or virtual private gateway attached to your VPC",
+      "description": "The ID of an internet gateway or virtual private gateway attached to your VPC (also referred to as thet target in the route table)",
       "exampleValue": "igw-0fae02dad528986b6"
     },
     {
@@ -78,6 +84,23 @@
       "type": "object",
       "description": "Result of the create route request",
       "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": { \n    \"CreateRouteResponse\": { \n      \"_attr\": { \n        \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n      }, \n      \"requestId\": \"4e157878-b2fb-4f95-8312-8c3cbbec8b18\", \n      \"return\": \"true\" \n    } \n  }\n}"
+    }
+  ],
+  "relatedDocumentation": [
+    {
+      "name": "Create Route - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRoute.html",
+      "description": "API Documentation for creating a route in a route table within a VPC"
+    },
+    {
+      "name": "Configure Route Tables - AWS EC2",
+      "link": "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html",
+      "description": "General documentation for configuring route tables in AWS EC2"
+    },
+    {
+      "name": "Describe Route Tables - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html",
+      "description": "API documentation for getting details of one or more route tables"
     }
   ],
   "exampleInputsAndOutputs": [

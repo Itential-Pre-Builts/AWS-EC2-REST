@@ -53,6 +53,18 @@
       "exampleValue": "[\n  {\n    \"icode\": \"AD.200\",\n    \"response\": { \n      \"DeleteSubnetResponse\": { \n        \"_attr\": { \n          \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n        }, \n        \"requestId\": \"31ea90a8-8dbb-4cde-912a-df8d1f1021ec\", \n        \"return\": \"true\" \n      } \n    }\n  }\n]"
     }
   ],
+  "relatedDocumentation": [
+    {
+      "name": "Delete Subnet - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSubnet.html",
+      "description": "Documentation for deleting specified subnet."
+    },
+    {
+      "name": "Describe Subnets - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html",
+      "description": "Documentation for getting one or more subnets"
+    }
+  ],
   "exampleInputsAndOutputs": [
     {
       "exampleInput": "{\n  \"vpcId\": \"vpc-0b678b7a21e66ded8\",\n  \"adapterId\": \"EC2\" \n}",

@@ -81,6 +81,13 @@
       "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": {\n    \"AuthorizeSecurityGroupIngressResponse\": {\n      \"_attr\": { \n        \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n      },\n      \"requestId\": \"2cf4e379-aac3-4fbe-b75d-543127204d91\",\n      \"return\": \"true\",\n      \"securityGroupRuleSet\": {\n        \"item\": [\n          {\n            \"groupOwnerId\": \"314014972859\",\n            \"groupId\": \"sg-08f249db62d26d8a6\",\n            \"securityGroupRuleId\": \"sgr-08f9a989136861e6c\",\n            \"isEgress\": \"false\",\n            \"ipProtocol\": \"tcp\",\n            \"fromPort\": \"80\",\n            \"toPort\": \"80\",\n            \"cidrIpv4\": \"19.27.253.13\/32\"\n          }\n        ]\n      }\n    }\n  }\n}"
     }
   ],
+  "relatedDocumentation": [
+    {
+      "name": "Authorize Security Group Ingress - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html",
+      "description": "AWS EC2 documentation for adding specified inbound (ingress) rules to a security group"
+    }
+  ],
   "exampleInputsAndOutputs": [
     {
       "exampleInput": "{\n  \"sourceCidrIp\": \"19.27.253.13\/32\", \n  \"fromPort\": 80, \n  \"groupId\": \"sg-08f249db62d26d8a6\", \n  \"ipProtocol\": \"TCP\", \n  \"toPort\": 80, \n  \"adapterId\": \"EC2\" \n}",

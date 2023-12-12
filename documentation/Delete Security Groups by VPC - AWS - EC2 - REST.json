@@ -53,6 +53,18 @@
       "exampleValue": "[\n  {\n    \"icode\": \"AD.200\",\n    \"response\": { \n      \"DeleteSecurityGroupResponse\": { \n        \"_attr\": { \n          \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n        }, \n        \"requestId\": \"2cdea5d3-b27b-4a39-ab90-26bf31051769\", \n        \"return\": \"true\" \n      } \n    }\n  }\n]"
     }
   ],
+  "relatedDocumentation": [
+    {
+      "name": "Delete Security Group - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSecurityGroup.html",
+      "description": "Documentation for deleting a security group in AWS EC2"
+    },
+    {
+      "name": "Describe Security Groups - AWS EC2",
+      "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html",
+      "description": "Documentation for getting specified security groups or all security groups"
+    }
+  ],
   "exampleInputsAndOutputs": [
     {
       "exampleInput": "{\n  \"vpcId\": \"vpc-0b678b7a21e66ded8\",\n  \"adapterId\": \"EC2\" \n}",

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "@itentialopensource/aws-ec2-rest",
-    "version": "0.0.12",
+    "version": "1.0.0",
     "description": "Project for use cases around AWS EC2 using REST protocol",
     "license": "Apache-2.0",
     "repository": {

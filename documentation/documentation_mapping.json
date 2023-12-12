@@ -2,52 +2,52 @@
   "readme": "/documentation/readme.json",
   "assets": [
     {
-      "name": "Add Ingress Rule to Security Group - AWS - EC2 - REST",
-      "path": "/documentation/Add Ingress Rule to Security Group - AWS - EC2 - REST.json"
+      "name": "Add Ingress Rule to Security Group - AWS",
+      "path": "/documentation/Add Ingress Rule to Security Group - AWS.json"
     },
     {
       "name": "Create and Attach Internet Gateway - AWS",
-      "path": "/documentation/Create and Attach Internet Gateway - AWS - EC2 - REST.json"
+      "path": "/documentation/Create and Attach Internet Gateway - AWS.json"
     },
     {
       "name": "Create EC2 Instance - AWS",
-      "path": "/documentation/Create EC2 Instance - AWS - EC2 - REST.json"
+      "path": "/documentation/Create EC2 Instance - AWS.json"
     },
     {
       "name": "Create Route - AWS",
-      "path": "/documentation/Create Route - AWS - EC2 - REST.json"
+      "path": "/documentation/Create Route - AWS.json"
     },
     {
       "name": "Create Security Group with Ingress Rules - AWS",
-      "path": "/documentation/Create Security Group with Ingress Rules - AWS - EC2 - REST.json"
+      "path": "/documentation/Create Security Group with Ingress Rules - AWS.json"
     },
     {
       "name": "Create VPC - AWS",
-      "path": "/documentation/Create VPC - AWS - EC2 - REST.json"
+      "path": "/documentation/Create VPC - AWS.json"
     },
     {
       "name": "Create VPC Subnet - AWS",
-      "path": "/documentation/Create VPC Subnet - AWS - EC2 - REST.json"
+      "path": "/documentation/Create VPC Subnet - AWS.json"
     },
     {
       "name": "Provision VPC with Networking - AWS",
-      "path": "/documentation/Provision VPC with Networking - AWS - EC2 - REST.json"
+      "path": "/documentation/Provision VPC with Networking - AWS.json"
     },
     {
       "name": "Delete Security Groups by VPC - AWS",
-      "path": "/documentation/Delete Security Groups by VPC - AWS - EC2 - REST.json"
+      "path": "/documentation/Delete Security Groups by VPC - AWS.json"
     },
     {
       "name": "Delete Subnets by VPC - AWS",
-      "path": "/documentation/Delete Subnets by VPC - AWS - EC2 - REST.json"
+      "path": "/documentation/Delete Subnets by VPC - AWS.json"
     },
     {
       "name": "Destroy VPC and EC2 Instance - AWS",
-      "path": "/documentation/Destroy VPC and EC2 Instance - AWS - EC2 - REST.json"
+      "path": "/documentation/Destroy VPC and EC2 Instance - AWS.json"
     },
     {
       "name": "Detach and Delete Internet Gateways by VPC - AWS",
-      "path": "/documentation/Detach and Delete Internet Gateways by VPC - AWS - EC2 - REST.json"
+      "path": "/documentation/Detach and Delete Internet Gateways by VPC - AWS.json"
     }
   ]
 }

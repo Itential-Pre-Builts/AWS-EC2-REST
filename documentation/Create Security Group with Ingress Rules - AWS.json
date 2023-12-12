@@ -104,7 +104,7 @@
     ]
   },
   "name": "Create Security Group with Ingress Rules - AWS",
-  "overview": "Create Security group with Ingress rules for AWS EC2",
-  "webName": "Create Security Group with Ingress Rules - AWS - EC2",
+  "overview": "A modular workflow that automates creating a security group with ingress rules in AWS.",
+  "webName": "Create Security Group with Ingress Rules - AWS",
   "assetType": "Workflow"
 }

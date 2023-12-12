@@ -80,7 +80,7 @@
     ]
   },
   "name": "Delete Subnets by VPC - AWS",
-  "overview": "Delete VPC Subnets",
-  "webName": "Delete Subnets by VPC - AWS - EC2",
+  "overview": "A modular workflow that automates deleting subnets by VPC in AWS.",
+  "webName": "Delete Subnets by VPC - AWS",
   "assetType": "Workflow"
 }

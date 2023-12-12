@@ -112,17 +112,17 @@
   "queryOutput": {
     "success": [
       {
-        "name": "Route table ID",
+        "name": "Route Table ID",
         "value": "routeTableId"
       },
       {
-        "name": "Create Route Request",
-        "value": "createdRoute.response"
+        "name": "Create Route Result",
+        "value": "createdRoute.response.CreateRouteResponse.return"
       }
     ]
   },
   "name": "Create Route - AWS",
-  "overview": "Create a route within a VPC in AWS",
-  "webName": "Create Route - AWS - EC2",
+  "overview": "A modular workflow that automates creating a route within a VPC in AWS.",
+  "webName": "Create Route - AWS",
   "assetType": "Workflow"
 }

@@ -1,4 +1,12 @@
 
+## 1.0.1 [12-12-2023]
+
+* Update links after transferring project
+
+See merge request itentialopensource/pre-built-automations/aws-ec2-rest!3
+
+---
+
 ## 1.0.0 [12-12-2023]
 
 * Create Major Release
@@ -94,4 +102,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n\n\n\n\n\n

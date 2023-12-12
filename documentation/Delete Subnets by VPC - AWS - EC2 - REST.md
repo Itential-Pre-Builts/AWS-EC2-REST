@@ -213,7 +213,23 @@ The following items show how to query successful results from the output:
 
 ### Related Documentation
 
-No related documentation provided.
+<table>
+  <thead>
+    <tr>
+      <th>Documentation Link</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSubnet.html">Delete Subnet - AWS EC2</a></td>
+      <td>Documentation for deleting specified subnet.</td>
+    </tr>    <tr>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html">Describe Subnets - AWS EC2</a></td>
+      <td>Documentation for getting one or more subnets</td>
+    </tr>
+  </tbody>
+</table>
 
 
 

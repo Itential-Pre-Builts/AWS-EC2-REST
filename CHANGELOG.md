@@ -1,4 +1,12 @@
 
+## 0.0.12 [12-12-2023]
+
+* Bug fixes and performance improvements
+
+See commit 51ef400n
+
+---
+
 ## 0.0.11 [12-11-2023]
 
 * Bug fixes and performance improvements
@@ -78,4 +86,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n\n\n\n

@@ -24,7 +24,8 @@
 Create Security group with Ingress rules for AWS EC2
 
 Capabilities include:
-- The workflow is used to create Security group with Ingress rules for AWS EC2
+- Create a security group in AWS EC2
+- Add ingress rule to created security group
 
 
 ## Getting Started
@@ -231,7 +232,23 @@ The following items show how to query successful results from the output:
 
 ### Related Documentation
 
-No related documentation provided.
+<table>
+  <thead>
+    <tr>
+      <th>Documentation Link</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">Create Security Group - AWS EC2</a></td>
+      <td>Documentation for creating a security group</td>
+    </tr>    <tr>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html">Authorize Security Group Ingress - AWS EC2</a></td>
+      <td>Documentation for adding specified inbound (ingress) rules to a security group</td>
+    </tr>
+  </tbody>
+</table>
 
 
 

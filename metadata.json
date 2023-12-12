@@ -35,7 +35,7 @@
   "brokerSince": "",
   "documentation": {
     "storeLink": "",
-    "repoLink": "https://gitlab.com/itentialopensource/pre-built-automations/staging/aws-ec2-rest",
+    "repoLink": "https://gitlab.com/itentialopensource/pre-built-automations/aws-ec2-rest",
     "npmLink": "https://www.npmjs.com/package/@itentialopensource/aws-ec2-rest",
     "docLink": "",
     "demoLinks": [],

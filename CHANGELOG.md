@@ -1,4 +1,12 @@
 
+## 1.0.2 [12-12-2023]
+
+* Updates documentation and metadata
+
+See merge request itentialopensource/pre-built-automations/aws-ec2-rest!4
+
+---
+
 ## 1.0.1 [12-12-2023]
 
 * Update links after transferring project
@@ -102,4 +110,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n\n\n\n\n\n\n

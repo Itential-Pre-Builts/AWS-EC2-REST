@@ -206,7 +206,20 @@ The following items show how to query successful results from the output:
 
 ### Related Documentation
 
-No related documentation provided.
+<table>
+  <thead>
+    <tr>
+      <th>Documentation Link</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSubnet.html">Create Subnet - AWS EC2</a></td>
+      <td>Documentation for creating a subnet in a specified VPC in AWS EC2</td>
+    </tr>
+  </tbody>
+</table>
 
 
 

@@ -249,7 +249,20 @@ The following items show how to query successful results from the output:
 
 ### Related Documentation
 
-No related documentation provided.
+<table>
+  <thead>
+    <tr>
+      <th>Documentation Link</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html">Authorize Security Group Ingress - AWS EC2</a></td>
+      <td>AWS EC2 documentation for adding specified inbound (ingress) rules to a security group</td>
+    </tr>
+  </tbody>
+</table>
 
 
 

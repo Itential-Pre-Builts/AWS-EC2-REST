@@ -213,7 +213,23 @@ The following items show how to query successful results from the output:
 
 ### Related Documentation
 
-No related documentation provided.
+<table>
+  <thead>
+    <tr>
+      <th>Documentation Link</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSecurityGroup.html">Delete Security Group - AWS EC2</a></td>
+      <td>Documentation for deleting a security group in AWS EC2</td>
+    </tr>    <tr>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html">Describe Security Groups - AWS EC2</a></td>
+      <td>Documentation for getting specified security groups or all security groups</td>
+    </tr>
+  </tbody>
+</table>
 
 
 

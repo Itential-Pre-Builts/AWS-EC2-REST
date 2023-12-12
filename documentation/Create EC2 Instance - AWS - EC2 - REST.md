@@ -24,7 +24,9 @@
 Create an EC2 instance in AWS
 
 Capabilities include:
-- The workflow is used to create an EC2 instance in AWS
+- Launch an EC2 instance in AWS
+- Check status of launched EC2 instance until it is ready for use in AWS
+- Creates tag for launched EC2 instance
 
 
 ## Getting Started
@@ -144,7 +146,7 @@ The following table lists the inputs to the Workflow Project:
       <td>imageId</td>
       <td>string</td>
       <td>yes</td>
-      <td>The ID of the AMI</td>
+      <td>The ID of the Amazon Machine Image (AMI)</td>
       <td><pre lang="json">ami-041feb57c611358bd</pre></td>
     </tr>    <tr>
       <td>instanceType</td>
@@ -210,7 +212,7 @@ The following table lists the outputs of the Workflow Project:
     <tr>
       <td>publicIp</td>
       <td>string</td>
-      <td>Public IP of the instance</td>
+      <td>Public IP of the created EC2 instance</td>
       <td><pre lang="json">54.204.78.24</pre></td>
     </tr>    <tr>
       <td>instanceInfo</td>
@@ -421,7 +423,26 @@ The following items show how to query successful results from the output:
 
 ### Related Documentation
 
-No related documentation provided.
+<table>
+  <thead>
+    <tr>
+      <th>Documentation Link</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">Run Instances - AWS EC2</a></td>
+      <td>Documentation for launching a specificed number of instances using an Amazon Machine Image (AMI).</td>
+    </tr>    <tr>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html">Describe Instance Status - AWS EC2</a></td>
+      <td>Documentation for getting the status of the specified instances or all of your instances</td>
+    </tr>    <tr>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">Create Tags - AWS EC2</a></td>
+      <td>Documentation adding or overwriting the specified tags for the specified Amazon EC2 resource or resources</td>
+    </tr>
+  </tbody>
+</table>
 
 
 

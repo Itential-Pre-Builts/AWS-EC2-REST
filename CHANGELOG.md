@@ -1,4 +1,12 @@
 
+## 1.0.4 [12-12-2023]
+
+* Cleans up old markdown files
+
+See merge request itentialopensource/pre-built-automations/aws-ec2-rest!8
+
+---
+
 ## 1.0.3 [12-12-2023]
 
 * Updates documentation and metadata
@@ -118,4 +126,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n

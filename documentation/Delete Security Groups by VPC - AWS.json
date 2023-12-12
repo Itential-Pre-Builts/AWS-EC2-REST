@@ -80,7 +80,7 @@
     ]
   },
   "name": "Delete Security Groups by VPC - AWS",
-  "overview": "Delete VPC Security groups in AWS",
-  "webName": "Delete Security Groups by VPC - AWS - EC2",
+  "overview": "A modular workflow that automates deleting VPC Security groups in AWS.",
+  "webName": "Delete Security Groups by VPC - AWS",
   "assetType": "Workflow"
 }

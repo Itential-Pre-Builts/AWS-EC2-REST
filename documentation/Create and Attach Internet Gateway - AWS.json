@@ -74,13 +74,13 @@
   "queryOutput": {
     "success": [
       {
-        "name": "The ID of the created Internet gateway",
+        "name": "Created Internet Gateway ID",
         "value": "internetGatewayId"
       }
     ]
   },
   "name": "Create and Attach Internet Gateway - AWS",
-  "overview": "Create and Attach Internet gateway to VPC in AWS",
-  "webName": "Create and Attach Internet Gateway - AWS - EC2",
+  "overview": "A modular workflow that automates creating and attaching an internet gateway to a VPC in AWS.",
+  "webName": "Create and Attach Internet Gateway - AWS",
   "assetType": "Workflow"
 }

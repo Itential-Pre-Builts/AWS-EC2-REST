@@ -160,25 +160,25 @@
   "queryOutput": {
     "success": [
       {
-        "name": "Create VPC Result",
+        "name": "Created VPC ID",
         "value": "vpcId"
       },
       {
-        "name": "Create Subnet Result",
+        "name": "Created Subnet ID",
         "value": "subnetId"
       },
       {
-        "name": "Create Internet Gateway Result",
+        "name": "Created Internet Gateway ID",
         "value": "internetGatewayId"
       },
       {
-        "name": "Create Security Group Result",
+        "name": "Created Security Group ID",
         "value": "securityGroupId"
       }
     ]
   },
   "name": "Provision VPC with Networking - AWS",
-  "overview": "Create and Configure VPC in AWS",
-  "webName": "Provision VPC with Networking - AWS - EC2",
+  "overview": "A modular workflow that automates creating and configuring a VPC with networking in AWS.",
+  "webName": "Provision VPC with Networking - AWS",
   "assetType": "Workflow"
 }

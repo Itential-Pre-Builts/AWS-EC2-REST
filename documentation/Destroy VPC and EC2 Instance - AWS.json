@@ -109,13 +109,13 @@
   "queryOutput": {
     "success": [
       {
-        "name": "Delete VPC Request Result",
-        "value": "deletedVPC.response"
+        "name": "Delete VPC Result",
+        "value": "deletedVPC.responseDeleteVpcResponse.return"
       }
     ]
   },
   "name": "Destroy VPC And EC2 Instance - AWS",
-  "overview": "Destroy VPC And EC2 Instance in AWS",
-  "webName": "Destroy VPC And EC2 Instance - AWS - EC2",
+  "overview": "A modular workflow that automates destroying a VPC and EC2 Instance in AWS",
+  "webName": "Destroy VPC And EC2 Instance - AWS",
   "assetType": "Workflow"
 }

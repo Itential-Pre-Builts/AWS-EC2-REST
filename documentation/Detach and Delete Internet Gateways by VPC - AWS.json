@@ -79,13 +79,13 @@
   "queryOutput": {
     "success": [
       {
-        "name": "Delete Internet Gateway Request Result",
-        "value": "deletedInternetGateway.response"
+        "name": "Delete Internet Gateway Result",
+        "value": "deletedInternetGateway.response.DeleteInternetGatewayResponse.return"
       }
     ]
   },
   "name": "Detach and Delete Internet Gateways by VPC - AWS",
-  "overview": "Detach and Delete VPC Internet gateways in AWS",
-  "webName": "Detach and Delete Internet Gateways by VPC - AWS - EC2",
+  "overview": "A modular workflow that automates detaching and deleting VPC internet gateways in AWS.",
+  "webName": "Detach and Delete Internet Gateways by VPC - AWS",
   "assetType": "Workflow"
 }

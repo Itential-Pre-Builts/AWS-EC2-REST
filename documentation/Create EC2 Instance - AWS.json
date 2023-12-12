@@ -119,17 +119,21 @@
   "queryOutput": {
     "success": [
       {
-        "name": "Public IP of the instance",
+        "name": "Public IP of the Created EC2 Instance",
         "value": "publicIp"
       },
       {
-        "name": "Describe Instance Request",
-        "value": "instanceInfo.response"
+        "name": "Created EC2 Instance ID",
+        "value": "instanceInfo.response.DescribeInstancesResponse.reservationSet.item[0].instancesSet.item[0].instanceId"
+      },
+      {
+        "name": "Created EC2 Instance State",
+        "value": "instanceInfo.response.DescribeInstancesResponse.reservationSet.item[0].instancesSet.item[0].instanceState.name"
       }
     ]
   },
   "name": "Create EC2 Instance - AWS",
-  "overview": "Create an EC2 instance in AWS",
-  "webName": "Create EC2 Instance - AWS - EC2",
+  "overview": "A modular workflow that automates creating an EC2 instance in AWS.",
+  "webName": "Create EC2 Instance - AWS",
   "assetType": "Workflow"
 }

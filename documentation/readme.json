@@ -1,36 +1,45 @@
 {
-  "name": "AWS - EC2 - REST",
-  "overview": "This Pre-Built Automation bundle contains use cases around performing actions on Amazon EC2 plus additional service Amazon VPC",
   "domains": [
     "Cloud"
   ],
-  "tags": [],
-  "useCases": [],
-  "productLink": "https://aws.amazon.com/ec2/",
+  "tags": [
+    "Cloud Networking",
+    "Virtual Compute"
+  ],
+  "useCases": [
+    "Add or remove Virtual Machine Images",
+    "Instantiate, manage, remove Virtual Machine Instances",
+    "Management of Cloud Network Assignments",
+    "Deploy Virtual Services and Functions",
+    "Add or remove Virtual Networks",
+    "Provision, update, manage or remove Virtual Private Networks"
+  ],
   "apiLinks": [
     "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html"
   ],
-  "storeLink": "",
-  "docLink": "",
-  "issueLink": "",
   "deprecated": {
     "isDeprecated": false,
-    "deprecatedOn": "",
-    "endOfLife": "",
     "replacedBy": {
+      "isProductFeature": false,
       "name": "",
       "overview": "",
       "repoLink": "",
       "docLink": "",
-      "webLink": "",
-      "isProductFeature": false
-    }
+      "webLink": ""
+    },
+    "deprecatedOn": "",
+    "endOfLife": ""
   },
+  "name": "AWS - EC2 - REST",
+  "overview": "This Pre-Built Automation bundle contains use cases around performing actions on Amazon EC2 plus additional service Amazon VPC",
+  "productLink": "https://aws.amazon.com/ec2/",
+  "storeLink": "",
+  "docLink": "",
+  "issueLink": "",
   "type": "Workflow Project",
   "vendorLink": "https://aws.amazon.com/",
   "faqLink": "",
   "contributeLink": "",
-  "webName": "AWS EC2 - Use Cases Around Performing Actions on Amazon EC2 plus additional service Amazon VPC",
-  "webLink": "AWS - Modular Workflows for EC2 Services",
+  "webName": "AWS - Modular Workflows for EC2 Services",
   "demoLinks": []
 }

@@ -61,10 +61,10 @@
   },
   "assets": [
     {
-      "name": "Add Ingress Rule to Security Group - AWS - EC2 - REST",
-      "webName": "Add Ingress Rule to Security Group - AWS - EC2",
+      "name": "Add Ingress Rule to Security Group - AWS",
+      "webName": "Add Ingress Rule to Security Group - AWS",
       "assetType": "Workflow",
-      "overview": "Add Ingress Rule to Security group in AWS",
+      "overview": "A modular workflow that automates adding an ingress rule to a security group.",
       "iapVersions": [
         "2023.1"
       ],
@@ -73,9 +73,9 @@
     },
     {
       "name": "Create and Attach Internet Gateway - AWS",
-      "webName": "Create and Attach Internet Gateway - AWS - EC2",
+      "webName": "Create and Attach Internet Gateway - AWS",
       "assetType": "Workflow",
-      "overview": "Create and Attach Internet gateway to VPC in AWS",
+      "overview": "A modular workflow that automates creating and attaching an internet gateway to a VPC in AWS.",
       "iapVersions": [
         "2023.1"
       ],
@@ -84,9 +84,9 @@
     },
     {
       "name": "Create EC2 Instance - AWS",
-      "webName": "Create EC2 Instance - AWS - EC2",
+      "webName": "Create EC2 Instance - AWS",
       "assetType": "Workflow",
-      "overview": "Create an EC2 instance in AWS",
+      "overview": "A modular workflow that automates creating an EC2 instance in AWS.",
       "iapVersions": [
         "2023.1"
       ],
@@ -95,9 +95,9 @@
     },
     {
       "name": "Create Route - AWS",
-      "webName": "Create Route - AWS - EC2",
+      "webName": "Create Route - AWS",
       "assetType": "Workflow",
-      "overview": "Create a route within a VPC in AWS",
+      "overview": "A modular workflow that automates creating a route within a VPC in AWS.",
       "iapVersions": [
         "2023.1"
       ],
@@ -106,9 +106,9 @@
     },
     {
       "name": "Create Security Group with Ingress Rules - AWS",
-      "webName": "Create Security Group with Ingress Rules - AWS - EC2",
+      "webName": "Create Security Group with Ingress Rules - AWS",
       "assetType": "Workflow",
-      "overview": "Create Security group with Ingress rules for AWS EC2",
+      "overview": "A modular workflow that automates creating a security group with ingress rules in AWS.",
       "iapVersions": [
         "2023.1"
       ],
@@ -117,9 +117,9 @@
     },
     {
       "name": "Create VPC - AWS",
-      "webName": "Create VPC - AWS - EC2",
+      "webName": "Create VPC - AWS",
       "assetType": "Workflow",
-      "overview": "Create a VPC in AWS",
+      "overview": "A modular workflow that automates creating a VPC in AWS.",
       "iapVersions": [
         "2023.1"
       ],
@@ -128,9 +128,9 @@
     },
     {
       "name": "Create VPC Subnet - AWS",
-      "webName": "Create VPC Subnet - AWS - EC2",
+      "webName": "Create VPC Subnet - AWS",
       "assetType": "Workflow",
-      "overview": "Create subnet for a VPC in AWS",
+      "overview": "A modular workflow that automates creating a subnet for a VPC in AWS.",
       "iapVersions": [
         "2023.1"
       ],
@@ -139,9 +139,9 @@
     },
     {
       "name": "Provision VPC with Networking - AWS",
-      "webName": "Provision VPC with Networking - AWS - EC2",
+      "webName": "Provision VPC with Networking - AWS",
       "assetType": "Workflow",
-      "overview": "Create and Configure VPC in AWS",
+      "overview": "A modular workflow that automates creating and configuring a VPC with networking in AWS.",
       "iapVersions": [
         "2023.1"
       ],
@@ -150,9 +150,9 @@
     },
     {
       "name": "Delete Security Groups by VPC - AWS",
-      "webName": "Delete Security Groups by VPC - AWS - EC2",
+      "webName": "Delete Security Groups by VPC - AWS",
       "assetType": "Workflow",
-      "overview": "Delete VPC Security groups in AWS",
+      "overview": "A modular workflow that automates deleting VPC Security groups in AWS.",
       "iapVersions": [
         "2023.1"
       ],
@@ -161,9 +161,9 @@
     },
     {
       "name": "Delete Subnets by VPC - AWS",
-      "webName": "Delete Subnets by VPC - AWS - EC2",
+      "webName": "Delete Subnets by VPC - AWS",
       "assetType": "Workflow",
-      "overview": "Delete VPC Subnets",
+      "overview": "A modular workflow that automates deleting subnets by VPC in AWS.",
       "iapVersions": [
         "2023.1"
       ],
@@ -172,9 +172,9 @@
     },
     {
       "name": "Destroy VPC And EC2 Instance - AWS",
-      "webName": "Destroy VPC And EC2 Instance - AWS - EC2",
+      "webName": "Destroy VPC And EC2 Instance - AWS",
       "assetType": "Workflow",
-      "overview": "Destroy VPC And EC2 Instance in AWS",
+      "overview": "A modular workflow that automates destroying a VPC and EC2 Instance in AWS",
       "iapVersions": [
         "2023.1"
       ],
@@ -183,9 +183,9 @@
     },
     {
       "name": "Detach and Delete Internet Gateways by VPC - AWS",
-      "webName": "Detach and Delete Internet Gateways by VPC - AWS - EC2",
+      "webName": "Detach and Delete Internet Gateways by VPC - AWS",
       "assetType": "Workflow",
-      "overview": "Detach and Delete VPC Internet gateways in AWS",
+      "overview": "A modular workflow that automates detaching and deleting VPC internet gateways in AWS.",
       "iapVersions": [
         "2023.1"
       ],

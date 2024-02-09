@@ -65,37 +65,37 @@
       "description": "Documentation getting details of specified instances or all instances"
     },
     {
-      "name": "Describe Internet Gateways - AWS EC2",
+      "title": "Describe Internet Gateways - AWS EC2",
       "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html",
       "description": "Documentation getting details of internet gateways"
     },
     {
-      "name": "Detach Internet Gateway - AWS EC2",
+      "title": "Detach Internet Gateway - AWS EC2",
       "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachInternetGateway.html",
       "description": "Documentation for detaching an internet gateway from a VPC, disabling connectivity between the internet and the VPC"
     },
     {
-      "name": "Delete Internet Gateway - AWS EC2",
+      "title": "Delete Internet Gateway - AWS EC2",
       "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteInternetGateway.html",
       "description": "Documentation for deleting an internet gateway"
     },
     {
-      "name": "Delete Security Group - AWS EC2",
+      "title": "Delete Security Group - AWS EC2",
       "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSecurityGroup.html",
       "description": "Documentation for deleting a security group in AWS EC2"
     },
     {
-      "name": "Delete Subnet - AWS EC2",
+      "title": "Delete Subnet - AWS EC2",
       "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSubnet.html",
       "description": "Documentation for deleting specified subnet."
     },
     {
-      "name": "Delete VPC - AWS EC2",
+      "title": "Delete VPC - AWS EC2",
       "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVpc.html",
       "description": "Documentation for deleting a specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it"
     },
     {
-      "name": "Terminate Instances - AWS EC2",
+      "title": "Terminate Instances - AWS EC2",
       "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TerminateInstances.html",
       "description": "Documentation for shutting down the specified instances"
     }

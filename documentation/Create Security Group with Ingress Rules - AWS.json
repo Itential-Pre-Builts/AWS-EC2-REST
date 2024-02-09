@@ -77,14 +77,14 @@
       "exampleValue": "sg-0bd40e2d7195add77"
     }
   ],
-  "relatedDocumentation": [
+  "apiLinks": [
     {
-      "name": "Create Security Group - AWS EC2",
+      "title": "Create Security Group - AWS EC2",
       "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html",
       "description": "Documentation for creating a security group"
     },
     {
-      "name": "Authorize Security Group Ingress - AWS EC2",
+      "title": "Authorize Security Group Ingress - AWS EC2",
       "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html",
       "description": "Documentation for adding specified inbound (ingress) rules to a security group"
     }

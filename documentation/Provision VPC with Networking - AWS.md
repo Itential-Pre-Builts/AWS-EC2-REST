@@ -15,7 +15,7 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [Related Documentation](#related-documentation)
+    - [API Links](#api-links)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
   - [Support](#support)
 
@@ -259,50 +259,21 @@ The following items show how to query successful results from the output:
   
 
 
-### Related Documentation
+### API Links
 
-<table>
-  <thead>
-    <tr>
-      <th>Documentation Link</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpc.html">Create VPC - AWS EC2</a></td>
-      <td>Documentation for creating a VPC in AWS EC2</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">Create Tags - AWS EC2</a></td>
-      <td>Documentation adding or overwriting the specified tags for the specified Amazon EC2 resource or resources</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSubnet.html">Create Subnet - AWS EC2</a></td>
-      <td>Documentation for creating a subnet in a specified VPC in AWS EC2</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInternetGateway.html">Create Internet Gateway - AWS EC2</a></td>
-      <td>Documentation for creating an internet gateway for use with a VPC. After creating the internet gateway, you attach it to a VPC using AttachInternetGateway</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachInternetGateway.html">Attach Internet Gateway - AWS EC2</a></td>
-      <td>Documentation for attaching an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and the VPC.</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRoute.html">Create Route - AWS EC2</a></td>
-      <td>API Documentation for creating a route in a route table within a VPC</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Configure Route Tables - AWS EC2</a></td>
-      <td>General documentation for configuring route tables in AWS EC2</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html">Describe Route Tables - AWS EC2</a></td>
-      <td>API documentation for getting details of one or more route tables</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">Create Security Group - AWS EC2</a></td>
-      <td>Documentation for creating a security group</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html">Authorize Security Group Ingress - AWS EC2</a></td>
-      <td>Documentation for adding specified inbound (ingress) rules to a security group</td>
-    </tr>
-  </tbody>
-</table>
 
+
+- [Create VPC - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpc.html)
+- [Create Tags - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html)
+- [Create Subnet - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSubnet.html)
+- [Create Internet Gateway - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInternetGateway.html)
+- [Attach Internet Gateway - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachInternetGateway.html)
+- [Create Route - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRoute.html)
+- [Configure Route Tables - AWS EC2](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html)
+- [Describe Route Tables - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html)
+- [Create Security Group - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html)
+- [Authorize Security Group Ingress - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html)
+ 
 
 
 ### Example Inputs and Outputs

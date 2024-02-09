@@ -15,7 +15,7 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [Related Documentation](#related-documentation)
+    - [API Links](#api-links)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
   - [Support](#support)
 
@@ -209,29 +209,14 @@ The following items show how to query successful results from the output:
   
 
 
-### Related Documentation
+### API Links
 
-<table>
-  <thead>
-    <tr>
-      <th>Documentation Link</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html">Describe Internet Gateways - AWS EC2</a></td>
-      <td>Documentation getting details of internet gateways</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachInternetGateway.html">Detach Internet Gateway - AWS EC2</a></td>
-      <td>Documentation for detaching an internet gateway from a VPC, disabling connectivity between the internet and the VPC</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteInternetGateway.html">Delete Internet Gateway - AWS EC2</a></td>
-      <td>Documentation for deleting an internet gateway</td>
-    </tr>
-  </tbody>
-</table>
 
+
+- [Describe Internet Gateways - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html)
+- [Detach Internet Gateway - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachInternetGateway.html)
+- [Delete Internet Gateway - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteInternetGateway.html)
+ 
 
 
 ### Example Inputs and Outputs

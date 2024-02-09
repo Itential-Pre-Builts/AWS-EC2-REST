@@ -15,7 +15,7 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [Related Documentation](#related-documentation)
+    - [API Links](#api-links)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
   - [Support](#support)
 
@@ -204,23 +204,12 @@ The following items show how to query successful results from the output:
   
 
 
-### Related Documentation
+### API Links
 
-<table>
-  <thead>
-    <tr>
-      <th>Documentation Link</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSubnet.html">Create Subnet - AWS EC2</a></td>
-      <td>Documentation for creating a subnet in a specified VPC in AWS EC2</td>
-    </tr>
-  </tbody>
-</table>
 
+
+- [Create Subnet - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSubnet.html)
+ 
 
 
 ### Example Inputs and Outputs

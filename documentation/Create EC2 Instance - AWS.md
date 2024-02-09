@@ -15,7 +15,7 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [Related Documentation](#related-documentation)
+    - [API Links](#api-links)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
   - [Support](#support)
 
@@ -426,29 +426,14 @@ The following items show how to query successful results from the output:
   
 
 
-### Related Documentation
+### API Links
 
-<table>
-  <thead>
-    <tr>
-      <th>Documentation Link</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">Run Instances - AWS EC2</a></td>
-      <td>Documentation for launching a specificed number of instances using an Amazon Machine Image (AMI).</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html">Describe Instance Status - AWS EC2</a></td>
-      <td>Documentation for getting the status of the specified instances or all of your instances</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">Create Tags - AWS EC2</a></td>
-      <td>Documentation adding or overwriting the specified tags for the specified Amazon EC2 resource or resources</td>
-    </tr>
-  </tbody>
-</table>
 
+
+- [Run Instances - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html)
+- [Describe Instance Status - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html)
+- [Create Tags - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html)
+ 
 
 
 ### Example Inputs and Outputs

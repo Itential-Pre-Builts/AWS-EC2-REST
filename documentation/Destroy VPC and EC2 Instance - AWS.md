@@ -15,7 +15,7 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [Related Documentation](#related-documentation)
+    - [API Links](#api-links)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
   - [Support](#support)
 
@@ -209,47 +209,20 @@ The following items show how to query successful results from the output:
   
 
 
-### Related Documentation
+### API Links
 
-<table>
-  <thead>
-    <tr>
-      <th>Documentation Link</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html">Describe VPCs - AWS EC2</a></td>
-      <td>Documentation for details of one ore more VPCs</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">Describe Instances - AWS EC2</a></td>
-      <td>Documentation getting details of specified instances or all instances</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html">Describe Internet Gateways - AWS EC2</a></td>
-      <td>Documentation getting details of internet gateways</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachInternetGateway.html">Detach Internet Gateway - AWS EC2</a></td>
-      <td>Documentation for detaching an internet gateway from a VPC, disabling connectivity between the internet and the VPC</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteInternetGateway.html">Delete Internet Gateway - AWS EC2</a></td>
-      <td>Documentation for deleting an internet gateway</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSecurityGroup.html">Delete Security Group - AWS EC2</a></td>
-      <td>Documentation for deleting a security group in AWS EC2</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSubnet.html">Delete Subnet - AWS EC2</a></td>
-      <td>Documentation for deleting specified subnet.</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVpc.html">Delete VPC - AWS EC2</a></td>
-      <td>Documentation for deleting a specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TerminateInstances.html">Terminate Instances - AWS EC2</a></td>
-      <td>Documentation for shutting down the specified instances</td>
-    </tr>
-  </tbody>
-</table>
 
+
+- [Describe VPCs - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html)
+- [Describe Instances - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html)
+- [](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html)
+- [](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachInternetGateway.html)
+- [](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteInternetGateway.html)
+- [](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSecurityGroup.html)
+- [](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSubnet.html)
+- [](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVpc.html)
+- [](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TerminateInstances.html)
+ 
 
 
 ### Example Inputs and Outputs

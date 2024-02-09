@@ -1,4 +1,12 @@
 
+## 1.0.4-2023.1.3 [02-09-2024]
+
+* Updates apiLinks, webName, and overview for metadata and documentation
+
+See merge request itentialopensource/pre-built-automations/aws-ec2-rest!10
+
+---
+
 ## 1.0.3-2023.1.2 [12-12-2023]
 
 * Updates documentation and metadata
@@ -118,4 +126,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n

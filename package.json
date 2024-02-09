@@ -1,5 +1,5 @@
 {
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "The integration of Itential and the AWS EC2 solution enables network teams to utilize its REST API to build automations that can include common tasks for provisioning and configuring resources for AWS EC2. This is a library of related automations that can be used as modular components in your own larger, end-to-end workflows.",
   "scripts": {
     "setup-hooks": "sh ./scripts/setup-hooks.sh",

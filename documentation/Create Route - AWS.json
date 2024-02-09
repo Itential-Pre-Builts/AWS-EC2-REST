@@ -86,19 +86,19 @@
       "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": { \n    \"CreateRouteResponse\": { \n      \"_attr\": { \n        \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n      }, \n      \"requestId\": \"4e157878-b2fb-4f95-8312-8c3cbbec8b18\", \n      \"return\": \"true\" \n    } \n  }\n}"
     }
   ],
-  "relatedDocumentation": [
+  "apiLinks": [
     {
-      "name": "Create Route - AWS EC2",
+      "title": "Create Route - AWS EC2",
       "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRoute.html",
       "description": "API Documentation for creating a route in a route table within a VPC"
     },
     {
-      "name": "Configure Route Tables - AWS EC2",
+      "title": "Configure Route Tables - AWS EC2",
       "link": "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html",
       "description": "General documentation for configuring route tables in AWS EC2"
     },
     {
-      "name": "Describe Route Tables - AWS EC2",
+      "title": "Describe Route Tables - AWS EC2",
       "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html",
       "description": "API documentation for getting details of one or more route tables"
     }

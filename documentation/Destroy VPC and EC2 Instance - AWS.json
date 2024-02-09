@@ -53,14 +53,14 @@
       "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": {\n    \"DeleteVpcResponse\": {\n      \"_attr\": {\n        \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\"\n      },\n      \"requestId\": \"81a08c9a-f42d-49ea-9359-9213d2a11250\",\n      \"return\": \"true\"\n    }\n  }\n}"
     }
   ],
-  "relatedDocumentation": [
+  "apiLinks": [
     {
-      "name": "Describe VPCs - AWS EC2",
+      "title": "Describe VPCs - AWS EC2",
       "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html",
       "description": "Documentation for details of one ore more VPCs"
     },
     {
-      "name": "Describe Instances - AWS EC2",
+      "title": "Describe Instances - AWS EC2",
       "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html",
       "description": "Documentation getting details of specified instances or all instances"
     },

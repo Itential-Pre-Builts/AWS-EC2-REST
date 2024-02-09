@@ -15,7 +15,7 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [Related Documentation](#related-documentation)
+    - [API Links](#api-links)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
   - [Support](#support)
 
@@ -239,29 +239,14 @@ The following items show how to query successful results from the output:
   
 
 
-### Related Documentation
+### API Links
 
-<table>
-  <thead>
-    <tr>
-      <th>Documentation Link</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRoute.html">Create Route - AWS EC2</a></td>
-      <td>API Documentation for creating a route in a route table within a VPC</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Configure Route Tables - AWS EC2</a></td>
-      <td>General documentation for configuring route tables in AWS EC2</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html">Describe Route Tables - AWS EC2</a></td>
-      <td>API documentation for getting details of one or more route tables</td>
-    </tr>
-  </tbody>
-</table>
 
+
+- [Create Route - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRoute.html)
+- [Configure Route Tables - AWS EC2](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html)
+- [Describe Route Tables - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html)
+ 
 
 
 ### Example Inputs and Outputs

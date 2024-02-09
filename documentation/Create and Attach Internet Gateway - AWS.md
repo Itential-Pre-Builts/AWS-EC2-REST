@@ -15,7 +15,7 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [Related Documentation](#related-documentation)
+    - [API Links](#api-links)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
   - [Support](#support)
 
@@ -198,26 +198,13 @@ The following items show how to query successful results from the output:
   
 
 
-### Related Documentation
+### API Links
 
-<table>
-  <thead>
-    <tr>
-      <th>Documentation Link</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInternetGateway.html">Create Internet Gateway - AWS EC2</a></td>
-      <td>Documentation for creating an internet gateway for use with a VPC. After creating the internet gateway, you attach it to a VPC using AttachInternetGateway</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachInternetGateway.html">Attach Internet Gateway - AWS EC2</a></td>
-      <td>Documentation for attaching an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and the VPC.</td>
-    </tr>
-  </tbody>
-</table>
 
+
+- [Create Internet Gateway - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInternetGateway.html)
+- [Attach Internet Gateway - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachInternetGateway.html)
+ 
 
 
 ### Example Inputs and Outputs

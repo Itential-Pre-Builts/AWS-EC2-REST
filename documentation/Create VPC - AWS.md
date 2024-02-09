@@ -15,7 +15,7 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [Related Documentation](#related-documentation)
+    - [API Links](#api-links)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
   - [Support](#support)
 
@@ -240,26 +240,13 @@ The following items show how to query successful results from the output:
   
 
 
-### Related Documentation
+### API Links
 
-<table>
-  <thead>
-    <tr>
-      <th>Documentation Link</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpc.html">Create VPC - AWS EC2</a></td>
-      <td>Documentation for creating a VPC in AWS EC2</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">Create Tags - AWS EC2</a></td>
-      <td>Documentation adding or overwriting the specified tags for the specified Amazon EC2 resource or resources</td>
-    </tr>
-  </tbody>
-</table>
 
+
+- [Create VPC - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpc.html)
+- [Create Tags - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html)
+ 
 
 
 ### Example Inputs and Outputs

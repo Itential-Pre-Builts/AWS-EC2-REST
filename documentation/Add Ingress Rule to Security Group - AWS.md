@@ -15,7 +15,7 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [Related Documentation](#related-documentation)
+    - [API Links](#api-links)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
   - [Support](#support)
 
@@ -247,23 +247,12 @@ The following items show how to query successful results from the output:
   
 
 
-### Related Documentation
+### API Links
 
-<table>
-  <thead>
-    <tr>
-      <th>Documentation Link</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html">Authorize Security Group Ingress - AWS EC2</a></td>
-      <td>AWS EC2 documentation for adding specified inbound (ingress) rules to a security group</td>
-    </tr>
-  </tbody>
-</table>
 
+
+- [Authorize Security Group Ingress - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html)
+ 
 
 
 ### Example Inputs and Outputs

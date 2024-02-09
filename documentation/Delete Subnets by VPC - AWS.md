@@ -15,7 +15,7 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [Related Documentation](#related-documentation)
+    - [API Links](#api-links)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
   - [Support](#support)
 
@@ -211,26 +211,13 @@ The following items show how to query successful results from the output:
   
 
 
-### Related Documentation
+### API Links
 
-<table>
-  <thead>
-    <tr>
-      <th>Documentation Link</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSubnet.html">Delete Subnet - AWS EC2</a></td>
-      <td>Documentation for deleting specified subnet.</td>
-    </tr>    <tr>
-      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html">Describe Subnets - AWS EC2</a></td>
-      <td>Documentation for getting one or more subnets</td>
-    </tr>
-  </tbody>
-</table>
 
+
+- [Delete Subnet - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSubnet.html)
+- [Describe Subnets - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html)
+ 
 
 
 ### Example Inputs and Outputs

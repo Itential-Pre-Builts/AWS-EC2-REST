@@ -215,13 +215,13 @@ The following items show how to query successful results from the output:
 
 - [Describe VPCs - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html)
 - [Describe Instances - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html)
-- [](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html)
-- [](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachInternetGateway.html)
-- [](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteInternetGateway.html)
-- [](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSecurityGroup.html)
-- [](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSubnet.html)
-- [](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVpc.html)
-- [](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TerminateInstances.html)
+- [Describe Internet Gateways - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html)
+- [Detach Internet Gateway - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachInternetGateway.html)
+- [Delete Internet Gateway - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteInternetGateway.html)
+- [Delete Security Group - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSecurityGroup.html)
+- [Delete Subnet - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSubnet.html)
+- [Delete VPC - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVpc.html)
+- [Terminate Instances - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TerminateInstances.html)
  
 
 

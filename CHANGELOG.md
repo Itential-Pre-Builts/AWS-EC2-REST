@@ -1,4 +1,12 @@
 
+## 1.0.6-2023.1.5 [02-09-2024]
+
+* Fixes apiLink property names
+
+See merge request itentialopensource/pre-built-automations/aws-ec2-rest!13
+
+---
+
 ## 1.0.5-2023.1.4 [02-09-2024]
 
 * Updates package description
@@ -134,4 +142,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n

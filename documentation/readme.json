@@ -25,5 +25,7 @@
   "contributeLink": "",
   "webName": "AWS EC2 - Modular Automations",
   "webLink": "",
-  "demoLinks": []
+  "demoLinks": [],
+  "vendor": "Amazon Web Services",
+  "product": "EC2"
 }

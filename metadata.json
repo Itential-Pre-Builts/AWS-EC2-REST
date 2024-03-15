@@ -2,9 +2,9 @@
   "name": "AWS - EC2 - REST",
   "webName": "AWS EC2 - Modular Automations",
   "type": "Workflow Project",
-  "vendor": "",
-  "product": "",
-  "method": "",
+  "vendor": "Amazon Web Services",
+  "product": "EC2",
+  "method": "REST",
   "osVersions": [
     ""
   ],
@@ -47,92 +47,92 @@
         "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html"
       },
       {
-        "title": "Describe Instances - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html"
-      },
-      {
-        "title": "Delete Subnet - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSubnet.html"
-      },
-      {
-        "title": "Delete Internet Gateway - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteInternetGateway.html"
-      },
-      {
-        "title": "Create Security Group - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html"
-      },
-      {
-        "title": "Describe Subnets - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html"
+        "title": "Create Subnet - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSubnet.html"
       },
       {
         "title": "Create Tags - AWS EC2",
         "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html"
       },
       {
-        "title": "Describe VPCs - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html"
-      },
-      {
-        "title": "Attach Internet Gateway - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachInternetGateway.html"
-      },
-      {
-        "title": "Describe Route Tables - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html"
-      },
-      {
-        "title": "Create VPC - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpc.html"
-      },
-      {
-        "title": "Authorize Security Group Ingress - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html"
-      },
-      {
-        "title": "Configure Route Tables - AWS EC2",
-        "link": "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html"
+        "title": "Describe Security Groups - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html"
       },
       {
         "title": "Delete VPC - AWS EC2",
         "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVpc.html"
       },
       {
-        "title": "Create Subnet - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSubnet.html"
-      },
-      {
-        "title": "Describe Internet Gateways - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html"
+        "title": "Configure Route Tables - AWS EC2",
+        "link": "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html"
       },
       {
         "title": "Detach Internet Gateway - AWS EC2",
         "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachInternetGateway.html"
       },
       {
-        "title": "Delete Security Group - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSecurityGroup.html"
+        "title": "Delete Internet Gateway - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteInternetGateway.html"
       },
       {
-        "title": "Create Internet Gateway - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInternetGateway.html"
+        "title": "Attach Internet Gateway - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachInternetGateway.html"
+      },
+      {
+        "title": "Describe Internet Gateways - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html"
+      },
+      {
+        "title": "Describe Route Tables - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html"
+      },
+      {
+        "title": "Describe VPCs - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html"
+      },
+      {
+        "title": "Delete Security Group - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSecurityGroup.html"
       },
       {
         "title": "Describe Instance Status - AWS EC2",
         "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html"
       },
       {
-        "title": "Terminate Instances - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TerminateInstances.html"
+        "title": "Create Security Group - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html"
+      },
+      {
+        "title": "Authorize Security Group Ingress - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html"
+      },
+      {
+        "title": "Create VPC - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpc.html"
       },
       {
         "title": "Create Route - AWS EC2",
         "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRoute.html"
       },
       {
-        "title": "Describe Security Groups - AWS EC2",
-        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html"
+        "title": "Terminate Instances - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TerminateInstances.html"
+      },
+      {
+        "title": "Describe Subnets - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html"
+      },
+      {
+        "title": "Create Internet Gateway - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInternetGateway.html"
+      },
+      {
+        "title": "Describe Instances - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html"
+      },
+      {
+        "title": "Delete Subnet - AWS EC2",
+        "link": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSubnet.html"
       }
     ]
   },

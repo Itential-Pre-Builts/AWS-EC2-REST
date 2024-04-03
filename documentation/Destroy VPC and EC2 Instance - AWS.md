@@ -15,8 +15,9 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [API Links](#api-links)
+    - [Query Output](#query-output)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
+    - [API Links](#api-links)
   - [Support](#support)
 
 ## Overview
@@ -25,6 +26,9 @@ A modular workflow that automates destroying a VPC and EC2 Instance in AWS
 
 Capabilities include:
 - The workflow is used to destroy VPC And EC2 Instance in AWS
+
+
+
 
 
 ## Getting Started
@@ -109,7 +113,7 @@ While Itential tests this Workflow Project and its capabilities, it is often the
 
 ### Entry Point IAP Component
 
-The primary IAP component to run this Workflow Project is listed below:
+The primary IAP component to run **Destroy VPC And EC2 Instance - AWS** is listed below:
 
 <table>
   <thead>
@@ -127,7 +131,7 @@ The primary IAP component to run this Workflow Project is listed below:
 
 ### Inputs
 
-The following table lists the inputs to the Workflow Project:
+The following table lists the inputs for **Destroy VPC And EC2 Instance - AWS**:
 
 <table>
   <thead>
@@ -160,7 +164,7 @@ The following table lists the inputs to the Workflow Project:
 
 ### Outputs
 
-The following table lists the outputs of the Workflow Project:
+The following table lists the outputs for **Destroy VPC And EC2 Instance - AWS**:
 
 <table>
   <thead>
@@ -192,37 +196,25 @@ The following table lists the outputs of the Workflow Project:
   </tbody>
 </table>
 
+
+
+### Query Output
+
+
   
-#### Query Output
+
+The following items show how to query successful results from the output of **Destroy VPC And EC2 Instance - AWS**:
+
     
-
-The following items show how to query successful results from the output:
-
-      
-##### Delete VPC Result
+#### Delete VPC Result
 
 `deletedVPC.responseDeleteVpcResponse.return`
 
-      
     
-    
+  
   
 
 
-### API Links
-
-
-
-- [Describe VPCs - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html)
-- [Describe Instances - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html)
-- [Describe Internet Gateways - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html)
-- [Detach Internet Gateway - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachInternetGateway.html)
-- [Delete Internet Gateway - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteInternetGateway.html)
-- [Delete Security Group - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSecurityGroup.html)
-- [Delete Subnet - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSubnet.html)
-- [Delete VPC - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVpc.html)
-- [Terminate Instances - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TerminateInstances.html)
- 
 
 
 ### Example Inputs and Outputs
@@ -259,6 +251,59 @@ Output:
   
 
 
+### API Links
+
+
+<table>
+  <thead>
+    <tr>
+      <th>API Name</th>
+      <th>API Documentation Link</th>
+      <th>API Link Visibility</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Describe VPCs - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html</a></td>
+      <td>Public</td>
+    </tr>    <tr>
+      <td>Describe Instances - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html</a></td>
+      <td>Public</td>
+    </tr>    <tr>
+      <td>Describe Internet Gateways - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html</a></td>
+      <td>Public</td>
+    </tr>    <tr>
+      <td>Detach Internet Gateway - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachInternetGateway.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachInternetGateway.html</a></td>
+      <td>Public</td>
+    </tr>    <tr>
+      <td>Delete Internet Gateway - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteInternetGateway.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteInternetGateway.html</a></td>
+      <td>Public</td>
+    </tr>    <tr>
+      <td>Delete Security Group - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSecurityGroup.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSecurityGroup.html</a></td>
+      <td>Public</td>
+    </tr>    <tr>
+      <td>Delete Subnet - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSubnet.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSubnet.html</a></td>
+      <td>Public</td>
+    </tr>    <tr>
+      <td>Delete VPC - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVpc.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVpc.html</a></td>
+      <td>Public</td>
+    </tr>    <tr>
+      <td>Terminate Instances - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TerminateInstances.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TerminateInstances.html</a></td>
+      <td>Public</td>
+    </tr>
+  </tbody>
+</table>
+
+
 ## Support
 
-Please use your Itential Customer Success account if you need support when using this Workflow Project.
+Please use your Itential Customer Success account if you need support when using **Destroy VPC And EC2 Instance - AWS**.

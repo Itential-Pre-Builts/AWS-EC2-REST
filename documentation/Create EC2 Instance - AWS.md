@@ -15,8 +15,9 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [API Links](#api-links)
+    - [Query Output](#query-output)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
+    - [API Links](#api-links)
   - [Support](#support)
 
 ## Overview
@@ -27,6 +28,9 @@ Capabilities include:
 - Launch an EC2 instance in AWS
 - Check status of launched EC2 instance until it is ready for use in AWS
 - Creates tag for launched EC2 instance
+
+
+
 
 
 ## Getting Started
@@ -111,7 +115,7 @@ While Itential tests this Workflow Project and its capabilities, it is often the
 
 ### Entry Point IAP Component
 
-The primary IAP component to run this Workflow Project is listed below:
+The primary IAP component to run **Create EC2 Instance - AWS** is listed below:
 
 <table>
   <thead>
@@ -129,7 +133,7 @@ The primary IAP component to run this Workflow Project is listed below:
 
 ### Inputs
 
-The following table lists the inputs to the Workflow Project:
+The following table lists the inputs for **Create EC2 Instance - AWS**:
 
 <table>
   <thead>
@@ -197,7 +201,7 @@ The following table lists the inputs to the Workflow Project:
 
 ### Outputs
 
-The following table lists the outputs of the Workflow Project:
+The following table lists the outputs for **Create EC2 Instance - AWS**:
 
 <table>
   <thead>
@@ -399,41 +403,35 @@ The following table lists the outputs of the Workflow Project:
   </tbody>
 </table>
 
+
+
+### Query Output
+
+
   
-#### Query Output
+
+The following items show how to query successful results from the output of **Create EC2 Instance - AWS**:
+
     
-
-The following items show how to query successful results from the output:
-
-      
-##### Public IP of the Created EC2 Instance
+#### Public IP of the Created EC2 Instance
 
 `publicIp`
 
-      
-##### Created EC2 Instance ID
+    
+#### Created EC2 Instance ID
 
 `instanceInfo.response.DescribeInstancesResponse.reservationSet.item[0].instancesSet.item[0].instanceId`
 
-      
-##### Created EC2 Instance State
+    
+#### Created EC2 Instance State
 
 `instanceInfo.response.DescribeInstancesResponse.reservationSet.item[0].instancesSet.item[0].instanceState.name`
 
-      
     
-    
+  
   
 
 
-### API Links
-
-
-
-- [Run Instances - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html)
-- [Describe Instance Status - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html)
-- [Create Tags - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html)
- 
 
 
 ### Example Inputs and Outputs
@@ -642,6 +640,35 @@ Output:
   
 
 
+### API Links
+
+
+<table>
+  <thead>
+    <tr>
+      <th>API Name</th>
+      <th>API Documentation Link</th>
+      <th>API Link Visibility</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Run Instances - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html</a></td>
+      <td>Public</td>
+    </tr>    <tr>
+      <td>Describe Instance Status - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceStatus.html</a></td>
+      <td>Public</td>
+    </tr>    <tr>
+      <td>Create Tags - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html</a></td>
+      <td>Public</td>
+    </tr>
+  </tbody>
+</table>
+
+
 ## Support
 
-Please use your Itential Customer Success account if you need support when using this Workflow Project.
+Please use your Itential Customer Success account if you need support when using **Create EC2 Instance - AWS**.

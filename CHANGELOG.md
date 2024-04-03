@@ -1,4 +1,14 @@
 
+## 1.0.8-2023.1.7 [04-03-2024]
+
+Updates useCases in metadata
+
+See merge request itentialopensource/pre-built-automations/aws-ec2-rest!17
+
+2024-04-03 16:29:08 +0000
+
+---
+
 ## 1.0.7-2023.1.6 [03-15-2024]
 
 * Updates readme.json for metadata changes
@@ -150,4 +160,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n

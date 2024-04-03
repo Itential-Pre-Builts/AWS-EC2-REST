@@ -7,7 +7,11 @@
     "Virtual Compute"
   ],
   "useCases": [
-    "Cloud Networking"
+    "Add or remove Virtual Networks",
+    "Create, update, manage or remove Transit Gateways",
+    "Deploy Virtual Services and Functions",
+    "Instantiate, manage, remove Virtual Machine Instances",
+    "Management of Cloud Network Assignments"
   ],
   "apiLinks": [],
   "deprecated": {

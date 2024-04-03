@@ -15,8 +15,9 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [API Links](#api-links)
+    - [Query Output](#query-output)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
+    - [API Links](#api-links)
   - [Support](#support)
 
 ## Overview
@@ -25,6 +26,9 @@ A modular workflow that automates creating a subnet for a VPC in AWS.
 
 Capabilities include:
 - The workflow is used to create subnet for a VPC in AWS
+
+
+
 
 
 ## Getting Started
@@ -109,7 +113,7 @@ While Itential tests this Workflow Project and its capabilities, it is often the
 
 ### Entry Point IAP Component
 
-The primary IAP component to run this Workflow Project is listed below:
+The primary IAP component to run **Create VPC Subnet - AWS** is listed below:
 
 <table>
   <thead>
@@ -127,7 +131,7 @@ The primary IAP component to run this Workflow Project is listed below:
 
 ### Inputs
 
-The following table lists the inputs to the Workflow Project:
+The following table lists the inputs for **Create VPC Subnet - AWS**:
 
 <table>
   <thead>
@@ -166,7 +170,7 @@ The following table lists the inputs to the Workflow Project:
 
 ### Outputs
 
-The following table lists the outputs of the Workflow Project:
+The following table lists the outputs for **Create VPC Subnet - AWS**:
 
 <table>
   <thead>
@@ -187,29 +191,25 @@ The following table lists the outputs of the Workflow Project:
   </tbody>
 </table>
 
+
+
+### Query Output
+
+
   
-#### Query Output
+
+The following items show how to query successful results from the output of **Create VPC Subnet - AWS**:
+
     
-
-The following items show how to query successful results from the output:
-
-      
-##### Created VPC Subnet ID
+#### Created VPC Subnet ID
 
 `subnetId`
 
-      
     
-    
+  
   
 
 
-### API Links
-
-
-
-- [Create Subnet - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSubnet.html)
- 
 
 
 ### Example Inputs and Outputs
@@ -236,6 +236,27 @@ Output:
   
 
 
+### API Links
+
+
+<table>
+  <thead>
+    <tr>
+      <th>API Name</th>
+      <th>API Documentation Link</th>
+      <th>API Link Visibility</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Create Subnet - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSubnet.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSubnet.html</a></td>
+      <td>Public</td>
+    </tr>
+  </tbody>
+</table>
+
+
 ## Support
 
-Please use your Itential Customer Success account if you need support when using this Workflow Project.
+Please use your Itential Customer Success account if you need support when using **Create VPC Subnet - AWS**.

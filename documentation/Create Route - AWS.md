@@ -15,8 +15,9 @@
     - [Entry Point IAP Component](#entry-point-iap-component)
     - [Inputs](#inputs)
     - [Outputs](#outputs)
-    - [API Links](#api-links)
+    - [Query Output](#query-output)
     - [Example Inputs and Outputs](#example-inputs-and-outputs)
+    - [API Links](#api-links)
   - [Support](#support)
 
 ## Overview
@@ -27,6 +28,9 @@ Capabilities include:
 - Create a route in a route table associated with a VPC in AWS
 - If no route ID provided, default route table is used
 - If more than one route table found associated with VPC and no route ID provied, manual task confirms using first route table to create route
+
+
+
 
 
 ## Getting Started
@@ -111,7 +115,7 @@ While Itential tests this Workflow Project and its capabilities, it is often the
 
 ### Entry Point IAP Component
 
-The primary IAP component to run this Workflow Project is listed below:
+The primary IAP component to run **Create Route - AWS** is listed below:
 
 <table>
   <thead>
@@ -129,7 +133,7 @@ The primary IAP component to run this Workflow Project is listed below:
 
 ### Inputs
 
-The following table lists the inputs to the Workflow Project:
+The following table lists the inputs for **Create Route - AWS**:
 
 <table>
   <thead>
@@ -180,7 +184,7 @@ The following table lists the inputs to the Workflow Project:
 
 ### Outputs
 
-The following table lists the outputs of the Workflow Project:
+The following table lists the outputs for **Create Route - AWS**:
 
 <table>
   <thead>
@@ -217,36 +221,30 @@ The following table lists the outputs of the Workflow Project:
   </tbody>
 </table>
 
+
+
+### Query Output
+
+
   
-#### Query Output
+
+The following items show how to query successful results from the output of **Create Route - AWS**:
+
     
-
-The following items show how to query successful results from the output:
-
-      
-##### Route Table ID
+#### Route Table ID
 
 `routeTableId`
 
-      
-##### Create Route Result
+    
+#### Create Route Result
 
 `createdRoute.response.CreateRouteResponse.return`
 
-      
     
-    
+  
   
 
 
-### API Links
-
-
-
-- [Create Route - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRoute.html)
-- [Configure Route Tables - AWS EC2](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html)
-- [Describe Route Tables - AWS EC2](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html)
- 
 
 
 ### Example Inputs and Outputs
@@ -287,6 +285,35 @@ Output:
   
 
 
+### API Links
+
+
+<table>
+  <thead>
+    <tr>
+      <th>API Name</th>
+      <th>API Documentation Link</th>
+      <th>API Link Visibility</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Create Route - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRoute.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRoute.html</a></td>
+      <td>Public</td>
+    </tr>    <tr>
+      <td>Configure Route Tables - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html</a></td>
+      <td>Public</td>
+    </tr>    <tr>
+      <td>Describe Route Tables - AWS EC2</td>
+      <td><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html">https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html</a></td>
+      <td>Public</td>
+    </tr>
+  </tbody>
+</table>
+
+
 ## Support
 
-Please use your Itential Customer Success account if you need support when using this Workflow Project.
+Please use your Itential Customer Success account if you need support when using **Create Route - AWS**.

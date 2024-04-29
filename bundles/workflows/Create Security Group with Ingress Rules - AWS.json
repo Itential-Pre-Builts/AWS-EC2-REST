@@ -348,36 +348,6 @@
       }
     }
   },
-  "decorators": [
-    {
-      "type": "encryption",
-      "pointer": "/variables/sourceCidrIp"
-    },
-    {
-      "type": "encryption",
-      "pointer": "/variables/fromPort"
-    },
-    {
-      "type": "encryption",
-      "pointer": "/variables/groupId"
-    },
-    {
-      "type": "encryption",
-      "pointer": "/variables/ipProtocol"
-    },
-    {
-      "type": "encryption",
-      "pointer": "/variables/toPort"
-    },
-    {
-      "type": "encryption",
-      "pointer": "/variables/_id"
-    },
-    {
-      "type": "encryption",
-      "pointer": "/variables/initiator"
-    }
-  ],
   "font_size": 12,
   "created": "2021-04-10T12:59:57.532Z",
   "createdVersion": "5.10.4-2020.1.22.0",

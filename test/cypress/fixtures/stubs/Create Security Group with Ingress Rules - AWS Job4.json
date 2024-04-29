@@ -19,11 +19,6 @@
   "expectedTaskResults": {
     "status": "complete",
     "variables": {
-      "sourceCidrIp": null,
-      "fromPort": null,
-      "groupId": null,
-      "ipProtocol": null,
-      "toPort": null,
       "securityGroupDescription": "VPC1_SG",
       "securityGroupName": "Security Group for VPC My VPC",
       "adapterId": "EC2",

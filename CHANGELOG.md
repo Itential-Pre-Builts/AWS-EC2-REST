@@ -1,4 +1,14 @@
 
+## 1.0.12 [04-29-2024]
+
+Pre-Release for Certification of 2023.2 Release
+
+See merge request itentialopensource/pre-built-automations/aws-ec2-rest!20
+
+2024-04-29 16:04:52 +0000
+
+---
+
 ## 1.0.11 [04-26-2024]
 
 Changes made at 2024.04.26_11:06AM
@@ -188,4 +198,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n

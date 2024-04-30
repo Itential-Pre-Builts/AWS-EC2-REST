@@ -1,4 +1,14 @@
 
+## 1.0.13-2023.2.0 [04-30-2024]
+
+Regenerate documentation and metadata.json files
+
+See commit bdf8a6c
+
+2024-04-29 16:18:35 +0000
+
+---
+
 ## 1.0.12 [04-29-2024]
 
 Pre-Release for Certification of 2023.2 Release
@@ -198,4 +208,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n

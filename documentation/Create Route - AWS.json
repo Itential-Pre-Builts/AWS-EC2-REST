@@ -1,6 +1,6 @@
 {
   "iapVersions": [
-    "2023.1"
+    "2023.2"
   ],
   "adapters": [
     {
@@ -83,7 +83,7 @@
       "name": "createdRoute",
       "type": "object",
       "description": "Result of the create route request",
-      "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": { \n    \"CreateRouteResponse\": { \n      \"_attr\": { \n        \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n      }, \n      \"requestId\": \"4e157878-b2fb-4f95-8312-8c3cbbec8b18\", \n      \"return\": \"true\" \n    } \n  }\n}"
+      "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": { \n    \"CreateRouteResponse\": { \n      \"_attr\": { \n        \"xmlns\": \"http://ec2.amazonaws.com/doc/2016-11-15/\" \n      }, \n      \"requestId\": \"4e157878-b2fb-4f95-8312-8c3cbbec8b18\", \n      \"return\": \"true\" \n    } \n  }\n}"
     }
   ],
   "apiLinks": [
@@ -105,8 +105,8 @@
   ],
   "exampleInputsAndOutputs": [
     {
-      "exampleInput": "{\n  \"routeTableId\": \"\",\n  \"destinationCidrBlock\": \"0.0.0.0\/0\",\n  \"gatewayId\": \"igw-0fae02dad528986b6\", \n  \"adapterId\": \"EC2\", \n  \"vpcId\": \"vpc-0324c35cf9d083a40\" \n}",
-      "exampleOutput": "{\n  \"routeTableId\": \"rtb-06d646d475a5b5d48\",\n  \"createdRoute\": {\n    \"icode\": \"AD.200\",\n    \"response\": { \n      \"CreateRouteResponse\": { \n        \"_attr\": { \n          \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n        }, \n        \"requestId\": \"4e157878-b2fb-4f95-8312-8c3cbbec8b18\", \n        \"return\": \"true\" \n      } \n    }\n  }  \n}"
+      "exampleInput": "{\n  \"routeTableId\": \"\",\n  \"destinationCidrBlock\": \"0.0.0.0/0\",\n  \"gatewayId\": \"igw-0fae02dad528986b6\", \n  \"adapterId\": \"EC2\", \n  \"vpcId\": \"vpc-0324c35cf9d083a40\" \n}",
+      "exampleOutput": "{\n  \"routeTableId\": \"rtb-06d646d475a5b5d48\",\n  \"createdRoute\": {\n    \"icode\": \"AD.200\",\n    \"response\": { \n      \"CreateRouteResponse\": { \n        \"_attr\": { \n          \"xmlns\": \"http://ec2.amazonaws.com/doc/2016-11-15/\" \n        }, \n        \"requestId\": \"4e157878-b2fb-4f95-8312-8c3cbbec8b18\", \n        \"return\": \"true\" \n      } \n    }\n  }  \n}"
     }
   ],
   "queryOutput": {

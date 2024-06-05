@@ -1,6 +1,6 @@
 {
   "iapVersions": [
-    "2023.1"
+    "2023.2"
   ],
   "adapters": [
     {
@@ -57,7 +57,7 @@
       "name": "createdVpc",
       "type": "object",
       "description": "The Create VPC request result",
-      "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": {\n    \"CreateVpcResponse\": {\n      \"_attr\": {\n        \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\"\n      },\n      \"requestId\": \"da850668-b4d9-4c57-846a-7b64e487eef9\",\n      \"vpc\": {\n        \"vpcId\": \"vpc-057e1defa8211ba74\",\n        \"ownerId\": \"314014972859\",\n        \"state\": \"pending\",\n        \"cidrBlock\": \"10.0.0.0\/24\",\n        \"cidrBlockAssociationSet\": {\n          \"item\": [\n            {\n              \"cidrBlock\": \"10.0.0.0\/24\",\n              \"associationId\": \"vpc-cidr-assoc-0f0f4d51506a452cd\",\n              \"cidrBlockState\": {\n                \"state\": \"associated\"\n              }\n            }\n          ]\n        },\n        \"ipv6CidrBlockAssociationSet\": \"\",\n        \"dhcpOptionsId\": \"dopt-045a5c88c0d702d2b\",\n        \"instanceTenancy\": \"default\",\n        \"isDefault\": \"false\"\n      }\n    }\n  }\n}"
+      "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": {\n    \"CreateVpcResponse\": {\n      \"_attr\": {\n        \"xmlns\": \"http://ec2.amazonaws.com/doc/2016-11-15/\"\n      },\n      \"requestId\": \"da850668-b4d9-4c57-846a-7b64e487eef9\",\n      \"vpc\": {\n        \"vpcId\": \"vpc-057e1defa8211ba74\",\n        \"ownerId\": \"314014972859\",\n        \"state\": \"pending\",\n        \"cidrBlock\": \"10.0.0.0/24\",\n        \"cidrBlockAssociationSet\": {\n          \"item\": [\n            {\n              \"cidrBlock\": \"10.0.0.0/24\",\n              \"associationId\": \"vpc-cidr-assoc-0f0f4d51506a452cd\",\n              \"cidrBlockState\": {\n                \"state\": \"associated\"\n              }\n            }\n          ]\n        },\n        \"ipv6CidrBlockAssociationSet\": \"\",\n        \"dhcpOptionsId\": \"dopt-045a5c88c0d702d2b\",\n        \"instanceTenancy\": \"default\",\n        \"isDefault\": \"false\"\n      }\n    }\n  }\n}"
     }
   ],
   "apiLinks": [
@@ -74,8 +74,8 @@
   ],
   "exampleInputsAndOutputs": [
     {
-      "exampleInput": "{\n  \"cidrBlock\": \"10.0.0.0\/24\",\n  \"adapterId\": \"EC2\",\n  \"vpcName\": \"TEST VPC\"\n}",
-      "exampleOutput": "{\n  \"createdVpc\": {\n    \"icode\": \"AD.200\",\n    \"response\": {\n      \"CreateVpcResponse\": {\n        \"_attr\": {\n          \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\"\n        },\n        \"requestId\": \"da850668-b4d9-4c57-846a-7b64e487eef9\",\n        \"vpc\": {\n          \"vpcId\": \"vpc-057e1defa8211ba74\",\n          \"ownerId\": \"314014972859\",\n          \"state\": \"pending\",\n          \"cidrBlock\": \"10.0.0.0\/24\",\n          \"cidrBlockAssociationSet\": {\n            \"item\": [\n              {\n                \"cidrBlock\": \"10.0.0.0\/24\",\n                \"associationId\": \"vpc-cidr-assoc-0f0f4d51506a452cd\",\n                \"cidrBlockState\": {\n                  \"state\": \"associated\"\n                }\n              }\n            ]\n          },\n          \"ipv6CidrBlockAssociationSet\": \"\",\n          \"dhcpOptionsId\": \"dopt-045a5c88c0d702d2b\",\n          \"instanceTenancy\": \"default\",\n          \"isDefault\": \"false\"\n        }\n      }\n    }\n  }\n}"
+      "exampleInput": "{\n  \"cidrBlock\": \"10.0.0.0/24\",\n  \"adapterId\": \"EC2\",\n  \"vpcName\": \"TEST VPC\"\n}",
+      "exampleOutput": "{\n  \"createdVpc\": {\n    \"icode\": \"AD.200\",\n    \"response\": {\n      \"CreateVpcResponse\": {\n        \"_attr\": {\n          \"xmlns\": \"http://ec2.amazonaws.com/doc/2016-11-15/\"\n        },\n        \"requestId\": \"da850668-b4d9-4c57-846a-7b64e487eef9\",\n        \"vpc\": {\n          \"vpcId\": \"vpc-057e1defa8211ba74\",\n          \"ownerId\": \"314014972859\",\n          \"state\": \"pending\",\n          \"cidrBlock\": \"10.0.0.0/24\",\n          \"cidrBlockAssociationSet\": {\n            \"item\": [\n              {\n                \"cidrBlock\": \"10.0.0.0/24\",\n                \"associationId\": \"vpc-cidr-assoc-0f0f4d51506a452cd\",\n                \"cidrBlockState\": {\n                  \"state\": \"associated\"\n                }\n              }\n            ]\n          },\n          \"ipv6CidrBlockAssociationSet\": \"\",\n          \"dhcpOptionsId\": \"dopt-045a5c88c0d702d2b\",\n          \"instanceTenancy\": \"default\",\n          \"isDefault\": \"false\"\n        }\n      }\n    }\n  }\n}"
     }
   ],
   "queryOutput": {

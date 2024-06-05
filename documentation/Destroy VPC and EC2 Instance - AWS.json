@@ -1,6 +1,6 @@
 {
   "iapVersions": [
-    "2023.1"
+    "2023.2"
   ],
   "adapters": [
     {
@@ -50,7 +50,7 @@
       "name": "deletedVPC",
       "type": "object",
       "description": "Delete VPC request result",
-      "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": {\n    \"DeleteVpcResponse\": {\n      \"_attr\": {\n        \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\"\n      },\n      \"requestId\": \"81a08c9a-f42d-49ea-9359-9213d2a11250\",\n      \"return\": \"true\"\n    }\n  }\n}"
+      "exampleValue": "{\n  \"icode\": \"AD.200\",\n  \"response\": {\n    \"DeleteVpcResponse\": {\n      \"_attr\": {\n        \"xmlns\": \"http://ec2.amazonaws.com/doc/2016-11-15/\"\n      },\n      \"requestId\": \"81a08c9a-f42d-49ea-9359-9213d2a11250\",\n      \"return\": \"true\"\n    }\n  }\n}"
     }
   ],
   "apiLinks": [
@@ -103,7 +103,7 @@
   "exampleInputsAndOutputs": [
     {
       "exampleInput": "{\n  \"vpcId\": \"vpc-0ece2ed1b3725e018\", \n  \"adapterId\": \"EC2\" \n}",
-      "exampleOutput": "{\n  \"deletedVPC\": {\n    \"icode\": \"AD.200\",\n    \"response\": {\n      \"DeleteVpcResponse\": {\n        \"_attr\": {\n          \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\"\n        },\n        \"requestId\": \"81a08c9a-f42d-49ea-9359-9213d2a11250\",\n        \"return\": \"true\"\n      }\n    }\n  }\n}"
+      "exampleOutput": "{\n  \"deletedVPC\": {\n    \"icode\": \"AD.200\",\n    \"response\": {\n      \"DeleteVpcResponse\": {\n        \"_attr\": {\n          \"xmlns\": \"http://ec2.amazonaws.com/doc/2016-11-15/\"\n        },\n        \"requestId\": \"81a08c9a-f42d-49ea-9359-9213d2a11250\",\n        \"return\": \"true\"\n      }\n    }\n  }\n}"
     }
   ],
   "queryOutput": {

@@ -1,6 +1,6 @@
 {
   "iapVersions": [
-    "2023.1"
+    "2023.2"
   ],
   "adapters": [
     {
@@ -50,7 +50,7 @@
       "name": "deletedSecurityGroup",
       "type": "array",
       "description": "Delete Security group request result",
-      "exampleValue": "[\n  {\n    \"icode\": \"AD.200\",\n    \"response\": { \n      \"DeleteSecurityGroupResponse\": { \n        \"_attr\": { \n          \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n        }, \n        \"requestId\": \"2cdea5d3-b27b-4a39-ab90-26bf31051769\", \n        \"return\": \"true\" \n      } \n    }\n  }\n]"
+      "exampleValue": "[\n  {\n    \"icode\": \"AD.200\",\n    \"response\": { \n      \"DeleteSecurityGroupResponse\": { \n        \"_attr\": { \n          \"xmlns\": \"http://ec2.amazonaws.com/doc/2016-11-15/\" \n        }, \n        \"requestId\": \"2cdea5d3-b27b-4a39-ab90-26bf31051769\", \n        \"return\": \"true\" \n      } \n    }\n  }\n]"
     }
   ],
   "apiLinks": [
@@ -68,7 +68,7 @@
   "exampleInputsAndOutputs": [
     {
       "exampleInput": "{\n  \"vpcId\": \"vpc-0b678b7a21e66ded8\",\n  \"adapterId\": \"EC2\" \n}",
-      "exampleOutput": "{\n  \"deletedSecurityGroup\": [\n    {\n      \"icode\": \"AD.200\",\n      \"response\": { \n        \"DeleteSecurityGroupResponse\": { \n          \"_attr\": { \n            \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n          }, \n          \"requestId\": \"2cdea5d3-b27b-4a39-ab90-26bf31051769\", \n          \"return\": \"true\" \n        } \n      }\n    }\n  ]\n}"
+      "exampleOutput": "{\n  \"deletedSecurityGroup\": [\n    {\n      \"icode\": \"AD.200\",\n      \"response\": { \n        \"DeleteSecurityGroupResponse\": { \n          \"_attr\": { \n            \"xmlns\": \"http://ec2.amazonaws.com/doc/2016-11-15/\" \n          }, \n          \"requestId\": \"2cdea5d3-b27b-4a39-ab90-26bf31051769\", \n          \"return\": \"true\" \n        } \n      }\n    }\n  ]\n}"
     }
   ],
   "queryOutput": {

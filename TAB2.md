@@ -38,7 +38,7 @@ While these can be utilized, you may find more value in using them as a starting
 
 Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **AWS - EC2 - REST** has been tested with:
 
-- IAP **2023.1**
+- IAP **2023.2**
 
 ### External Dependencies
 
@@ -104,7 +104,7 @@ While Itential tests this Example Project and its capabilities, it is often the 
 ## Using this Workflow Project
 Workflow Projects contain 1 or more workflows. Each of these workflows have different inputs and outputs. 
 
-### Add Ingress Rule to Security Group - AWS
+### <ins>Add Ingress Rule to Security Group - AWS</ins>
 A modular workflow that automates adding an ingress rule to a security group.
 
 Capabilities include:
@@ -333,7 +333,9 @@ Output:
 </table>
 
 
-### Create EC2 Instance - AWS
+
+---
+### <ins>Create EC2 Instance - AWS</ins>
 A modular workflow that automates creating an EC2 instance in AWS.
 
 Capabilities include:
@@ -903,7 +905,9 @@ Output:
 </table>
 
 
-### Create Route - AWS
+
+---
+### <ins>Create Route - AWS</ins>
 A modular workflow that automates creating a route within a VPC in AWS.
 
 Capabilities include:
@@ -1118,7 +1122,9 @@ Output:
 </table>
 
 
-### Create Security Group with Ingress Rules - AWS
+
+---
+### <ins>Create Security Group with Ingress Rules - AWS</ins>
 A modular workflow that automates creating a security group with ingress rules in AWS.
 
 Capabilities include:
@@ -1321,7 +1327,9 @@ Output:
 </table>
 
 
-### Create VPC - AWS
+
+---
+### <ins>Create VPC - AWS</ins>
 A modular workflow that automates creating a VPC in AWS.
 
 Capabilities include:
@@ -1550,7 +1558,9 @@ Output:
 </table>
 
 
-### Create VPC Subnet - AWS
+
+---
+### <ins>Create VPC Subnet - AWS</ins>
 A modular workflow that automates creating a subnet for a VPC in AWS.
 
 Capabilities include:
@@ -1708,7 +1718,9 @@ Output:
 </table>
 
 
-### Create and Attach Internet Gateway - AWS
+
+---
+### <ins>Create and Attach Internet Gateway - AWS</ins>
 A modular workflow that automates creating and attaching an internet gateway to a VPC in AWS.
 
 Capabilities include:
@@ -1863,7 +1875,9 @@ Output:
 </table>
 
 
-### Delete Security Groups by VPC - AWS
+
+---
+### <ins>Delete Security Groups by VPC - AWS</ins>
 A modular workflow that automates deleting VPC Security groups in AWS.
 
 Capabilities include:
@@ -2044,7 +2058,9 @@ Output:
 </table>
 
 
-### Delete Subnets by VPC - AWS
+
+---
+### <ins>Delete Subnets by VPC - AWS</ins>
 A modular workflow that automates deleting subnets by VPC in AWS.
 
 Capabilities include:
@@ -2225,7 +2241,9 @@ Output:
 </table>
 
 
-### Destroy VPC and EC2 Instance - AWS
+
+---
+### <ins>Destroy VPC and EC2 Instance - AWS</ins>
 A modular workflow that automates destroying a VPC and EC2 Instance in AWS
 
 Capabilities include:
@@ -2430,7 +2448,9 @@ Output:
 </table>
 
 
-### Detach and Delete Internet Gateways by VPC - AWS
+
+---
+### <ins>Detach and Delete Internet Gateways by VPC - AWS</ins>
 A modular workflow that automates detaching and deleting VPC internet gateways in AWS.
 
 Capabilities include:
@@ -2611,7 +2631,9 @@ Output:
 </table>
 
 
-### Provision VPC with Networking - AWS
+
+---
+### <ins>Provision VPC with Networking - AWS</ins>
 A modular workflow that automates creating and configuring a VPC with networking in AWS.
 
 Capabilities include:
@@ -2873,6 +2895,8 @@ Output:
 </table>
 
 
+
+---
 ## Additional Information
 
 ### Support

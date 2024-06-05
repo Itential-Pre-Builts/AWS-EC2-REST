@@ -39,7 +39,7 @@ Capabilities include:
 Itential Workflow Projects are built and tested on particular versions of IAP. In addition, Workflow Projects are often dependent on external systems and as such, these Workflow Projects will have dependencies on these other systems. This version of **Create Security Group with Ingress Rules - AWS** has been tested with:
 
 
-- IAP **2023.1**
+- IAP **2023.2**
 
 
 

@@ -1,4 +1,14 @@
 
+## 1.0.13 [06-05-2024]
+
+Update IAP version in asset documentation
+
+See merge request itentialopensource/pre-built-automations/aws-ec2-rest!23
+
+2024-06-05 15:33:33 +0000
+
+---
+
 ## 1.0.12 [04-29-2024]
 
 Pre-Release for Certification of 2023.2 Release
@@ -198,4 +208,4 @@ See merge request itentialopensource/pre-built-automations/pre-built-template-20
 See merge request itentialopensource/pre-built-automations/pre-built-template-2023-1!1
 
 ---
-\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n

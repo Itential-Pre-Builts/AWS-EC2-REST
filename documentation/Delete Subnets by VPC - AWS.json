@@ -1,6 +1,6 @@
 {
   "iapVersions": [
-    "2023.1"
+    "2023.2"
   ],
   "adapters": [
     {
@@ -50,7 +50,7 @@
       "name": "deletedSubnet",
       "type": "array",
       "description": "Delete Subnet request result",
-      "exampleValue": "[\n  {\n    \"icode\": \"AD.200\",\n    \"response\": { \n      \"DeleteSubnetResponse\": { \n        \"_attr\": { \n          \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n        }, \n        \"requestId\": \"31ea90a8-8dbb-4cde-912a-df8d1f1021ec\", \n        \"return\": \"true\" \n      } \n    }\n  }\n]"
+      "exampleValue": "[\n  {\n    \"icode\": \"AD.200\",\n    \"response\": { \n      \"DeleteSubnetResponse\": { \n        \"_attr\": { \n          \"xmlns\": \"http://ec2.amazonaws.com/doc/2016-11-15/\" \n        }, \n        \"requestId\": \"31ea90a8-8dbb-4cde-912a-df8d1f1021ec\", \n        \"return\": \"true\" \n      } \n    }\n  }\n]"
     }
   ],
   "apiLinks": [
@@ -68,7 +68,7 @@
   "exampleInputsAndOutputs": [
     {
       "exampleInput": "{\n  \"vpcId\": \"vpc-0b678b7a21e66ded8\",\n  \"adapterId\": \"EC2\" \n}",
-      "exampleOutput": "{\n  \"deletedSubnet\": [\n    {\n      \"icode\": \"AD.200\",\n      \"response\": { \n        \"DeleteSubnetResponse\": { \n          \"_attr\": { \n            \"xmlns\": \"http:\/\/ec2.amazonaws.com\/doc\/2016-11-15\/\" \n          }, \n          \"requestId\": \"31ea90a8-8dbb-4cde-912a-df8d1f1021ec\", \n          \"return\": \"true\" \n        } \n      }\n    }\n  ]\n}"
+      "exampleOutput": "{\n  \"deletedSubnet\": [\n    {\n      \"icode\": \"AD.200\",\n      \"response\": { \n        \"DeleteSubnetResponse\": { \n          \"_attr\": { \n            \"xmlns\": \"http://ec2.amazonaws.com/doc/2016-11-15/\" \n          }, \n          \"requestId\": \"31ea90a8-8dbb-4cde-912a-df8d1f1021ec\", \n          \"return\": \"true\" \n        } \n      }\n    }\n  ]\n}"
     }
   ],
   "queryOutput": {

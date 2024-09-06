@@ -1,4 +1,4 @@
-import { WorkflowRunner, PrebuiltRunner } from '@itential-tools/iap-cypress-testing-library/testRunner/testRunners';
+import { WorkflowRunner, PrebuiltRunner, ProjectRunner } from '@itential-tools/iap-cypress-testing-library/testRunner/testRunners';
 const AddIngressRuletoSecurityGroupAWSJob0Data = require('../fixtures/stubs/Add Ingress Rule to Security Group - AWS Job0.json');
 const CreateandAttachInternetGatewayAWSJob1Data = require('../fixtures/stubs/Create and Attach Internet Gateway - AWS Job1.json');
 const CreateEC2InstanceAWSJob1Data = require('../fixtures/stubs/Create EC2 Instance - AWS Job1.json');
@@ -45,6 +45,15 @@ function initializeWorkflowRunner(workflow, importWorkflow, isStub, stubTasks) {
   return workflowRunner;
 }
 
+// Helper function to find workflow to test from Project
+function findWorkflowInProject(workflowName, project) {
+  for (const projectComponent of project.components) {
+    if (projectComponent.type === 'workflow' && projectComponent.document.name === workflowName) {
+      return projectComponent.document;
+    }
+  }
+}
+
 // Function to delete the stubbed workflow and reimport it without the stub tasks
 function replaceStubTasks(workflowRunner, workflowName) {
     workflowRunner.deleteWorkflow.allCopies({
@@ -55,7 +64,7 @@ function replaceStubTasks(workflowRunner, workflowName) {
     workflowRunner.verifyWorkflow.hasNoDuplicates({});
 }
 
-describe('Default: Cypress Tests', function () {
+describe('Default: Pre-Built Cypress Tests', function () {
   let prebuiltRunner;
   let AddIngressRuletoSecurityGroupAWSJob0Workflow;
   let CreateandAttachInternetGatewayAWSJob1Workflow;
@@ -71,7 +80,7 @@ describe('Default: Cypress Tests', function () {
   let ProvisionVPCwithNetworkingAWSJob11Workflow;
   
   before(function () {
-    //creates a prebuilt runner for importing the prebuilt
+    //creates a Pre-Built runner for importing the Pre-Built
     cy.fixture(`../../../artifact.json`).then((data) => {
       prebuiltRunner = new PrebuiltRunner(data);
     });
@@ -120,7 +129,7 @@ describe('Default: Cypress Tests', function () {
 
   describe('Default: Imports Pre-Built', function () {
     // eslint-disable-next-line mocha/no-hooks-for-single-case
-    it('Default: Should import the prebuilt into IAP', function () {
+    it('Default: Should import the Pre-Built into IAP', function () {
         prebuiltRunner.deletePrebuilt.single({ failOnStatusCode: false });
         prebuiltRunner.importPrebuilt.single({});
     });
@@ -414,3 +423,330 @@ describe('Default: Cypress Tests', function () {
     })
   })
 });
+
+describe('Default: Project Cypress Tests', function () {
+  let projectRunner;
+  let projectData;
+
+  before(function () {
+    // Creates a Project runner for importing the Project
+    cy.fixture(`../../../AWS - EC2 - REST.project.json`).then((data) => {
+      projectData = data;
+      projectRunner = new ProjectRunner(data);
+    });
+  });
+
+  after(function() {
+    projectRunner.deleteProject.single({ failOnStatusCode: false });
+  });
+
+  describe('Default: Imports Project', function () {
+    // eslint-disable-next-line mocha/no-hooks-for-single-case
+    it('Default: Should import the project into IAP', function () {
+        projectRunner.deleteProject.single({ failOnStatusCode: false });
+        projectRunner.importProject.single({});
+        projectRunner.verifyProject.exists();
+    });
+  })
+
+  describe('Add Ingress Rule to Security Group - AWS', function() {
+    it('It should run Add Ingress Rule to Security Group', function () {
+      const workflowData = findWorkflowInProject('Add Ingress Rule to Security Group - AWS', projectData);
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(workflowData, importWorkflow, isStub, AddIngressRuletoSecurityGroupAWSJob0Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: AddIngressRuletoSecurityGroupAWSJob0Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(AddIngressRuletoSecurityGroupAWSJob0Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(AddIngressRuletoSecurityGroupAWSJob0Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, workflowData);
+      });
+    })
+  })
+
+  describe('Create and Attach Internet Gateway - AWS', function() {
+    it('It should run Create and Attach Internet Gateway', function () {
+      const workflowData = findWorkflowInProject('Create and Attach Internet Gateway - AWS', projectData);
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(workflowData, importWorkflow, isStub, CreateandAttachInternetGatewayAWSJob1Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: CreateandAttachInternetGatewayAWSJob1Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(CreateandAttachInternetGatewayAWSJob1Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(CreateandAttachInternetGatewayAWSJob1Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, workflowData);
+      });
+    })
+  })
+
+  describe('Create EC2 Instance - AWS', function() {
+    it('It should run Create EC2 Instance', function () {
+      const workflowData = findWorkflowInProject('Create EC2 Instance - AWS', projectData);
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(workflowData, importWorkflow, isStub, CreateEC2InstanceAWSJob1Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: CreateEC2InstanceAWSJob1Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(CreateEC2InstanceAWSJob1Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(CreateEC2InstanceAWSJob1Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, workflowData);
+      });
+    })
+  })
+
+  describe('Create Route - AWS', function() {
+    it('It should run Create Route', function () {
+      const workflowData = findWorkflowInProject('Create Route - AWS', projectData);
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(workflowData, importWorkflow, isStub, CreateRouteAWSJob3Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: CreateRouteAWSJob3Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(CreateRouteAWSJob3Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(CreateRouteAWSJob3Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, workflowData);
+      });
+    })
+  })
+
+  describe('Create Security Group with Ingress Rules - AWS', function() {
+    it('It should run Create Security Group with Ingress Rules', function () {
+      const workflowData = findWorkflowInProject('Create Security Group with Ingress Rules - AWS', projectData);
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(workflowData, importWorkflow, isStub, CreateSecurityGroupwithIngressRulesAWSJob4Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: CreateSecurityGroupwithIngressRulesAWSJob4Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(CreateSecurityGroupwithIngressRulesAWSJob4Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(CreateSecurityGroupwithIngressRulesAWSJob4Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, workflowData);
+      });
+    })
+  })
+
+  describe('Create VPC - AWS', function() {
+    it('It should run Create VPC', function () {
+      const workflowData = findWorkflowInProject('Create VPC - AWS', projectData);
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(workflowData, importWorkflow, isStub, CreateVPCAWSJob5Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: CreateVPCAWSJob5Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(CreateVPCAWSJob5Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(CreateVPCAWSJob5Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, workflowData);
+      });
+    })
+  })
+
+  describe('Create VPC Subnet - AWS', function() {
+    it('It should run Create VPC Subnet', function () {
+      const workflowData = findWorkflowInProject('Create VPC Subnet - AWS', projectData);
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(workflowData, importWorkflow, isStub, CreateVPCSubnetAWSJob6Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: CreateVPCSubnetAWSJob6Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(CreateVPCSubnetAWSJob6Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(CreateVPCSubnetAWSJob6Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, workflowData);
+      });
+    })
+  })
+
+  describe('Delete Security Groups by VPC - AWS', function() {
+    it('It should run Delete Security Groups by VPC', function () {
+      const workflowData = findWorkflowInProject('Delete Security Groups by VPC - AWS', projectData);
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(workflowData, importWorkflow, isStub, DeleteSecurityGroupsbyVPCAWSJob7Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: DeleteSecurityGroupsbyVPCAWSJob7Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(DeleteSecurityGroupsbyVPCAWSJob7Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(DeleteSecurityGroupsbyVPCAWSJob7Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, workflowData);
+      });
+    })
+  })
+
+  describe('Delete Subnets by VPC - AWS', function() {
+    it('It should run Delete Subnets by VPC', function () {
+      const workflowData = findWorkflowInProject('Delete Subnets by VPC - AWS', projectData);
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(workflowData, importWorkflow, isStub, DeleteSubnetsbyVPCAWSJob8Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: DeleteSubnetsbyVPCAWSJob8Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(DeleteSubnetsbyVPCAWSJob8Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(DeleteSubnetsbyVPCAWSJob8Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, workflowData);
+      });
+    })
+  })
+
+  describe('Destroy VPC and EC2 Instance - AWS', function() {
+    it('It should run Destroy VPC and EC2 Instance', function () {
+      const workflowData = findWorkflowInProject('Destroy VPC and EC2 Instance - AWS', projectData);
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(workflowData, importWorkflow, isStub, DestroyVPCandEC2InstanceAWSJob9Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: DestroyVPCandEC2InstanceAWSJob9Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(DestroyVPCandEC2InstanceAWSJob9Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(DestroyVPCandEC2InstanceAWSJob9Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, workflowData);
+      });
+    })
+  })
+
+  describe('Detach and Delete Internet Gateways by VPC - AWS', function() {
+    it('It should run Detach and Delete Internet Gateways by VPC', function () {
+      const workflowData = findWorkflowInProject('Detach and Delete Internet Gateways by VPC - AWS', projectData);
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(workflowData, importWorkflow, isStub, DetachandDeleteInternetGatewaysbyVPCAWSJob10Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: DetachandDeleteInternetGatewaysbyVPCAWSJob10Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(DetachandDeleteInternetGatewaysbyVPCAWSJob10Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(DetachandDeleteInternetGatewaysbyVPCAWSJob10Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, workflowData);
+      });
+    })
+  })
+
+  describe('Provision VPC with Networking - AWS', function() {
+    it('It should run Provision VPC with Networking', function () {
+      const workflowData = findWorkflowInProject('Provision VPC with Networking - AWS', projectData);
+      const importWorkflow = true;
+      const isStub = true;
+      // create the job runner so it can be used in future tests
+      const workflowRunner = initializeWorkflowRunner(workflowData, importWorkflow, isStub, ProvisionVPCwithNetworkingAWSJob11Data.stubTasks);
+      // this has to be customized to each IAP version.
+
+      workflowRunner.job.startAndReturnResultsWhenComplete({
+        options: ProvisionVPCwithNetworkingAWSJob11Data.input,
+        retryTime: 2000,
+      }).then((jobVariableResults) => {
+        expect(jobVariableResults['status']).eql(ProvisionVPCwithNetworkingAWSJob11Data.expectedTaskResults.status);
+        workflowRunner.job.getJobVariables(jobVariableResults._id).then(jobVariables => {
+          delete jobVariables._id;
+          delete jobVariables.initiator;
+          expect(jobVariables).eql(ProvisionVPCwithNetworkingAWSJob11Data.expectedTaskResults.variables);
+        });
+        /* Restore the workflow without the stub tasks */
+        replaceStubTasks(workflowRunner, workflowData);
+      });
+    })
+  })
+});
+
